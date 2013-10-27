@@ -38,6 +38,9 @@ end
 
 group :development, :test do
   gem 'minitest-rails'
+
+  gem 'guard'
+  gem 'guard-rails'
 end
 
 # Use ActiveModel has_secure_password
