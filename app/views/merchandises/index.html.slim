@@ -1,0 +1,19 @@
+h1 Listing merchandises
+
+table
+  tr
+    th Price
+    th
+    th
+    th
+
+  - @merchandises.each do |merchandise|
+    tr
+      td = merchandise.price
+      td = link_to 'Show', merchandise
+      td = link_to 'Edit', edit_merchandise_path(merchandise)
+      td = link_to 'Destroy', merchandise, :confirm => 'Are you sure?', :method => :delete
+
+br
+
+= link_to 'New Merchandise', new_merchandise_path
