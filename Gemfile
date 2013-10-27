@@ -41,6 +41,7 @@ group :development, :test do
 
   gem 'guard'
   gem 'guard-rails'
+  gem 'guard-livereload'
 end
 
 # Use ActiveModel has_secure_password
