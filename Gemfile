@@ -6,6 +6,8 @@ gem 'rails', '4.0.0'
 # Use mysql as the database for Active Record
 gem 'mysql2'
 
+gem 'therubyracer'
+
 # Use SCSS for stylesheets
 gem 'less-rails'
 
@@ -32,6 +34,10 @@ gem 'jbuilder', '~> 1.2'
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
+end
+
+group :development, :test do
+  gem 'minitest-rails'
 end
 
 # Use ActiveModel has_secure_password
