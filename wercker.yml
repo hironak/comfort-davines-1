@@ -9,7 +9,7 @@ build:
         name: minitest
         code: |
           bundle exec rake
-    - zuzak/irc-notify-zuzak:
+    - wouter/irc-notify-zuzak:
         server: irc.freenode.net
         port: 6667
         nickname: hackers-bot
