@@ -44,9 +44,14 @@ end
 group :development, :test do
   gem 'minitest-rails'
 
+  gem 'pry'
+  gem 'pry-rails'
+  gem 'pry-remote'
+
   gem 'guard'
   gem 'guard-rails'
   gem 'guard-livereload'
+  gem 'guard-minitest'
 end
 
 # Use ActiveModel has_secure_password
