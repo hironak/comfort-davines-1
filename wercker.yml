@@ -11,7 +11,8 @@ build:
           echo "ruby version $(ruby --version) running"
           echo "from location $(which ruby)"
           echo -p "gem list: $(bundle show)"
-        # Add more steps here:
-        # - script:
-        #        name: rspec
-        #        code: bundle exec rspec
+    - wouter/irc-notify:
+        server: irc.freenode.net
+        port: 6667
+        name: hackers-bot
+        channel: hackers-jp
