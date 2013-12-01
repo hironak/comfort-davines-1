@@ -40,10 +40,8 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-group :development, :test do
-  gem 'minitest-rails'
-  gem 'minitest-growl'
-  gem 'minitest-colorize'
+group :development do
+  gem 'ruby_gntp'
 
   gem 'pry'
   gem 'pry-rails'
@@ -53,6 +51,11 @@ group :development, :test do
   gem 'guard-rails'
   gem 'guard-livereload'
   gem 'guard-minitest'
+end
+
+group :development, :test do
+  gem 'minitest-rails'
+  gem 'minitest-colorize'
 end
 
 # Use ActiveModel has_secure_password
