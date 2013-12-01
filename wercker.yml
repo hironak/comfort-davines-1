@@ -6,11 +6,9 @@ build:
     - bundle-install
     - rails-database-yml
     - script:
-        name: echo ruby information
+        name: minitest
         code: |
-          echo "ruby version $(ruby --version) running"
-          echo "from location $(which ruby)"
-          echo -p "gem list: $(bundle show)"
+          bundle exec rake
     - wouter/irc-notify:
         server: irc.freenode.net
         port: 6667
