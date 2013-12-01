@@ -12,7 +12,7 @@ table
       td = merchandise.price
       td = link_to 'Show', merchandise
       td = link_to 'Edit', edit_merchandise_path(merchandise)
-      td = link_to 'Destroy', merchandise, :confirm => 'Are you sure?', :method => :delete
+      td = link_to 'Destroy', merchandise, data: { confirm: 'Are you sure?' }, method: :delete
 
 br
 
