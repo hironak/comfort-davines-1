@@ -43,6 +43,8 @@ end
 
 group :development, :test do
   gem 'minitest-rails'
+  gem 'minitest-growl'
+  gem 'minitest-colorize'
 
   gem 'pry'
   gem 'pry-rails'
