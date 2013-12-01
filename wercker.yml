@@ -14,5 +14,5 @@ build:
     - wouter/irc-notify:
         server: irc.freenode.net
         port: 6667
-        name: hackers-bot
+        nickname: hackers-bot
         channel: hackers-jp
