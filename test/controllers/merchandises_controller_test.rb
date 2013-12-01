@@ -19,7 +19,7 @@ class MerchandisesControllerTest < ActionController::TestCase
 
   def test_create
     assert_difference('Merchandise.count') do
-      post :create, merchandise: {  }
+      post :create, merchandise: { price: 1000 }
     end
 
     assert_redirected_to merchandise_path(assigns(:merchandise))
@@ -36,7 +36,7 @@ class MerchandisesControllerTest < ActionController::TestCase
   end
 
   def test_update
-    put :update, id: @merchandise, merchandise: {  }
+    put :update, id: @merchandise, merchandise: { price: 1000 }
     assert_redirected_to merchandise_path(assigns(:merchandise))
   end
 
