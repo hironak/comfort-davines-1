@@ -1,4 +1,6 @@
 Commers::Application.routes.draw do
+  root to: "welcome#index"
+
   resources :merchandises
 
   resources :products
@@ -43,7 +45,7 @@ Commers::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'
