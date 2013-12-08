@@ -8,6 +8,7 @@ Commers::Application.routes.draw do
 
   resources :products
 
-  namespace :admin do
+  namespace :admin, module: :administration do
+    root to: "dashboard#index"
   end
 end
