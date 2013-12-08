@@ -10,6 +10,8 @@ Commers::Application.routes.draw do
 
     resources :products
 
+    resources :administrators
+
     # Session
     delete "logout" => "sessions#destroy"
     get "login" => "sessions#new"

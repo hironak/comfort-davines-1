@@ -1,0 +1,9 @@
+= form_for [:admin, @administrator] do |f|
+  - if @administrator.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@administrator.errors.count, "error")} prohibited this administration_administrator from being saved:"
+      ul
+        - @administrator.errors.full_messages.each do |message|
+          li = message
+
+  .actions = f.submit 'Save'
