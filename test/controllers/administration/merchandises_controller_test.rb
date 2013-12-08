@@ -22,7 +22,7 @@ class Administration::MerchandisesControllerTest < ActionController::TestCase
       post :create, merchandise: { price: 1000 }
     end
 
-    assert_redirected_to merchandise_path(assigns(:merchandise))
+    assert_redirected_to admin_merchandise_path(assigns(:merchandise))
   end
 
   def test_show
@@ -37,7 +37,7 @@ class Administration::MerchandisesControllerTest < ActionController::TestCase
 
   def test_update
     put :update, id: @merchandise, merchandise: { price: 1000 }
-    assert_redirected_to merchandise_path(assigns(:merchandise))
+    assert_redirected_to admin_merchandise_path(assigns(:merchandise))
   end
 
   def test_destroy
@@ -45,6 +45,6 @@ class Administration::MerchandisesControllerTest < ActionController::TestCase
       delete :destroy, id: @merchandise
     end
 
-    assert_redirected_to merchandises_path
+    assert_redirected_to admin_merchandises_path
   end
 end

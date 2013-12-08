@@ -50,10 +50,6 @@ end
 group :development do
   gem 'ruby_gntp'
 
-  gem 'pry'
-  gem 'pry-rails'
-  gem 'pry-remote'
-
   gem 'guard'
   gem 'guard-rails'
   gem 'guard-livereload'
@@ -61,8 +57,14 @@ group :development do
 end
 
 group :development, :test do
+  gem 'pry'
+  gem 'pry-rails'
+  gem 'pry-remote'
+
   gem 'minitest-rails'
   gem 'minitest-colorize'
+
+  gem 'simplecov', :require => false
 end
 
 # Use ActiveModel has_secure_password

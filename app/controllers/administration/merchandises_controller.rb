@@ -29,8 +29,8 @@ module Administration
 
       respond_to do |format|
         if @merchandise.save
-          format.html { redirect_to @merchandise, notice: 'Merchandise was successfully created.' }
-          format.json { render action: 'show', status: :created, location: @merchandise }
+          format.html { redirect_to [:admin, @merchandise], notice: 'Merchandise was successfully created.' }
+          format.json { render action: 'show', status: :created, location: [:admin, @merchandise] }
         else
           format.html { render action: 'new' }
           format.json { render json: @merchandise.errors, status: :unprocessable_entity }
@@ -43,7 +43,7 @@ module Administration
     def update
       respond_to do |format|
         if @merchandise.update(merchandise_params)
-          format.html { redirect_to @merchandise, notice: 'Merchandise was successfully updated.' }
+          format.html { redirect_to [:admin, @merchandise], notice: 'Merchandise was successfully updated.' }
           format.json { head :no_content }
         else
           format.html { render action: 'edit' }
@@ -57,7 +57,7 @@ module Administration
     def destroy
       @merchandise.destroy
       respond_to do |format|
-        format.html { redirect_to merchandises_url }
+        format.html { redirect_to admin_merchandises_url }
         format.json { head :no_content }
       end
     end

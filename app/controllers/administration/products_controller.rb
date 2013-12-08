@@ -29,8 +29,8 @@ module Administration
 
       respond_to do |format|
         if @product.save
-          format.html { redirect_to @product, notice: 'Product was successfully created.' }
-          format.json { render action: 'show', status: :created, location: @product }
+          format.html { redirect_to [:admin, @product], notice: 'Product was successfully created.' }
+          format.json { render action: 'show', status: :created, location: [:admin, @product] }
         else
           format.html { render action: 'new' }
           format.json { render json: @product.errors, status: :unprocessable_entity }
@@ -43,7 +43,7 @@ module Administration
     def update
       respond_to do |format|
         if @product.update(product_params)
-          format.html { redirect_to @product, notice: 'Product was successfully updated.' }
+          format.html { redirect_to [:admin, @product], notice: 'Product was successfully updated.' }
           format.json { head :no_content }
         else
           format.html { render action: 'edit' }
@@ -57,7 +57,7 @@ module Administration
     def destroy
       @product.destroy
       respond_to do |format|
-        format.html { redirect_to products_url }
+        format.html { redirect_to admin_products_url }
         format.json { head :no_content }
       end
     end

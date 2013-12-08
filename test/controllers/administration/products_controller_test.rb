@@ -22,7 +22,7 @@ class Administration::ProductsControllerTest < ActionController::TestCase
       post :create, product: {name: 'test'  }
     end
 
-    assert_redirected_to product_path(assigns(:product))
+    assert_redirected_to admin_product_path(assigns(:product))
   end
 
   def test_show
@@ -37,7 +37,7 @@ class Administration::ProductsControllerTest < ActionController::TestCase
 
   def test_update
     put :update, id: @product, product: {name: 'test'  }
-    assert_redirected_to product_path(assigns(:product))
+    assert_redirected_to admin_product_path(assigns(:product))
   end
 
   def test_destroy
@@ -45,6 +45,6 @@ class Administration::ProductsControllerTest < ActionController::TestCase
       delete :destroy, id: @product
     end
 
-    assert_redirected_to products_path
+    assert_redirected_to admin_products_path
   end
 end
