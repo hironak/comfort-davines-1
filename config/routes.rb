@@ -8,4 +8,6 @@ Commers::Application.routes.draw do
 
   resources :products
 
+  namespace :admin do
+  end
 end

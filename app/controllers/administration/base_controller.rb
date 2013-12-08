@@ -1,4 +1,4 @@
-class Admin::BaseController < ApplicationController
+class Administration::BaseController < ApplicationController
   protect_from_forgery with: :exception
 
   def current_ability
