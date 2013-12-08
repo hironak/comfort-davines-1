@@ -8,7 +8,7 @@ gem 'mysql2'
 
 gem 'therubyracer'
 
-# Use SCSS for stylesheets
+# Use LESS for stylesheets
 gem 'less-rails'
 
 # Use Uglifier as compressor for JavaScript assets
@@ -29,9 +29,15 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+# Use Slim for html
 gem 'slim-rails'
 
+# Auth for User
 gem 'devise'
+# Auth for Admin
+gem 'sorcery'
+
+# Permission
 gem 'cancan'
 gem 'rolify'
 
