@@ -4,11 +4,18 @@ Commers::Application.routes.draw do
 
   devise_for :users
 
-  resources :merchandises
-
-  resources :products
-
   namespace :admin, module: :administration do
+
+    resources :merchandises
+
+    resources :products
+
+    # Session
+    delete "logout" => "sessions#destroy"
+    get "login" => "sessions#new"
+    post "login" => "sessions#create"
+
+    # Admin root
     root to: "dashboard#index"
   end
 end

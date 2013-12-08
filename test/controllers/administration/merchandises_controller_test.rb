@@ -1,6 +1,6 @@
 require "test_helper"
 
-class MerchandisesControllerTest < ActionController::TestCase
+class Administration::MerchandisesControllerTest < ActionController::TestCase
 
   before do
     @merchandise = merchandises(:one)
