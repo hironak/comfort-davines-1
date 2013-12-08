@@ -11,43 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131205081611) do
+ActiveRecord::Schema.define(version: 20131208143244) do
 
-  create_table "admin_roles", force: true do |t|
-    t.string   "name"
-    t.integer  "resource_id"
-    t.string   "resource_type"
+  create_table "admins", force: true do |t|
+    t.string   "username",         null: false
+    t.string   "email"
+    t.string   "crypted_password"
+    t.string   "salt"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "admin_roles", ["name", "resource_type", "resource_id"], name: "index_admin_roles_on_name_and_resource_type_and_resource_id", using: :btree
-  add_index "admin_roles", ["name"], name: "index_admin_roles_on_name", using: :btree
-
-  create_table "dealers", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "dealers", ["email"], name: "index_dealers_on_email", unique: true, using: :btree
-  add_index "dealers", ["reset_password_token"], name: "index_dealers_on_reset_password_token", unique: true, using: :btree
-
-  create_table "dealers_admin_roles", id: false, force: true do |t|
-    t.integer "dealer_id"
-    t.integer "admin_role_id"
-  end
-
-  add_index "dealers_admin_roles", ["dealer_id", "admin_role_id"], name: "index_dealers_admin_roles_on_dealer_id_and_admin_role_id", using: :btree
 
   create_table "merchandises", force: true do |t|
     t.integer  "price"

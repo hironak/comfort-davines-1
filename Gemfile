@@ -34,6 +34,7 @@ gem 'slim-rails'
 
 # Auth for User
 gem 'devise'
+
 # Auth for Admin
 gem 'sorcery'
 
