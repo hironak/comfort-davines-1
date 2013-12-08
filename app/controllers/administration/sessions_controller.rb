@@ -1,5 +1,8 @@
 module Administration
   class SessionsController < BaseController
+
+    skip_before_filter :require_login, except: [:destroy]
+
     def new
     end
 

@@ -2,12 +2,14 @@ h1 Listing administrators
 
 table
   tr
+    th username
     th
     th
     th
 
   - @administrators.each do |administrator|
     tr
+      td = administrator.username
       td = link_to 'Show', [:admin, administrator]
       td = link_to 'Edit', edit_admin_administrator_path(administrator)
       td = link_to 'Destroy', [:admin, administrator], data: {:confirm => 'Are you sure?'}, :method => :delete

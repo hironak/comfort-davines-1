@@ -70,7 +70,7 @@ module Administration
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def administrator_params
-      params.require(:administrator).permit(:username)
+      params.require(:administrator).permit(:username, :password, :password_confirmation)
     end
   end
 end

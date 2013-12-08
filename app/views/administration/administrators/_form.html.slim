@@ -6,4 +6,16 @@
         - @administrator.errors.full_messages.each do |message|
           li = message
 
+  .field
+    = f.label :username
+    = f.text_field :username
+
+  .field
+    = f.label :password
+    = f.text_field :password
+
+  .field
+    = f.label :password_confirmation
+    = f.text_field :password_confirmation
+
   .actions = f.submit 'Save'

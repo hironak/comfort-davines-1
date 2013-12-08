@@ -404,3 +404,7 @@ Rails.application.config.sorcery.configure do |config|
   # Define which model authenticates with sorcery.
   config.user_class = "Administrator"
 end
+
+module Sorcery::Controller::InstanceMethods
+  alias :current_administrator :current_user
+end
