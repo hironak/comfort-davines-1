@@ -3,7 +3,7 @@ module Administration
     protect_from_forgery with: :exception
 
     def current_ability
-      @current_ability ||= AdminAbility.new(current_administrator)
+      @current_ability ||= AdministratorAbility.new(current_administrator)
     end
   end
 end
