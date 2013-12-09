@@ -4,6 +4,8 @@ Commers::Application.routes.draw do
 
   devise_for :consumers
 
+  resources :products, only: [:index, :show]
+
   namespace :admin, module: :administration do
 
     resources :merchandises
