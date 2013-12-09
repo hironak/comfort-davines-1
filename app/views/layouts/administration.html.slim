@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    title Commers
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+  body
+    p.notice = notice
+    p.alert = alert
+    p
+      strong Admin
+    - if current_administrator
+      p = current_administrator.username
+      ul
+        li = link_to :logout, admin_logout_path, method: :delete
+      ul
+        - [:root, :products, :merchandises, :administrators].each do |controller|
+          li = link_to controller, [:admin, controller]
+    = yield

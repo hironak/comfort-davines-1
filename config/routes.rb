@@ -2,12 +2,22 @@ Commers::Application.routes.draw do
 
   root to: "welcome#index"
 
-  devise_for :dealers
+  devise_for :consumers
 
-  devise_for :users
+  namespace :admin, module: :administration do
 
-  resources :merchandises
+    resources :merchandises
 
-  resources :products
+    resources :products
 
+    resources :administrators
+
+    # Session
+    delete "logout" => "sessions#destroy"
+    get "login" => "sessions#new"
+    post "login" => "sessions#create"
+
+    # Admin root
+    root to: "dashboard#index"
+  end
 end

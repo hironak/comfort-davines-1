@@ -2,13 +2,14 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
+gem 'rails-i18n', '~> 4.0.0'
 
 # Use mysql as the database for Active Record
 gem 'mysql2'
 
 gem 'therubyracer'
 
-# Use SCSS for stylesheets
+# Use LESS for stylesheets
 gem 'less-rails'
 
 # Use Uglifier as compressor for JavaScript assets
@@ -29,9 +30,16 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+# Use Slim for html
 gem 'slim-rails'
 
+# Auth for User
 gem 'devise'
+
+# Auth for Admin
+gem 'sorcery'
+
+# Permission
 gem 'cancan'
 gem 'rolify'
 
@@ -43,10 +51,6 @@ end
 group :development do
   gem 'ruby_gntp'
 
-  gem 'pry'
-  gem 'pry-rails'
-  gem 'pry-remote'
-
   gem 'guard'
   gem 'guard-rails'
   gem 'guard-livereload'
@@ -54,8 +58,14 @@ group :development do
 end
 
 group :development, :test do
+  gem 'pry'
+  gem 'pry-rails'
+  gem 'pry-remote'
+
   gem 'minitest-rails'
   gem 'minitest-colorize'
+
+  gem 'simplecov', :require => false
 end
 
 # Use ActiveModel has_secure_password

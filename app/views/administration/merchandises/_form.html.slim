@@ -1,0 +1,12 @@
+= form_for [:admin, @merchandise] do |f|
+  - if @merchandise.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@merchandise.errors.count, "error")} prohibited this merchandise from being saved:"
+      ul
+        - @merchandise.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :price
+    = f.number_field :price
+  .actions = f.submit 'Save'
