@@ -3,6 +3,7 @@ require "test_helper"
 class Administration::ProductsControllerTest < ActionController::TestCase
 
   before do
+    login_user administrators(:one)
     @product = products(:one)
   end
 

@@ -3,6 +3,7 @@ require "test_helper"
 class Administration::AdministratorsControllerTest < ActionController::TestCase
 
   before do
+    login_user administrators(:one)
     @administrator = administrators(:one)
   end
 
@@ -19,7 +20,7 @@ class Administration::AdministratorsControllerTest < ActionController::TestCase
 
   def test_create
     assert_difference('Administrator.count') do
-      post :create, administrator: { username: "testuser"  }
+      post :create, administrator: { username: "testuser2", password: "password", password_confirmation: "password"  }
     end
 
     assert_redirected_to admin_administrator_path(assigns(:administrator))
@@ -36,7 +37,7 @@ class Administration::AdministratorsControllerTest < ActionController::TestCase
   end
 
   def test_update
-    put :update, id: @administrator, administrator: { username: "testuser"  }
+    put :update, id: @administrator, administrator: { username: "testuser", password: "password", password_confirmation: "password"  }
     assert_redirected_to admin_administrator_path(assigns(:administrator))
   end
 

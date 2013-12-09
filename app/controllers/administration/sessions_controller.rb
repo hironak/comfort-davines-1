@@ -12,6 +12,7 @@ module Administration
         redirect_back_or_to admin_root_path, notice: "Logged in!"
       else
         flash.now.alert = "invalid."
+        render :new
       end
     end
 
