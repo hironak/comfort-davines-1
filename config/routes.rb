@@ -2,6 +2,8 @@ Commers::Application.routes.draw do
 
   root to: "welcome#index"
 
+  devise_for :consumers
+
   namespace :admin, module: :administration do
 
     resources :merchandises
