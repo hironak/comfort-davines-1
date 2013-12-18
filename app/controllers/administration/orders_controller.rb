@@ -6,6 +6,14 @@ module Administration
     # GET /administration/orders.json
     def index
       @orders = Order.all
+      respond_to do |format|
+        format.html
+        format.csv do
+          filename = "注文一覧-#{Date.today.to_s}.csv"
+          filename = ERB::Util.url_encode(filename)
+          response.headers['Content-Disposition'] = "attachment; filename=\"#{filename}\""
+        end
+      end
     end
 
     # GET /administration/orders/1
@@ -49,7 +57,7 @@ module Administration
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:address, :payment, :items_attributes => [:id, :amount])
+      params.require(:order).permit(:address, :payment, :items_attributes => [:id, :amount, :_destroy])
     end
   end
 end

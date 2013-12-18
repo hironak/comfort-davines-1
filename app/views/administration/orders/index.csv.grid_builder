@@ -1,0 +1,10 @@
+grid_for @orders, id: false do
+  column :address
+  column :payment
+  column :created_at
+
+  scope_for :items do
+    column(:name){ |r| r.product.name }
+    column :amount
+  end
+end
