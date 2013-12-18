@@ -14,4 +14,16 @@
     = f.label :payment
     = f.text_field :payment
 
+  .field
+    p items
+    ul
+      = f.fields_for :items do |i, item|
+        li
+          .field
+            = i.hidden_field :id
+            = i.object.product.name
+            | :
+            = i.label :amount
+            = i.number_field :amount
+
   .actions = f.submit 'Save'

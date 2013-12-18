@@ -49,7 +49,7 @@ module Administration
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params[:order]
+      params.require(:order).permit(:address, :payment, :items_attributes => [:id, :amount])
     end
   end
 end
