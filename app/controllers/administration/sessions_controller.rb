@@ -16,6 +16,9 @@ module Administration
       end
     end
 
+    def create_invalid
+    end
+
     def destroy
       logout
       redirect_to admin_root_path, notice: "Logged out!"

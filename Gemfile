@@ -33,11 +33,11 @@ gem 'jbuilder', '~> 1.2'
 # Use Slim for html
 gem 'slim-rails'
 
-# Auth for User
+# Auth for Consumer
 gem 'devise'
 gem 'devise-i18n'
 
-# Auth for Admin
+# Auth for Administrator
 gem 'sorcery'
 
 # Permission

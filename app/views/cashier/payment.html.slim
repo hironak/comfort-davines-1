@@ -1,0 +1,12 @@
+h1 Cashier#payment
+= form_for @order, url: cashier_payment_path do |f|
+
+  .field
+    = f.label :payment
+    = f.text_field :payment
+
+  = f.submit 'payment'
+
+ul
+  - @order.items.each do |item|
+    li = item.product.name

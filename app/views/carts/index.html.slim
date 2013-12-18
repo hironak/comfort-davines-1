@@ -1,0 +1,14 @@
+h1 Carts#index
+
+- if current_cart.items.count > 0
+  ul
+    - current_cart.items.each do |item|
+      li
+        = link_to item.product.name, item.product
+        = "[#{item.amount}個]"
+        = link_to "increment", increment_carts_path(product_id: item.product.id), method: :patch
+        = link_to "decrement", decrement_carts_path(product_id: item.product.id), method: :patch
+        = link_to "remove", remove_carts_path(product_id: item.product.id, amount: 1), method: :delete
+  p = link_to "Cashier", cashier_order_path
+- else
+  p カートに商品がありません

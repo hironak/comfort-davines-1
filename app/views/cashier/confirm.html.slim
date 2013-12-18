@@ -1,0 +1,7 @@
+h1 Cashier#confirm
+= form_for @order, url: cashier_confirm_path do |f|
+  = f.submit 'confirm'
+
+ul
+  - @order.items.each do |item|
+    li = item.product.name

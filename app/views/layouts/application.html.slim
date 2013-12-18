@@ -16,4 +16,13 @@ html
       li = link_to '商品一覧', products_path
     p.notice = notice
     p.alert = alert
+
+    .cart
+      - if current_cart.items.count > 0
+        = link_to "Cart", carts_path
+        ul
+          - current_cart.items.each do |item|
+            li = item.product.name
+      - else
+        p カートに商品がありません
     = yield
