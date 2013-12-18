@@ -9,6 +9,7 @@ class CartItem < ActiveRecord::Base
   end
 
   def decrement
+    self.amount = 0 unless self.amount
     self.amount -= 1
     if self.amount > 0
       save
