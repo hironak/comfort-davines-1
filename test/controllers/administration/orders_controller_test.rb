@@ -24,7 +24,7 @@ class Administration::OrdersControllerTest < ActionController::TestCase
   end
 
   def test_update
-    put :update, id: @order, order: {  }
+    put :update, id: @order, order: { address: 'address', payment: 'payment', items_attributes: [ ]  }
     assert_redirected_to admin_order_path(assigns(:order))
   end
 
