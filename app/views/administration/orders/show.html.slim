@@ -1,0 +1,21 @@
+p#notice = notice
+
+.field
+  .address
+    | Address :
+    = @order.address
+
+.field
+  .payment
+    | Payment :
+    = @order.payment
+
+.field
+  .items
+    ul
+      - @order.items.each do |item|
+        li = "#{item.product.name} : #{item.amount}"
+
+= link_to 'Edit', edit_admin_order_path(@order)
+'|
+= link_to 'Back', admin_orders_path

@@ -36,6 +36,8 @@ Commers::Application.routes.draw do
 
     resources :products
 
+    resources :orders, except: [:new, :create]
+
     resources :administrators
 
     # Session
