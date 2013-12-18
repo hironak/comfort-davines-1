@@ -53,12 +53,6 @@ ActiveRecord::Schema.define(version: 20131218115716) do
   add_index "consumers", ["email"], name: "index_consumers_on_email", unique: true, using: :btree
   add_index "consumers", ["reset_password_token"], name: "index_consumers_on_reset_password_token", unique: true, using: :btree
 
-  create_table "merchandises", force: true do |t|
-    t.integer  "price"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "order_items", force: true do |t|
     t.integer  "order_id"
     t.integer  "product_id"

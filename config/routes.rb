@@ -1,13 +1,17 @@
 Commers::Application.routes.draw do
 
+  # トップページ
   root to: "welcome#index"
 
+  # 表側ユーザ
   devise_for :consumers, :controllers => {
     :sessions => "sessions"
   }
 
+  # 商品一覧、詳細ページ
   resources :products, only: [:index, :show]
 
+  # カート
   resources :carts, only: [:index] do
     collection do
       post "add"
@@ -17,6 +21,7 @@ Commers::Application.routes.draw do
     end
   end
 
+  # 注文
   namespace :cashier do
     get "order"
     post "order", action: "order_create"
@@ -30,22 +35,25 @@ Commers::Application.routes.draw do
     get "complete"
   end
 
+  # 裏側
   namespace :admin, module: :administration do
 
-    resources :merchandises
-
-    resources :products
-
-    resources :orders, except: [:new, :create]
-
-    resources :administrators
+    # Admin root
+    root to: "dashboard#index"
 
     # Session
     delete "logout" => "sessions#destroy"
     get "login" => "sessions#new"
     post "login" => "sessions#create"
 
-    # Admin root
-    root to: "dashboard#index"
+    # 商品マスタ管理
+    resources :products
+
+    # 注文管理
+    resources :orders, except: [:new, :create]
+
+    # 裏側ユーザ管理
+    resources :administrators
+
   end
 end
