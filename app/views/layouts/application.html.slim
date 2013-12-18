@@ -19,6 +19,7 @@ html
 
     .cart
       - if current_cart.items.count > 0
+        = link_to "Cart", carts_path
         ul
           - current_cart.items.each do |item|
             li = item.product.name

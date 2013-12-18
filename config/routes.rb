@@ -17,6 +17,19 @@ Commers::Application.routes.draw do
     end
   end
 
+  namespace :cashier do
+    get "order"
+    post "order", action: "order_create"
+
+    get "payment"
+    post "payment", action: "payment_create"
+
+    get "confirm"
+    post "confirm", action: "confirm_create"
+
+    get "complete"
+  end
+
   namespace :admin, module: :administration do
 
     resources :merchandises

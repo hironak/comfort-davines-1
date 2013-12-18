@@ -9,5 +9,6 @@ h1 Carts#index
         = link_to "increment", increment_carts_path(product_id: item.product.id), method: :put
         = link_to "decrement", decrement_carts_path(product_id: item.product.id), method: :put
         = link_to "remove", remove_carts_path(product_id: item.product.id, amount: 1), method: :delete
+  p = link_to "Cashier", cashier_order_path
 - else
   p カートに商品がありません
