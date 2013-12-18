@@ -12,6 +12,9 @@ gem 'therubyracer'
 # Use LESS for stylesheets
 gem 'less-rails'
 
+# Use TheGrid for csv
+gem 'the_grid'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 

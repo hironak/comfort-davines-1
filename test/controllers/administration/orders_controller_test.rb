@@ -13,6 +13,12 @@ class Administration::OrdersControllerTest < ActionController::TestCase
     assert_not_nil assigns(:orders)
   end
 
+  def test_index_csv
+    get :index, format: :csv
+    assert_response :success
+    assert_not_nil assigns(:orders)
+  end
+
   def test_show
     get :show, id: @order
     assert_response :success

@@ -16,3 +16,6 @@ table
       td = link_to 'Edit', edit_admin_order_path(order)
       td = link_to 'Destroy', [:admin, order], data: {:confirm => 'Are you sure?'}, :method => :delete
 
+br
+
+= link_to "CSV Download", format: :csv
