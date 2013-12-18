@@ -5,9 +5,13 @@ table
     th
     th
     th
+    th
+    th
 
   - @orders.each do |order|
     tr
+      td = order.address
+      th = order.created_at
       td = link_to 'Show', [:admin, order]
       td = link_to 'Edit', edit_admin_order_path(order)
       td = link_to 'Destroy', [:admin, order], data: {:confirm => 'Are you sure?'}, :method => :delete
