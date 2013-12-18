@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131218055048) do
+ActiveRecord::Schema.define(version: 20131218055259) do
 
   create_table "administrators", force: true do |t|
     t.string   "username",         null: false
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20131218055048) do
     t.integer  "amount"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "cart_id"
   end
 
   create_table "carts", force: true do |t|
