@@ -8,6 +8,15 @@ Commers::Application.routes.draw do
 
   resources :products, only: [:index, :show]
 
+  resources :carts, only: [:index] do
+    collection do
+      post "add"
+      put "increment"
+      put "decrement"
+      delete "remove"
+    end
+  end
+
   namespace :admin, module: :administration do
 
     resources :merchandises
