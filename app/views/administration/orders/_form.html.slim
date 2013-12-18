@@ -14,17 +14,14 @@
     = f.label :payment
     = f.text_field :payment
 
-  .field
-    p items
-    ul
-      = f.fields_for :items do |i, item|
-        li
-          .field
-            = i.hidden_field :id
-            = i.object.product.name
-            | :
-            = i.number_field :amount
-            | 削除
-            = i.check_box :_destroy
+  h3 Items
+  = f.fields_for :items do |i, item|
+    .field
+      = i.hidden_field :id
+      = i.object.product.name
+      | :
+      = i.number_field :amount
+      | Delete
+      = i.check_box :_destroy
 
   .actions = f.submit 'Save'
