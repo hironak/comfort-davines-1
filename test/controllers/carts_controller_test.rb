@@ -16,13 +16,13 @@ class CartsControllerTest < ActionController::TestCase
     assert_redirected_to carts_path
   end
 
-  test "should put increment" do
-    put :increment, { product_id: @product.id }
+  test "should patch increment" do
+    patch :increment, { product_id: @product.id }
     assert_redirected_to carts_path
   end
 
-  test "should put decrement" do
-    put :decrement, { product_id: @product.id }
+  test "should patch decrement" do
+    patch :decrement, { product_id: @product.id }
     assert_redirected_to carts_path
   end
 

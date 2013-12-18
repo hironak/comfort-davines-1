@@ -11,8 +11,8 @@ Commers::Application.routes.draw do
   resources :carts, only: [:index] do
     collection do
       post "add"
-      put "increment"
-      put "decrement"
+      patch "increment"
+      patch "decrement"
       delete "remove"
     end
   end
