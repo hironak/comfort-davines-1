@@ -1,2 +1,3 @@
 h1 Cashier#payment
-p Find me in app/views/cashier/payment.html.slim
+= form_for :payment, :url => cashier_payment_path do |f|
+  = f.submit 'payment'

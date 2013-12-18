@@ -1,2 +1,3 @@
 h1 Cashier#confirm
-p Find me in app/views/cashier/confirm.html.slim
+= form_for :confirm, :url => cashier_confirm_path do |f|
+  = f.submit 'confirm'
