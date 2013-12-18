@@ -5,4 +5,8 @@ class Consumer < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   belongs_to :cart
+
+  def find_or_build_cart
+    cart || build_cart
+  end
 end

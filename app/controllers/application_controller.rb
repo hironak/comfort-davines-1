@@ -6,10 +6,21 @@ class ApplicationController < ActionController::Base
   private
 
   def current_cart
-    cart_id = if current_consumer
-                current_consumer.cart_id
-              else
-                session["cart.id"]
-              end
+    @current_cart ||= consumer_cart || session_cart
+  end
+
+  def consumer_cart
+    current_consumer || current_consumer.find_or_build_cart
+  end
+
+  def session_cart
+    cart =
+      if session["cart_id"]
+        Cart.find(session["cart.id"])
+      else
+        Cart.create
+      end
+    session["cart_id"] = cart.id
+    cart
   end
 end
