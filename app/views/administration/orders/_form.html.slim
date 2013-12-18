@@ -23,7 +23,8 @@
             = i.hidden_field :id
             = i.object.product.name
             | :
-            = i.label :amount
             = i.number_field :amount
+            | 削除
+            = i.check_box :_destroy
 
   .actions = f.submit 'Save'
