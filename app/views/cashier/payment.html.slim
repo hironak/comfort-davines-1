@@ -1,3 +1,10 @@
 h1 Cashier#payment
-= form_for :payment, :url => cashier_payment_path do |f|
+= form_for @order, url: cashier_payment_path do |f|
+
+  .field
+    = f.label :payment
+    = f.text_field :payment
+
   = f.submit 'payment'
+
+= debug @order.attributes

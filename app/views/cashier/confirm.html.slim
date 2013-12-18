@@ -1,3 +1,5 @@
 h1 Cashier#confirm
-= form_for :confirm, :url => cashier_confirm_path do |f|
+= form_for @order, url: cashier_confirm_path do |f|
   = f.submit 'confirm'
+
+= debug @order.attributes
