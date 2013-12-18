@@ -2,7 +2,9 @@ Commers::Application.routes.draw do
 
   root to: "welcome#index"
 
-  devise_for :consumers
+  devise_for :consumers, :controllers => {
+    :sessions => "sessions"
+  }
 
   resources :products, only: [:index, :show]
 
