@@ -15,6 +15,6 @@ html
       ul
         li = link_to :logout, admin_logout_path, method: :delete
       ul
-        - [:root, :products, :merchandises, :orders, :administrators].each do |controller|
+        - [:root, :products, :orders, :administrators].each do |controller|
           li = link_to controller, [:admin, controller]
     = yield
