@@ -25,6 +25,7 @@ class CashierController < ApplicationController
 
   def confirm_create
     @order.save
+    current_cart.clear
     session_clear_order
     redirect_to cashier_complete_url
   end
@@ -36,6 +37,7 @@ class CashierController < ApplicationController
 
   def set_order
     @order = Order.new(session[:cashing_order])
+    @order.extend_items current_cart
   end
 
   def session_save_order

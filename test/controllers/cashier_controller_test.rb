@@ -7,7 +7,7 @@ class CashierControllerTest < ActionController::TestCase
   end
 
   test "should post order" do
-    post :order_create
+    post :order_create, { order: { address: 'test' } }
     assert_redirected_to cashier_payment_url
   end
 
@@ -17,7 +17,7 @@ class CashierControllerTest < ActionController::TestCase
   end
 
   test "should post payment" do
-    post :payment_create
+    post :payment_create, { order: { payment: 'test' } }
     assert_redirected_to cashier_confirm_url
   end
 

@@ -25,4 +25,8 @@ class Cart < ActiveRecord::Base
     item = item_by_product product
     item.decrement
   end
+
+  def clear
+    items.delete_all
+  end
 end

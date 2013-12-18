@@ -7,4 +7,6 @@ h1 Cashier#order
 
   = f.submit 'order'
 
-= debug @order.attributes
+ul
+  - @order.items.each do |item|
+    li = item.product.name
