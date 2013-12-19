@@ -4,9 +4,9 @@ class Consumer < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  belongs_to :cart
+  has_one :cart
 
   def find_or_build_cart
-    cart || build_cart
+    cart || create_cart
   end
 end
