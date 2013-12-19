@@ -31,4 +31,34 @@ class CartsControllerTest < ActionController::TestCase
     assert_redirected_to carts_path
   end
 
+  test "l should get index" do
+    sign_in consumers(:one)
+    get :index
+    assert_response :success
+  end
+
+  test "l should post add" do
+    sign_in consumers(:one)
+    post :add, { product_id: @product.id, amount: 1 }
+    assert_redirected_to carts_path
+  end
+
+  test "l should patch increment" do
+    sign_in consumers(:one)
+    patch :increment, { product_id: @product.id }
+    assert_redirected_to carts_path
+  end
+
+  test "l should patch decrement" do
+    sign_in consumers(:one)
+    patch :decrement, { product_id: @product.id }
+    assert_redirected_to carts_path
+  end
+
+  test "l should delete remove" do
+    sign_in consumers(:one)
+    delete :remove, { product_id: @product.id }
+    assert_redirected_to carts_path
+  end
+
 end
