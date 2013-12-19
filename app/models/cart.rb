@@ -1,5 +1,5 @@
 class Cart < ActiveRecord::Base
-  has_one :consumer
+  belongs_to :consumer
   has_many :items, :class_name => 'CartItem'
 
   def item_by_product product
