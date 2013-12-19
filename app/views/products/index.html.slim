@@ -9,4 +9,5 @@ table
     tr
       td = product.name
       td = link_to 'Show', product
+      td = link_to "Add Cart", add_carts_path(product_id: product.id, amount: 1), method: :post
 
