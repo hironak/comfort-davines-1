@@ -1,5 +1,7 @@
 p#notice = notice
 
+p = @product.name
+
 p = link_to "Add Cart", add_carts_path(product_id: @product.id, amount: 1), method: :post
 
 p = link_to 'Back', products_path
