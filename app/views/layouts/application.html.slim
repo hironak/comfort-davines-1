@@ -9,21 +9,30 @@ html
   body
 
     .header
-      ul.consumer
-        - if current_consumer
-          li = link_to 'Sign out', destroy_consumer_session_path, method: :delete
-          li = link_to "Cart", carts_path
-        - else
-          li = link_to 'Sign up', new_consumer_registration_path
-          li = link_to "Cart", carts_path
-          li = link_to 'Sign in', new_consumer_session_path
-      .logo Davines
+      .container
+        ul.consumer
+          - if current_consumer
+            li = link_to 'Sign out', destroy_consumer_session_path, method: :delete
+            li = link_to "Cart", carts_path
+          - else
+            li = link_to 'Sign up', new_consumer_registration_path
+            li = link_to "Cart", carts_path
+            li = link_to 'Sign in', new_consumer_session_path
+        .logo = link_to "Davines", root_path
 
-    p.notice = notice
-    p.alert = alert
+    .contents
+      .container
+        p.notice = notice
+        p.alert = alert
 
-    .menubar
-      ul
-        li = link_to '商品一覧', products_path
+        .menubar
+          ul
+            li = link_to '商品一覧', products_path
 
-    = yield
+        = yield
+
+    .footer
+      .container
+        h4 商品カテゴリー
+        h4 ショッピングガイド
+        h4 Davinesについて

@@ -10,9 +10,27 @@
 //= require_self
 //= require_directory .
 
+// container
+.container {
+  width: 900px;
+  margin: 0 auto;
+}
+
+// ----------------------------------------
+// Basic Frames
+// ----------------------------------------
+.header {}
+.contents {}
+.footer {}
+
+// ----------------------------------------
+// Header
+// ----------------------------------------
 .header {
   overflow: hidden;
+  border-bottom: 2px solid #000;
   .logo {
+    padding: 10px 0;
     font-weight: bold;
     font-size: 24px;
   }
@@ -27,23 +45,37 @@
   }
 }
 
-.menubar {
-  ul {
-    list-style-type: none;
-    list-style-position: outside;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
 
-    li {
-      float: left;
+// ----------------------------------------
+// Contents
+// ----------------------------------------
+.contents {
+  padding-bottom: 300px;
+  .menubar {
+    ul {
+      list-style-type: none;
+      list-style-position: outside;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+
+      li {
+        float: left;
+      }
     }
+  }
+
+  .sidebar {
+    padding: 15px;
+    width: 200px;
+    float: right;
+    border: 1px solid #666;
   }
 }
 
-.sidebar {
-  padding: 15px;
-  width: 200px;
-  float: right;
-  border: 1px solid #666;
+// ----------------------------------------
+// Footer
+// ----------------------------------------
+.footer {
+  border-top: 2px solid #000;
 }
