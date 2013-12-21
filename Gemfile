@@ -10,7 +10,7 @@ gem 'mysql2'
 gem 'therubyracer'
 
 # Use LESS for stylesheets
-gem 'less-rails'
+# gem 'less-rails'
 
 # User Bower
 # gem "bower-rails", "~> 0.6.0"

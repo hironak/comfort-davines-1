@@ -51,7 +51,6 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
-    commonjs (0.2.7)
     devise (3.2.2)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -101,11 +100,6 @@ GEM
     jwt (0.1.8)
       multi_json (>= 1.5)
     kgio (2.8.1)
-    less (2.4.0)
-      commonjs (~> 0.2.7)
-    less-rails (2.4.2)
-      actionpack (>= 3.1)
-      less (~> 2.4.0)
     libv8 (3.16.14.3)
     listen (2.4.0)
       celluloid (>= 0.15.2)
@@ -267,7 +261,6 @@ DEPENDENCIES
   guard-rails
   jbuilder (~> 1.2)
   jquery-rails
-  less-rails
   minitest-colorize
   minitest-rails
   mysql2
