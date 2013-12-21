@@ -9,8 +9,8 @@ gem 'mysql2'
 
 gem 'therubyracer'
 
-# Use LESS for stylesheets
-# gem 'less-rails'
+# Use SCSS for stylesheets
+gem 'sass-rails'
 
 # User Bower
 # gem "bower-rails", "~> 0.6.0"
