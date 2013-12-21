@@ -22,8 +22,10 @@ html
 
     .contents
       .container
-        p.notice = notice
-        p.alert = alert
+        - if notice
+          p.notice = notice
+        - if alert
+          p.alert = alert
 
         .menubar
           ul
@@ -33,6 +35,9 @@ html
 
     .footer
       .container
-        h4 商品カテゴリー
-        h4 ショッピングガイド
-        h4 Davinesについて
+        .links
+          h4 商品カテゴリー
+        .links
+          h4 ショッピングガイド
+        .links
+          h4 Davinesについて
