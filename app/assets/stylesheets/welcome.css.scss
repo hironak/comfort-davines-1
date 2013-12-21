@@ -1,3 +1,12 @@
-// Place all the styles related to the welcome controller here.
-// They will automatically be included in application.css.
-// You can use Less here: http://lesscss.org/
+.contents {
+  .container {
+    .items {
+      @include span-columns(9);
+      .item {
+        border: 1px solid #000;
+        padding: 15px;
+        @include span-columns(3 of 9);
+      }
+    }
+  }
+}
