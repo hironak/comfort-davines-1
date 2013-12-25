@@ -21,15 +21,16 @@ html
         .logo = link_to "Davines", root_path
 
     .contents
+      .menubar
+        .container
+          ul
+            li = link_to '商品一覧', products_path
+
       .container
         - if notice
           p.notice = notice
         - if alert
           p.alert = alert
-
-        .menubar
-          ul
-            li = link_to '商品一覧', products_path
 
         = yield
 
