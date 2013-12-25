@@ -69,6 +69,8 @@ GEM
       multipart-post (~> 1.2.0)
     ffi (1.9.3)
     formatador (0.2.4)
+    friendly_id (5.0.2)
+      activerecord (~> 4.0.0)
     guard (2.2.5)
       formatador (>= 0.2.4)
       listen (~> 2.1)
@@ -248,6 +250,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
   devise-i18n
+  friendly_id (~> 5.0.0)
   guard
   guard-livereload
   guard-minitest
