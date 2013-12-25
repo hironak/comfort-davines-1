@@ -80,9 +80,9 @@ FriendlyId.defaults do |config|
   # we use the Babosa library to transliterate Russian Cyrillic slugs to ASCII. If
   # you use this, don't forget to add "babosa" to your Gemfile.
   #
-  # config.use Module.new {
-  #   def normalize_friendly_id(text)
-  #     text.to_slug.normalize! :transliterations => [:russian, :latin]
-  #   end
-  # }
+  config.use Module.new {
+    def normalize_friendly_id(text)
+      text.split(/\s+/).join('-')
+    end
+  }
 end
