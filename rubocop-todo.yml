@@ -5,6 +5,9 @@
 Alias:
   Enabled: false
 
+AlignArray:
+  Enabled: false
+
 AndOr:
   Enabled: false
 
@@ -18,7 +21,7 @@ DefWithoutParentheses:
   Enabled: false
 
 Documentation:
-  Enabled: true
+  Enabled: false
 
 EmptyLines:
   Enabled: false
@@ -60,4 +63,7 @@ StringLiterals:
   Enabled: false
 
 TrailingWhitespace:
+  Enabled: false
+
+WordArray:
   Enabled: false
