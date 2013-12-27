@@ -72,6 +72,8 @@ group :development, :test do
   gem 'minitest-rails'
   gem 'minitest-colorize'
 
+  gem 'rubocop'
+
   gem 'simplecov', :require => false
 end
 
