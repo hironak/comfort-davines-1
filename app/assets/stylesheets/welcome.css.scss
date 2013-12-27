@@ -1,0 +1,25 @@
+.items {
+  @include span-columns(12);
+  .item {
+    border: 1px solid #000;
+    padding: 15px;
+    margin-bottom: $gutter;
+    height: 80px;
+    @include span-columns(3 of 12);
+    @include omega(4n);
+  }
+  @include media($tablet) {
+    @include span-columns(8);
+    .item {
+      @include span-columns(4 of 8);
+      @include omega(2n);
+    }
+  }
+  @include media($mobile) {
+    @include span-columns(4);
+    .item {
+      @include span-columns(4 of 4);
+      @include omega(1n);
+    }
+  }
+}

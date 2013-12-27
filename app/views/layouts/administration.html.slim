@@ -6,15 +6,33 @@ html
     = javascript_include_tag "administration/base", "data-turbolinks-track" => true
     = csrf_meta_tags
   body
-    p.notice = notice
-    p.alert = alert
-    p
-      strong Admin
-    - if current_administrator
-      p = current_administrator.username
-      ul
-        li = link_to :logout, admin_logout_path, method: :delete
-      ul
-        - [:root, :products, :orders, :administrators].each do |controller|
-          li = link_to controller, [:admin, controller]
-    = yield
+
+    .header
+      .container
+        - if current_administrator
+          p = current_administrator.username
+          ul.consumer
+            li = link_to :logout, admin_logout_path, method: :delete
+
+        .logo = link_to "Davines", root_path
+
+    .contents
+      .container
+        - if notice
+          p.notice = notice
+        - if alert
+          p.alert = alert
+
+        .menubar
+          - if current_administrator
+            ul
+              - [:root, :products, :orders, :administrators].each do |controller|
+                li = link_to controller, [:admin, controller]
+
+        .main
+          = yield
+
+    .footer
+      .container
+        .links
+          h4 商品カテゴリー

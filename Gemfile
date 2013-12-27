@@ -9,8 +9,14 @@ gem 'mysql2'
 
 gem 'therubyracer'
 
-# Use LESS for stylesheets
-gem 'less-rails'
+# Use SCSS for stylesheets
+gem 'sass-rails'
+
+# A lightweight semantic grid framework for Sass and Bourbon
+gem 'neat'
+
+# User Bower
+# gem "bower-rails", "~> 0.6.0"
 
 # Use TheGrid for csv
 gem 'the_grid'
