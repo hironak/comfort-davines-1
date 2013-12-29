@@ -1,17 +1,21 @@
 class CashierController < ApplicationController
 
-  before_filter :set_order, expect: [:order, :complete]
+  before_filter :set_order, expect: [:index, :complete]
 
-  def order
+  def index
     @order = Order.new
     @order.extend_items current_cart
     session_save_order
+    redirect_to cashier_order_path
+  end
+
+  def order
   end
 
   def order_create
     @order.attributes = order_params
     session_save_order
-    redirect_to cashier_payment_url
+    redirect_to cashier_payment_path
   end
 
   def payment
@@ -20,7 +24,7 @@ class CashierController < ApplicationController
   def payment_create
     @order.attributes = payment_params
     session_save_order
-    redirect_to cashier_confirm_url
+    redirect_to cashier_confirm_path
   end
 
   def confirm
@@ -30,7 +34,7 @@ class CashierController < ApplicationController
     @order.save
     current_cart.clear
     session_clear_order
-    redirect_to cashier_complete_url
+    redirect_to cashier_complete_path
   end
 
   def complete
