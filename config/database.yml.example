@@ -23,15 +23,15 @@ development:
   port: <%= port %>
 <% end %>
 
-  test:
-    adapter: mysql2
-    database: comfort-davines_test
-    username: root
-    password:
+test:
+  adapter: mysql2
+  database: comfort-davines_test
+  username: root
+  password:
 <% if socket %>
-    host: localhost
-    socket: <%= socket %>
+  host: localhost
+  socket: <%= socket %>
 <% else %>
-    host: 127.0.0.1
-    port: <%= port %>
+  host: 127.0.0.1
+  port: <%= port %>
 <% end %>
