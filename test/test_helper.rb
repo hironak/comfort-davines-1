@@ -20,4 +20,16 @@ class ActiveSupport::TestCase
   # Add more helper methods to be used by all tests here...
   include Devise::TestHelpers
   include Sorcery::TestHelpers::Rails
+
+  def current_cart
+    @controller.send(:current_cart)
+  end
+
+  def cart_add product, amount
+    current_cart.add product, amount
+  end
+
+  def cart_remove product, amount
+    current_cart.remove product, amount
+  end
 end
