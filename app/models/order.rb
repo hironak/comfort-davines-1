@@ -3,6 +3,14 @@ class Order < ActiveRecord::Base
 
   accepts_nested_attributes_for :items, allow_destroy: true
 
+  def sample
+    self.items.includes(:priduct).where(product: { sample: true } )
+  end
+
+  def sample= item
+    self.items << item
+  end
+
   def extend_items cart
     cart.items.each do |item|
       self.items.build product_id: item.product_id, amount: item.amount

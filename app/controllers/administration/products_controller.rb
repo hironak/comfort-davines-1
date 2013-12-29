@@ -5,7 +5,7 @@ module Administration
     # GET /products
     # GET /products.json
     def index
-      @products = Product.all
+      @products = Product.unscoped.all
     end
 
     # GET /products/1
@@ -65,12 +65,12 @@ module Administration
     private
     # Use callbacks to share common setup or constraints between actions.
     def set_product
-      @product = Product.find(params[:id])
+      @product = Product.unscoped.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:name)
+      params.require(:product).permit(:name, :sample)
     end
   end
 end
