@@ -23,6 +23,8 @@ Commers::Application.routes.draw do
 
   # 注文
   namespace :cashier do
+    get "", action: "index"
+
     get "order"
     post "order", action: "order_create"
 

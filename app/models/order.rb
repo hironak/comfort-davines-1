@@ -8,4 +8,13 @@ class Order < ActiveRecord::Base
       self.items.build product_id: item.product_id, amount: item.amount
     end
   end
+
+  def to_hash
+    hash = self.attributes
+    hash["items_attributes"] = self.items.map(&:attributes)
+    hash
+  end
+
+  class ItemEmpty < StandardError
+  end
 end
