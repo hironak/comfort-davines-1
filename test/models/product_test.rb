@@ -5,8 +5,8 @@ class ProductTest < ActiveSupport::TestCase
   #   assert true
   # end
 
-  test "default scope not include sample" do
-    assert_equal Product.all.count, 2
+  test "avaiable scope not include sample" do
+    assert_equal Product.avaiable.count, 2
   end
 
   test "sample scope include sample" do

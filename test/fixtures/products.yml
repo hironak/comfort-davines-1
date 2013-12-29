@@ -3,9 +3,11 @@
 
 one:
   name: MyString
+  sample: false
 
 two:
   name: MyString
+  sample: false
 
 sample:
   name: Sample
