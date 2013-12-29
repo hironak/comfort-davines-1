@@ -88,6 +88,7 @@ end
 
 # Use unicorn as the app server
 gem 'unicorn'
+gem 'unicorn-rails'
 
 # Use Capistrano for deployment
 group :development do
