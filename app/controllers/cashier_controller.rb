@@ -1,6 +1,7 @@
 class CashierController < ApplicationController
 
-  before_filter :set_order, expect: [:index, :complete]
+  before_filter :protect_empty_cart, only: [:index]
+  before_filter :set_order, except: [:index, :complete]
 
   def index
     @order = Order.new
@@ -42,8 +43,13 @@ class CashierController < ApplicationController
 
   private
 
+  def protect_empty_cart
+    redirect_to root_path and return unless current_cart.items.size > 0
+  end
+
   def set_order
     @order = Order.new(session[:cashing_order])
+    raise Order::ItemEmpty unless @order.items.size > 0
   end
 
   def session_save_order

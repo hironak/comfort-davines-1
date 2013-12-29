@@ -14,4 +14,7 @@ class Order < ActiveRecord::Base
     hash["items_attributes"] = self.items.map(&:attributes)
     hash
   end
+
+  class ItemEmpty < StandardError
+  end
 end
