@@ -25,6 +25,9 @@ Commers::Application.routes.draw do
   namespace :cashier do
     get "", action: "index"
 
+    get "sample"
+    post "sample", action: "sample_create"
+
     get "order"
     post "order", action: "order_create"
 

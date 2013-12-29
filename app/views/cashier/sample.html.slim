@@ -1,0 +1,10 @@
+h1 Cashier#sample
+= form_for @order, url: cashier_sample_path do |f|
+
+  = f.select :sample, Product.sample.map{|p| [p.name, p.id] }
+
+  = f.submit 'sample'
+
+ul
+  - @order.items.each do |item|
+    li = item.product.name

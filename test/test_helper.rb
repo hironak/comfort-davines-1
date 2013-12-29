@@ -13,13 +13,17 @@ require "minitest/rails"
 # Uncomment for awesome colorful output
 # require "minitest/pride"
 
+class ActionController::TestCase
+  include Devise::TestHelpers
+  include Sorcery::TestHelpers::Rails
+end
+
+
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.(yml|csv) for all tests in alphabetical order.
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
-  include Devise::TestHelpers
-  include Sorcery::TestHelpers::Rails
 
   def current_cart
     @controller.send(:current_cart)

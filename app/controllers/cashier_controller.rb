@@ -7,6 +7,15 @@ class CashierController < ApplicationController
     @order = Order.new
     @order.extend_items current_cart
     session_save_order
+    redirect_to cashier_sample_path
+  end
+
+  def sample
+  end
+
+  def sample_create
+    @order.select_sample Product.sample.find(sample_params)
+    session_save_order
     redirect_to cashier_order_path
   end
 
@@ -58,6 +67,10 @@ class CashierController < ApplicationController
 
   def session_clear_order
     session[:cashing_order] = nil
+  end
+
+  def sample_params
+    params[:order][:sample]
   end
 
   def order_params

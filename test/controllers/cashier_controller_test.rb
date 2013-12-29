@@ -7,6 +7,19 @@ class CashierControllerTest < ActionController::TestCase
 
   test "should get index" do
     get :index
+    assert_redirected_to cashier_sample_url
+  end
+
+  test "should get sample" do
+    get :index
+    get :sample
+    assert_response :success
+  end
+
+  test "should post sample" do
+    get :index
+    get :sample
+    post :sample_create, { order: { sample: Product.sample.first.id } }
     assert_redirected_to cashier_order_url
   end
 
