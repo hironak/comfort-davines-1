@@ -10,6 +10,15 @@ class CashierController < ApplicationController
     redirect_to cashier_order_path
   end
 
+  def sample
+  end
+
+  def sample_craete
+    @order.attributes = order_params
+    session_save_order
+    redirect_to cashier_order_path
+  end
+
   def order
   end
 
