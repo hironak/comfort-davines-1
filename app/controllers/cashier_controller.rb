@@ -1,8 +1,11 @@
 class CashierController < ApplicationController
 
-  before_filter :set_order, expect: [:complete]
+  before_filter :set_order, expect: [:order, :complete]
 
   def order
+    @order = Order.new
+    @order.extend_items current_cart
+    session_save_order
   end
 
   def order_create
@@ -37,11 +40,10 @@ class CashierController < ApplicationController
 
   def set_order
     @order = Order.new(session[:cashing_order])
-    @order.extend_items current_cart
   end
 
   def session_save_order
-    session[:cashing_order] = @order.attributes
+    session[:cashing_order] = @order.to_hash
   end
 
   def session_clear_order
