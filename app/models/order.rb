@@ -11,6 +11,10 @@ class Order < ActiveRecord::Base
     self.items << item
   end
 
+  def select_sample product
+    self.sample = OrderItem.new(product_id: product.id, amount: 1)
+  end
+
   def extend_items cart
     cart.items.each do |item|
       self.items.build product_id: item.product_id, amount: item.amount

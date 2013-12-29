@@ -5,7 +5,7 @@ module Administration
     # GET /products
     # GET /products.json
     def index
-      @products = Product.unscoped.all
+      @products = Product.unscoped.load
     end
 
     # GET /products/1

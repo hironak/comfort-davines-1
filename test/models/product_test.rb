@@ -10,6 +10,6 @@ class ProductTest < ActiveSupport::TestCase
   end
 
   test "sample scope include sample" do
-    assert_equal Product.samples.count, 1
+    assert_equal Product.sample.count, 1
   end
 end

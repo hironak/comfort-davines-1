@@ -14,7 +14,7 @@ class CashierController < ApplicationController
   end
 
   def sample_create
-    @order.sample = OrderItem.new(product_id: sample_params, amount: 1)
+    @order.select_sample Product.sample.find(sample_params)
     session_save_order
     redirect_to cashier_order_path
   end

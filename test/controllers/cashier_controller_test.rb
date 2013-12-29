@@ -19,7 +19,7 @@ class CashierControllerTest < ActionController::TestCase
   test "should post sample" do
     get :index
     get :sample
-    post :sample_create, { order: { items_attributes: [ product_id: Product.samples.first.id, amount: 1 ] } }
+    post :sample_create, { order: { sample: Product.sample.first.id } }
     assert_redirected_to cashier_order_url
   end
 

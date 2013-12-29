@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.avaiable.all
+    @products = Product.avaiable.load
   end
 
   # GET /products/1

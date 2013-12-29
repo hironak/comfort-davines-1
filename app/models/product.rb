@@ -3,5 +3,5 @@ class Product < ActiveRecord::Base
   friendly_id :name
 
   scope :avaiable, -> { where(sample: false) }
-  scope :samples, -> { where(sample: true) }
+  scope :sample, -> { where(sample: true) }
 end
