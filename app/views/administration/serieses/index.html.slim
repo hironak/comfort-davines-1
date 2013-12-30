@@ -1,4 +1,4 @@
-h1 Listing administration_serieses
+h1 Listing serieses
 
 table
   tr
@@ -7,13 +7,13 @@ table
     th
     th
 
-  - @administration_serieses.each do |administration_seriese|
+  - @serieses.each do |series|
     tr
-      td = administration_seriese.name
-      td = link_to 'Show', administration_seriese
-      td = link_to 'Edit', edit_administration_seriese_path(administration_seriese)
-      td = link_to 'Destroy', administration_seriese, data: {:confirm => 'Are you sure?'}, :method => :delete
+      td = series.name
+      td = link_to 'Show', [:admin, series]
+      td = link_to 'Edit', edit_admin_series_path(series)
+      td = link_to 'Destroy', [:admin, series], data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 
-= link_to 'New Seriese', new_administration_seriese_path
+= link_to 'New Seriese', new_admin_series_path

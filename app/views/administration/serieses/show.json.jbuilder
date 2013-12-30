@@ -1,1 +1,1 @@
-json.extract! @administration_seriese, :id, :name, :created_at, :updated_at
+json.extract! @series, :id, :name, :created_at, :updated_at

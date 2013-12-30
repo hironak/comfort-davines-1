@@ -1,4 +1,4 @@
-json.array!(@administration_serieses) do |administration_seriese|
-  json.extract! administration_seriese, :id, :name
-  json.url administration_seriese_url(administration_seriese, format: :json)
+json.array!(@serieses) do |series|
+  json.extract! series, :id, :name
+  json.url admin_series_url(series, format: :json)
 end
