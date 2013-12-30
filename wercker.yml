@@ -23,6 +23,12 @@ deploy:
         code: |-
           export CAP_PRIVATE_KEY=`mktemp`
           echo -e $DEPLOY_KEY_PRIVATE > $CAP_PRIVATE_KEY
-          cat $CAP_PRIVATE_KEY
     - wercker/cap:
         stage: staging
+  after-steps:
+    - wouter/irc-notify:
+        server: irc.freenode.net
+        port: 6667
+        nickname: hackers-bot
+        channel: hackers-jp
+
