@@ -7,7 +7,7 @@ app_path = "/var/www/comfort-davines/current"
 stderr_path "#{app_path}/log/unicorn.log"
 stdout_path "#{app_path}/log/unicorn.log"
 
-pid "/tmp/davines_app.pid"
+pid "#{app_path}/tmp/pids/davines_app.pid"
 
 listen "/tmp/davines_app.sock"
 worker_processes 3
