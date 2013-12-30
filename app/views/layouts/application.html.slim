@@ -18,15 +18,21 @@ html
             li = link_to 'Sign up', new_consumer_registration_path
             li = link_to "Cart", carts_path
             li = link_to 'Sign in', new_consumer_session_path
+
         .logo = link_to "Davines", root_path
 
-    .contents
-      .menubar
-        .container
+        .globalnavi
           ul
-            li = link_to '商品一覧', products_path
+            li = link_to "初めての方へ", root_path
+            li = link_to "ダヴィネスとは ", root_path
+            li = link_to "ご利用案内 ", root_path
+            li = link_to "よくあるご質問 ", root_path
+            li = link_to "サイトマップ ", root_path
+            li = link_to "お問い合わせ", root_path
 
-      .container
+    .contents
+
+      .container class="#{controller.controller_path}"
         - if notice
           p.notice = notice
         - if alert

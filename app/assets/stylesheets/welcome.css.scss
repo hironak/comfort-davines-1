@@ -1,3 +1,47 @@
+h3 {
+  font-weight: normal;
+  line-height: 1.2em;
+  padding: 0 5px;
+  margin-bottom: 10px;
+  border-left: 10px solid $medium-gray;
+  font-size: 1.3em;
+  small {
+    margin-left: 0.5em;
+    font-size: 0.3em;
+  }
+}
+
+.box {
+  margin-bottom: $gutter;
+}
+
+.news {
+  .box {
+    height: 200px;
+    overflow: scroll;
+    background: $light-gray;
+    font-size: 0.8em;
+    border: 2px solid $medium-gray;
+    padding: $gutter / 2;
+    .row {
+      position: relative;
+      $date-width: 100px;
+      .date {
+        position: absolute;
+        width: $date-width;
+      }
+      .info {
+        margin-left: $date-width;
+        strong {
+          font-weight: normal;
+          color: $blue;
+        }
+      }
+    }
+  }
+}
+
+
 .items {
   @include span-columns(12);
   .item {

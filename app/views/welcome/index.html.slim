@@ -1,4 +1,33 @@
-h1 こんばんは
+
+.news
+  h3
+    | Davines news
+    small ダヴィネス・ニュース
+  .box
+    - 5.times.each do
+      .row
+        .date 2013.12.10
+        .info
+          strong 見出しコメント見出しコメント見出しコメント見出しコメント見出しコメント見出しコメント見出しコメント見出しコメント
+          p コメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメント
+
+.ranking
+  h3
+    | Ranking
+    small ランキング
+  .box
+
+.series
+  h3
+    | シリーズで探す
+  .box
+
+.category
+  h3
+    | カテゴリーで探す
+  .box
+
+
 .items
   - Product.avaiable.load.each do |product|
     .item
