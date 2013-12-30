@@ -36,5 +36,5 @@
 .items
   - Product.avaiable.load.each do |product|
     .item
-      = image_tag product.image.url(:medium)
-      = link_to product.name, product
+      .image = image_tag product.image.url(:medium)
+      .name = link_to product.name, product
