@@ -5,6 +5,4 @@ h1 Cashier#sample
 
   = f.submit 'sample'
 
-ul
-  - @order.items.each do |item|
-    li = item.product.name
+= render "order_list"

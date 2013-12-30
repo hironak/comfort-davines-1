@@ -1,4 +1,7 @@
 class Order < ActiveRecord::Base
+  include Pricing
+  include Regulating
+
   has_many :items, :class_name => 'OrderItem'
 
   accepts_nested_attributes_for :items, allow_destroy: true
@@ -12,12 +15,12 @@ class Order < ActiveRecord::Base
   end
 
   def select_sample product
-    self.sample = OrderItem.new(product_id: product.id, amount: 1)
+    self.sample = OrderItem.new(product_id: product.id, amount: 1, origin_price: product.price)
   end
 
   def extend_items cart
     cart.items.each do |item|
-      self.items.build product_id: item.product_id, amount: item.amount
+      self.items.build product_id: item.product.id, amount: item.amount, origin_price: item.product.price
     end
   end
 

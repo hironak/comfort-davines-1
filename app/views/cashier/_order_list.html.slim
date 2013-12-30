@@ -1,0 +1,17 @@
+table
+  tr
+    th 名称
+    th 個数
+    th 金額
+
+  - @order.items.each do |item|
+    tr
+      td = item.product.name
+      td = "[#{item.amount}個]"
+      td = "#{item.price}円"
+
+  tr
+    td
+    td
+    td = "合計金額:#{@order.total_price}円"
+
