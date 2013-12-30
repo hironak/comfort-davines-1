@@ -8,14 +8,14 @@
     @include span-columns(3 of 12);
     @include omega(4n);
   }
-  @include media($tablet) {
+  @include media($medium-screen) {
     @include span-columns(8);
     .item {
       @include span-columns(4 of 8);
       @include omega(2n);
     }
   }
-  @include media($mobile) {
+  @include media($small-screen) {
     @include span-columns(4);
     .item {
       @include span-columns(4 of 4);

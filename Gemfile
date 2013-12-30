@@ -13,6 +13,8 @@ gem 'therubyracer'
 gem 'sass-rails'
 
 # A lightweight semantic grid framework for Sass and Bourbon
+gem 'bourbon'
+gem 'bitters'
 gem 'neat'
 
 # User Bower
