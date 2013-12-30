@@ -27,6 +27,13 @@ class Order < ActiveRecord::Base
     hash
   end
 
+  after_save :decrease_product_stock
+  def decrease_product_stock
+    self.items.each do |item|
+      item.product.decrease item.amount
+    end
+  end
+
   class ItemEmpty < StandardError
   end
 end

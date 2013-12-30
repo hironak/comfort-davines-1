@@ -16,12 +16,7 @@ class ApplicationController < ActionController::Base
   end
 
   def session_cart
-    cart =
-      if session["cart.id"]
-        Cart.find(session["cart.id"])
-      else
-        Cart.create
-      end
+    cart = Cart.where(id: session["cart.id"]).first || Cart.create
     session["cart.id"] = cart.id
     cart
   end

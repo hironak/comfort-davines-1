@@ -3,6 +3,8 @@ h1 Listing products
 table
   tr
     th Name
+    th Stock
+    th Sample
     th
     th
     th
@@ -10,6 +12,8 @@ table
   - @products.each do |product|
     tr
       td = product.name
+      td = product.stock
+      td = product.sample ? "Sample" : ""
       td = link_to 'Show', [:admin, product]
       td = link_to 'Edit', edit_admin_product_path(product)
       td = link_to 'Destroy', [:admin, product], data: { confirm: 'Are you sure?' }, method: :delete
