@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-if Rails.env.development? && Administrator.count == 0
+if (Rails.env.development? || Rails.env.staging?) && Administrator.count == 0
   Administrator.create username: "testuser", password: "password", password_confirmation: "password"
 end
 
