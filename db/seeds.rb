@@ -10,7 +10,15 @@ if Rails.env.development? && Administrator.count == 0
   Administrator.create username: "testuser", password: "password", password_confirmation: "password"
 end
 
-%w|シャンプー コンディショナー|.each do |name|
+%w|NATURALTECH AUTHENTIC OI/OIL|.each do |name|
+  Series.create name: name
+end
+
+%w|シャンプー コンディショナー オイル クリーム スカルプケア ミスト|.each do |name|
+  Category.create name: name
+end
+
+%w|シャンプー コンディショナー オイル クリーム スカルプケア ミスト|.each do |name|
   (1..5).each do |n|
     Product.create name: "#{name}#{n}", stock: 10
     Product.create name: "#{name}#{n} サンプル", stock: 10, sample: true
