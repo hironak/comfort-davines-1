@@ -16,5 +16,10 @@ build:
         channel: hackers-jp
 deploy:
   steps:
+    - script:
+        name: write env var
+        code: |-
+          export CAP_PRIVATE_KEY=`mktemp`
+          echo -e $DEPLOY_KEY_PRIVATE > $CAP_PRIVATE_KEY
     - wercker/cap:
         stage: staging

@@ -16,7 +16,7 @@ role :db,  %w{deploy@133.242.50.208}
 # something that quacks like a hash can be used to set
 # extended properties on the server.
 server 'dev.davines.co.jp', user: 'deploy', roles: %w{web app db}, ssh_options: {
-  keys: %w(~/.ssh/id_rsa),
+  keys: [ENV['CAP_PRIVATE_KEY'], "~/.ssh/id_rsa"],
   forward_agent: true,
   auth_methods: %w(publickey)
 }
