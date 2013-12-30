@@ -9,7 +9,6 @@ build:
         name: minitest
         code: bundle exec rake
   after-steps:
-    - bundle-package
     - wouter/irc-notify:
         server: irc.freenode.net
         port: 6667
@@ -25,10 +24,3 @@ deploy:
           echo -e $DEPLOY_KEY_PRIVATE > $CAP_PRIVATE_KEY
     - wercker/cap:
         stage: staging
-  after-steps:
-    - wouter/irc-notify:
-        server: irc.freenode.net
-        port: 6667
-        nickname: hackers-bot
-        channel: hackers-jp
-
