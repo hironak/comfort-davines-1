@@ -1,14 +1,28 @@
 h1 Carts#index
 
 - if current_cart.items.count > 0
-  ul
+  table
+    tr
+      th 名称
+      th 個数
+      th 金額
+
     - current_cart.items.each do |item|
-      li
-        = link_to item.product.name, item.product
-        = "[#{item.amount}個]"
-        = link_to "[+]", increment_carts_path(product_id: item.product.id), method: :patch
-        = link_to "[-]", decrement_carts_path(product_id: item.product.id), method: :patch
-        = link_to "remove", remove_carts_path(product_id: item.product.id, amount: 1), method: :delete
+      tr
+        td = link_to item.product.name, item.product
+        td
+          = "[#{item.amount}個]"
+          = link_to "[+]", increment_carts_path(product_id: item.product.id), method: :patch
+          = link_to "[-]", decrement_carts_path(product_id: item.product.id), method: :patch
+          = link_to "削除", remove_carts_path(product_id: item.product.id, amount: 1), method: :delete
+        td = "#{item.price}円"
+
+    tr
+      td
+      td
+      td = "合計金額:#{current_cart.total_price}円"
+
   p = link_to "Cashier", cashier_path
+
 - else
   p カートに商品がありません
