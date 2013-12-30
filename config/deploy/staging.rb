@@ -5,9 +5,9 @@ set :stage, :staging
 # Supports bulk-adding hosts to roles, the primary
 # server in each group is considered to be the first
 # unless any hosts have the primary property set.
-role :app, %w{deploy@133.242.50.208}
-role :web, %w{deploy@133.242.50.208}
-role :db,  %w{deploy@133.242.50.208}
+# role :app, %w{deploy@133.242.50.208}
+# role :web, %w{deploy@133.242.50.208}
+# role :db,  %w{deploy@133.242.50.208}
 
 # Extended Server Syntax
 # ======================
@@ -15,8 +15,8 @@ role :db,  %w{deploy@133.242.50.208}
 # definition into the server list. The second argument
 # something that quacks like a hash can be used to set
 # extended properties on the server.
-server 'dev.davines.co.jp', user: 'deploy', roles: %w{web app db}, ssh_options: {
-  keys: [ENV['CAP_PRIVATE_KEY'], "~/.ssh/id_rsa"],
+server '133.242.50.208', user: 'deploy', roles: %w{web app db}, ssh_options: {
+  keys: [ENV['CAP_PRIVATE_KEY'], "~/.ssh/id_rsa"].delete(nil),
   forward_agent: true,
   auth_methods: %w(publickey)
 }
