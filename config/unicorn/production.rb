@@ -1,15 +1,15 @@
 # config/unicorn.rb
 
-# app_path = "/mnt/project/davines_commers/current"
+app_path = "/var/www/comfort-davines/current"
 
 # working_directory app_path
 
-# stderr_path "#{app_path}/log/unicorn.log"
-# stdout_path "#{app_path}/log/unicorn.log"
+stderr_path "#{app_path}/log/unicorn.log"
+stdout_path "#{app_path}/log/unicorn.log"
 
-pid "/tmp/davines-unicorn-unicorn.pid"
+pid "/tmp/davines_app.pid"
 
-listen "/tmp/davines_commers.sock"
+listen "/tmp/davines_app.sock"
 worker_processes 3
 timeout 180
 preload_app true
