@@ -1,8 +1,10 @@
 namespace :db do
   desc "Runs rake db:reset"
   task :reset do
-    within current_path do
-      execute :bundle, :exec, :unicorn, "-c #{fetch(:unicorn_config)} -E #{fetch(:rails_env)} -D"
+    on roles(:db) do
+      within current_path do
+        execute :bundle, :exec, :rake, "db:reset", "RAILS_ENV=#{fetch(:stage)}"
+      end
     end
   end
 end
