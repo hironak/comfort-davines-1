@@ -1,6 +1,6 @@
 module Administration
   class CategoriesController < BaseController
-    before_action :set_administration_category, only: [:show, :edit, :update, :destroy]
+    before_action :set_category, only: [:show, :edit, :update, :destroy]
 
     # GET /administration/categories
     # GET /administration/categories.json
@@ -64,7 +64,7 @@ module Administration
 
     private
     # Use callbacks to share common setup or constraints between actions.
-    def set_administration_category
+    def set_category
       @category = Category.find(params[:id])
     end
 

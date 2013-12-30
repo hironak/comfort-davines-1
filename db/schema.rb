@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131230174248) do
+ActiveRecord::Schema.define(version: 20131230180820) do
 
   create_table "administrators", force: true do |t|
     t.string   "username",         null: false
@@ -97,6 +97,12 @@ ActiveRecord::Schema.define(version: 20131230174248) do
     t.string   "slug"
     t.boolean  "sample",     default: false
     t.integer  "stock"
+  end
+
+  create_table "series", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
