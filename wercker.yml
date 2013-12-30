@@ -16,4 +16,5 @@ build:
         channel: hackers-jp
 deploy:
   steps:
-    - wercker/cap
+    - wercker/cap:
+        stage: staging

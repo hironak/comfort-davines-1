@@ -1,10 +1,11 @@
 set :application, 'my_app_name'
-set :repo_url, 'git@example.com:me/my_repo.git'
+set :repo_url, 'git@github.com:hackers-jp/comfort-davines.git'
 
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
 set :deploy_to, '/var/www/comfort-davines'
-set :scm, :git
+set :scm, :none
+set :deploy_via, :copy
 
 # set :format, :pretty
 # set :log_level, :debug
