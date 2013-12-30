@@ -8,7 +8,7 @@ set :scm, :git
 set :deploy_via, :remote_cache
 
 # set :format, :pretty
-set :log_level, :debug
+# set :log_level, :debug
 set :pty, true
 
 set :linked_files, %w{config/database.yml}

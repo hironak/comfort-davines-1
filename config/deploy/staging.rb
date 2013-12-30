@@ -16,7 +16,8 @@ set :stage, :staging
 # something that quacks like a hash can be used to set
 # extended properties on the server.
 server '133.242.50.208', user: 'deploy', roles: %w{web app db}, ssh_options: {
-  keys: [ENV['CAP_PRIVATE_KEY'], "~/.ssh/id_rsa"].delete(nil),
+  # keys: [ENV['CAP_PRIVATE_KEY'], "~/.ssh/id_rsa"].,
+  keys: [ENV['CAP_PRIVATE_KEY']],
   forward_agent: true,
   auth_methods: %w(publickey)
 }
