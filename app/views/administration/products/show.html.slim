@@ -9,6 +9,10 @@ p
   = @product.price
 
 p
+  strong Image:
+  = image_tag @product.image.url(:medium)
+
+p
   strong Series:
   = @product.series.try :name
 

@@ -5,6 +5,8 @@ class Product < ActiveRecord::Base
   belongs_to :series
   belongs_to :category
 
+  has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }
+
   scope :avaiable, -> { where(sample: false) }
   scope :stocked, -> { where.not(stock: 0) }
   scope :sample, -> { where(sample: true) }
