@@ -2,6 +2,9 @@ class Product < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name
 
+  belongs_to :series
+  belongs_to :category
+
   scope :avaiable, -> { where(sample: false) }
   scope :stocked, -> { where.not(stock: 0) }
   scope :sample, -> { where(sample: true) }
