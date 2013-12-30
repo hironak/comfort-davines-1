@@ -14,3 +14,6 @@ build:
         port: 6667
         nickname: hackers-bot
         channel: hackers-jp
+deploy:
+  steps:
+    - wercker/cap
