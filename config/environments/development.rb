@@ -27,5 +27,8 @@ Commers::Application.configure do
   # number of complex assets.
   config.assets.debug = true
 
+  # BUG: 以下のオプションが効かない
+  config.sass.debug_info = true
+
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 end

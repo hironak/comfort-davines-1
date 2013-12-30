@@ -34,6 +34,15 @@
       margin: 0.5em;
     }
   }
+  .globalnavi {
+    float: right;
+    ul {
+      li {
+        float: left;
+        margin-left: $gutter;
+      }
+    }
+  }
 }
 
 
@@ -42,13 +51,10 @@
 // ----------------------------------------
 .contents {
   padding-bottom: 300px;
-  .menubar {
-    border-bottom: 1px solid #000;
-    padding: 20px;
-    margin-bottom: $gutter;
-  }
   .container {
-    @import "welcome";
+    &.welcome {
+      @import "welcome";
+    }
   }
 }
 

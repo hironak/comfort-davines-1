@@ -64,6 +64,8 @@ end
 group :development do
   gem 'ruby_gntp'
 
+  gem 'quiet_assets'
+
   gem 'guard'
   gem 'guard-rails'
   gem 'guard-livereload'
