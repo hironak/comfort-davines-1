@@ -94,10 +94,10 @@ gem 'unicorn-rails'
 
 # Use Capistrano for deployment
 group :development do
-  gem 'capistrano', '~> 3.0.0'
-  gem 'capistrano-rails', '~> 1.1.0'
-  gem 'capistrano-rbenv', '~> 2.0'
-  gem 'capistrano-bundler'
+  gem 'capistrano', '~> 3.0.0', require: false
+  gem 'capistrano-rails', '~> 1.1.0', require: false
+  gem 'capistrano-rbenv', '~> 2.0', require: false
+  gem 'capistrano-bundler', require: false
 end
 
 # Use debugger
