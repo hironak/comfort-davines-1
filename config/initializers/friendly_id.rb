@@ -81,8 +81,16 @@ FriendlyId.defaults do |config|
   # you use this, don't forget to add "babosa" to your Gemfile.
   #
   config.use Module.new {
-    def normalize_friendly_id(text)
-      text.split(/\s+/).join('-')
+    def normalize_friendly_id(text, sep='-')
+      text.gsub!(/[^\p{Word}\-_]+/, sep)
+      # unless sep.nil? || sep.empty?
+      #   re_sep = Regexp.escape(sep)
+      #   # No more than one of the separator in a row.
+      #   text.gsub!(/#{re_sep}{2,}/, sep)
+      #   # Remove leading/trailing separator.
+      #   text.gsub!(/^#{re_sep}|#{re_sep}$/, '')
+      # end
+      text.downcase
     end
   }
 end
