@@ -23,7 +23,6 @@ deploy:
         code: |-
           export CAP_PRIVATE_KEY=`mktemp`
           echo -e $DEPLOY_KEY_PRIVATE > $CAP_PRIVATE_KEY
-          echo -e $CAP_PRIVATE_KEY
-          echo -e $DEPLOY_KEY_PRIVATE
+          cat $CAP_PRIVATE_KEY
     - wercker/cap:
         stage: staging
