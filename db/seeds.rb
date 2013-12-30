@@ -5,3 +5,14 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+if Rails.env.development? && Administrator.count == 0
+  Administrator.create username: "testuser", password: "password", password_confirmation: "password"
+end
+
+%w|シャンプー コンディショナー|.each do |name|
+  (1..5).each do |n|
+    Product.create name: "#{name}#{n}", stock: 10
+    Product.create name: "#{name}#{n} サンプル", stock: 10, sample: true
+  end
+end

@@ -4,11 +4,14 @@
 one:
   name: MyString
   sample: false
+  stock: 10
 
 two:
   name: MyString
   sample: false
+  stock: 10
 
 sample:
   name: Sample
   sample: true
+  stock: 10
