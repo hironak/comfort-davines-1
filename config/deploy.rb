@@ -5,7 +5,7 @@ set :repo_url, 'git@github.com:hackers-jp/comfort-davines.git'
 
 set :deploy_to, '/var/www/comfort-davines'
 set :scm, :git
-set :deploy_via, :copy
+set :deploy_via, :remote_cache
 
 # set :format, :pretty
 set :log_level, :debug
