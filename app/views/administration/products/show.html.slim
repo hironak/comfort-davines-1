@@ -3,6 +3,11 @@ p#notice = notice
 p
   strong Name:
   = @product.name
+
+p
+  strong Price:
+  = @product.price
+
 p
   strong Series:
   = @product.series.try :name

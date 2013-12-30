@@ -20,7 +20,18 @@ end
 
 Series.all.each do |series|
   Category.all.each do |category|
-    Product.create name: "#{series.name} #{category.name}", stock: 10, series_id: series.id, category_id: category.id
-    Product.create name: "#{series.name} #{category.name} (サンプル)", stock: 10, series_id: series.id, category_id: category.id, sample: true
+
+    Product.create name: "#{series.name} #{category.name}",
+      price: 3000,
+      stock: 10,
+      series_id: series.id,
+      category_id: category.id
+
+    Product.create name: "#{series.name} #{category.name} (サンプル)",
+      price: 0,
+      stock: 10,
+      series_id: series.id,
+      category_id: category.id,
+      sample: true
   end
 end

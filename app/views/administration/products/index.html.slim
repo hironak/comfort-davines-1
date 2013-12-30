@@ -3,6 +3,7 @@ h1 Listing products
 table
   tr
     th Name
+    th Price
     th Series
     th Category
     th Stock
@@ -14,6 +15,7 @@ table
   - @products.each do |product|
     tr
       td = product.name
+      td = product.price
       td = product.series.try :name
       td = product.category.try :name
       td = product.stock
