@@ -53,6 +53,7 @@ Commers::Application.routes.draw do
 
     # 商品マスタ管理
     resources :products
+    resources :categories
 
     # 注文管理
     resources :orders, except: [:new, :create]
