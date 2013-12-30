@@ -9,6 +9,7 @@ build:
         name: minitest
         code: bundle exec rake
   after-steps:
+    - bundle-package
     - wouter/irc-notify:
         server: irc.freenode.net
         port: 6667
@@ -16,6 +17,7 @@ build:
         channel: hackers-jp
 deploy:
   steps:
+    - bundle-install
     - script:
         name: write env var
         code: |-
