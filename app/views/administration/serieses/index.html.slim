@@ -1,0 +1,19 @@
+h1 Listing serieses
+
+table
+  tr
+    th Name
+    th
+    th
+    th
+
+  - @serieses.each do |series|
+    tr
+      td = series.name
+      td = link_to 'Show', [:admin, series]
+      td = link_to 'Edit', edit_admin_series_path(series)
+      td = link_to 'Destroy', [:admin, series], data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Seriese', new_admin_series_path

@@ -21,11 +21,18 @@
   h3
     | シリーズで探す
   .box
+    - Series.all.each do |series|
+      .item
+        = series.name
 
 .category
   h3
     | カテゴリーで探す
   .box
+    - Category.all.each do |category|
+      .item
+        = category.name
+
 
 
 .items

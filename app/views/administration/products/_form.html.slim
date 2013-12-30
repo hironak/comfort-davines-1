@@ -15,6 +15,14 @@
     = f.number_field :stock
 
   .field
+    = f.label :series
+    = f.collection_select :series_id, Series.all, :id, :name
+
+  .field
+    = f.label :category
+    = f.collection_select :category_id, Category.all, :id, :name
+
+  .field
     = f.label :sample
     = f.check_box :sample
 

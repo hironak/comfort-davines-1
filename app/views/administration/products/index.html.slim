@@ -3,6 +3,8 @@ h1 Listing products
 table
   tr
     th Name
+    th Series
+    th Category
     th Stock
     th Sample
     th
@@ -12,6 +14,8 @@ table
   - @products.each do |product|
     tr
       td = product.name
+      td = product.series.try :name
+      td = product.category.try :name
       td = product.stock
       td = product.sample ? "Sample" : ""
       td = link_to 'Show', [:admin, product]
