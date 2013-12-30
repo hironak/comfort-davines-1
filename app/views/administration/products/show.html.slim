@@ -3,6 +3,17 @@ p#notice = notice
 p
   strong Name:
   = @product.name
+p
+  strong Series:
+  = @product.series.try :name
+
+p
+  strong Category:
+  = @product.category.try :name
+
+p
+  strong Stock:
+  = @product.stock
 
 = link_to 'Edit', edit_admin_product_path(@product)
 '|
