@@ -2,8 +2,10 @@ class CartItem < ActiveRecord::Base
   belongs_to :cart
   belongs_to :product
 
-  def price
-    self.product.price * self.amount
+  include Pricing::Item
+
+  def origin_price
+    self.product.price
   end
 
   def increment

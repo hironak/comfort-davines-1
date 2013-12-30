@@ -3,9 +3,7 @@ class Order < ActiveRecord::Base
 
   accepts_nested_attributes_for :items, allow_destroy: true
 
-  def total_price
-    self.items.map(&:price).inject(:+)
-  end
+  include Pricing
 
   def sample
     self.items.includes(:priduct).where(product: { sample: true } )

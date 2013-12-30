@@ -2,12 +2,10 @@ class Cart < ActiveRecord::Base
   belongs_to :consumer
   has_many :items, :class_name => 'CartItem'
 
+  include Pricing
+
   def item_by_product product
     self.items.where(product_id: product.id).first_or_create
-  end
-
-  def total_price
-    self.items.map(&:price).inject(:+)
   end
 
   def add product, amount
