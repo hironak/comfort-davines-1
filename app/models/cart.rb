@@ -6,6 +6,10 @@ class Cart < ActiveRecord::Base
     self.items.where(product_id: product.id).first_or_create
   end
 
+  def total_price
+    self.items.map(&:price).inject(:+)
+  end
+
   def add product, amount
     item = item_by_product product
     item.update_attributes amount: amount
