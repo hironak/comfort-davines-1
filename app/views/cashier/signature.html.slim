@@ -18,7 +18,7 @@ h1 Cashier#signature
   = hidden_field_tag :signature, "signup"
   = f.submit 'Sign up'
 
-= form_for Consumer.new, url: cashier_signature_path, method: :post do |f|
+= form_for Consumer.new, url: consumer_session_path, method: :post do |f|
 
   .field
     = f.label :email
@@ -28,5 +28,4 @@ h1 Cashier#signature
     = f.label :password
     = f.password_field :password
 
-  = hidden_field_tag :signature, "signin"
   = f.submit 'Sign in'

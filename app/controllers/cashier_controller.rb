@@ -16,18 +16,14 @@ class CashierController < ApplicationController
   end
 
   def signature
+    redirect_to cashier_sample_path and return if consumer_signed_in?
+
+    store_location_for :consumer, cashier_signature_path
     @consumer = Consumer.new
   end
 
   def signature_create
-    case params[:signature]
-    when "signup"
-      @consumer = Consumer.create consumer_params
-    when "signin"
-      @consumer = Consumer.find_for_authentication consumer_params
-    else
-      @consumer = nil
-    end
+    @consumer = Consumer.create consumer_params
 
     render "signature" and return unless @consumer
 

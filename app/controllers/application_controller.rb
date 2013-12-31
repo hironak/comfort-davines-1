@@ -16,8 +16,8 @@ class ApplicationController < ActionController::Base
   end
 
   def session_cart
-    cart = Cart.where(id: session["cart.id"]).first || Cart.create
-    session["cart.id"] = cart.id
-    cart
+    @session_cart ||= Cart.where(id: session["cart.id"]).first || Cart.create
+    session["cart.id"] = @session_cart.id
+    @session_cart
   end
 end

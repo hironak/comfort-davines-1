@@ -1,10 +1,14 @@
 class SessionsController < Devise::SessionsController
-  before_filter :succeed_cart, only: [:create]
+
+  around_filter :succeed_cart, only: [:create]
 
   private
 
-  # succeed cart
   def succeed_cart
-    # TODO: ログイン時に、それまでのカートを引き継ぎたいが、それ以前にログイン状態で作成していたカートがあった場合、どうするか？
+    session_cart
+    yield
+    current_consumer.cart.try :destroy
+    session_cart.consumer = current_consumer
+    session_cart.save
   end
 end
