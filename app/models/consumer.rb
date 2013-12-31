@@ -5,6 +5,7 @@ class Consumer < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_one :cart
+  has_many :orders
 
   def find_or_build_cart
     cart || create_cart

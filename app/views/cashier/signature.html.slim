@@ -1,0 +1,31 @@
+h1 Cashier#signature
+
+= form_for Consumer.new, url: cashier_signature_path, method: :post do |f|
+
+
+  .field
+    = f.label :email
+    = f.text_field :email
+
+  .field
+    = f.label :password
+    = f.password_field :password
+
+  .field
+    = f.label :password_confirmation
+    = f.password_field :password_confirmation
+
+  = hidden_field_tag :signature, "signup"
+  = f.submit 'Sign up'
+
+= form_for Consumer.new, url: consumer_session_path, method: :post do |f|
+
+  .field
+    = f.label :email
+    = f.text_field :email
+
+  .field
+    = f.label :password
+    = f.password_field :password
+
+  = f.submit 'Sign in'

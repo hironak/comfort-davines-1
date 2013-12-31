@@ -2,6 +2,7 @@ require "test_helper"
 
 class CashierControllerTest < ActionController::TestCase
   before do
+    sign_in consumers(:one)
     cart_add products(:one), 1
   end
 
