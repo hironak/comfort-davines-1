@@ -22,11 +22,13 @@ class CashierController < ApplicationController
   def signature_create
     case params[:signature]
     when "signup"
-      binding.pry
       @consumer = Consumer.create consumer_params
     when "signin"
       @consumer = Consumer.find_for_authentication consumer_params
+    else
+      @consumer = nil
     end
+
     render "signature" and return unless @consumer
 
     sign_in @consumer

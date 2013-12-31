@@ -76,15 +76,36 @@ group :development do
 end
 
 group :development, :test do
+
+  # Console Debugger
   gem 'pry'
   gem 'pry-rails'
-  gem 'pry-remote'
+  gem 'pry-doc'
+  gem 'pry-stack_explorer'
+  gem 'pry-byebug'
+  gem 'hirb'
+  gem 'hirb-unicode'
+  gem 'tapp'
+  gem 'awesome_print'
 
+  # Browser Debugger
+  gem "better_errors"
+  gem "binding_of_caller"
+  gem "quiet_assets"
+  gem "annotate", github: "ctran/annotate_models"
+  gem "timecop"
+  gem "colorize_unpermitted_parameters"
+  gem "rack-mini-profiler"
+  gem "xray-rails"
+
+  # Test Framework
   gem 'minitest-rails'
   gem 'minitest-colorize'
 
+  # Syntax
   gem 'rubocop'
 
+  # Coverage
   gem 'simplecov', :require => false
 end
 
