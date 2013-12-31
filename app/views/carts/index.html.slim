@@ -20,6 +20,21 @@ h1 Carts#index
     tr
       td
       td
+      td = "小計:#{current_cart.items_price}円"
+
+    tr
+      td
+      td
+      td = "消費税:#{current_cart.tax}円"
+
+    tr
+      td
+      td
+      td = "送料:#{current_cart.postage}円"
+
+    tr
+      td
+      td
       td = "合計金額:#{current_cart.total_price}円"
 
   p = link_to "Cashier", cashier_path
