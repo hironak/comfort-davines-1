@@ -101,6 +101,7 @@ group :development, :test do
   # Test Framework
   gem 'minitest-rails'
   gem 'minitest-colorize'
+  gem "factory_girl_rails", "~> 4.0"
 
   # Syntax
   gem 'rubocop'

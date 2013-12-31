@@ -101,6 +101,11 @@ GEM
     erubis (2.7.0)
     eventmachine (1.0.3)
     execjs (2.0.2)
+    factory_girl (4.3.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.3.0)
+      factory_girl (~> 4.3.0)
+      railties (>= 3.0.0)
     faraday (0.8.8)
       multipart-post (~> 1.2.0)
     ffi (1.9.3)
@@ -339,6 +344,7 @@ DEPENDENCIES
   colorize_unpermitted_parameters
   devise
   devise-i18n
+  factory_girl_rails (~> 4.0)
   friendly_id (~> 5.0.0)
   guard
   guard-livereload

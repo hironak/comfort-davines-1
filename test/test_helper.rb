@@ -20,6 +20,8 @@ end
 
 
 class ActiveSupport::TestCase
+  include FactoryGirl::Syntax::Methods
+
   # Setup all fixtures in test/fixtures/*.(yml|csv) for all tests in alphabetical order.
   fixtures :all
 
