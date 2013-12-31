@@ -27,6 +27,9 @@ class CashierController < ApplicationController
 
     render "signature" and return unless @consumer
 
+    session_cart.consumer = @consumer
+    session_cart.save
+
     sign_in @consumer
     redirect_to cashier_sample_path
   end
