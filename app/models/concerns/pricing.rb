@@ -10,10 +10,10 @@ module Pricing
   end
 
   def postage
-    self.items.map(&:amount).inject(:+) * 300
+    self.items.map(&:amount).inject(:+).to_i * 300
   end
 
   def items_price
-    self.items.map(&:price).inject(:+)
+    self.items.map(&:price).inject(:+).to_i
   end
 end
