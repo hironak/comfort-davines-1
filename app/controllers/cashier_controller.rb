@@ -1,5 +1,6 @@
 class CashierController < ApplicationController
 
+  before_filter :authenticate_consumer!, except: [:index, :signature, :signature_create]
   before_filter :protect_empty_cart, only: [:index]
   before_filter :set_order, except: [:index, :complete]
 
@@ -7,6 +8,28 @@ class CashierController < ApplicationController
     @order = Order.new
     @order.extend_items current_cart
     session_save_order
+    if consumer_signed_in?
+      redirect_to cashier_sample_path
+    else
+      redirect_to cashier_signature_path
+    end
+  end
+
+  def signature
+    @consumer = Consumer.new
+  end
+
+  def signature_create
+    case params[:signature]
+    when "signup"
+      binding.pry
+      @consumer = Consumer.create consumer_params
+    when "signin"
+      @consumer = Consumer.find_for_authentication consumer_params
+    end
+    render "signature" and return unless @consumer
+
+    sign_in @consumer
     redirect_to cashier_sample_path
   end
 
@@ -41,6 +64,7 @@ class CashierController < ApplicationController
   end
 
   def confirm_create
+    @order.consumer = current_consumer
     @order.save
     current_cart.clear
     session_clear_order
@@ -79,5 +103,11 @@ class CashierController < ApplicationController
 
   def payment_params
     params.require(:order).permit(:payment)
+  end
+
+  private
+
+  def consumer_params
+    params.require(:consumer).permit(:email, :password, :password_confirmation)
   end
 end
