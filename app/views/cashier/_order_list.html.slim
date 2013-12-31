@@ -9,6 +9,20 @@ table
       td = item.product.name
       td = "[#{item.amount}個]"
       td = "#{item.price}円"
+  tr
+    td
+    td
+    td = "小計:#{@order.items_price}円"
+
+  tr
+    td
+    td
+    td = "消費税:#{@order.tax}円"
+
+  tr
+    td
+    td
+    td = "送料:#{@order.postage}円"
 
   tr
     td
