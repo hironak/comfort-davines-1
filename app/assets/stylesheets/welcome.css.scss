@@ -70,13 +70,27 @@ h3 {
         @include fill-parent;
         @include span-columns(2 of 10);
         @include omega(5n);
-        text-align: center;
-        height: 200px;
+        @include media($medium-screen) {
+          @include span-columns(1 of 2);
+          @include omega(2n);
+          text-align: center;
+        }
+        @include media($small-screen) {
+          @include span-columns(1 of 1);
+          @include omega(1n);
+        }
+        height: 150px;
         position: relative;
         .rank {
           position: absolute;
           top: 0px;
           left: 0px;
+        }
+        .image {
+          text-align: center;
+        }
+        .name {
+          font-size: 12px;
         }
       }
     }
@@ -92,6 +106,14 @@ h3 {
         @include fill-parent;
         @include span-columns(3 of 12);
         @include omega(4n);
+        @include media($medium-screen) {
+          @include span-columns(6 of 12);
+          @include omega(2n);
+        }
+        @include media($small-screen) {
+          @include span-columns(12 of 12);
+          @include omega(1n);
+        }
         img {
           width: 100%;
         }
