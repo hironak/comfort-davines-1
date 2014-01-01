@@ -1,10 +1,17 @@
-grid_for @orders, id: false do
+grid_for @orders do
+  column :id, hidden: true
+
   column :address
   column :payment
+  column :total_price
   column :created_at
 
   scope_for :items do
+    column :id, hidden: true
+
     column(:name){ |r| r.product.name }
     column :amount
+    column :origin_price
+    column :price
   end
 end
