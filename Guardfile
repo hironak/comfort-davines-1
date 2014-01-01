@@ -44,4 +44,4 @@ guard :minitest do
   # watch(%r{^app/models/(.*)\.rb})      { |m| "test/unit/#{m[1]}_test.rb" }
 end
 
-guard 'redis', executable: 'redis-server', pidfile: 'tmp/pids/redis.pid', port: 6379
+guard 'redis', executable: 'redis-server', pidfile: 'tmp/pids/redis.pid', port: (ENV['REDIS_PORT'] || 6379)

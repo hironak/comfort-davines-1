@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# dotenv
+gem 'dotenv'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 gem 'rails-i18n', '~> 4.0.0'
@@ -9,6 +12,9 @@ gem 'mysql2'
 
 # Use redis as cache or queue store
 gem 'redis-rails'
+
+# User Rack::Cache for HTTP caching
+gem 'rack-cache'
 
 # Use SCSS for stylesheets
 gem 'sass-rails'
