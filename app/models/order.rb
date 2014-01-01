@@ -51,7 +51,20 @@ class Order < ActiveRecord::Base
     end
   end
 
-  def extend_items cart
+  searchable do
+    text :address, :payment
+    text :products do
+      products.map(&:name)
+    end
+
+    boolean :sample do
+      products.find(&:sample)
+    end
+
+    integer :total_price
+  end
+
+  def extend_items(cart)
     cart.items.each do |item|
       self.items.build(
         product_id: item.product.id,

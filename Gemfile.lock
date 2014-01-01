@@ -234,6 +234,7 @@ GEM
       slop (~> 3.4, >= 3.4.5)
     polyglot (0.3.3)
     powerpack (0.0.9)
+    pr_geohash (1.0.0)
     pry (0.9.12.4)
       coderay (~> 1.0)
       method_source (~> 0.8)
@@ -305,6 +306,8 @@ GEM
       redis (>= 2.2)
     ref (1.0.5)
     rolify (3.2.0)
+    rsolr (1.0.9)
+      builder (>= 2.1.2)
     rubocop (0.16.0)
       parser (~> 2.1)
       powerpack (~> 0.0.6)
@@ -350,6 +353,14 @@ GEM
       net-scp (>= 1.1.2)
       net-ssh
       term-ansicolor
+    sunspot (2.1.0)
+      pr_geohash (~> 1.0)
+      rsolr (~> 1.0.7)
+    sunspot_rails (2.1.0)
+      nokogiri
+      rails (>= 3)
+      sunspot (= 2.1.0)
+    sunspot_solr (2.1.0)
     tapp (1.4.0)
       thor
     temple (0.6.7)
@@ -466,6 +477,8 @@ DEPENDENCIES
   simplecov
   slim-rails
   sorcery
+  sunspot_rails
+  sunspot_solr
   tapp
   the_grid
   therubyracer

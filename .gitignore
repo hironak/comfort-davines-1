@@ -15,8 +15,10 @@
 /public/system
 /config/database.yml
 
+/solr
+
 # Ignore all logfiles and tempfiles.
-/log/*.log
+/log
 /tmp
 /coverage
 /.env
