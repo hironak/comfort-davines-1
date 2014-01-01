@@ -29,7 +29,8 @@
         .item
           .rank = image_tag "welcome/ranking0#{n+1}.jpg", alt: "#{n+1}位"
           .image
-            = image_tag item.image.url
+            = link_to item do
+              = image_tag item.image.url(:thumb)
           .name
             = item.name
 
