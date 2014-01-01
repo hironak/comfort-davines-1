@@ -37,9 +37,10 @@
   h3
     | シリーズで探す
   .box
-    - Series.all.each do |series|
-      .item
-        = series.name
+    .items
+      - Series.all.each do |series|
+        .item
+          .image = image_tag series.topimage.url, alt: series.name
 
 .category
   h3

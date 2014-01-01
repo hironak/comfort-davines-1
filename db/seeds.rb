@@ -10,28 +10,30 @@ if (Rails.env.development? || Rails.env.staging?) && Administrator.count == 0
   Administrator.create username: "testuser", password: "password", password_confirmation: "password"
 end
 
-%w|NATURALTECH AUTHENTIC OI/OIL|.each do |name|
-  Series.create name: name
+%w|NATURALTECH AUTHENTIC OI/OIL comingsoon|.each_with_index do |name, n|
+  Series.create name: name, topimage: File.new(Rails.root.join("test/assets/products/image/series0#{n + 1}.jpg"))
 end
 
 %w|シャンプー コンディショナー オイル クリーム スカルプケア ミスト|.each do |name|
   Category.create name: name
 end
 
-Series.all.each do |series|
-  Category.all.each do |category|
+require "csv"
 
-    Product.create name: "#{series.name} #{category.name}",
-      price: 3000,
-      stock: 10,
-      series_id: series.id,
-      category_id: category.id
+CSV.read(Rails.root.join("test/fixtures/products.csv").to_s, headers: :first_row).each do |attrs|
 
-    Product.create name: "#{series.name} #{category.name} (サンプル)",
-      price: 0,
-      stock: 10,
-      series_id: series.id,
-      category_id: category.id,
-      sample: true
-  end
+  attrs = attrs.to_hash
+
+  files = %w|jpg png|.map { |ext| Rails.root.join("test/assets/products/image/#{attrs['image']}.#{ext}") }
+
+  file = files.find { |f| File.exist?(f) }
+
+  attrs["image"] = File.new(file)
+  attrs["stock"] = 10
+
+  Product.create(attrs)
+
+  attrs["price"] = 0
+  attrs["sample"] = true
+  Product.create(attrs)
 end

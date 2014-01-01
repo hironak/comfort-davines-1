@@ -82,3 +82,20 @@ h3 {
     }
   }
 }
+
+.series {
+  .box {
+    .items {
+      @include fill-parent;
+      @include clearfix;
+      .item {
+        @include fill-parent;
+        @include span-columns(3 of 12);
+        @include omega(4n);
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
