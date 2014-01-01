@@ -18,8 +18,9 @@
 // ----------------------------------------
 .header {
   overflow: hidden;
-  border-bottom: 2px solid #000;
   margin-bottom: 20px;
+  padding: 5px 0;
+  background: image-url('header/border.jpg') bottom center repeat-x white;
   .logo {
     padding: 10px 0;
     font-weight: bold;
@@ -28,18 +29,20 @@
   .consumer {
     float: right;
     list-style: none;
-    margin: 10px;
     li {
       display: inline;
-      margin: 0.5em;
     }
   }
   .globalnavi {
     float: right;
+    font-size: 12px;
     ul {
       li {
         float: left;
         margin-left: $gutter;
+        a {
+          color: black;
+        }
       }
     }
   }

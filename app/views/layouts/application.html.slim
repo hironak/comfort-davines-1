@@ -12,13 +12,29 @@ html
       .container
         ul.consumer
           - if current_consumer
-            li = link_to 'Sign out', destroy_consumer_session_path, method: :delete
-          - else
-            li = link_to 'Sign up', new_consumer_registration_path
-            li = link_to 'Sign in', new_consumer_session_path
+            li
+              = link_to 'Sign out', destroy_consumer_session_path, method: :delete
+            li
+              = link_to carts_path do
+                = image_tag 'header/cart.jpg', alt: "Cart(#{current_cart.items.count})"
+            li
+              = link_to new_consumer_session_path do
+                = image_tag 'header/signin-mypage.jpg', alt: 'sign in'
 
-          li = link_to "Cart(#{current_cart.items.count})", carts_path
-        .logo = link_to "Davines", root_path
+          - else
+            li
+              = link_to new_consumer_registration_path do
+                = image_tag 'header/signup.jpg', alt: 'sign up'
+            li
+              = link_to carts_path do
+                = image_tag 'header/cart.jpg', alt: "Cart(#{current_cart.items.count})"
+            li
+              = link_to new_consumer_session_path do
+                = image_tag 'header/signin-mypage.jpg', alt: 'sign in'
+
+        .logo
+          = link_to root_path do
+            = image_tag 'header/logo.jpg', alt: 'davines'
 
         .globalnavi
           ul

@@ -15,6 +15,21 @@ h3 {
   margin-bottom: $gutter;
 }
 
+.banner {
+  overflow: hidden;
+  margin-bottom: $gutter;
+  @include fill-parent;
+  .item {
+    @include span-columns(6 of 12);
+    @include omega(2n);
+    img {
+      display: block;
+      width: 100%;
+      margin-bottom: $gutter;
+    }
+  }
+}
+
 .news {
   .box {
     height: 200px;
