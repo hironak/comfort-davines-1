@@ -3,11 +3,7 @@
 
 notification :gntp
 
-guard 'rails', :server => :unicorn do
-  watch('Gemfile.lock')
-  watch(%r{^(config|lib)/.*})
-end
-
+guard 'redis', executable: 'redis-server', pidfile: 'tmp/pids/redis.pid', port: (ENV['REDIS_PORT'] || 6379)
 
 guard 'livereload' do
   watch(%r{app/views/.+\.(erb|haml|slim)$})
@@ -16,6 +12,11 @@ guard 'livereload' do
   watch(%r{config/locales/.+\.yml})
   # Rails Assets Pipeline
   watch(%r{(app|vendor)(/assets/\w+/(.+\.(css|less|scss|js|coffee|html|slim))).*}) { |m| "/assets/#{m[3]}" }
+end
+
+guard 'rails', :server => :unicorn do
+  watch('Gemfile.lock')
+  watch(%r{^(config|lib)/.*})
 end
 
 guard :minitest do
@@ -44,4 +45,3 @@ guard :minitest do
   # watch(%r{^app/models/(.*)\.rb})      { |m| "test/unit/#{m[1]}_test.rb" }
 end
 
-guard 'redis', executable: 'redis-server', pidfile: 'tmp/pids/redis.pid', port: (ENV['REDIS_PORT'] || 6379)
