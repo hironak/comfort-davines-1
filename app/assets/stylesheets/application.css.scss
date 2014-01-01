@@ -18,8 +18,9 @@
 // ----------------------------------------
 .header {
   overflow: hidden;
-  border-bottom: 2px solid #000;
   margin-bottom: 20px;
+  padding: 5px 0;
+  background: image-url('header/border.jpg') bottom center repeat-x white;
   .logo {
     padding: 10px 0;
     font-weight: bold;
@@ -28,18 +29,20 @@
   .consumer {
     float: right;
     list-style: none;
-    margin: 10px;
     li {
       display: inline;
-      margin: 0.5em;
     }
   }
   .globalnavi {
     float: right;
+    font-size: 12px;
     ul {
       li {
         float: left;
         margin-left: $gutter;
+        a {
+          color: black;
+        }
       }
     }
   }
@@ -50,10 +53,14 @@
 // Contents
 // ----------------------------------------
 .contents {
-  padding-bottom: 300px;
   .container {
     &.welcome {
       @import "welcome";
+    }
+
+    .totop {
+      margin-top: 300px;
+      text-align: right;
     }
   }
 }
@@ -62,10 +69,20 @@
 // Footer
 // ----------------------------------------
 .footer {
-  border-top: 2px solid #000;
+  padding: 5px 0;
+  background: image-url('footer/background.jpg');
   .links {
     padding: 15px;
     @include span-columns(4);
+    @include omega(3n);
+    ul {
+      @extend %default-ul;
+    }
+  }
+  .copyright {
+    font-size: 10px;
+    color: #333;
+    text-align: right;
   }
 }
 

@@ -12,17 +12,35 @@ h3 {
 }
 
 .box {
+  margin-bottom: 30px;
+  @include fill-parent;
+  @include clearfix;
+}
+
+.banner {
+  overflow: hidden;
   margin-bottom: $gutter;
+  .box {
+    .item {
+      @include span-columns(6 of 12);
+      @include omega(2n);
+      img {
+        display: block;
+        width: 100%;
+        margin-bottom: $gutter;
+      }
+    }
+  }
 }
 
 .news {
   .box {
     height: 200px;
     overflow: scroll;
-    background: $light-gray;
+    background: image-url('welcome/news-background.jpg');
     font-size: 0.8em;
     border: 2px solid $medium-gray;
-    padding: $gutter / 2;
+    padding: 20px;
     .row {
       position: relative;
       $date-width: 100px;
