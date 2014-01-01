@@ -59,30 +59,26 @@ h3 {
   }
 }
 
-
-.items {
-  @include span-columns(12);
-  .item {
-    border: 1px solid #000;
-    padding: 15px;
-    margin-bottom: $gutter;
-    height: 400px;
-    text-align: center;
-    @include span-columns(3 of 12);
-    @include omega(4n);
-  }
-  @include media($medium-screen) {
-    @include span-columns(8);
-    .item {
-      @include span-columns(4 of 8);
-      @include omega(2n);
-    }
-  }
-  @include media($small-screen) {
-    @include span-columns(4);
-    .item {
-      @include span-columns(4 of 4);
-      @include omega(1n);
+.ranking {
+  .box {
+    .items {
+      @include fill-parent;
+      @include clearfix;
+      border: 1px solid black;
+      padding: 20px;
+      .item {
+        @include fill-parent;
+        @include span-columns(2 of 10);
+        @include omega(5n);
+        text-align: center;
+        height: 200px;
+        position: relative;
+        .rank {
+          position: absolute;
+          top: 0px;
+          left: 0px;
+        }
+      }
     }
   }
 }
