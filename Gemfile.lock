@@ -127,6 +127,9 @@ GEM
       minitest (>= 3.0)
     guard-rails (0.4.7)
       guard (>= 0.2.2)
+    guard-redis (0.3.0)
+      guard (>= 0.4.0)
+      redis (>= 2.2.2)
     hike (1.2.3)
     hirb (0.7.1)
     hirb-unicode (0.0.5)
@@ -237,6 +240,23 @@ GEM
       ffi (>= 0.5.0)
     rdoc (3.12.2)
       json (~> 1.4)
+    redis (3.0.6)
+    redis-actionpack (4.0.0)
+      actionpack (~> 4)
+      redis-rack (~> 1.5.0)
+      redis-store (~> 1.1.0)
+    redis-activesupport (4.0.0)
+      activesupport (~> 4)
+      redis-store (~> 1.1.0)
+    redis-rack (1.5.0)
+      rack (~> 1.5)
+      redis-store (~> 1.1.0)
+    redis-rails (4.0.0)
+      redis-actionpack (~> 4)
+      redis-activesupport (~> 4)
+      redis-store (~> 1.1.0)
+    redis-store (1.1.4)
+      redis (>= 2.2)
     ref (1.0.5)
     rolify (3.2.0)
     rubocop (0.16.0)
@@ -350,6 +370,7 @@ DEPENDENCIES
   guard-livereload
   guard-minitest
   guard-rails
+  guard-redis
   hirb
   hirb-unicode
   jbuilder (~> 1.2)
@@ -368,6 +389,7 @@ DEPENDENCIES
   rack-mini-profiler
   rails (= 4.0.2)
   rails-i18n (~> 4.0.0)
+  redis-rails
   rolify
   rubocop
   ruby_gntp

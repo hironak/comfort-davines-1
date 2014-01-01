@@ -7,6 +7,9 @@ gem 'rails-i18n', '~> 4.0.0'
 # Use mysql as the database for Active Record
 gem 'mysql2'
 
+# Use redis as cache or queue store
+gem 'redis-rails'
+
 # Use SCSS for stylesheets
 gem 'sass-rails'
 
@@ -65,14 +68,17 @@ group :doc do
 end
 
 group :development do
-  gem 'ruby_gntp'
 
+  # Quiet Assets Log
   gem 'quiet_assets'
 
+  # Guard
+  gem 'ruby_gntp'
   gem 'guard'
   gem 'guard-rails'
   gem 'guard-livereload'
   gem 'guard-minitest'
+  gem 'guard-redis'
 end
 
 group :development, :test do
