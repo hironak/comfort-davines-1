@@ -3,67 +3,67 @@
 # one by one as the offences are removed from the code base.
 
 Alias:
-  Enabled: false
+  Enabled: true
 
 AlignArray:
-  Enabled: false
+  Enabled: true
 
 AndOr:
-  Enabled: false
+  Enabled: true
 
 AsciiComments:
-  Enabled: false
+  Enabled: true
 
 BracesAroundHashParameters:
-  Enabled: false
+  Enabled: true
 
 DefWithoutParentheses:
-  Enabled: false
+  Enabled: true
 
 Documentation:
-  Enabled: false
+  Enabled: true
 
 EmptyLines:
-  Enabled: false
+  Enabled: true
 
 EmptyLinesAroundAccessModifier:
-  Enabled: false
+  Enabled: true
 
 EmptyLinesAroundBody:
-  Enabled: false
+  Enabled: true
 
 FinalNewline:
-  Enabled: false
+  Enabled: true
 
 HandleExceptions:
-  Enabled: false
+  Enabled: true
 
 HashSyntax:
-  Enabled: false
+  Enabled: true
 
 LineLength:
-  Enabled: false
+  Enabled: true
 
 MethodLength:
-  Enabled: false
+  Enabled: true
 
 NumericLiterals:
-  Enabled: false
+  Enabled: true
 
 RedundantSelf:
-  Enabled: false
+  Enabled: true
 
 SpaceInsideBrackets:
-  Enabled: false
+  Enabled: true
 
 SpaceInsideHashLiteralBraces:
-  Enabled: false
+  Enabled: true
 
 StringLiterals:
-  Enabled: false
+  Enabled: true
 
 TrailingWhitespace:
-  Enabled: false
+  Enabled: true
 
 WordArray:
-  Enabled: false
+  Enabled: true
