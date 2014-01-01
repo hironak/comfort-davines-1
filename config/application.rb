@@ -28,5 +28,8 @@ module Commers
     config.i18n.enforce_available_locales = true
     config.i18n.default_locale = :ja
 
+    ENV['REDIS_URL'] = "redis://#{ENV['REDIS_HOST'] || 'localhost'}:#{ENV['REDIS_PORT'] || 6379}"
+
+    config.cache_store = :redis_store, "#{ENV['REDIS_URL']}/0/cache", { expires_in: 90.minutes }
   end
 end

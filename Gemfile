@@ -1,11 +1,20 @@
 source 'https://rubygems.org'
 
+# dotenv
+gem 'dotenv'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 gem 'rails-i18n', '~> 4.0.0'
 
 # Use mysql as the database for Active Record
 gem 'mysql2'
+
+# Use redis as cache or queue store
+gem 'redis-rails'
+
+# User Rack::Cache for HTTP caching
+gem 'rack-cache'
 
 # Use SCSS for stylesheets
 gem 'sass-rails'
@@ -65,14 +74,17 @@ group :doc do
 end
 
 group :development do
-  gem 'ruby_gntp'
 
+  # Quiet Assets Log
   gem 'quiet_assets'
 
+  # Guard
+  gem 'ruby_gntp'
   gem 'guard'
   gem 'guard-rails'
   gem 'guard-livereload'
   gem 'guard-minitest'
+  gem 'guard-redis'
 end
 
 group :development, :test do
