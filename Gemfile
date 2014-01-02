@@ -126,6 +126,9 @@ end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
+# Use Active Merchant for payment
+  gem 'activemerchant'
+
 # Use unicorn as the app server
 gem 'unicorn'
 gem 'unicorn-rails'
