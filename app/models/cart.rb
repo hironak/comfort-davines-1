@@ -1,3 +1,4 @@
+# class Cart
 class Cart < ActiveRecord::Base
   include Pricing
   include Regulating

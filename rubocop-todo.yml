@@ -17,9 +17,6 @@ AsciiComments:
 BracesAroundHashParameters:
   Enabled: true
 
-DefWithoutParentheses:
-  Enabled: true
-
 Documentation:
   Enabled: true
 
@@ -42,10 +39,13 @@ HashSyntax:
   Enabled: true
 
 LineLength:
+  Max: 80
+
+MethodDefParentheses:
   Enabled: true
 
 MethodLength:
-  Enabled: true
+  Max: 15
 
 NumericLiterals:
   Enabled: true
@@ -53,10 +53,19 @@ NumericLiterals:
 RedundantSelf:
   Enabled: true
 
+SignalException:
+  Enabled: true
+
+SpaceAroundEqualsInParameterDefault:
+  Enabled: true
+
 SpaceInsideBrackets:
   Enabled: true
 
 SpaceInsideHashLiteralBraces:
+  Enabled: true
+
+SpaceInsideParens:
   Enabled: true
 
 StringLiterals:
