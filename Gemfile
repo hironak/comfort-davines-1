@@ -69,6 +69,9 @@ gem 'friendly_id', '~> 5.0.0'
 # Image Upload
 gem 'paperclip'
 
+# W3c Validators
+gem 'w3c_validators'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
