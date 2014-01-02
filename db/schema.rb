@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140101170501) do
+ActiveRecord::Schema.define(version: 20140102162830) do
+
+  create_table "administration_pages", force: true do |t|
+    t.text     "body"
+    t.text     "style"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "administrators", force: true do |t|
     t.string   "username",         null: false
@@ -93,6 +100,13 @@ ActiveRecord::Schema.define(version: 20140101170501) do
   end
 
   add_index "orders", ["consumer_id"], name: "index_orders_on_consumer_id", using: :btree
+
+  create_table "pages", force: true do |t|
+    t.text     "body"
+    t.text     "style"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "products", force: true do |t|
     t.string   "name"

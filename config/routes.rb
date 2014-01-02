@@ -65,5 +65,7 @@ Commers::Application.routes.draw do
     # 裏側ユーザ管理
     resources :administrators
 
+    # ページ編集
+    resources :pages
   end
 end

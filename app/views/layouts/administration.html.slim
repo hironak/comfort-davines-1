@@ -26,7 +26,7 @@ html
         .menubar
           - if current_administrator
             ul
-              - [:root, :products, :serieses, :categories, :orders, :administrators].each do |controller|
+              - [:root, :products, :serieses, :categories, :pages, :orders, :administrators].each do |controller|
                 li = link_to controller, [:admin, controller]
 
         .main
