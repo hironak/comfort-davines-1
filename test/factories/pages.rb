@@ -3,6 +3,10 @@
 FactoryGirl.define do
   factory :page do
     body "MyText"
-    style "MyText"
+    style <<-STYLE
+      .validstyle {
+        padding: 0px;
+      }
+    STYLE
   end
 end

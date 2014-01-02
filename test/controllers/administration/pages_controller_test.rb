@@ -20,7 +20,7 @@ class Administration::PagesControllerTest < ActionController::TestCase
 
   def test_create
     assert_difference('Page.count') do
-      post :create, page: { body: 'New body', style: 'New style' }
+      post :create, page: { body: 'New body', style: ".validstyle {\n}" }
     end
 
     assert_redirected_to admin_page_path(assigns(:page))
@@ -37,7 +37,7 @@ class Administration::PagesControllerTest < ActionController::TestCase
   end
 
   def test_update
-    put :update, id: @page, page: { body: 'Edit body', style: 'Edit style'  }
+    put :update, id: @page, page: { body: 'Edit body', style: ".validstyle{\n}"  }
     assert_redirected_to admin_page_path(assigns(:page))
   end
 
