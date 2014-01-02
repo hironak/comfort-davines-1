@@ -5,6 +5,7 @@ html
     = stylesheet_link_tag    "administration/base", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "administration/base", "data-turbolinks-track" => true
     = csrf_meta_tags
+    = yield :editable_style
   body
 
     .header

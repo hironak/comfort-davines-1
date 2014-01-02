@@ -1,11 +1,11 @@
 p#notice = notice
 
-p
-  strong Body:
+- content_for :editable_style do
+  = stylesheet_tag do
+    = @editable_style.chomp.html_safe
+
+.editable
   = @page.body
-p
-  strong Style:
-  = @page.style
 
 = link_to 'Edit', edit_admin_page_path(@page)
 '|

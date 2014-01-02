@@ -11,6 +11,8 @@ module Administration
     # GET /administration/pages/1
     # GET /administration/pages/1.json
     def show
+      scss = render_to_string('editable', formats: :scss)
+      @editable_style = Sass::Engine.new(scss, syntax: :scss).render
     end
 
     # GET /administration/pages/new
