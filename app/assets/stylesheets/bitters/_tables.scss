@@ -20,3 +20,62 @@ td {
 tr, td, th {
   vertical-align: middle;
 }
+
+table.cart {
+  thead {
+    th {
+      text-align: center;
+    }
+  }
+  th, td {
+    border: 1px solid $base-border-color;
+    &.product {
+      width: 80%;
+    }
+    &.price {
+      width: 10%;
+    }
+    &.amount {
+      width: 10%;
+    }
+    &.remove {
+      width: 10%;
+    }
+  }
+  tbody {
+    tr.item {
+      td.product {
+        vertical-align: top;
+        .image {
+          text-align: center;
+          border:1px solid $dark-gray;
+          width: 100px;
+          margin-right: 10px;
+          float: left;
+        }
+        .information {
+        }
+      }
+      td.price {
+        text-align: right;
+      }
+      td.amount {
+        form {
+          text-align: center;
+          select {
+            margin: 0;
+            display: inline;
+          }
+        }
+      }
+      td.remove {
+        text-align: center;
+      }
+    }
+    tr {
+      td.results {
+        text-align: right;
+      }
+    }
+  }
+}

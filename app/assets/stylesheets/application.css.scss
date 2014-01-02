@@ -57,6 +57,9 @@
     &.welcome {
       @import "welcome";
     }
+    &.carts {
+      @import "carts";
+    }
 
     .totop {
       margin-top: 300px;

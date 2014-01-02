@@ -13,5 +13,10 @@
 #= require jquery
 #= require jquery.turbolinks
 #= require jquery_ujs
+#= require_self
 #= require_directory .
 #= require turbolinks
+
+$ ->
+  $('.autosend').on 'change', ->
+    $(@).submit()
