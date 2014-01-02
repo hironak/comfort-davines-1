@@ -3,6 +3,8 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 #
 #= require jquery
+#= require jquery.turbolinks
 #= require jquery_ujs
-#= require turbolinks
+#= require_self
 #= require_tree .
+#= require turbolinks
