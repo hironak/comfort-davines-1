@@ -3,8 +3,6 @@
 
 notification :gntp
 
-guard 'redis', executable: 'redis-server', pidfile: 'tmp/pids/redis.pid', port: (ENV['REDIS_PORT'] || 6379)
-
 guard 'livereload' do
   watch(%r{app/views/.+\.(erb|haml|slim)$})
   watch(%r{app/helpers/.+\.rb})
