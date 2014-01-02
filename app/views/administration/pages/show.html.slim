@@ -1,0 +1,12 @@
+p#notice = notice
+
+- content_for :editable_style do
+  = stylesheet_tag "data-turbolinks-track" => true do
+    = @editable_style.chomp.html_safe
+
+.editable
+  = @page.body.html_safe
+
+= link_to 'Edit', edit_admin_page_path(@page)
+'|
+= link_to 'Back', admin_pages_path

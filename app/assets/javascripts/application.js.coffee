@@ -20,3 +20,5 @@
 $ ->
   $('.autosend').on 'change', ->
     $(@).submit()
+
+

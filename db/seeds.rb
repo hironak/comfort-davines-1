@@ -20,7 +20,7 @@ end
 
 require "csv"
 
-CSV.read(Rails.root.join("test/fixtures/products.csv").to_s, headers: :first_row).each do |attrs|
+CSV.read(Rails.root.join("test/fixtures/products.csv").to_s, headers: :first_row, col_sep: "\t").each do |attrs|
 
   attrs = attrs.to_hash
 
