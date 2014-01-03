@@ -72,7 +72,7 @@ module Administration
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def page_params
-      params.require(:page).permit(:body, :style)
+      params.require(:page).permit(:title, :body, :style)
     end
   end
 end
