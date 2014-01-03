@@ -31,6 +31,10 @@
     = f.collection_select :category_id, Category.all, :id, :name
 
   .field
+    = f.label :page
+    = f.collection_select :page_id, Page.all, :id, :title
+
+  .field
     = f.label :sample
     = f.check_box :sample
 

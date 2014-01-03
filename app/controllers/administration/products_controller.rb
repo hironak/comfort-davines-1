@@ -11,6 +11,10 @@ module Administration
     # GET /products/1
     # GET /products/1.json
     def show
+      if @page = @product.page
+        scss = render_to_string('editable', formats: :scss)
+        @editable_style = Sass::Engine.new(scss, syntax: :scss).render
+      end
     end
 
     # GET /products/new
@@ -70,7 +74,7 @@ module Administration
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:name, :price, :image, :stock, :sample, :category_id, :series_id)
+      params.require(:product).permit(:name, :price, :image, :stock, :sample, :category_id, :series_id, :page_id)
     end
   end
 end

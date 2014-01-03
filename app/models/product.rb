@@ -4,6 +4,7 @@ class Product < ActiveRecord::Base
 
   belongs_to :series
   belongs_to :category
+  belongs_to :page
 
   has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }
 
