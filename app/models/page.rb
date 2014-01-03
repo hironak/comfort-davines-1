@@ -15,6 +15,6 @@ class Page < ActiveRecord::Base
   end
 
   def self.latest_update
-    latest.updated_at
+    latest.try :updated_at || "pages never created."
   end
 end
