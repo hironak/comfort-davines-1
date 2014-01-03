@@ -3,8 +3,9 @@ h1 Cashier#payment
 
   .field
     = f.label :payment
-    = f.text_field :payment
-
+    = f.select :payment,[["クレジットカード","credit"],
+                         ["NP後払い","np_payment"]
+                         ["代金引換","collect"]]
   = f.submit 'payment'
 
 = render "order_list"
