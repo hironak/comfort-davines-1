@@ -44,6 +44,7 @@ GEM
       multi_json (~> 1.3)
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
+    addressable (2.3.5)
     arel (4.0.1)
     ast (1.1.0)
     atomic (1.1.14)
@@ -96,6 +97,8 @@ GEM
     colorize_unpermitted_parameters (0.0.2)
       term-ansicolor
     columnize (0.3.6)
+    crack (0.4.1)
+      safe_yaml (~> 0.9.0)
     debug_inspector (0.0.2)
     debugger-linecache (1.2.0)
     devise (3.2.2)
@@ -286,6 +289,7 @@ GEM
       powerpack (~> 0.0.6)
       rainbow (>= 1.1.4)
     ruby_gntp (0.3.4)
+    safe_yaml (0.9.7)
     sass (3.2.13)
     sass-rails (4.0.1)
       railties (>= 4.0.0, < 5.0)
@@ -365,6 +369,9 @@ GEM
       nokogiri
     warden (1.2.3)
       rack (>= 1.0)
+    webmock (1.16.1)
+      addressable (>= 2.2.7)
+      crack (>= 0.3.2)
     xray-rails (0.1.12)
       coffee-rails
       rails (>= 3.1.0)
@@ -436,4 +443,5 @@ DEPENDENCIES
   unicorn
   unicorn-rails
   w3c_validators
+  webmock
   xray-rails
