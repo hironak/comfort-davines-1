@@ -25,7 +25,7 @@ gem 'bitters'
 gem 'neat'
 
 # User Bower
-# gem "bower-rails", "~> 0.6.0"
+# gem 'bower-rails', '~> 0.6.0'
 
 # Use TheGrid for csv
 gem 'the_grid'
@@ -66,8 +66,14 @@ gem 'rolify'
 # FriendlyIg
 gem 'friendly_id', '~> 5.0.0'
 
+# Markdown
+gem 'redcarpet'
+
 # Image Upload
 gem 'paperclip'
+
+# Editor
+gem 'ace-rails-ap', '~> 2.0.0'
 
 # W3c Validators
 gem 'w3c_validators'
@@ -80,7 +86,7 @@ end
 group :development do
 
   # Quiet Assets Log
-  gem 'quiet_assets'
+  gem 'quiet_assets', '~> 1.0.2'
 
   # Guard
   gem 'ruby_gntp'
@@ -105,32 +111,32 @@ group :development, :test do
   gem 'awesome_print'
 
   # Browser Debugger
-  gem "better_errors"
-  gem "binding_of_caller"
-  gem "quiet_assets"
-  gem "annotate", github: "ctran/annotate_models"
-  gem "timecop"
-  gem "colorize_unpermitted_parameters"
-  gem "rack-mini-profiler"
-  gem "xray-rails"
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'annotate', github: 'ctran/annotate_models'
+  gem 'timecop'
+  gem 'colorize_unpermitted_parameters'
+  gem 'rack-mini-profiler'
+  gem 'xray-rails'
 
   # Test Framework
   gem 'minitest-rails'
   gem 'minitest-colorize'
-  gem "factory_girl_rails", "~> 4.0"
+  gem 'factory_girl_rails', '~> 4.0'
+  gem 'webmock'
 
   # Syntax
   gem 'rubocop'
 
   # Coverage
-  gem 'simplecov', :require => false
+  gem 'simplecov', require: false
 end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use Active Merchant for payment
-  gem 'activemerchant'
+gem 'activemerchant'
 
 # Use unicorn as the app server
 gem 'unicorn'

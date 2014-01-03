@@ -31,4 +31,6 @@ Commers::Application.configure do
   config.sass.debug_info = true
 
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+  WebMock.disable!
 end

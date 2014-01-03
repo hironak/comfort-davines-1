@@ -1,9 +1,4 @@
 
--if @product.page
-  - content_for :editable_style do
-    = stylesheet_tag "data-turbolinks-track" => true do
-      = @editable_style
-
 p = @product.name
 
 p = @product.price
@@ -13,5 +8,5 @@ p = image_tag @product.image.url
 p = link_to "Add Cart", add_carts_path(product_id: @product.id, amount: 1), method: :post
 
 - if @product.page
-  .editable
-    = @product.page.body.html_safe
+  .editable class="page#{@product.page.id}"
+    = page_body @product.page.body, @product.page.render_type

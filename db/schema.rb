@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140102204133) do
+ActiveRecord::Schema.define(version: 20140103065859) do
 
   create_table "administrators", force: true do |t|
     t.string   "username",         null: false
@@ -59,6 +59,17 @@ ActiveRecord::Schema.define(version: 20140102204133) do
   add_index "consumers", ["email"], name: "index_consumers_on_email", unique: true, using: :btree
   add_index "consumers", ["reset_password_token"], name: "index_consumers_on_reset_password_token", unique: true, using: :btree
 
+  create_table "file_storages", force: true do |t|
+    t.string   "name"
+    t.string   "path"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+  end
+
   create_table "friendly_id_slugs", force: true do |t|
     t.string   "slug",                      null: false
     t.integer  "sluggable_id",              null: false
@@ -100,6 +111,7 @@ ActiveRecord::Schema.define(version: 20140102204133) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "title"
+    t.string   "render_type"
   end
 
   create_table "products", force: true do |t|

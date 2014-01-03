@@ -6,6 +6,7 @@
 // ----------------------------------------
 .container {
   @include outer-container;
+  padding: 0 15px;
 }
 
 .header {}
@@ -54,13 +55,14 @@
 // ----------------------------------------
 .contents {
   .container {
+    @import "editable";
+
     &.welcome {
       @import "welcome";
     }
     &.carts {
       @import "carts";
     }
-
     .totop {
       margin-top: 300px;
       text-align: right;

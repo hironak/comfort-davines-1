@@ -1,0 +1,11 @@
+.contents {
+  .container {
+    .editable {
+      <% @pages.each do |page| %>
+        &.page<%= page.id %> {
+          <%= page.style %>
+        }
+      <% end %>
+    }
+  }
+}

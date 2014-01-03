@@ -10,9 +10,16 @@
     = f.label :title
     = f.text_field :title
   .field
-    = f.label :body
-    = f.text_area :body
-  .field
+    = f.label :render_type
+    = f.select :render_type, [['HTML', 'html'], ['Markdown', 'markdown']]
+  .selector
+    = link_to 'Style', '.style'
+    = link_to 'Body', '.body'
+  #editor
+  .field.style
     = f.label :style
     = f.text_area :style
+  .field.body
+    = f.label :body
+    = f.text_area :body
   .actions = f.submit 'Save'

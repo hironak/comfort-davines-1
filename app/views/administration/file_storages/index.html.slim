@@ -1,0 +1,23 @@
+h1 Listing file_storages
+
+table
+  tr
+    th Name
+    th Path
+    th File
+    th
+    th
+    th
+
+  - @file_storages.each do |file_storage|
+    tr
+      td = file_storage.name
+      td = file_storage.path
+      td = file_storage.file
+      td = link_to 'Show', [:admin, file_storage]
+      td = link_to 'Edit', edit_admin_file_storage_path(file_storage)
+      td = link_to 'Destroy', [:admin, file_storage], data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New File storage', new_admin_file_storage_path

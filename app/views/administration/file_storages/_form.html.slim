@@ -1,0 +1,18 @@
+= form_for [:admin, @file_storage] do |f|
+  - if @file_storage.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@file_storage.errors.count, "error")} prohibited this file_storage from being saved:"
+      ul
+        - @file_storage.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :path
+    = f.text_field :path
+  .field
+    = f.label :file
+    = f.file_field :file
+  .actions = f.submit 'Save'

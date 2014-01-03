@@ -1,10 +1,23 @@
 require "test_helper"
 
 class Administration::PagesControllerTest < ActionController::TestCase
-
   before do
+    stub_validator
     login_user administrators(:one)
     @page = create(:page)
+  end
+
+  def stub_validator
+    stub_request(:get, W3CValidators::CSSValidator::CSS_VALIDATOR_URI)
+      .with(query: hash_including(request_params))
+      .to_return(:status => 200, :body => "", :headers => {})
+  end
+
+  def request_params
+    {
+      output: 'soap12',
+      profile: 'css3',
+    }
   end
 
   def test_index
@@ -37,7 +50,7 @@ class Administration::PagesControllerTest < ActionController::TestCase
   end
 
   def test_update
-    put :update, id: @page, page: { body: 'Edit body', style: ".validstyle{\n}"  }
+    put :update, id: @page, page: { body: 'Edit body', style: ".validstyle {\n}"  }
     assert_redirected_to admin_page_path(assigns(:page))
   end
 

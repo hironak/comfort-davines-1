@@ -1,5 +1,7 @@
 Commers::Application.routes.draw do
 
+  get "editable/stylesheets/:key", to: "editable#stylesheets"
+
   # トップページ
   root to: "welcome#index"
 
@@ -67,5 +69,8 @@ Commers::Application.routes.draw do
 
     # ページ編集
     resources :pages
+
+    # File Storage
+    resources :file_storages
   end
 end

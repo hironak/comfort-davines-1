@@ -11,8 +11,6 @@ module Administration
     # GET /administration/pages/1
     # GET /administration/pages/1.json
     def show
-      scss = render_to_string('editable', formats: :scss)
-      @editable_style = Sass::Engine.new(scss, syntax: :scss).render
     end
 
     # GET /administration/pages/new
@@ -72,7 +70,7 @@ module Administration
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def page_params
-      params.require(:page).permit(:body, :style)
+      params.require(:page).permit(:title, :render_type, :body, :style)
     end
   end
 end

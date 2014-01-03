@@ -5,6 +5,11 @@
 #= require jquery
 #= require jquery.turbolinks
 #= require jquery_ujs
+#= require ace/ace
+#= require ace/mode-css
+#= require ace/mode-html
+#= require ace/mode-markdown
+#= require ace/theme-solarized_light
 #= require_self
 #= require_tree .
 #= require turbolinks

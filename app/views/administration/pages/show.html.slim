@@ -1,11 +1,7 @@
 p#notice = notice
 
-- content_for :editable_style do
-  = stylesheet_tag "data-turbolinks-track" => true do
-    = @editable_style
-
-.editable
-  = @page.body.html_safe
+.editable class="page#{@page.id}"
+  = page_body @page.body, @page.render_type
 
 = link_to 'Edit', edit_admin_page_path(@page)
 '|
