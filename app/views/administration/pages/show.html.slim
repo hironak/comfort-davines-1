@@ -5,7 +5,7 @@ p#notice = notice
     = @editable_style
 
 .editable
-  = @page.body.html_safe
+  = page_body @page.body, @page.render_type
 
 = link_to 'Edit', edit_admin_page_path(@page)
 '|

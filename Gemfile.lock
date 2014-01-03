@@ -265,6 +265,7 @@ GEM
       ffi (>= 0.5.0)
     rdoc (3.12.2)
       json (~> 1.4)
+    redcarpet (3.0.0)
     redis (3.0.6)
     redis-actionpack (4.0.0)
       actionpack (~> 4)
@@ -425,6 +426,7 @@ DEPENDENCIES
   rack-mini-profiler
   rails (= 4.0.2)
   rails-i18n (~> 4.0.0)
+  redcarpet
   redis-rails
   rolify
   rubocop

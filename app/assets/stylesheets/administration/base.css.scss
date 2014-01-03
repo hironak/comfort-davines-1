@@ -5,6 +5,7 @@
 // ----------------------------------------
 .container {
   @include outer-container;
+  padding: 0 15px;
 }
 
 .header {}

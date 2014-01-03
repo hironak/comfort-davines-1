@@ -14,4 +14,4 @@ p = link_to "Add Cart", add_carts_path(product_id: @product.id, amount: 1), meth
 
 - if @product.page
   .editable
-    = @product.page.body.html_safe
+    = page_body @page.body, @page.render_type
