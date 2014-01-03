@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @file_storage.name
+p
+  strong Path:
+  = @file_storage.path
+p
+  strong File:
+  = @file_storage.file
+
+= link_to 'Edit', edit_admin_file_storage_path(@file_storage)
+'|
+= link_to 'Back', admin_file_storages_path
