@@ -17,7 +17,7 @@ html
 
         .logo = link_to "Davines", root_path
 
-    .contents
+    .contents class="#{controller.controller_path.split('/').last}"
       .container
         - if notice
           p.notice = notice
