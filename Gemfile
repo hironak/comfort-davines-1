@@ -66,6 +66,9 @@ gem 'rolify'
 # FriendlyIg
 gem 'friendly_id', '~> 5.0.0'
 
+# Markdown
+gem 'redcarpet'
+
 # Image Upload
 gem 'paperclip'
 
