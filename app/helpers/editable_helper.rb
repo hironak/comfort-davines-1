@@ -1,0 +1,2 @@
+module EditableHelper
+end
