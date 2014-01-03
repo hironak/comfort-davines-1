@@ -67,5 +67,8 @@ Commers::Application.routes.draw do
 
     # ページ編集
     resources :pages
+
+    # File Storage
+    resource :file_storages
   end
 end

@@ -1,6 +1,6 @@
-class CreateFileStrages < ActiveRecord::Migration
+class CreateFileStorages < ActiveRecord::Migration
   def change
-    create_table :file_strages do |t|
+    create_table :file_storages do |t|
       t.string :name
       t.string :path
 

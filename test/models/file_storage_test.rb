@@ -1,6 +1,6 @@
 require "test_helper"
 
-class FileStrageTest < ActiveSupport::TestCase
+class FileStorageTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

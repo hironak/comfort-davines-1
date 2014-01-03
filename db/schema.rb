@@ -13,13 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20140103051124) do
 
-  create_table "administration_pages", force: true do |t|
-    t.text     "body"
-    t.text     "style"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "administrators", force: true do |t|
     t.string   "username",         null: false
     t.string   "crypted_password"
@@ -66,7 +59,7 @@ ActiveRecord::Schema.define(version: 20140103051124) do
   add_index "consumers", ["email"], name: "index_consumers_on_email", unique: true, using: :btree
   add_index "consumers", ["reset_password_token"], name: "index_consumers_on_reset_password_token", unique: true, using: :btree
 
-  create_table "file_strages", force: true do |t|
+  create_table "file_storages", force: true do |t|
     t.string   "name"
     t.string   "path"
     t.datetime "created_at"
