@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140102162830) do
+ActiveRecord::Schema.define(version: 20140102204133) do
+
+  create_table "administration_pages", force: true do |t|
+    t.text     "body"
+    t.text     "style"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "administrators", force: true do |t|
     t.string   "username",         null: false
@@ -99,6 +106,7 @@ ActiveRecord::Schema.define(version: 20140102162830) do
     t.text     "style"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "title"
   end
 
   create_table "products", force: true do |t|
@@ -115,9 +123,11 @@ ActiveRecord::Schema.define(version: 20140102162830) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.integer  "price"
+    t.integer  "page_id"
   end
 
   add_index "products", ["category_id"], name: "index_products_on_category_id", using: :btree
+  add_index "products", ["page_id"], name: "index_products_on_page_id", using: :btree
   add_index "products", ["series_id"], name: "index_products_on_series_id", using: :btree
 
   create_table "series", force: true do |t|
