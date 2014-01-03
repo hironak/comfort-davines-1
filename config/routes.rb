@@ -1,5 +1,7 @@
 Commers::Application.routes.draw do
 
+  get "editable/stylesheets/:key", to: "editable#stylesheets"
+
   # トップページ
   root to: "welcome#index"
 
