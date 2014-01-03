@@ -83,7 +83,7 @@ end
 group :development do
 
   # Quiet Assets Log
-  gem 'quiet_assets'
+  gem 'quiet_assets', '~> 1.0.2'
 
   # Guard
   gem 'ruby_gntp'
@@ -110,7 +110,6 @@ group :development, :test do
   # Browser Debugger
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'quiet_assets'
   gem 'annotate', github: 'ctran/annotate_models'
   gem 'timecop'
   gem 'colorize_unpermitted_parameters'

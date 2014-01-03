@@ -421,7 +421,7 @@ DEPENDENCIES
   pry-doc
   pry-rails
   pry-stack_explorer
-  quiet_assets
+  quiet_assets (~> 1.0.2)
   rack-cache
   rack-mini-profiler
   rails (= 4.0.2)
