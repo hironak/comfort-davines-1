@@ -6,7 +6,7 @@ class EditableController < ApplicationController
       @editable_style = Sass::Engine.new(scss, syntax: :scss).render
       Rails.cache.write(cache_key, @editable_style)
     end
-    render text: @editable_style
+    render text: @editable_style, content_type: Mime::CSS
   end
 
   private
