@@ -69,6 +69,6 @@ Commers::Application.routes.draw do
     resources :pages
 
     # File Storage
-    resource :file_storages
+    resources :file_storages
   end
 end
