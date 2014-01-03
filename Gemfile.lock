@@ -9,6 +9,7 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
+    ace-rails-ap (2.0.0)
     actionmailer (4.0.2)
       actionpack (= 4.0.2)
       mail (~> 2.5.4)
@@ -382,6 +383,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  ace-rails-ap (~> 2.0.0)
   activemerchant
   annotate!
   awesome_print

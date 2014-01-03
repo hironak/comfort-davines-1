@@ -11,10 +11,11 @@
     = f.text_field :title
   .field
     = f.label :render_type
-    = f.select :render_type, ['HTML', 'Markdown']
+    = f.select :render_type, [['HTML', 'html'], ['Markdown', 'markdown']]
   .selector
     = link_to 'Style', '.style'
     = link_to 'Body', '.body'
+  #editor
   .field.style
     = f.label :style
     = f.text_area :style

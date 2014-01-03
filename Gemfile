@@ -72,6 +72,9 @@ gem 'redcarpet'
 # Image Upload
 gem 'paperclip'
 
+# Editor
+gem 'ace-rails-ap', '~> 2.0.0'
+
 # W3c Validators
 gem 'w3c_validators'
 

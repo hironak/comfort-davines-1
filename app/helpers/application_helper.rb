@@ -17,7 +17,7 @@ module ApplicationHelper
 
   def page_body(text, render_type = 'HTML')
     case render_type
-    when 'Markdown'
+    when 'markdown'
       page_body_markdown(text)
     else
       page_body_html(text)
