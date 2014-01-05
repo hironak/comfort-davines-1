@@ -7,7 +7,7 @@ $ ->
   style = $('.style textarea')
   body  = $('.body textarea')
 
-  editor.setTheme "ace/theme/solarized_light"
+  editor.setTheme "ace/theme/tomorrow"
 
   editor.setValue body.val()
   current = body

@@ -9,7 +9,7 @@
 #= require ace/mode-css
 #= require ace/mode-html
 #= require ace/mode-markdown
-#= require ace/theme-solarized_light
+#= require ace/theme-tomorrow
 #= require_self
 #= require_tree .
 #= require turbolinks

@@ -29,7 +29,7 @@ module ApplicationHelper
   end
 
   def page_body_markdown(text)
-    @@markdown ||= Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, space_after_headers: true)
+    @@markdown ||= Redcarpet::Markdown.new(Redcarpet::Render::HTML, tables: true, autolink: true, space_after_headers: true)
     @@markdown.render(text).html_safe
   end
 end
