@@ -47,9 +47,9 @@ html
             li = link_to "サイトマップ ", sitemap_path
             li = link_to "お問い合わせ", contact_path
 
-    .contents
+    .contents class="#{controller.controller_path.gsub('/', '_')}"
 
-      .container class="#{controller.controller_path}"
+      .container
         - if notice
           p.notice = notice
         - if alert
