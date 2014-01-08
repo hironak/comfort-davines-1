@@ -22,7 +22,13 @@ Commers::Application.routes.draw do
   }
 
   # 商品一覧、詳細ページ
-  resources :products, only: [:index, :show]
+  resources :products, only: [:index, :show] do
+    collection do
+      get :category
+      get :series
+      get :new_items
+    end
+  end
 
   # カート
   resources :carts, only: [:index] do
