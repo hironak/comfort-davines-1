@@ -60,6 +60,9 @@
     &.welcome {
       @import "welcome";
     }
+    &.products {
+      @import "products";
+    }
     &.carts {
       @import "carts";
     }

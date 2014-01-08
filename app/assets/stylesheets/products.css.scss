@@ -1,3 +1,15 @@
 // Place all the styles related to the products controller here.
 // They will automatically be included in application.css.
 // You can use Less here: http://lesscss.org/
+.basic-information {
+  @include clearfix;
+  .image {
+    @include span-columns(2 of 6);
+  }
+  .information {
+    @include span-columns(4 of 6);
+    .add-cart {
+      @extend %button;
+    }
+  }
+}
