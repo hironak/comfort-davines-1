@@ -3,7 +3,15 @@ Commers::Application.routes.draw do
   get "editable/stylesheets/:key", to: "editable#stylesheets"
 
   # トップページ
-  root to: "welcome#index"
+  controller :welcome do
+    root action: "index"
+    get "introduction", action: "introduction"
+    get "about", action: "about"
+    get "utilization", action: "utilization"
+    get "faq", action: "faq"
+    get "sitemap", action: "sitemap"
+    get "contact", action: "contact"
+  end
 
   # 表側ユーザ
   devise_for :consumers, :controllers => {
