@@ -15,7 +15,7 @@ html
           - if current_consumer
             li
               = link_to destroy_consumer_session_path, method: :delete do
-                = image_tag 'header/signout.jpg', alt: 'Sign out'
+                = image_tag 'header/signout.jpg', alt: 'sign out'
             li
               = link_to carts_path do
                 = image_tag 'header/cart.jpg', alt: "Cart(#{current_cart.items.count})"
