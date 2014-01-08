@@ -19,4 +19,13 @@ class WelcomeController < ApplicationController
 
   def contact
   end
+
+  def company
+  end
+
+  def tradeinfo
+  end
+
+  def shops
+  end
 end

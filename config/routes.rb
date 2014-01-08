@@ -11,6 +11,9 @@ Commers::Application.routes.draw do
     get "faq", action: "faq"
     get "sitemap", action: "sitemap"
     get "contact", action: "contact"
+    get "company", action: "company"
+    get "tradeinfo", action: "tradeinfo"
+    get "shops", action: "shops"
   end
 
   # 表側ユーザ
