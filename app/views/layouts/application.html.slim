@@ -14,7 +14,8 @@ html
         ul.consumer
           - if current_consumer
             li
-              = link_to 'Sign out', destroy_consumer_session_path, method: :delete
+              = link_to destroy_consumer_session_path, method: :delete do
+                = image_tag 'header/signout.jpg', alt: 'sign out'
             li
               = link_to carts_path do
                 = image_tag 'header/cart.jpg', alt: "Cart(#{current_cart.items.count})"
@@ -39,16 +40,16 @@ html
 
         .globalnavi
           ul
-            li = link_to "初めての方へ", root_path
-            li = link_to "ダヴィネスとは ", root_path
-            li = link_to "ご利用案内 ", root_path
-            li = link_to "よくあるご質問 ", root_path
-            li = link_to "サイトマップ ", root_path
-            li = link_to "お問い合わせ", root_path
+            li = link_to "初めての方へ", introduction_path
+            li = link_to "ダヴィネスとは ", about_path
+            li = link_to "ご利用案内 ", utilization_path
+            li = link_to "よくあるご質問 ", faq_path
+            li = link_to "サイトマップ ", sitemap_path
+            li = link_to "お問い合わせ", contact_path
 
-    .contents
+    .contents class="#{controller.controller_path.gsub('/', '_')}"
 
-      .container class="#{controller.controller_path}"
+      .container
         - if notice
           p.notice = notice
         - if alert
@@ -71,19 +72,19 @@ html
         .links
           h4 ショッピングガイド
           ul
-            li = link_to "初めての方へ", root_path
-            li = link_to "ご利用案内 ", root_path
-            li = link_to "よくあるご質問 ", root_path
-            li = link_to "サイトマップ ", root_path
+            li = link_to "初めての方へ", introduction_path
+            li = link_to "ご利用案内 ", utilization_path
+            li = link_to "よくあるご質問 ", faq_path
+            li = link_to "サイトマップ ", sitemap_path
 
         .links
           h4 Davinesについて
           ul
-            li = link_to "ダヴィネスとは ", root_path
-            li = link_to "会社概要", root_path
-            li = link_to "特定商取引に関する記載", root_path
-            li = link_to "お問い合わせ", root_path
-            li = link_to "店舗情報", root_path
+            li = link_to "ダヴィネスとは ", about_path
+            li = link_to "会社概要", company_path
+            li = link_to "特定商取引に関する記載", tradeinfo_path
+            li = link_to "お問い合わせ", contact_path
+            li = link_to "店舗情報", shops_path
 
         .copyright
           p &copy;comfort japan all rights reserved.

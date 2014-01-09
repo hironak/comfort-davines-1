@@ -3,7 +3,18 @@ Commers::Application.routes.draw do
   get "editable/stylesheets/:key", to: "editable#stylesheets"
 
   # トップページ
-  root to: "welcome#index"
+  controller :welcome do
+    root action: "index"
+    get "introduction", action: "introduction"
+    get "about", action: "about"
+    get "utilization", action: "utilization"
+    get "faq", action: "faq"
+    get "sitemap", action: "sitemap"
+    get "contact", action: "contact"
+    get "company", action: "company"
+    get "tradeinfo", action: "tradeinfo"
+    get "shops", action: "shops"
+  end
 
   # 表側ユーザ
   devise_for :consumers, :controllers => {
@@ -11,7 +22,13 @@ Commers::Application.routes.draw do
   }
 
   # 商品一覧、詳細ページ
-  resources :products, only: [:index, :show]
+  resources :products, only: [:index, :show] do
+    collection do
+      get :category
+      get :series
+      get :new_items
+    end
+  end
 
   # カート
   resources :carts, only: [:index] do

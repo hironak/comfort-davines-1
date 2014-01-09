@@ -1,0 +1,13 @@
+ul.global-navigation
+  li
+    = link_to root_path do
+      = image_tag "header/gl-home.jpg", alt: "Home"
+  li
+    = link_to category_products_path do
+      = image_tag "header/gl-category.jpg", alt: "Category"
+  li
+    = link_to series_products_path do
+      = image_tag "header/gl-series.jpg", alt: "Series"
+  li
+    = link_to new_items_products_path do
+      = image_tag "header/gl-newitems.jpg", alt: "Home"

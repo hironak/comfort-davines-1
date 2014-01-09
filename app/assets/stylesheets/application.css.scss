@@ -54,19 +54,31 @@
 // Contents
 // ----------------------------------------
 .contents {
-  .container {
-    @import "editable";
+  @import "editable";
 
-    &.welcome {
-      @import "welcome";
+  .global-navigation {
+    @include clearfix;
+    margin-bottom: 30px;
+    li {
+      @include span-columns(1 of 4);
     }
-    &.carts {
-      @import "carts";
-    }
-    .totop {
-      margin-top: 300px;
-      text-align: right;
-    }
+  }
+
+  &.welcome {
+    @import "welcome";
+  }
+  &.products {
+    @import "products";
+  }
+  &.carts {
+    @import "carts";
+  }
+  &.devise_registrations {
+    @import "devise/registrations";
+  }
+  .totop {
+    margin-top: 300px;
+    text-align: right;
   }
 }
 
