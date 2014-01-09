@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/closer/guard-unicorn.git
+  revision: f03a3cb5b5d81fc29525f430dc309750efe3db9a
+  specs:
+    guard-unicorn (0.1.0)
+      guard (>= 1.1)
+
+GIT
   remote: git://github.com/ctran/annotate_models.git
   revision: eb633bcf19c6a1242cb069e2e66829a9fa0021f1
   specs:
@@ -408,6 +415,7 @@ DEPENDENCIES
   guard-minitest
   guard-rails
   guard-redis
+  guard-unicorn!
   hirb
   hirb-unicode
   jbuilder (~> 1.2)

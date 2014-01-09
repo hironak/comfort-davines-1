@@ -92,6 +92,7 @@ group :development do
   gem 'ruby_gntp'
   gem 'guard'
   gem 'guard-rails'
+  gem 'guard-unicorn', github: 'closer/guard-unicorn'
   gem 'guard-livereload'
   gem 'guard-minitest'
   gem 'guard-redis'
