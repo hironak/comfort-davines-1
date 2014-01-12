@@ -1,4 +1,8 @@
 module ApplicationHelper
+  def title_tag
+    content_tag("title", @title || @default_title)
+  end
+
   def stylesheet_tag(options = {}, &block)
     content_tag("style", { "type" => Mime::CSS, "media" => "screen" }.merge(options), &block)
   end

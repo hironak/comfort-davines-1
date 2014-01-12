@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_cart
 
+  before_filter :default_title
+
   private
 
   def current_cart
@@ -19,5 +21,13 @@ class ApplicationController < ActionController::Base
     @session_cart ||= Cart.where(id: session["cart.id"]).first || Cart.create
     session["cart.id"] = @session_cart.id
     @session_cart
+  end
+
+  def title string
+    @title = "#{@default_title} - #{string}"
+  end
+
+  def default_title
+    @default_title ||= "davines online"
   end
 end
