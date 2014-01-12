@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140103065859) do
+ActiveRecord::Schema.define(version: 20140112224210) do
 
   create_table "administration_pages", force: true do |t|
     t.text     "body"
@@ -141,6 +141,15 @@ ActiveRecord::Schema.define(version: 20140103065859) do
   add_index "products", ["category_id"], name: "index_products_on_category_id", using: :btree
   add_index "products", ["page_id"], name: "index_products_on_page_id", using: :btree
   add_index "products", ["series_id"], name: "index_products_on_series_id", using: :btree
+
+  create_table "salons", force: true do |t|
+    t.string   "name"
+    t.integer  "administrator_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "salons", ["administrator_id"], name: "index_salons_on_administrator_id", using: :btree
 
   create_table "series", force: true do |t|
     t.string   "name"

@@ -1,0 +1,19 @@
+h1 Listing salons
+
+table
+  tr
+    th Name
+    th
+    th
+    th
+
+  - @salons.each do |salon|
+    tr
+      td = salon.name
+      td = link_to 'Show', [:admin, salon]
+      td = link_to 'Edit', edit_admin_salon_path(salon)
+      td = link_to 'Destroy', [:admin, salon], data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Salon', new_admin_salon_path

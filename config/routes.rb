@@ -89,5 +89,8 @@ Commers::Application.routes.draw do
 
     # File Storage
     resources :file_storages
+
+    # サロン管理
+    resources :salons
   end
 end
