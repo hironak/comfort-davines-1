@@ -12,7 +12,16 @@ guard 'livereload' do
   watch(%r{(app|vendor)(/assets/\w+/(.+\.(css|less|scss|js|coffee|html|slim))).*}) { |m| "/assets/#{m[3]}" }
 end
 
-guard 'rails', :server => :unicorn do
+## Sample template for guard-unicorn
+#
+# Usage:
+#     guard :unicorn, <options hash>
+#
+# Possible options:
+# * :daemonize (default is true) - should the Unicorn server start daemonized?
+# * :config_file (default is "config/unicorn.rb") - the path to the unicorn file
+# * :pid_file (default is "tmp/pids/unicorn.pid") - the path to the unicorn pid file
+guard :unicorn, :config_file => "config/unicorn/development.rb", :port => nil, :socket => nil do
   watch('Gemfile.lock')
   watch(%r{^(config|lib)/.*})
 end

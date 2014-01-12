@@ -121,3 +121,9 @@ h3 {
     }
   }
 }
+
+.introduction {
+  h2 {
+    @extend %bordered-header;
+  }
+}
