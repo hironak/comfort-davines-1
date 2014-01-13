@@ -1,8 +1,7 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  factory :salon do
-    name "My Salon"
-    # administrator nil
+  factory :agency do
+    name "My Agency"
   end
 end
