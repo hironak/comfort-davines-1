@@ -30,6 +30,10 @@ html
               - %w|products serieses categories pages file_storages salons orders administrators|.each do |controller|
                 - if current_administrator.can_read? controller.singularize.camelize.constantize
                   li = link_to t("activerecord.models.#{controller.singularize}"), [:admin, controller]
+
+              - if current_administrator.can_read? Setting
+                li = link_to t('setting'), admin_setting_path
+
               - if current_administrator.contractable
                 li = link_to t("information"), admin_information_path
 
