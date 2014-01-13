@@ -31,13 +31,13 @@ ActiveRecord::Schema.define(version: 20140113032812) do
     t.datetime "updated_at"
   end
 
-  create_table "agencies_and_salons", force: true do |t|
+  create_table "agencies_salons", force: true do |t|
     t.integer "agency_id"
     t.integer "salon_id"
   end
 
-  add_index "agencies_and_salons", ["agency_id"], name: "index_agencies_and_salons_on_agency_id", using: :btree
-  add_index "agencies_and_salons", ["salon_id"], name: "index_agencies_and_salons_on_salon_id", using: :btree
+  add_index "agencies_salons", ["agency_id"], name: "index_agencies_salons_on_agency_id", using: :btree
+  add_index "agencies_salons", ["salon_id"], name: "index_agencies_salons_on_salon_id", using: :btree
 
   create_table "cart_items", force: true do |t|
     t.integer  "amount"

@@ -57,7 +57,7 @@ if (Rails.env.development? || Rails.env.staging?) && Administrator.count == 0
     username: "testagency",
     contractable: agency
 
-  salon = create :salon
+  salon = create :salon, agencies: [agency]
   create :administrator,
     username: "testsalon",
     contractable: salon
