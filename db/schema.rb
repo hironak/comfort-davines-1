@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140113030445) do
+ActiveRecord::Schema.define(version: 20140113031201) do
 
   create_table "administration_pages", force: true do |t|
     t.text     "body"
@@ -21,12 +21,16 @@ ActiveRecord::Schema.define(version: 20140113030445) do
   end
 
   create_table "administrators", force: true do |t|
-    t.string   "username",         null: false
+    t.string   "username",          null: false
     t.string   "crypted_password"
     t.string   "salt"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "contractable_type"
+    t.integer  "contract_id"
   end
+
+  add_index "administrators", ["contract_id"], name: "index_administrators_on_contract_id", using: :btree
 
   create_table "agencies", force: true do |t|
     t.string   "name"
