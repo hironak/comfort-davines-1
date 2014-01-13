@@ -1,5 +1,7 @@
 module Administration
   class CategoriesController < BaseController
+    load_and_authorize_resource
+
     before_action :set_category, only: [:show, :edit, :update, :destroy]
 
     # GET /administration/categories

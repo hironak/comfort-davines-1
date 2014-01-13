@@ -28,7 +28,8 @@ html
           - if current_administrator
             ul
               - %w|root products serieses categories pages file_storages salons orders administrators|.each do |controller|
-                li = link_to t("activerecord.models.#{controller.singularize}"), [:admin, controller]
+                - if can? :manage, controller
+                  li = link_to t("activerecord.models.#{controller.singularize}"), [:admin, controller]
 
         .main
           = yield

@@ -1,5 +1,7 @@
 module Administration
   class OrdersController < BaseController
+    load_and_authorize_resource
+
     before_action :set_order, only: [:show, :edit, :update, :destroy]
 
     # GET /administration/orders
