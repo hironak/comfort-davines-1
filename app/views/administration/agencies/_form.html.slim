@@ -1,0 +1,27 @@
+= form_for [:admin, @agency] do |f|
+  - if @agency.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@agency.errors.count, "error")} prohibited this administration_agency from being saved:"
+      ul
+        - @agency.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :name
+    = f.text_field :name
+
+  = f.fields_for :administrator do |f|
+
+    .field
+      = f.label :username
+      = f.text_field :username
+
+    .field
+      = f.label :password
+      = f.text_field :password
+
+    .field
+      = f.label :password_confirmation
+      = f.text_field :password_confirmation
+
+  .actions = f.submit 'Save'

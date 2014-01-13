@@ -1,0 +1,14 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @agency.name
+
+- @agency.administrator.tap do |administrator|
+  p
+    strong Username:
+    = administrator.username
+
+= link_to 'Edit', edit_admin_agency_path(@agency)
+'|
+= link_to 'Back', admin_agencies_path

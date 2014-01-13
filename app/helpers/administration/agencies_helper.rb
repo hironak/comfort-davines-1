@@ -1,0 +1,2 @@
+module Administration::AgenciesHelper
+end
