@@ -47,7 +47,7 @@ end
 
 # Development Administrator
 if (Rails.env.development? || Rails.env.staging?) && Administrator.count == 0
-  require 'factory_girl'
+  FactoryGirl.find_definitions if require 'factory_girl'
   extend FactoryGirl::Syntax::Methods
 
   create :administrator, username: "testuser"
