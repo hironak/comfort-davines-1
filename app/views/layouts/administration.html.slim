@@ -27,8 +27,8 @@ html
         .menubar
           - if current_administrator
             ul
-              - [:root, :products, :serieses, :categories, :pages, :file_storages, :salons, :orders, :administrators].each do |controller|
-                li = link_to controller, [:admin, controller]
+              - %w|root products serieses categories pages file_storages salons orders administrators|.each do |controller|
+                li = link_to t("activerecord.models.#{controller.singularize}"), [:admin, controller]
 
         .main
           = yield

@@ -7,7 +7,7 @@ ja:
       cart_item: cart_item  #g
       category: カテゴリ
       consumer: ユーザーアカウント
-      file_storage: file_storage  #g
+      file_storage: ファイルアップロード
       order: 注文
       order_item: order_item  #g
       page: カスタムページ
