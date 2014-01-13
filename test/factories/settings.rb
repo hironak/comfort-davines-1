@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :setting do
-    tax 1
+    tax 5
   end
 end
