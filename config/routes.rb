@@ -95,5 +95,8 @@ Commers::Application.routes.draw do
 
     # サロン管理
     resources :salons
+
+    # 情報編集
+    resource :information, only: [:show, :edit, :update]
   end
 end
