@@ -1,0 +1,9 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @salon.name
+
+= link_to 'Edit', edit_salon_path(@salon)
+'|
+= link_to 'Back', salons_path

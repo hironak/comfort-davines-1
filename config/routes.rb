@@ -62,6 +62,9 @@ Commers::Application.routes.draw do
     get "complete"
   end
 
+  # サロン情報
+  resources :salons, only: [:index]
+
   # 裏側
   namespace :admin, module: :administration do
 
@@ -89,5 +92,8 @@ Commers::Application.routes.draw do
 
     # File Storage
     resources :file_storages
+
+    # サロン管理
+    resources :salons
   end
 end

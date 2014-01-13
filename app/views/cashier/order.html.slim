@@ -1,6 +1,10 @@
 h1 Cashier#order
 = form_for @order, url: cashier_order_path do |f|
 
+  .field.ui-widget
+    = f.label :salon_name
+    = f.text_field :salon_name
+
   .field
     = f.label :address
     = f.text_field :address
