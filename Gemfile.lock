@@ -413,6 +413,7 @@ DEPENDENCIES
   devise
   devise-i18n
   dotenv
+  factory_girl
   factory_girl_rails (~> 4.0)
   friendly_id (~> 5.0.0)
   guard
