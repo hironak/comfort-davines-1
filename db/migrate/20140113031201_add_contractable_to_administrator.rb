@@ -1,6 +1,5 @@
 class AddContractableToAdministrator < ActiveRecord::Migration
   def change
-    add_column :administrators, :contractable_type, :string
-    add_reference :administrators, :contract, index: true
+    add_reference :administrators, :contractable, index: true, polymorphic: true
   end
 end

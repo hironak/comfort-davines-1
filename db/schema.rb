@@ -13,24 +13,17 @@
 
 ActiveRecord::Schema.define(version: 20140113031201) do
 
-  create_table "administration_pages", force: true do |t|
-    t.text     "body"
-    t.text     "style"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "administrators", force: true do |t|
     t.string   "username",          null: false
     t.string   "crypted_password"
     t.string   "salt"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "contractable_id"
     t.string   "contractable_type"
-    t.integer  "contract_id"
   end
 
-  add_index "administrators", ["contract_id"], name: "index_administrators_on_contract_id", using: :btree
+  add_index "administrators", ["contractable_id", "contractable_type"], name: "index_administrators_on_contractable_id_and_contractable_type", using: :btree
 
   create_table "agencies", force: true do |t|
     t.string   "name"
