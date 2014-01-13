@@ -12,7 +12,7 @@ class Administration::SessionsControllerTest < ActionController::TestCase
   end
 
   test "session create" do
-    post :create, username: "testuser", password: "password"
+    post :create, administrator: { username: "testuser", password: "password" }
     assert_redirected_to admin_root_path
   end
 
