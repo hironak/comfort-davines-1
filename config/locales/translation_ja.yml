@@ -1,0 +1,126 @@
+ja:
+  activerecord:
+    models:
+      administrator: 管理アカウント
+      agency: 代理店
+      cart: カート
+      cart_item: cart_item  #g
+      category: カテゴリ
+      consumer: ユーザーアカウント
+      file_storage: file_storage  #g
+      order: 注文
+      order_item: order_item  #g
+      page: カスタムページ
+      product: 商品
+      salon: サロン
+      series: シリーズ
+
+    attributes:
+      administrator:
+        contractable: :activerecord.models.contractable  #g
+        contractable_type: contractable_type  #g
+        crypted_password: crypted_password  #g
+        salt: salt  #g
+        username: ユーザー名
+        password: パスワード
+
+      agency:
+        administrator: :activerecord.models.administrator  #g
+        name: 名前
+        salons: サロン一覧
+
+      cart:
+        consumer: :activerecord.models.consumer  #g
+        items: 注文内容
+        products: 注文商品
+
+      cart_item:
+        amount: 数量
+        cart: :activerecord.models.cart  #g
+        product: :activerecord.models.product  #g
+
+      category:
+        name: 名称
+        products: 商品一覧
+
+      consumer:
+        cart: :activerecord.models.cart  #g
+        current_sign_in_at: current_sign_in_at  #g
+        current_sign_in_ip: current_sign_in_ip  #g
+        email: Eメール
+        password: パスワード
+        password_confirmation: パスワードの確認
+        encrypted_password: encrypted_password  #g
+        last_sign_in_at: last_sign_in_at  #g
+        last_sign_in_ip: last_sign_in_ip  #g
+        orders: orders  #g
+        remember_created_at: remember_created_at  #g
+        reset_password_sent_at: reset_password_sent_at  #g
+        reset_password_token: reset_password_token  #g
+
+      file_storage:
+        file_content_type: file_content_type  #g
+        file_file_name: file_file_name  #g
+        file_file_size: file_file_size  #g
+        file_updated_at: file_updated_at  #g
+        file: ファイル
+        name: 名称
+        path: 場所
+
+      order:
+        address: 住所
+        consumer: :activerecord.models.consumer  #g
+        items: 注文内容
+        payment: 支払い方法
+        products: 注文商品
+        salon: :activerecord.models.salon  #g
+        salon_name: サロン名称
+
+      order_item:
+        amount: 数量
+        order: :activerecord.models.order  #g
+        origin_price: 単価
+        product: :activerecord.models.product  #g
+
+      page:
+        body: 本文
+        render_type: 描画タイプ
+        style: スタイルシート
+        title: タイトル
+
+      product:
+        category: :activerecord.models.category  #g
+        image_content_type: image_content_type  #g
+        image_file_name: image_file_name  #g
+        image_file_size: image_file_size  #g
+        image_updated_at: image_updated_at  #g
+        image: メイン画像
+        name: 名称
+        page: :activerecord.models.page  #g
+        price: 価格
+        sample: サンプル
+        series: :activerecord.models.series  #g
+        slug: slug  #g
+        stock: 在庫数
+
+      salon:
+        address: 住所
+        administrator: :activerecord.models.administrator  #g
+        agencies: 代理店
+        grade: グレード
+        name: 名称
+        number: 登録番号
+        office: 営業所
+        orders: 注文一覧
+        owner: 経営者名
+        person_in_charge: 営業担当
+        tel: 電話番号
+        website: ウェブサイト
+
+      series:
+        name: 名称
+        products: products  #g
+        topimage_content_type: topimage_content_type  #g
+        topimage_file_name: topimage_file_name  #g
+        topimage_file_size: topimage_file_size  #g
+        topimage_updated_at: topimage_updated_at  #g
