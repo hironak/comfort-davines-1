@@ -3,9 +3,9 @@ services:
   - wercker/mysql
 build:
   steps:
-    - script:
-        name: clear cache
-        code: sudo rm -rf $WERCKER_CACHE_DIR
+    # - script:
+    #     name: clear cache
+    #     code: sudo rm -rf $WERCKER_CACHE_DIR
     - bundle-install
     - rails-database-yml
     - script:
