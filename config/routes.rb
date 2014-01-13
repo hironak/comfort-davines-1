@@ -1,8 +1,8 @@
 Commers::Application.routes.draw do
 
-  get "setting/show"
-  get "setting/edit"
-  get "setting/update"
+  get "settings/show"
+  get "settings/edit"
+  get "settings/update"
   get "editable/stylesheets/:key", to: "editable#stylesheets"
 
   # トップページ
@@ -73,6 +73,9 @@ Commers::Application.routes.draw do
 
     # Admin root
     root to: "dashboard#index"
+
+    # Setting
+    resource :setting
 
     # Session
     delete "logout" => "sessions#destroy"
