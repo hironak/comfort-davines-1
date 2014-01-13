@@ -3,7 +3,7 @@ require "test_helper"
 class Administration::CategoriesControllerTest < ActionController::TestCase
 
   before do
-    login_user administrators(:one)
+    login_user create(:administrator)
     @category = categories(:one)
   end
 

@@ -3,7 +3,7 @@ require "test_helper"
 class Administration::OrdersControllerTest < ActionController::TestCase
 
   before do
-    login_user administrators(:one)
+    login_user create(:administrator)
     @products = create_list(:product, 4)
     @order = create(:order_with_items, products: @products)
   end

@@ -23,7 +23,7 @@ module Administration
     private
 
     def set_setting
-      @setting = Setting.first
+      @setting = Setting.instance
     end
 
     def setting_params

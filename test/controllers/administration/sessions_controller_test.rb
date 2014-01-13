@@ -3,7 +3,7 @@ require "test_helper"
 class Administration::SessionsControllerTest < ActionController::TestCase
 
   before do
-    @administrator = Administrator.create username: "testuser", password: "password", password_confirmation: "password"
+    @administrator = create(:administrator)
   end
 
   test "should get new" do

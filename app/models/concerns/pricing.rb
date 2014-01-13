@@ -6,7 +6,7 @@ module Pricing
   end
 
   def tax
-    (items_price * 0.03).to_i
+    (items_price * (Setting.tax.to_f / 100)).to_i
   end
 
   def postage
