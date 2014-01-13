@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140113101538) do
+ActiveRecord::Schema.define(version: 20140113101659) do
 
   create_table "administrators", force: true do |t|
     t.string   "username",          null: false
@@ -108,6 +108,8 @@ ActiveRecord::Schema.define(version: 20140113101538) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "origin_price"
+    t.integer  "backmargin_salon"
+    t.integer  "backmargin_agency"
   end
 
   add_index "order_items", ["order_id"], name: "index_order_items_on_order_id", using: :btree
