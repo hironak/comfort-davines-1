@@ -1,5 +1,5 @@
 module Administration
-  class InformationController < ApplicationController
+  class InformationController < BaseController
     before_filter :set_information
     before_filter :authorize_action
 

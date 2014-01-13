@@ -6,17 +6,24 @@
         - @information.errors.full_messages.each do |message|
           li = message
 
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :address
-    = f.text_field :address
-  .field
-    = f.label :tel
-    = f.text_field :tel
-  .field
-    = f.label :website
-    = f.text_field :website
+  - case @information
+  - when Agency
+    .field
+      = f.label :name
+      = f.text_field :name
+
+  - when Salon
+    .field
+      = f.label :name
+      = f.text_field :name
+    .field
+      = f.label :address
+      = f.text_field :address
+    .field
+      = f.label :tel
+      = f.text_field :tel
+    .field
+      = f.label :website
+      = f.text_field :website
 
   .actions = f.submit 'Save'
