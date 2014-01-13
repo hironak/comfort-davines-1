@@ -3,7 +3,6 @@ services:
   - wercker/mysql
 build:
   steps:
-    - wercker/rvm-use
     - bundle-install
     - rails-database-yml
     - script:
@@ -17,7 +16,6 @@ build:
         channel: hackers-jp
 deploy:
   steps:
-    - wercker/rvm-use
     - bundle-install
     - script:
         name: write env var
