@@ -12,6 +12,12 @@ class Product < ActiveRecord::Base
   scope :stocked, -> { where.not(stock: 0) }
   scope :sample, -> { where(sample: true) }
 
+  after_initialize :set_default_values
+  def set_default_values
+    self.backmargin_salon ||= 30
+    self.backmargin_agency ||= 28
+  end
+
   def increase amount
     stock = self.stock + amount
     update_column :stock, stock

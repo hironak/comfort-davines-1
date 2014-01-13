@@ -25,7 +25,13 @@ class Order < ActiveRecord::Base
 
   def extend_items cart
     cart.items.each do |item|
-      self.items.build product_id: item.product.id, amount: item.amount, origin_price: item.product.price
+      self.items.build(
+        product_id: item.product.id,
+        amount: item.amount,
+        origin_price: item.product.price,
+        backmargin_salon: item.product.backmargin_salon,
+        backmargin_agency: item.product.backmargin_agency
+      )
     end
   end
 
