@@ -6,6 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+Setting.create! tax: 5
+
 %w|NATURALTECH AUTHENTIC OI/OIL comingsoon|.each_with_index do |name, n|
   Series.create name: name, topimage: File.new(Rails.root.join("test/assets/products/image/series0#{n + 1}.jpg"))
 end

@@ -1,2 +1,9 @@
 h1 Administration::Settings#edit
-p Find me in app/views/administration/settings/edit.html.slim
+
+= form_for [:admin, @setting] do |f|
+
+  .field
+    = f.label :tax
+    = f.number_field :tax
+
+  = f.submit 'Save'
