@@ -3,10 +3,6 @@ services:
   - wercker/mysql
 build:
   steps:
-    # - script:
-    #     name: clear cache
-    #     code: |
-    #       sudo rm -rf /cache/bundle-install
     - bundle-install
     - rails-database-yml
     - script:
@@ -28,3 +24,9 @@ deploy:
           echo -e $DEPLOY_KEY_PRIVATE > $CAP_PRIVATE_KEY
     - wercker/cap:
         stage: staging
+  after-steps:
+    - wouter/irc-notify:
+        server: irc.freenode.net
+        port: 6667
+        nickname: hackers-bot
+        channel: hackers-jp
