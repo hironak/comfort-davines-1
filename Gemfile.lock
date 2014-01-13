@@ -400,7 +400,7 @@ DEPENDENCIES
   binding_of_caller
   bitters
   bourbon
-  bundler (~> 1.5.1)
+  bundler (~> 1.5.2)
   cancan
   capistrano (~> 3.0.0)
   capistrano-bundler
