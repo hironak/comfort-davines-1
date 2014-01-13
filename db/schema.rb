@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140113004013) do
+ActiveRecord::Schema.define(version: 20140113030445) do
 
   create_table "administration_pages", force: true do |t|
     t.text     "body"
@@ -24,6 +24,12 @@ ActiveRecord::Schema.define(version: 20140113004013) do
     t.string   "username",         null: false
     t.string   "crypted_password"
     t.string   "salt"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "agencies", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
