@@ -54,6 +54,11 @@ class Order < ActiveRecord::Base
     end
   end
 
+  def backmargin(type)
+    return 0 unless self.salon
+    self.items.map{|item| item.backmargin(type) }.inject(:+)
+  end
+
   class ItemEmpty < StandardError
   end
 end
