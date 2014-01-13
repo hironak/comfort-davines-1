@@ -36,7 +36,7 @@ module Administration
       when Agency
         params.fetch(:agency).permit(:name)
       when Salon
-        params.fetch(:salon).permit(:name)
+        params.fetch(:salon).permit(:name, :address, :tel, :website)
       end
     end
   end

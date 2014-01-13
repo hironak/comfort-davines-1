@@ -1,0 +1,22 @@
+= form_for [:admin, @information], url: admin_information_path do |f|
+  - if @information.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@information.errors.count, "error")} prohibited this information from being saved:"
+      ul
+        - @information.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :address
+    = f.text_field :address
+  .field
+    = f.label :tel
+    = f.text_field :tel
+  .field
+    = f.label :website
+    = f.text_field :website
+
+  .actions = f.submit 'Save'
