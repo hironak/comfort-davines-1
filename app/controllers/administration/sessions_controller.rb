@@ -3,6 +3,8 @@ module Administration
 
     skip_before_filter :require_login, except: [:destroy]
 
+    layout "application"
+
     def new
       @administrator = Administrator.new
     end

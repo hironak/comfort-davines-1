@@ -36,6 +36,7 @@ html
 
               - if current_administrator.contractable
                 li = link_to t("information"), admin_information_path
+                li = link_to t("reward"), admin_reward_path
 
         .main
           = yield

@@ -1,8 +1,5 @@
 Commers::Application.routes.draw do
 
-  get "settings/show"
-  get "settings/edit"
-  get "settings/update"
   get "editable/stylesheets/:key", to: "editable#stylesheets"
 
   # トップページ
@@ -104,5 +101,8 @@ Commers::Application.routes.draw do
 
     # 情報編集
     resource :information, only: [:show, :edit, :update]
+
+    # 報酬確認画面
+    get "reward", to: "reward#show"
   end
 end
