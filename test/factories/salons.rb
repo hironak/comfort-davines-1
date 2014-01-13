@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :salon do
-    name "MyString"
+    name "My Salon"
     # administrator nil
   end
 end

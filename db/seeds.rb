@@ -6,10 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-if (Rails.env.development? || Rails.env.staging?) && Administrator.count == 0
-  Administrator.create username: "testuser", password: "password", password_confirmation: "password"
-end
-
 %w|NATURALTECH AUTHENTIC OI/OIL comingsoon|.each_with_index do |name, n|
   Series.create name: name, topimage: File.new(Rails.root.join("test/assets/products/image/series0#{n + 1}.jpg"))
 end
@@ -49,4 +45,20 @@ CSV.read(Rails.root.join("test/fixtures/salons.csv").to_s, headers: :first_row, 
   Salon.create(attrs)
 end
 
+# Development Administrator
+if (Rails.env.development? || Rails.env.staging?) && Administrator.count == 0
+  require 'factory_girl'
+  extend FactoryGirl::Syntax::Methods
 
+  create :administrator, username: "testuser"
+
+  agency = create :agency
+  create :administrator,
+    username: "testagency",
+    contractable: agency
+
+  salon = create :salon
+  create :administrator,
+    username: "testsalon",
+    contractable: salon
+end
