@@ -28,7 +28,7 @@ html
             p = current_administrator.username
             ul
               - %w|products serieses categories pages file_storages salons orders administrators|.each do |controller|
-                - if can? :manage, controller.singularize.camelize.constantize
+                - if current_administrator.can_read? controller.singularize.camelize.constantize
                   li = link_to t("activerecord.models.#{controller.singularize}"), [:admin, controller]
 
         .main

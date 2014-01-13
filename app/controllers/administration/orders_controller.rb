@@ -1,6 +1,6 @@
 module Administration
   class OrdersController < BaseController
-    load_and_authorize_resource
+    authorize_actions_for Order
 
     before_action :set_order, only: [:show, :edit, :update, :destroy]
 

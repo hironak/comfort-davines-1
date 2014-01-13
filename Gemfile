@@ -66,7 +66,7 @@ gem 'devise-i18n'
 gem 'sorcery'
 
 # Permission
-gem 'cancan'
+gem 'authority'
 gem 'rolify'
 
 # FriendlyIg

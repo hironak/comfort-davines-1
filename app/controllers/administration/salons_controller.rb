@@ -1,6 +1,6 @@
 module Administration
   class SalonsController < BaseController
-    load_and_authorize_resource
+    authorize_actions_for Salon
 
     before_action :set_salon, only: [:show, :edit, :update, :destroy]
 

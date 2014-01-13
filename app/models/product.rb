@@ -1,4 +1,7 @@
 class Product < ActiveRecord::Base
+  include Authority::Abilities
+  self.authorizer_name = 'AdministrationAuthorizer'
+
   extend FriendlyId
   friendly_id :name
 

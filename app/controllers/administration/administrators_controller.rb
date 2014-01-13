@@ -1,6 +1,6 @@
 module Administration
   class AdministratorsController < BaseController
-    load_and_authorize_resource
+    authorize_actions_for Administrator
 
     before_action :set_administrator, only: [:show, :edit, :update, :destroy]
 

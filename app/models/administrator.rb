@@ -1,6 +1,11 @@
 class Administrator < ActiveRecord::Base
   authenticates_with_sorcery!
 
+  include Authority::UserAbilities
+
+  include Authority::Abilities
+  self.authorizer_name = 'AdministrationAuthorizer'
+
   belongs_to :contractable, polymorphic: true
 
   validates :password, length: { minimum: 6 }

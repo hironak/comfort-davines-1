@@ -1,6 +1,6 @@
 module Administration
   class PagesController < BaseController
-    load_and_authorize_resource :class => 'Page'
+    authorize_actions_for Page
 
     before_action :set_page, only: [:show, :edit, :update, :destroy]
 

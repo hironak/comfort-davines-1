@@ -1,6 +1,9 @@
 require "digest/sha1"
 
 class Page < ActiveRecord::Base
+  include Authority::Abilities
+  self.authorizer_name = 'AdministrationAuthorizer'
+
   include StrictDocument
 
   # validates :body, html: true

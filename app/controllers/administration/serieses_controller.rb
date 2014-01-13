@@ -1,6 +1,6 @@
 module Administration
   class SeriesesController < BaseController
-    load_and_authorize_resource
+    authorize_actions_for Series
 
     before_action :set_series, only: [:show, :edit, :update, :destroy]
 

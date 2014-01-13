@@ -1,6 +1,6 @@
 module Administration
   class CategoriesController < BaseController
-    load_and_authorize_resource
+    authorize_actions_for Category
 
     before_action :set_category, only: [:show, :edit, :update, :destroy]
 

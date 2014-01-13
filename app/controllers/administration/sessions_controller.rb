@@ -13,6 +13,7 @@ module Administration
         redirect_back_or_to admin_root_path, notice: I18n.t('signed_in')
       else
         flash.now.alert = "invalid."
+        @administrator = Administrator.new
         render :new
       end
     end

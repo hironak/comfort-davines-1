@@ -56,6 +56,9 @@ GEM
     arel (4.0.1)
     ast (1.1.0)
     atomic (1.1.14)
+    authority (2.9.0)
+      activesupport (>= 3.0.0)
+      rake (>= 0.8.7)
     awesome_print (1.2.0)
     bcrypt-ruby (3.1.2)
     better_errors (1.1.0)
@@ -74,7 +77,6 @@ GEM
     byebug (2.5.0)
       columnize (~> 0.3.6)
       debugger-linecache (~> 1.2.0)
-    cancan (1.6.10)
     capistrano (3.0.1)
       i18n
       rake (>= 10.0.0)
@@ -395,13 +397,13 @@ DEPENDENCIES
   ace-rails-ap (~> 2.0.0)
   activemerchant
   annotate!
+  authority
   awesome_print
   better_errors
   binding_of_caller
   bitters
   bourbon
   bundler (~> 1.5.2)
-  cancan
   capistrano (~> 3.0.0)
   capistrano-bundler
   capistrano-rails (~> 1.1.0)
