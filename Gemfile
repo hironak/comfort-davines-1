@@ -134,6 +134,7 @@ group :development, :test do
   gem 'minitest-colorize'
   gem 'factory_girl_rails', '~> 4.0'
   gem 'webmock'
+  gem 'database_cleaner'
 
   # Syntax
   gem 'rubocop'

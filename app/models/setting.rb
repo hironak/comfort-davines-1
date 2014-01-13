@@ -3,10 +3,14 @@ class Setting < ActiveRecord::Base
   self.authorizer_name = 'AdministrationAuthorizer'
 
   def self.instance
-    self.last
+    self.last || self.create(default_params)
   end
 
   def self.method_missing method_name
     instance.send method_name
+  end
+
+  def self.default_params
+    { tax: 5 }
   end
 end

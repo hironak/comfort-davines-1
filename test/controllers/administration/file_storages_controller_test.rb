@@ -3,7 +3,7 @@ require "test_helper"
 class Administration::FileStoragesControllerTest < ActionController::TestCase
 
   before do
-    login_user administrators(:one)
+    login_user create(:administrator)
     @file_storage = create(:file_storage)
   end
 

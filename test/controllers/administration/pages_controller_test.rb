@@ -3,7 +3,7 @@ require "test_helper"
 class Administration::PagesControllerTest < ActionController::TestCase
   before do
     stub_validator
-    login_user administrators(:one)
+    login_user create(:administrator)
     @page = create(:page)
   end
 
