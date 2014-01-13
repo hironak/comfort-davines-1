@@ -4,10 +4,11 @@ module Administration
     skip_before_filter :require_login, except: [:destroy]
 
     def new
+      @administrator = Administrator.new
     end
 
     def create
-      user = login(params[:username], params[:password], params[:remember_me])
+      user = login(params[:administrator][:username], params[:administrator][:password], params[:remember_me])
       if user
         redirect_back_or_to admin_root_path, notice: "Logged in!"
       else
