@@ -11,11 +11,10 @@ html
     .header
       .container
         - if current_administrator
-          p = current_administrator.username
           ul.consumer
             li = link_to :logout, admin_logout_path, method: :delete
 
-        .logo = link_to "Davines", root_path
+        .logo = link_to "Davines", admin_root_path
 
     .contents class="#{controller.controller_path.split('/').last}"
       .container
@@ -26,9 +25,11 @@ html
 
         .menubar
           - if current_administrator
+            p = current_administrator.username
             ul
-              - %w|root products serieses categories pages file_storages salons orders administrators|.each do |controller|
-                li = link_to t("activerecord.models.#{controller.singularize}"), [:admin, controller]
+              - %w|products serieses categories pages file_storages salons orders administrators|.each do |controller|
+                - if current_administrator.can_read? controller.singularize.camelize.constantize
+                  li = link_to t("activerecord.models.#{controller.singularize}"), [:admin, controller]
 
         .main
           = yield

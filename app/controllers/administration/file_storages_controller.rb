@@ -1,5 +1,7 @@
 module Administration
   class FileStoragesController < BaseController
+    authorize_actions_for FileStorage
+
     before_action :set_file_storage, only: [:show, :edit, :update, :destroy]
 
     # GET /administration/file_storages

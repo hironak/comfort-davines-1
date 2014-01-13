@@ -1,5 +1,7 @@
 module Administration
   class AdministratorsController < BaseController
+    authorize_actions_for Administrator
+
     before_action :set_administrator, only: [:show, :edit, :update, :destroy]
 
     # GET /administration/administrators

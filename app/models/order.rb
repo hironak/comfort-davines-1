@@ -1,4 +1,7 @@
 class Order < ActiveRecord::Base
+  include Authority::Abilities
+  self.authorizer_name = 'AdministrationAuthorizer'
+
   include Pricing
   include Regulating
 
@@ -25,7 +28,13 @@ class Order < ActiveRecord::Base
 
   def extend_items cart
     cart.items.each do |item|
-      self.items.build product_id: item.product.id, amount: item.amount, origin_price: item.product.price
+      self.items.build(
+        product_id: item.product.id,
+        amount: item.amount,
+        origin_price: item.product.price,
+        backmargin_salon: item.product.backmargin_salon,
+        backmargin_agency: item.product.backmargin_agency
+      )
     end
   end
 
@@ -46,6 +55,11 @@ class Order < ActiveRecord::Base
     if salon_name.present? && salon = Salon.where(name: salon_name).first
       self.salon_id = salon.id
     end
+  end
+
+  def backmargin(type)
+    return 0 unless self.salon
+    self.items.map{|item| item.backmargin(type) }.inject(:+)
   end
 
   class ItemEmpty < StandardError

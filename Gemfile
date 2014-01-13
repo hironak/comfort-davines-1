@@ -1,5 +1,10 @@
 source 'https://rubygems.org'
 
+ruby '2.0.0'
+
+# Bundler
+gem 'bundler', '~> 1.5.2'
+
 # dotenv
 gem 'dotenv'
 
@@ -61,7 +66,7 @@ gem 'devise-i18n'
 gem 'sorcery'
 
 # Permission
-gem 'cancan'
+gem 'authority'
 gem 'rolify'
 
 # FriendlyIg
@@ -85,9 +90,6 @@ group :doc do
 end
 
 group :development do
-
-  # I18n
-  gem 'i18n_generators'
 
   # Quiet Assets Log
   gem 'quiet_assets', '~> 1.0.2'

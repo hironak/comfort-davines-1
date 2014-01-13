@@ -1,8 +1,12 @@
-box: wercker/ubuntu12.04-ruby2.0.0
+box: wercker/rvm
 services:
   - wercker/mysql
 build:
   steps:
+    # - script:
+    #     name: clear cache
+    #     code: |
+    #       sudo rm -rf /cache/bundle-install
     - bundle-install
     - rails-database-yml
     - script:

@@ -2,6 +2,27 @@ class AdministratorAbility
   include CanCan::Ability
 
   def initialize(administrator)
+    if administrator.admin?
+      can :manage, Product
+      can :manage, Series
+      can :manage, Category
+      can :manage, Page
+      can :manage, FileStorage
+      can :manage, Agency
+      can :manage, Salon
+      can :manage, Order
+      can :manage, Administrator
+    else
+    end
+
+    if administrator.agency?
+    else
+    end
+
+    if administrator.salon?
+    else
+    end
+
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)

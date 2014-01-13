@@ -10,9 +10,10 @@ module Administration
     def create
       user = login(params[:administrator][:username], params[:administrator][:password], params[:remember_me])
       if user
-        redirect_back_or_to admin_root_path, notice: "Logged in!"
+        redirect_back_or_to admin_root_path, notice: I18n.t('signed_in')
       else
         flash.now.alert = "invalid."
+        @administrator = Administrator.new
         render :new
       end
     end
@@ -22,7 +23,7 @@ module Administration
 
     def destroy
       logout
-      redirect_to admin_root_path, notice: "Logged out!"
+      redirect_to admin_root_path, notice: I18n.t('signed_out')
     end
   end
 end

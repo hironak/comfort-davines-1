@@ -1,5 +1,7 @@
 module Administration
   class SeriesesController < BaseController
+    authorize_actions_for Series
+
     before_action :set_series, only: [:show, :edit, :update, :destroy]
 
     # GET /administration/serieses

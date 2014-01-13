@@ -4,15 +4,21 @@ h1 Listing orders
 
 table
   tr
-    th
-    th
+    th 住所
+    th 総額
+    th サロン名称
+    th サロンマージン
+    th 代理店マージン
     th
 
   - @orders.each do |order|
     tr
       td = order.address
       td = order.total_price
-      td = order.created_at
+      td = order.salon_name
+      td = order.backmargin(:salon)
+      td = order.backmargin(:agency)
+      td = l order.created_at
       // td = link_to 'Show', [:admin, order]
       // td = link_to 'Edit', edit_admin_order_path(order)
       // td = link_to 'Destroy', [:admin, order], data: {:confirm => 'Are you sure?'}, :method => :delete
