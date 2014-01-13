@@ -1,5 +1,8 @@
 Commers::Application.routes.draw do
 
+  get "setting/show"
+  get "setting/edit"
+  get "setting/update"
   get "editable/stylesheets/:key", to: "editable#stylesheets"
 
   # トップページ
