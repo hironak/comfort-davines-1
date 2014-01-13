@@ -99,7 +99,7 @@ class CashierController < ApplicationController
   end
 
   def order_params
-    params.require(:order).permit(:address)
+    params.require(:order).permit(:salon_name, :address)
   end
 
   def payment_params

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140112235943) do
+ActiveRecord::Schema.define(version: 20140113004013) do
 
   create_table "administration_pages", force: true do |t|
     t.text     "body"
@@ -108,9 +108,12 @@ ActiveRecord::Schema.define(version: 20140112235943) do
     t.text     "address"
     t.text     "payment"
     t.integer  "consumer_id"
+    t.string   "salon_name"
+    t.integer  "salon_id"
   end
 
   add_index "orders", ["consumer_id"], name: "index_orders_on_consumer_id", using: :btree
+  add_index "orders", ["salon_id"], name: "index_orders_on_salon_id", using: :btree
 
   create_table "pages", force: true do |t|
     t.text     "body"

@@ -6,6 +6,9 @@ class Order < ActiveRecord::Base
   has_many :items, class_name: 'OrderItem', dependent: :delete_all
   has_many :products, through: :items
 
+  belongs_to :salon
+  before_save :set_salon
+
   accepts_nested_attributes_for :items, allow_destroy: true
 
   def sample
@@ -36,6 +39,12 @@ class Order < ActiveRecord::Base
   def decrease_product_stock
     self.items.each do |item|
       item.product.decrease item.amount
+    end
+  end
+
+  def set_salon
+    if salon_name.present? && salon = Salon.where(name: salon_name).first
+      self.salon_id = salon.id
     end
   end
 
