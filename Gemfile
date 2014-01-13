@@ -88,9 +88,6 @@ end
 
 group :development do
 
-  # I18n
-  gem 'i18n_generators'
-
   # Quiet Assets Log
   gem 'quiet_assets', '~> 1.0.2'
 

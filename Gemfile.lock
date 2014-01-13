@@ -117,8 +117,6 @@ GEM
       warden (~> 1.2.3)
     devise-i18n (0.10.2)
     docile (1.1.1)
-    domain_name (0.5.14)
-      unf (>= 0.0.5, < 1.0.0)
     dotenv (0.9.0)
     em-websocket (0.5.0)
       eventmachine (>= 0.12.9)
@@ -160,14 +158,9 @@ GEM
     hirb-unicode (0.0.5)
       hirb (~> 0.5)
       unicode-display_width (~> 0.1.1)
-    http-cookie (1.0.2)
-      domain_name (~> 0.5)
     http_parser.rb (0.5.3)
     httpauth (0.2.0)
     i18n (0.6.9)
-    i18n_generators (1.2.1)
-      mechanize
-      rails (>= 3.0.0)
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
       multi_json (>= 1.2.0)
@@ -192,15 +185,6 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    mechanize (2.7.2)
-      domain_name (~> 0.5, >= 0.5.1)
-      http-cookie (~> 1.0.0)
-      mime-types (~> 1.17, >= 1.17.2)
-      net-http-digest_auth (~> 1.1, >= 1.1.1)
-      net-http-persistent (~> 2.5, >= 2.5.2)
-      nokogiri (~> 1.4)
-      ntlm-http (~> 0.1, >= 0.1.1)
-      webrobots (>= 0.0.9, < 0.2)
     method_source (0.8.2)
     mime-types (1.25.1)
     mini_portile (0.5.2)
@@ -219,14 +203,11 @@ GEM
     neat (1.5.0)
       bourbon (>= 2.1)
       sass (>= 3.2)
-    net-http-digest_auth (1.4)
-    net-http-persistent (2.9)
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
     net-ssh (2.7.0)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
-    ntlm-http (0.1.1)
     oauth (0.4.7)
     oauth2 (0.9.2)
       faraday (~> 0.8)
@@ -386,9 +367,6 @@ GEM
     uglifier (2.4.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
-    unf (0.1.2)
-      unf_ext
-    unf_ext (0.0.6)
     unicode-display_width (0.1.1)
     unicorn (4.7.0)
       kgio (~> 2.6)
@@ -405,7 +383,6 @@ GEM
     webmock (1.16.1)
       addressable (>= 2.2.7)
       crack (>= 0.3.2)
-    webrobots (0.1.1)
     xray-rails (0.1.12)
       coffee-rails
       rails (>= 3.1.0)
@@ -443,7 +420,6 @@ DEPENDENCIES
   guard-unicorn!
   hirb
   hirb-unicode
-  i18n_generators
   jbuilder (~> 1.2)
   jquery-rails
   jquery-turbolinks
