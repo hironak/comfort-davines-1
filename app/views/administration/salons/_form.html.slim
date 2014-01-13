@@ -7,6 +7,22 @@
           li = message
 
   .field
+    = f.label :number
+    = f.text_field :number
+  .field
     = f.label :name
     = f.text_field :name
+  .field
+    = f.label :grade
+    = f.text_field :grade
+  .field
+    = f.label :address
+    = f.text_field :address
+  .field
+    = f.label :tel
+    = f.text_field :tel
+  .field
+    = f.label :website
+    = f.text_field :website
+
   .actions = f.submit 'Save'
