@@ -5,7 +5,7 @@ build:
   steps:
     - script:
         name: clear cache
-        code: sudo rm -rf $WERCKER_CACHE_DIR
+        code: sudo rm -rf "`echo $WERCKER_CACHE_DIR`/*"
     - bundle-install
     - rails-database-yml
     - script:
