@@ -1,28 +1,14 @@
-h1 Listing products
+h1 商品一覧
 
 table
   tr
-    th Name
-    th Price
-    th Series
-    th Category
-    th Stock
-    th Sample
-    th
-    th
-    th
+    th.w90 名称
+    th.w10 在庫
 
   - @products.each do |product|
     tr
-      td = product.name
-      td = product.price
-      td = product.series.try :name
-      td = product.category.try :name
-      td = product.stock
-      td = product.sample ? "Sample" : ""
-      td = link_to 'Show', [:admin, product]
-      td = link_to 'Edit', edit_admin_product_path(product)
-      td = link_to 'Destroy', [:admin, product], data: { confirm: 'Are you sure?' }, method: :delete
+      td.w90 = link_to product.name, [:admin, product]
+      td.w10 = product.stock
 
 br
 

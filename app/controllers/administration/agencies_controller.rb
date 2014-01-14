@@ -31,7 +31,7 @@ module Administration
 
       respond_to do |format|
         if @agency.save
-          format.html { redirect_to [:admin, @agency], notice: 'Agency was successfully created.' }
+          format.html { redirect_to [:admin, @agency], notice: rmt(:successfully, :created, @agency) }
           format.json { render action: 'show', status: :created, location: [:admin, @agency] }
         else
           format.html { render action: 'new' }
@@ -45,7 +45,7 @@ module Administration
     def update
       respond_to do |format|
         if @agency.update(agency_params)
-          format.html { redirect_to [:admin, @agency], notice: 'Agency was successfully updated.' }
+          format.html { redirect_to [:admin, @agency], notice: rmt(:successfully, :updated, @agency) }
           format.json { head :no_content }
         else
           format.html { render action: 'edit' }

@@ -31,7 +31,7 @@ module Administration
 
       respond_to do |format|
         if @page.save
-          format.html { redirect_to [:admin, @page], notice: 'Page was successfully created.' }
+          format.html { redirect_to [:admin, @page], notice: rmt(:successfully, :created, @page) }
           format.json { render action: 'show', status: :created, location: [:admin, @page] }
         else
           format.html { render action: 'new' }
@@ -45,7 +45,7 @@ module Administration
     def update
       respond_to do |format|
         if @page.update(page_params)
-          format.html { redirect_to [:admin, @page], notice: 'Page was successfully updated.' }
+          format.html { redirect_to [:admin, @page], notice: rmt(:successfully, :updated, @page) }
           format.json { head :no_content }
         else
           format.html { render action: 'edit' }

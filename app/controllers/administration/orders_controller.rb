@@ -32,7 +32,7 @@ module Administration
     def update
       respond_to do |format|
         if @order.update(order_params)
-          format.html { redirect_to [:admin, @order], notice: 'Order was successfully updated.' }
+          format.html { redirect_to [:admin, @order], notice: rmt(:successfully, :updated, @order) }
           format.json { head :no_content }
         else
           format.html { render action: 'edit' }

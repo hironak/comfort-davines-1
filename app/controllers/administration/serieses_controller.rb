@@ -31,7 +31,7 @@ module Administration
 
       respond_to do |format|
         if @series.save
-          format.html { redirect_to [:admin, @series], notice: 'Seriese was successfully created.' }
+          format.html { redirect_to [:admin, @series], notice: rmt(:successfully, :created, @seriese) }
           format.json { render action: 'show', status: :created, location: [:admin, @series] }
         else
           format.html { render action: 'new' }
@@ -45,7 +45,7 @@ module Administration
     def update
       respond_to do |format|
         if @series.update(series_params)
-          format.html { redirect_to [:admin, @series], notice: 'Seriese was successfully updated.' }
+          format.html { redirect_to [:admin, @series], notice: rmt(:successfully, :updated, @seriese) }
           format.json { head :no_content }
         else
           format.html { render action: 'edit' }

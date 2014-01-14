@@ -21,6 +21,16 @@ tr, td, th {
   vertical-align: middle;
 }
 
+table {
+  th, td {
+    @each $w in (10, 20, 30, 40, 50, 60, 70, 80, 90) {
+      &.w#{$w} {
+        width: percentage($w);
+      }
+    }
+  }
+}
+
 table.cart {
   thead {
     th {

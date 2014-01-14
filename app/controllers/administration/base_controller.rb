@@ -15,7 +15,7 @@ module Administration
     private
 
     def not_authenticated
-      redirect_to admin_login_path, alert: "Please login first"
+      redirect_to admin_login_path, notice: I18n.t('administration_session.sign_in_required')
     end
   end
 end

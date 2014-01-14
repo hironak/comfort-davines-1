@@ -19,6 +19,6 @@ class Administration::SessionsControllerTest < ActionController::TestCase
   test "session destroy" do
     login_user @administrator
     delete :destroy
-    assert_redirected_to admin_root_path
+    assert_redirected_to admin_login_path
   end
 end
