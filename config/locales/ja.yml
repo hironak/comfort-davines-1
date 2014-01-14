@@ -1,6 +1,14 @@
 ja:
-  signed_in: ログインしました。
-  signed_out: ログアウトしました。
+  information: 登録情報
+  reward: リワード確認
+  administration_session:
+    sign_in_required: ログインが必要です。
+    sign_in_invalid: ユーザー名とパスワードを確認してください。
+    signed_in: ログインしました。
+    signed_out: ログアウトしました。
+  resource:
+    successfully:
+      updated: "%{model}を更新しました。"
   date:
     abbr_day_names:
     - 日

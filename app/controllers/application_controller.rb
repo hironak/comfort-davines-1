@@ -30,4 +30,8 @@ class ApplicationController < ActionController::Base
   def default_title
     @default_title ||= "davines online"
   end
+
+  def rmt successfull, verb, resource
+    I18n.t("resource.#{successfull}.#{verb}", model: I18n.t("activerecord.models.#{resource.class.name.underscore}"))
+  end
 end

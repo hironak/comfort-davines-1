@@ -32,7 +32,7 @@ html
                   li = link_to t("activerecord.models.#{controller.singularize}"), [:admin, controller]
 
               - if current_administrator.can_read? Setting
-                li = link_to t('setting'), admin_setting_path
+                li = link_to t('activerecord.models.setting'), admin_setting_path
 
               - if current_administrator.contractable
                 li = link_to t("information"), admin_information_path
