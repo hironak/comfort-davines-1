@@ -31,7 +31,7 @@ module Administration
 
       respond_to do |format|
         if @file_storage.save
-          format.html { redirect_to [:admin, @file_storage], notice: 'File storage was successfully created.' }
+          format.html { redirect_to [:admin, @file_storage], notice: rmt(:successfully, :created, @file storage) }
           format.json { render action: 'show', status: :created, location: [:admin, @file_storage] }
         else
           format.html { render action: 'new' }
@@ -45,7 +45,7 @@ module Administration
     def update
       respond_to do |format|
         if @file_storage.update(file_storage_params)
-          format.html { redirect_to [:admin, @file_storage], notice: 'File storage was successfully updated.' }
+          format.html { redirect_to [:admin, @file_storage], notice: rmt(:successfully, :updated, @file storage) }
           format.json { head :no_content }
         else
           format.html { render action: 'edit' }

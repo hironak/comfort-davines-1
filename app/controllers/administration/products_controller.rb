@@ -35,7 +35,7 @@ module Administration
 
       respond_to do |format|
         if @product.save
-          format.html { redirect_to [:admin, @product], notice: 'Product was successfully created.' }
+          format.html { redirect_to [:admin, @product], notice: rmt(:successfully, :created, @product) }
           format.json { render action: 'show', status: :created, location: [:admin, @product] }
         else
           format.html { render action: 'new' }
@@ -49,7 +49,7 @@ module Administration
     def update
       respond_to do |format|
         if @product.update(product_params)
-          format.html { redirect_to [:admin, @product], notice: 'Product was successfully updated.' }
+          format.html { redirect_to [:admin, @product], notice: rmt(:successfully, :updated, @product) }
           format.json { head :no_content }
         else
           format.html { render action: 'edit' }

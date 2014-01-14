@@ -8,6 +8,7 @@ ja:
     signed_out: ログアウトしました。
   resource:
     successfully:
+      created: "%{model}を作成しました。"
       updated: "%{model}を更新しました。"
   date:
     abbr_day_names:
