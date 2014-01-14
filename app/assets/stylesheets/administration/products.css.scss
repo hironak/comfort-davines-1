@@ -1,0 +1,13 @@
+table {
+  th, td {
+    &.name {
+      width: 80%;
+    }
+    &.stock {
+      width: 10%;
+    }
+    &.control {
+      width: 10%;
+    }
+  }
+}

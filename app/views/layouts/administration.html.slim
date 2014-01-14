@@ -16,7 +16,10 @@ html
               = image_tag 'administration/logout.jpg', alt: 'ログアウト'
 
         .logo = link_to admin_root_path do
-          = image_tag 'header/logo.jpg', alt: 'davines'
+          = image_tag 'header/logo.jpg', alt: 'davines', height: 61, width: 230
+
+        - if current_administrator
+          p = current_administrator.username
 
     .contents class="#{controller.controller_path.split('/').last}"
       .container
@@ -26,24 +29,19 @@ html
           p.alert = alert
 
         .menubar
-          - if current_administrator
-            p = current_administrator.username
-            ul
-              - %w|products serieses categories pages file_storages agencies salons orders administrators|.each do |controller|
-                - if current_administrator.can_read? controller.singularize.camelize.constantize
-                  li = link_to t("activerecord.models.#{controller.singularize}"), [:admin, controller]
+          ul
+            - %w|products serieses categories pages file_storages agencies salons orders administrators|.each do |controller|
+              - if current_administrator.can_read? controller.singularize.camelize.constantize
+                li = link_to t("activerecord.models.#{controller.singularize}"), [:admin, controller]
 
-              - if current_administrator.can_read? Setting
-                li = link_to t('activerecord.models.setting'), admin_setting_path
+            - if current_administrator.can_read? Setting
+              li = link_to t('activerecord.models.setting'), admin_setting_path
 
-              - if current_administrator.contractable
-                li = link_to t("information"), admin_information_path
-                li = link_to t("reward"), admin_reward_path
+            - if current_administrator.contractable
+              li = link_to t("information"), admin_information_path
+              li = link_to t("reward"), admin_reward_path
 
         .main
           = yield
 
     .footer
-      .container
-        .links
-          h4 商品カテゴリー
