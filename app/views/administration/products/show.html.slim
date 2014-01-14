@@ -32,6 +32,8 @@ p
   .editable
     = @product.page.body.html_safe
 
-= link_to 'Edit', edit_admin_product_path(@product)
+= link_to '編集', edit_admin_product_path(@product)
 '|
-= link_to 'Back', admin_products_path
+= link_to '削除', [:admin, @product], data: { confirm: 'Are you sure?' }, method: :delete
+'|
+= link_to '戻る', admin_products_path
