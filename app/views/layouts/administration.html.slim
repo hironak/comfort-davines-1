@@ -12,9 +12,11 @@ html
       .container
         - if current_administrator
           ul.consumer
-            li = link_to :logout, admin_logout_path, method: :delete
+            li = link_to admin_logout_path, method: :delete do
+              = image_tag 'administration/logout.jpg', alt: 'ログアウト'
 
-        .logo = link_to "Davines", admin_root_path
+        .logo = link_to admin_root_path do
+          = image_tag 'header/logo.jpg', alt: 'davines'
 
     .contents class="#{controller.controller_path.split('/').last}"
       .container
