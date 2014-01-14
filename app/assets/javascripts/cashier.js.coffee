@@ -6,14 +6,19 @@ $ ->
 
   cache = {}
 
+  suggestion = (res, data)->
+    items = (item['name'] for item in data)
+    res items
+
   $( '#order_salon_name' ).autocomplete
     minLength: 2
     source: ( req, res )->
       term = req.term
       if term in cache
-        res( cache[ term ] )
+        suggestion res, cache[ term ]
         return
 
       $.getJSON  "/salons.json", req, ( data, status, xhr )->
         cache[ term ] = data
-        res( data )
+        suggestion res, data
+
