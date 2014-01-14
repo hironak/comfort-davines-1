@@ -3,5 +3,6 @@
 FactoryGirl.define do
   factory :agency do
     name "My Agency"
+    administrator nil
   end
 end

@@ -24,4 +24,13 @@
       = f.label :password_confirmation
       = f.text_field :password_confirmation
 
+  .field
+    = f.label :salons
+    = text_field_tag :salon_select, "", id: 'salon_select'
+    ul.salons
+      - @agency.salons.each do |salon|
+        li
+          = hidden_field_tag "agency[salon_ids][]", salon.id
+          span = salon.name
+
   .actions = f.submit 'Save'

@@ -9,6 +9,10 @@ p
     strong Username:
     = administrator.username
 
+ul
+  - @agency.salons.each do |salon|
+    li = salon.name
+
 = link_to 'Edit', edit_admin_agency_path(@agency)
 '|
 = link_to 'Back', admin_agencies_path

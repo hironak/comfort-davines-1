@@ -4,7 +4,9 @@ class Administration::AgenciesControllerTest < ActionController::TestCase
 
   before do
     login_user create(:administrator)
-    @agency = create(:agency)
+    @agency = create(:agency) do |agency|
+      agency.create_administrator(attributes_for(:administrator))
+    end
   end
 
   def test_index

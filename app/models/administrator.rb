@@ -8,9 +8,9 @@ class Administrator < ActiveRecord::Base
 
   belongs_to :contractable, polymorphic: true
 
-  validates :password, length: { minimum: 6 }
+  validates :password, length: { minimum: 6 }, if: -> { password.present? }
   validates :password, confirmation: true
-  validates :password_confirmation, presence: true
+  validates :password_confirmation, presence: true, if: -> { password.present? }
 
 
   def admin?
