@@ -23,6 +23,7 @@ ja:
         salt: salt  #g
         username: ユーザー名
         password: パスワード
+        password_confirmation: パスワードの確認
 
       agency:
         administrator: :activerecord.models.administrator  #g

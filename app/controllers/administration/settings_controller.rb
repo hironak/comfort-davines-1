@@ -27,7 +27,7 @@ module Administration
     end
 
     def setting_params
-      params.fetch(:setting).permit(:tax)
+      params.require(:setting).permit(:tax)
     end
   end
 end

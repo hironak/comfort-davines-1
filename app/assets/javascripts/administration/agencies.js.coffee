@@ -1,16 +1,12 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
-
 $ ->
 
   cache = {}
 
   suggestion = (res, data)->
-    items = (item['name'] for item in data)
+    items = (label: item['name'], value: item['id'] for item in data)
     res items
 
-  $( '#order_salon_name' ).autocomplete
+  $( '#salon_select' ).autocomplete
     minLength: 2
     source: ( req, res )->
       term = req.term
@@ -22,3 +18,8 @@ $ ->
         cache[ term ] = data
         suggestion res, data
 
+    select: (evt, ui)->
+      $('<li />').append(
+        $('<input type="hidden" name="agency[salon_ids][]" />').val(ui.item.value),
+        $('<span />').text ui.item.label
+      ).appendTo('.salons')

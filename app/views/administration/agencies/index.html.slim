@@ -1,0 +1,19 @@
+h1 Listing agencies
+
+table
+  tr
+    th Name
+    th
+    th
+    th
+
+  - @agencies.each do |agency|
+    tr
+      td = agency.name
+      td = link_to 'Show', [:admin, agency]
+      td = link_to 'Edit', edit_admin_agency_path(agency)
+      td = link_to 'Destroy', [:admin, agency], data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Agency', new_admin_agency_path

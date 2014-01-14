@@ -96,6 +96,9 @@ Commers::Application.routes.draw do
     # File Storage
     resources :file_storages
 
+    # 代理店管理
+    resources :agencies
+
     # サロン管理
     resources :salons
 

@@ -34,9 +34,9 @@ module Administration
     def information_params
       case @information
       when Agency
-        params.fetch(:agency).permit(:name)
+        params.require(:agency).permit(:name)
       when Salon
-        params.fetch(:salon).permit(:name, :address, :tel, :website)
+        params.require(:salon).permit(:name, :address, :tel, :website)
       end
     end
   end
