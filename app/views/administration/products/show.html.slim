@@ -1,9 +1,4 @@
 
--if @product.page
-  - content_for :editable_style do
-    = stylesheet_tag "data-turbolinks-track" => true do
-      = @editable_style
-
 p
   strong Name:
   = @product.name
@@ -29,8 +24,8 @@ p
   = @product.stock
 
 - if @product.page
-  .editable
-    = @product.page.body.html_safe
+  .editable class="page#{@product.page.id}"
+    = page_body @product.page.body, @product.page.render_type
 
 = link_to '編集', edit_admin_product_path(@product)
 '|

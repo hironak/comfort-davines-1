@@ -13,10 +13,6 @@ module Administration
     # GET /products/1
     # GET /products/1.json
     def show
-      if @page = @product.page
-        scss = render_to_string('editable', formats: :scss)
-        @editable_style = Sass::Engine.new(scss, syntax: :scss).render
-      end
     end
 
     # GET /products/new
