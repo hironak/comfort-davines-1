@@ -18,12 +18,11 @@ class Order < ActiveRecord::Base
     self.items.includes(:priduct).where(product: { sample: true } )
   end
 
-  def sample= item
-    self.items << item
-  end
-
-  def select_sample product
-    self.sample = OrderItem.new(product_id: product.id, amount: 1, origin_price: product.price)
+  def select_sample params
+    products = Product.sample.where(id: params[:samples])
+    self.items = products.map do |product|
+      self.sample_add OrderItem.new(product_id: product.id, amount: 1, origin_price: product.price)
+    end
   end
 
   def extend_items cart

@@ -38,7 +38,7 @@ class CashierController < ApplicationController
   end
 
   def sample_create
-    @order.select_sample Product.sample.find(sample_params)
+    @order.select_sample sample_params
     session_save_order
     redirect_to cashier_order_path
   end
@@ -95,7 +95,7 @@ class CashierController < ApplicationController
   end
 
   def sample_params
-    params[:order][:sample]
+    params.require(:order).permit(samples: [])
   end
 
   def order_params
