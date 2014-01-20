@@ -2,7 +2,7 @@
 
 app_path = "/var/www/comfort-davines/current"
 
-# working_directory app_path
+working_directory app_path
 
 stderr_path "#{app_path}/log/unicorn_error.log"
 stdout_path "#{app_path}/log/unicorn.log"
@@ -10,6 +10,7 @@ stdout_path "#{app_path}/log/unicorn.log"
 pid "#{app_path}/tmp/pids/unicorn.pid"
 
 listen "#{app_path}/tmp/sockets/unicorn.sock"
+user "deploy"
 worker_processes 3
 timeout 180
 preload_app true
