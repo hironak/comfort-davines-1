@@ -43,6 +43,6 @@ class WelcomeController < ApplicationController
   private
 
   def set_expires
-    expires_in 5.minutes, public: true
+    expires_in 5.minutes, public: true if consumer_signed_in?
   end
 end
