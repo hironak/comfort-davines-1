@@ -20,6 +20,7 @@ gem 'redis-rails'
 
 # User Rack::Cache for HTTP caching
 gem 'rack-cache'
+gem 'redis-rack-cache'
 
 # Use SCSS for stylesheets
 gem 'sass-rails'
