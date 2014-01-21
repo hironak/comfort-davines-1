@@ -4,7 +4,7 @@ app_path = "/var/www/comfort-davines/current"
 
 working_directory app_path
 
-stderr_path "#{app_path}/log/unicorn_error.log"
+stderr_path "#{app_path}/log/unicorn.log"
 stdout_path "#{app_path}/log/unicorn.log"
 
 pid "#{app_path}/tmp/pids/unicorn.pid"
