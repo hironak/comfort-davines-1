@@ -19,7 +19,7 @@ set :log_level, :debug
 set :pty, true
 
 set :linked_files, %w{config/database.yml .env}
-set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets public/system public/assets}
+set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets public/system}
 
 # rbenv
 set :rbenv_type, :system
@@ -50,3 +50,10 @@ namespace :deploy do
   after :finishing, 'deploy:cleanup'
 
 end
+
+task :precompile do
+  Dir.chdir fetch(:rsync_stage) do
+    system "rake", "assets:precompile"
+  end
+end
+after "rsync:stage", "precompile"
