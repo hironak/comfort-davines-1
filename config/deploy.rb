@@ -72,6 +72,13 @@ namespace :rsync do
   end
 end
 
+task :package do
+  Dir.chdir fetch(:rsync_stage) do
+    system "bundle", "package"
+  end
+end
+after "rsync:stage", "package"
+
 task :precompile do
   Dir.chdir fetch(:rsync_stage) do
     system ["echo", <<-YML.dump, "> config/database.yml"].join(' ')
