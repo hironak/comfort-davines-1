@@ -16,15 +16,10 @@ build:
         channel: hackers-jp
 deploy:
   steps:
-    - script:
-        name: ssh check
-        code: ls ~/.ssh/
     - bundle-install
     - script:
-        name: write env var
-        code: |-
-          export CAP_PRIVATE_KEY=`mktemp`
-          echo -e $DEPLOY_KEY_PRIVATE > $CAP_PRIVATE_KEY
+        name: Write SSH Key
+        code: echo -e $DEPLOY_KEY_PRIVATE > ~/.ssh/id_rsa
     - wercker/cap:
         stage: staging
   after-steps:
