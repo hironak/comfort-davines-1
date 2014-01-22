@@ -16,6 +16,9 @@ build:
         channel: hackers-jp
 deploy:
   steps:
+    - script:
+        name: ssh check
+        code: ls ~/.ssh/
     - bundle-install
     - script:
         name: write env var
