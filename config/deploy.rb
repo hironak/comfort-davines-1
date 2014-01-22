@@ -12,7 +12,7 @@ set :deploy_via, :remote_cache
 set :pty, true
 
 set :linked_files, %w{config/database.yml .env}
-set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/assets}
+set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets public/system public/assets}
 
 # rbenv
 set :rbenv_type, :system
