@@ -7,6 +7,13 @@ set :deploy_to, '/var/www/comfort-davines'
 set :scm, :scm
 set :deploy_via, :rsync
 
+set :rsync_options, %w[
+  --recursive --delete --delete-excluded
+  --exclude .git*
+  --exclude /config/database.yml
+  --exclude /test/***
+]
+
 set :format, :pretty
 set :log_level, :debug
 set :pty, true
