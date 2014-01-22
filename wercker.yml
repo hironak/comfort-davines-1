@@ -19,7 +19,9 @@ deploy:
     - bundle-install
     - script:
         name: Write SSH Key
-        code: echo -e $DEPLOY_KEY_PRIVATE > ~/.ssh/id_rsa
+        code: |-
+          echo -e $DEPLOY_KEY_PRIVATE > ~/.ssh/id_rsa
+          chmod 0600 ~/.ssh/id_rsa
     - wercker/cap:
         stage: staging
   after-steps:
