@@ -1,7 +1,7 @@
 set :application, 'comfort-davines'
-# set :repo_url, 'git@github.com:hackers-jp/comfort-davines.git'
+set :repo_url, 'git@github.com:hackers-jp/comfort-davines.git'
 
-# ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
+ask :branch, proc { `git rev-parse HEAD`.chomp }
 
 set :deploy_to, '/var/www/comfort-davines'
 set :scm, :scm
