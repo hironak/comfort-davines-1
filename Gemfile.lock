@@ -90,6 +90,8 @@ GEM
     capistrano-rbenv (2.0.0)
       capistrano (~> 3.0)
       sshkit (~> 1.2.0)
+    capistrano-rsync (1.0.2)
+      capistrano (>= 3.0.0.pre14, < 4)
     celluloid (0.15.2)
       timers (~> 1.1.0)
     climate_control (0.0.3)
@@ -412,6 +414,7 @@ DEPENDENCIES
   capistrano-bundler
   capistrano-rails (~> 1.1.0)
   capistrano-rbenv (~> 2.0)
+  capistrano-rsync
   coffee-rails (~> 4.0.0)
   colorize_unpermitted_parameters
   database_cleaner

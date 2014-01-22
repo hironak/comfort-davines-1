@@ -160,6 +160,7 @@ group :development do
   gem 'capistrano-rails', '~> 1.1.0', require: false
   gem 'capistrano-rbenv', '~> 2.0', require: false
   gem 'capistrano-bundler', require: false
+  gem 'capistrano-rsync'
 end
 
 # Use debugger
