@@ -66,6 +66,10 @@ end
 
 task :precompile do
   Dir.chdir fetch(:rsync_stage) do
+    system ["echo", <<-YML.dump, "> config/database.yml"].join(' ')
+    production:
+      adapter: mysql2
+    YML
     system "rake", "assets:precompile"
   end
 end

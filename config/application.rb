@@ -28,6 +28,8 @@ module Commers
     config.i18n.enforce_available_locales = true
     config.i18n.default_locale = :ja
 
+    config.assets.initialize_on_precompile = false
+
     ENV['REDIS_HOST'] ||= ENV['BOXEN_REDIS_HOST'] || 'localhost'
     ENV['REDIS_PORT'] ||= ENV['BOXEN_REDIS_PORT'] || '6379'
     ENV['REDIS_URL'] ||= "redis://#{ENV['REDIS_HOST'] || 'localhost'}:#{ENV['REDIS_PORT'] || 6379}"
