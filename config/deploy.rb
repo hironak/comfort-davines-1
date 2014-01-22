@@ -51,6 +51,18 @@ namespace :deploy do
 
 end
 
+namespace :rsync do
+  task :stage => %w[create_stage] do
+    Dir.chdir fetch(:rsync_stage) do
+      update = %W[git fetch --quiet --all --prune]
+      Kernel.system *update
+
+      checkout = %W[git reset --hard #{fetch(:branch)}]
+      Kernel.system *checkout
+    end
+  end
+end
+
 task :precompile do
   Dir.chdir fetch(:rsync_stage) do
     system "rake", "assets:precompile"
