@@ -1,14 +1,14 @@
 set :application, 'comfort-davines'
-set :repo_url, 'git@github.com:hackers-jp/comfort-davines.git'
+# set :repo_url, 'git@github.com:hackers-jp/comfort-davines.git'
 
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
 set :deploy_to, '/var/www/comfort-davines'
-set :scm, :git
-set :deploy_via, :remote_cache
+set :scm, :scm
+set :deploy_via, :rsync
 
-# set :format, :pretty
-# set :log_level, :debug
+set :format, :pretty
+set :log_level, :debug
 set :pty, true
 
 set :linked_files, %w{config/database.yml .env}
