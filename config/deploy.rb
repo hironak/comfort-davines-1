@@ -7,11 +7,19 @@ set :deploy_to, '/var/www/comfort-davines'
 set :scm, :scm
 set :deploy_via, :rsync
 
+set :rsync_stage, "/tmp/deploy"
 set :rsync_options, %w[
   --recursive --delete --delete-excluded
   --exclude .git*
   --exclude /config/database.yml
   --exclude /test/***
+  --exclude /wercker.yml
+  --exclude /.pryrc
+  --exclude /.rubocop.yml
+  --exclude /rubocop-todo.yml
+  --exclude /README.md
+  --exclude /Capfile
+  --exclude /Guardfile
 ]
 
 set :format, :pretty
