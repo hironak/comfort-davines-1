@@ -22,9 +22,6 @@ deploy:
         code: |-
           echo -e $DEPLOY_KEY_PRIVATE > ~/.ssh/id_rsa
           chmod 0600 ~/.ssh/id_rsa
-    - script:
-        name: database.yml
-        code: cp ./config/database.yml ./tmp/deploy/config/database.yml
     - wercker/cap:
         stage: staging
   after-steps:
