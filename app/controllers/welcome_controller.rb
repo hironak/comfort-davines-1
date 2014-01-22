@@ -1,6 +1,4 @@
 class WelcomeController < ApplicationController
-  before_filter :set_expires
-
   def index
   end
 
@@ -38,11 +36,5 @@ class WelcomeController < ApplicationController
 
   def shops
     title "店舗情報"
-  end
-
-  private
-
-  def set_expires
-    expires_in 5.minutes, public: true if consumer_signed_in?
   end
 end
