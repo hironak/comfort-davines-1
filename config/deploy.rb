@@ -51,6 +51,7 @@ namespace :deploy do
 
 end
 
+Rake::Task["rsync:stage"].clear
 namespace :rsync do
   task :stage => %w[create_stage] do
     Dir.chdir fetch(:rsync_stage) do
