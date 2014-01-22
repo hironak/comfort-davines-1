@@ -70,7 +70,7 @@ task :precompile do
     production:
       adapter: mysql2
     YML
-    system "rake", "assets:precompile"
+    system "rake", "assets:precompile", "RAILS_ENV=production"
   end
 end
 after "rsync:stage", "precompile"
