@@ -38,9 +38,12 @@ class CashierController < ApplicationController
   end
 
   def sample_create
-    @order.select_sample Product.sample.find(sample_params)
-    session_save_order
-    redirect_to cashier_order_path
+    @order.select_samples sample_params[:samples]
+    if session_save_order
+      redirect_to cashier_order_path
+    else
+      render 'sample'
+    end
   end
 
   def order
@@ -87,7 +90,11 @@ class CashierController < ApplicationController
   end
 
   def session_save_order
-    session[:cashing_order] = @order.to_hash
+    if @order.valid?
+      session[:cashing_order] = @order.to_hash
+    else
+      false
+    end
   end
 
   def session_clear_order
@@ -95,7 +102,7 @@ class CashierController < ApplicationController
   end
 
   def sample_params
-    params[:order][:sample]
+    params.require(:order).permit(samples: [])
   end
 
   def order_params

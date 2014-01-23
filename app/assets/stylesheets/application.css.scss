@@ -75,6 +75,9 @@
   &.carts {
     @import "carts";
   }
+  &.cashier {
+    @import "cashier";
+  }
   &.devise_registrations {
     @import "devise/registrations";
   }

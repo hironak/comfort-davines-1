@@ -14,16 +14,34 @@ class Order < ActiveRecord::Base
 
   accepts_nested_attributes_for :items, allow_destroy: true
 
-  def sample
-    self.items.includes(:priduct).where(product: { sample: true } )
+  validates :samples, length: { maximum: 2 }
+
+  def samples
+    if self.persisted?
+      self.items.includes(:product).where(products: { sample: true } )
+    else
+      self.items.select{|item| item.product.sample }
+    end
   end
 
-  def sample= item
-    self.items << item
+  def samples= items
+    if self.persisted?
+      self.samples.delete_all
+    else
+      self.samples.each do |item|
+        self.items.delete(item)
+      end
+    end
+    items.each do |item|
+      self.items << item
+    end
   end
 
-  def select_sample product
-    self.sample = OrderItem.new(product_id: product.id, amount: 1, origin_price: product.price)
+  def select_samples ids
+    products = Product.sample.where(id: ids)
+    self.samples = products.map do |product|
+      OrderItem.new(product_id: product.id, amount: 1, origin_price: product.price)
+    end
   end
 
   def extend_items cart
