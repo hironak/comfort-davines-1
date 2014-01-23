@@ -1,10 +1,14 @@
 h1 Cashier#sample
 = form_for @order, url: cashier_sample_path do |f|
 
-  - Product.sample.each do |product|
-    = label_tag "order_samples_#{product.id}" do
-      = check_box_tag "order[samples][]", product.id, false, id: "order_samples_#{product.id}"
-      = product.name
+  .sample_select
+    - Product.sample.each do |product|
+      .item
+        = label_tag "order_samples_#{product.id}" do
+          .image
+            = image_tag product.image.url(:thumb)
+          = check_box_tag "order[samples][]", product.id, false, id: "order_samples_#{product.id}"
+          = product.name
 
   = f.submit 'sample'
 

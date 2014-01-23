@@ -14,14 +14,21 @@ class Order < ActiveRecord::Base
 
   accepts_nested_attributes_for :items, allow_destroy: true
 
-  def sample
-    self.items.includes(:priduct).where(product: { sample: true } )
+  def samples
+    self.items.includes(:product).where(product: { sample: true } )
   end
 
-  def select_sample params
-    products = Product.sample.where(id: params[:samples])
-    self.items = products.map do |product|
-      self.sample_add OrderItem.new(product_id: product.id, amount: 1, origin_price: product.price)
+  def samples= items
+    self.samples.delete_all
+    items.each do |item|
+      self.items << item
+    end
+  end
+
+  def select_samples ids
+    products = Product.sample.where(id: ids)
+    self.samples = products.map do |product|
+      OrderItem.new(product_id: product.id, amount: 1, origin_price: product.price)
     end
   end
 
