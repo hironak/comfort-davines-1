@@ -18,7 +18,7 @@ class Order < ActiveRecord::Base
 
   def samples
     if self.persisted?
-      self.items.includes(:product).where(product: { sample: true } )
+      self.items.includes(:product).where(products: { sample: true } )
     else
       self.items.select{|item| item.product.sample }
     end
