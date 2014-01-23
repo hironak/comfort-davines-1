@@ -91,10 +91,6 @@ gem 'w3c_validators'
 # FactoryGirl
 gem 'factory_girl', require: false
 
-# Sunspot for ActiveRecord#search
-gem 'sunspot_rails'
-gem 'sunspot_solr'
-
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
