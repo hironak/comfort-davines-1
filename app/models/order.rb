@@ -14,12 +14,24 @@ class Order < ActiveRecord::Base
 
   accepts_nested_attributes_for :items, allow_destroy: true
 
+  validates :samples, length: { maximum: 2 }
+
   def samples
-    self.items.includes(:product).where(product: { sample: true } )
+    if self.persisted?
+      self.items.includes(:product).where(product: { sample: true } )
+    else
+      self.items.select{|item| item.product.sample }
+    end
   end
 
   def samples= items
-    self.samples.delete_all
+    if self.persisted?
+      self.samples.delete_all
+    else
+      self.samples.each do |item|
+        self.items.delete(item)
+      end
+    end
     items.each do |item|
       self.items << item
     end
