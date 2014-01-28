@@ -12,6 +12,9 @@ class Order < ActiveRecord::Base
   belongs_to :salon
   before_save :set_salon
 
+  belongs_to :payment, polymorphic: true, dependent: :destroy
+
+  accepts_nested_attributes_for :payment, allow_destroy: true
   accepts_nested_attributes_for :items, allow_destroy: true
 
   validates :samples, length: { maximum: 2 }
@@ -58,6 +61,7 @@ class Order < ActiveRecord::Base
 
   def to_hash
     hash = self.attributes
+    hash["payment_attributes"] = self.payment.try(:attributes)
     hash["items_attributes"] = self.items.map(&:attributes)
     hash
   end

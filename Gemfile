@@ -70,6 +70,9 @@ gem 'sorcery'
 gem 'authority'
 gem 'rolify'
 
+# Payment
+gem 'webpay'
+
 # FriendlyIg
 gem 'friendly_id', '~> 5.0.0'
 

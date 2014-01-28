@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140113210338) do
+ActiveRecord::Schema.define(version: 20140128031033) do
 
   create_table "administrators", force: true do |t|
     t.string   "username",          null: false
@@ -123,9 +123,12 @@ ActiveRecord::Schema.define(version: 20140113210338) do
     t.integer  "consumer_id"
     t.string   "salon_name"
     t.integer  "salon_id"
+    t.integer  "payment_id"
+    t.string   "payment_type"
   end
 
   add_index "orders", ["consumer_id"], name: "index_orders_on_consumer_id", using: :btree
+  add_index "orders", ["payment_id"], name: "index_orders_on_payment_id", using: :btree
   add_index "orders", ["salon_id"], name: "index_orders_on_salon_id", using: :btree
 
   create_table "pages", force: true do |t|
@@ -135,6 +138,12 @@ ActiveRecord::Schema.define(version: 20140113210338) do
     t.datetime "updated_at"
     t.string   "title"
     t.string   "render_type"
+  end
+
+  create_table "payment_creditcards", force: true do |t|
+    t.string   "webpay_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "products", force: true do |t|
