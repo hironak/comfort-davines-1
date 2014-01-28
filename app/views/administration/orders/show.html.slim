@@ -6,11 +6,6 @@ p#notice = notice
     = @order.address
 
 .field
-  .payment
-    | Payment :
-    = @order.payment
-
-.field
   .items
     ul
       - @order.items.each do |item|

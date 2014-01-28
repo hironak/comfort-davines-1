@@ -60,15 +60,18 @@ class CashierController < ApplicationController
 
   def payment_create
     @order.attributes = payment_params
-    session_save_order
-    redirect_to cashier_confirm_path
+    @order.payment.amount = @order.total_price
+    if session_save_order
+      redirect_to cashier_confirm_path
+    else
+      render 'payment'
+    end
   end
 
   def confirm
   end
 
   def confirm_create
-    @order.consumer = current_consumer
     @order.save
     current_cart.clear
     session_clear_order
@@ -91,6 +94,7 @@ class CashierController < ApplicationController
 
   def session_save_order
     if @order.valid?
+      @order.save_payment
       session[:cashing_order] = @order.to_hash
     else
       false
@@ -110,7 +114,7 @@ class CashierController < ApplicationController
   end
 
   def payment_params
-    params.require(:order).permit(:payment)
+    params.require(:order).permit(:payment_type, payment_attributes: [:card_number, :exp_month, :exp_year, :cvc, :name])
   end
 
   private

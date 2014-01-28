@@ -12,6 +12,10 @@ class Order < ActiveRecord::Base
   belongs_to :salon
   before_save :set_salon
 
+  belongs_to :payment, polymorphic: true, dependent: :destroy
+  before_save :payment_capture
+
+  accepts_nested_attributes_for :payment, allow_destroy: true
   accepts_nested_attributes_for :items, allow_destroy: true
 
   validates :samples, length: { maximum: 2 }
@@ -56,6 +60,12 @@ class Order < ActiveRecord::Base
     end
   end
 
+  def save_payment
+    if self.payment && payment.save
+      self.payment_id = payment.id
+    end
+  end
+
   def to_hash
     hash = self.attributes
     hash["items_attributes"] = self.items.map(&:attributes)
@@ -75,11 +85,22 @@ class Order < ActiveRecord::Base
     end
   end
 
+  def payment_capture
+    if self.payment && self.payment.class == Payment::Creditcard
+      self.payment.charge_capture
+    end
+  end
+
   def backmargin(type)
     return 0 unless self.salon
     self.items.map{|item| item.backmargin(type) }.inject(:+)
   end
 
   class ItemEmpty < StandardError
+  end
+
+  def build_payment(params=nil, *assignment_options)
+    raise "Unknown payment_type: #{payment_type}" unless Payment::TYPES.include?(payment_type)
+    self.payment = payment_type.constantize.new(params)
   end
 end

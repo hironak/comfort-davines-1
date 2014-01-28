@@ -1,9 +1,38 @@
 h1 Cashier#payment
 = form_for @order, url: cashier_payment_path do |f|
 
+  - if @order.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@order.errors.count, "error")} prohibited this order from being saved:"
+      ul
+        - @order.errors.full_messages.each do |message|
+          li = message
+
   .field
-    = f.label :payment
-    = f.text_field :payment
+    = f.label :payment_type
+    = f.select :payment_type, Payment::TYPES
+
+  = f.fields_for :payment, (f.object.payment || Payment::Creditcard.new) do |f|
+
+    .field
+      = f.label :card_number
+      = f.text_field :card_number
+
+    .field
+      = f.label :exp_month
+      = f.text_field :exp_month
+
+    .field
+      = f.label :exp_year
+      = f.text_field :exp_year
+
+    .field
+      = f.label :cvc
+      = f.text_field :cvc
+
+    .field
+      = f.label :name
+      = f.text_field :name
 
   = f.submit 'payment'
 

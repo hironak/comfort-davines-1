@@ -3,7 +3,6 @@
 FactoryGirl.define do
   factory :order do
     address "testtest"
-    payment "testtest"
 
     factory :order_with_items do
 

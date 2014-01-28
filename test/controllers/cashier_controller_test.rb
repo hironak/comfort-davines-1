@@ -2,6 +2,12 @@ require "test_helper"
 
 class CashierControllerTest < ActionController::TestCase
   before do
+    stub_request(:post, "https://api.webpay.jp/v1/charges")
+      .to_return(:status => 200, :body => success_charge_create_body, :headers => {})
+    stub_request(:get, "https://api.webpay.jp/v1/charges/ch_fp83Bi1RsdR1afC")
+      .to_return(:status => 200, :body => charge_response, :headers => {})
+    stub_request(:post, "https://api.webpay.jp/v1/charges/ch_fp83Bi1RsdR1afC/capture")
+      .to_return(:status => 200, :body => charge_response, :headers => {})
     sign_in consumers(:one)
     cart_add products(:one), 1
   end
@@ -50,7 +56,7 @@ class CashierControllerTest < ActionController::TestCase
     get :order
     post :order_create, { order: { address: 'test' } }
     get :payment
-    post :payment_create, { order: { payment: 'test' } }
+    post :payment_create, { order: { payment_type: 'Payment::Creditcard', payment_attributes: attributes_for(:payment_creditcard) } }
     assert_redirected_to cashier_confirm_url
   end
 
@@ -59,7 +65,7 @@ class CashierControllerTest < ActionController::TestCase
     get :order
     post :order_create, { order: { address: 'test' } }
     get :payment
-    post :payment_create, { order: { payment: 'test' } }
+    post :payment_create, { order: { payment_type: 'Payment::Creditcard', payment_attributes: attributes_for(:payment_creditcard) } }
     get :confirm
     assert_response :success
   end
@@ -69,7 +75,7 @@ class CashierControllerTest < ActionController::TestCase
     get :order
     post :order_create, { order: { address: 'test' } }
     get :payment
-    post :payment_create, { order: { payment: 'test' } }
+    post :payment_create, { order: { payment_type: 'Payment::Creditcard', payment_attributes: attributes_for(:payment_creditcard) } }
     get :confirm
     post :confirm_create
     assert_redirected_to cashier_complete_url
@@ -80,11 +86,74 @@ class CashierControllerTest < ActionController::TestCase
     get :order
     post :order_create, { order: { address: 'test' } }
     get :payment
-    post :payment_create, { order: { payment: 'test' } }
+    post :payment_create, { order: { payment_type: 'Payment::Creditcard', payment_attributes: attributes_for(:payment_creditcard) } }
     get :confirm
     post :confirm_create
     get :complete
     assert_response :success
   end
 
+  def success_charge_create_body
+    <<-JSON
+      {
+        "id": "ch_fp83Bi1RsdR1afC",
+        "object": "charge",
+        "livemode": false,
+        "currency": "jpy",
+        "description": null,
+        "amount": 400,
+        "amount_refunded": 0,
+        "customer": null,
+        "created": 1390875702,
+        "paid": true,
+        "refunded": false,
+        "failure_message": null,
+        "card": {
+          "object": "card",
+          "exp_year": 2014,
+          "exp_month": 11,
+          "fingerprint": "215b5b2fe460809b8bb90bae6eeac0e0e0987bd7",
+          "name": "KEI KUBO",
+          "country": "JP",
+          "type": "Visa",
+          "cvc_check": "pass",
+          "last4": "4242"
+        },
+        "captured": false,
+        "expire_time": null
+      }
+    JSON
+  end
+
+  def charge_response
+    <<-JSON
+      {
+        "id": "ch_fp83Bi1RsdR1afC",
+        "object": "charge",
+        "livemode": false,
+        "currency": "jpy",
+        "description": null,
+        "amount": 400,
+        "amount_refunded": 0,
+        "customer": null,
+        "created": 1390875702,
+        "paid": true,
+        "refunded": false,
+        "failure_message": null,
+        "card": {
+          "object": "card",
+          "exp_year": 2014,
+          "exp_month": 11,
+          "fingerprint": "215b5b2fe460809b8bb90bae6eeac0e0e0987bd7",
+          "name": "KEI KUBO",
+          "country": "JP",
+          "type": "Visa",
+          "cvc_check": "pass",
+          "last4": "4242"
+        },
+        "captured": true,
+        "expire_time": null
+      }
+    JSON
+  end
 end
