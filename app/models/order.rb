@@ -61,7 +61,6 @@ class Order < ActiveRecord::Base
 
   def to_hash
     hash = self.attributes
-    hash["payment_attributes"] = self.payment.try(:attributes)
     hash["items_attributes"] = self.items.map(&:attributes)
     hash
   end
@@ -85,5 +84,10 @@ class Order < ActiveRecord::Base
   end
 
   class ItemEmpty < StandardError
+  end
+
+  def build_payment(params=nil, *assignment_options)
+    raise "Unknown payment_type: #{payment_type}" unless Payment::TYPES.include?(payment_type)
+    self.payment = payment_type.constantize.new(params)
   end
 end

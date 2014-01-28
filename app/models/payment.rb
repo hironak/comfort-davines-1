@@ -3,4 +3,6 @@ class Payment < ActiveRecord::Base
   self.abstract_class = true
 
   has_one :order
+
+  TYPES = ['Payment::Creditcard']
 end
