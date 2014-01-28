@@ -6,7 +6,7 @@ class Payment::CreditcardTest < ActiveSupport::TestCase
       .to_return(:status => 200, :body => success_charge_create_body, :headers => {})
     payment = Payment::Creditcard.new
     payment.attributes = attributes_for(:payment_creditcard)
-    payment.charge_create
+    payment.valid?
     assert_equal payment.webpay_id, "ch_fp83Bi1RsdR1afC"
   end
 
@@ -18,6 +18,15 @@ class Payment::CreditcardTest < ActiveSupport::TestCase
     assert_raise WebPay::CardError do
       payment.charge_create
     end
+  end
+
+  def test_validations
+    stub_request(:post, "https://api.webpay.jp/v1/charges")
+      .to_return(:status => 402, :body => error_charge_create_body, :headers => {})
+    payment = Payment::Creditcard.new
+    payment.attributes = attributes_for(:payment_creditcard)
+    payment.valid?
+    assert_equal payment.errors.size, 1
   end
 
   def success_charge_create_body
