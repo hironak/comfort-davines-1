@@ -13,6 +13,7 @@ class Order < ActiveRecord::Base
   before_save :set_salon
 
   belongs_to :payment, polymorphic: true, dependent: :destroy
+  before_save :payment_capture
 
   accepts_nested_attributes_for :payment, allow_destroy: true
   accepts_nested_attributes_for :items, allow_destroy: true
@@ -59,6 +60,12 @@ class Order < ActiveRecord::Base
     end
   end
 
+  def save_payment
+    if self.payment && payment.save
+      self.payment_id = payment.id
+    end
+  end
+
   def to_hash
     hash = self.attributes
     hash["items_attributes"] = self.items.map(&:attributes)
@@ -75,6 +82,12 @@ class Order < ActiveRecord::Base
   def set_salon
     if salon_name.present? && salon = Salon.where(name: salon_name).first
       self.salon_id = salon.id
+    end
+  end
+
+  def payment_capture
+    if self.payment && self.payment.class == Payment::Creditcard
+      self.payment.charge_capture
     end
   end
 

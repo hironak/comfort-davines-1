@@ -94,6 +94,7 @@ class CashierController < ApplicationController
 
   def session_save_order
     if @order.valid?
+      @order.save_payment
       session[:cashing_order] = @order.to_hash
     else
       false
