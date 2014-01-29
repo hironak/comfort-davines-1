@@ -1,0 +1,12 @@
+= form_for [:admin, @solution] do |f|
+  - if @solution.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@solution.errors.count, "error")} prohibited this solution from being saved:"
+      ul
+        - @solution.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .actions = f.submit 'Save'

@@ -88,6 +88,7 @@ Commers::Application.routes.draw do
     resources :products
     resources :categories
     resources :serieses
+    resources :solutions
 
     # 注文管理
     resources :orders, except: [:new, :create]
