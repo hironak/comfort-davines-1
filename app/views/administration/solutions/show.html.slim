@@ -1,0 +1,9 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @solution.name
+
+= link_to 'Edit', edit_admin_solution_path(@solution)
+'|
+= link_to 'Back', admin_solutions_path

@@ -5,7 +5,9 @@ ja:
       agency: 代理店
       cart: カート
       cart_item: cart_item  #g
+      series: シリーズ
       category: カテゴリ
+      solution: お悩み別
       consumer: ユーザーアカウント
       file_storage: ファイルアップロード
       order: 注文
@@ -15,7 +17,6 @@ ja:
       page: カスタムページ
       product: 商品
       salon: サロン
-      series: シリーズ
       setting: システム設定
 
     attributes:
