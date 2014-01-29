@@ -10,6 +10,8 @@ ja:
       file_storage: ファイルアップロード
       order: 注文
       order_item: order_item  #g
+      payment: 支払い方法
+      payment_creditcard: クレジットカード
       page: カスタムページ
       product: 商品
       salon: サロン
@@ -73,7 +75,7 @@ ja:
         address: 住所
         consumer: :activerecord.models.consumer  #g
         items: 注文内容
-        payment: 支払い方法
+        payment_type: 支払い方法
         products: 注文商品
         salon: :activerecord.models.salon  #g
         salon_name: サロン名称
@@ -83,6 +85,13 @@ ja:
         order: :activerecord.models.order  #g
         origin_price: 単価
         product: :activerecord.models.product  #g
+
+      payment/creditcard:
+        card_number: カード番号
+        exp_month: 月
+        exp_year: 年
+        cvc: セキュリティコード
+        name: 氏名
 
       page:
         body: 本文
