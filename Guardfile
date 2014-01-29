@@ -21,7 +21,7 @@ end
 # * :daemonize (default is true) - should the Unicorn server start daemonized?
 # * :config_file (default is "config/unicorn.rb") - the path to the unicorn file
 # * :pid_file (default is "tmp/pids/unicorn.pid") - the path to the unicorn pid file
-guard :unicorn, :config_file => "config/unicorn/development.rb", :port => nil, :socket => nil do
+guard :unicorn, :config_file => "config/unicorn/development.rb", :port => nil, :socket => nil, :daemonize => true do
   watch('Gemfile.lock')
   watch(%r{^(config|lib)/.*})
 end

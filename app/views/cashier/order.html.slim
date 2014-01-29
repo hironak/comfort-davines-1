@@ -5,9 +5,37 @@ h1 Cashier#order
     = f.label :salon_name
     = f.text_field :salon_name
 
-  .field
-    = f.label :address
-    = f.text_field :address
+  fieldset
+    legend お届け先情報
+    = f.fields_for :shipment, (f.object.shipment || Shipment.new) do |f|
+
+      .field
+        = f.label :name
+        = f.text_field :name
+
+      .field
+        = f.label :postalcode
+        = f.text_field :postalcode
+
+      .field
+        = f.label :prefecture
+        = f.text_field :prefecture
+
+      .field
+        = f.label :address
+        = f.text_field :address
+
+      .field
+        = f.label :building
+        = f.text_field :building
+
+      .field
+        = f.label :phone
+        = f.text_field :phone
+
+      .field
+        = f.label :fax
+        = f.text_field :fax
 
   = f.submit 'order'
 

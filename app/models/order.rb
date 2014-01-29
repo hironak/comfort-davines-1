@@ -12,9 +12,12 @@ class Order < ActiveRecord::Base
   belongs_to :salon
   before_save :set_salon
 
+  has_one :shipment
+
   belongs_to :payment, polymorphic: true, dependent: :destroy
   before_save :payment_capture
 
+  accepts_nested_attributes_for :shipment, allow_destroy: true
   accepts_nested_attributes_for :payment, allow_destroy: true
   accepts_nested_attributes_for :items, allow_destroy: true
 

@@ -1,6 +1,6 @@
 # config/unicorn.rb
 
-worker_processes 1
+worker_processes 4
 listen "#{ENV['BOXEN_SOCKET_DIR'] || '/tmp'}/comfort-davines", :backlog => 1024
 pid "tmp/pids/unicorn.pid"
 timeout 120
