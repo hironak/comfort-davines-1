@@ -80,6 +80,15 @@ ja:
         salon: :activerecord.models.salon  #g
         salon_name: サロン名称
 
+      shipment:
+        name: お届け先氏名
+        postalcode: 郵便番号
+        prefecture: 県
+        address: 住所
+        building: 建物名・部屋番号
+        phone: 電話番号
+        fax: Fax番号
+
       order_item:
         amount: 数量
         order: :activerecord.models.order  #g
