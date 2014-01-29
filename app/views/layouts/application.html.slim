@@ -21,7 +21,7 @@ html
               = link_to carts_path do
                 = image_tag 'header/cart.jpg', alt: "Cart(#{current_cart.items.count})"
             li
-              = link_to new_consumer_session_path do
+              = link_to mypage_root_path do
                 = image_tag 'header/signin-mypage.jpg', alt: 'sign in'
 
           - else
