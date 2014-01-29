@@ -2,6 +2,11 @@ Commers::Application.routes.draw do
 
   get "editable/stylesheets/:key", to: "editable#stylesheets"
 
+  # 表側ユーザ
+  devise_for :consumers, :controllers => {
+    :sessions => "sessions"
+  }
+
   # トップページ
   controller :welcome do
     root action: "index"
@@ -16,10 +21,10 @@ Commers::Application.routes.draw do
     get "shops", action: "shops"
   end
 
-  # 表側ユーザ
-  devise_for :consumers, :controllers => {
-    :sessions => "sessions"
-  }
+  namespace :mypage do
+    root action: :index
+    get "orders"
+  end
 
   # 商品一覧、詳細ページ
   resources :products, only: [:index, :show] do
