@@ -13,6 +13,7 @@ set :rsync_options, %w[
   --exclude .git*
   --exclude /config/database.yml
   --exclude /test/***
+  --include /test/assets
   --exclude /wercker.yml
   --exclude /.pryrc
   --exclude /.rubocop.yml
