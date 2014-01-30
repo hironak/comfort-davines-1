@@ -70,9 +70,10 @@ class Order < ActiveRecord::Base
   end
 
   def to_hash
-    hash = self.attributes
-    hash["items_attributes"] = self.items.map(&:attributes)
-    hash
+    self.attributes.dup.tap do |hash|
+      hash["shipment_attributes"] = self.shipment.attributes if self.shipment
+      hash["items_attributes"] = self.items.map(&:attributes)
+    end
   end
 
   after_save :decrease_product_stock
