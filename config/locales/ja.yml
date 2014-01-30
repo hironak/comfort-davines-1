@@ -133,6 +133,14 @@ ja:
       too_short: は%{count}文字以上で入力してください。
       wrong_length: は%{count}文字で入力してください。
       other_than: "は%{count}以外の値にしてください。"
+      card_declined: カードが決済に失敗しました。
+      incorrect_cvc: CVCが間違っています。
+      incorrect_expiry: 有効期限が間違っています。
+      processing_error: 処理中にエラーが発生しました。
+      incorrect_number:  カードの番号が不正です。
+      invalid_name: カード名義のフォーマットが不正です。
+      invalid_expiry_month:  カードの有効期限の月が不正です。
+      invalid_expiry_year: カードの有効期限の年が不正です。
     template:
       body: 次の項目を確認してください。
       header:
