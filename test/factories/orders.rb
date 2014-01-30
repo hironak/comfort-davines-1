@@ -2,7 +2,8 @@
 
 FactoryGirl.define do
   factory :order do
-    address "testtest"
+
+    after(:create) {|order| create(:shipment, order: order) }
 
     factory :order_with_items do
 
