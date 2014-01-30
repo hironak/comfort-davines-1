@@ -6,10 +6,6 @@
         - @order.errors.full_messages.each do |message|
           li = message
 
-  .field
-    = f.label :address
-    = f.text_field :address
-
   h3 Items
   = f.fields_for :items do |i, item|
     .field

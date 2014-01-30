@@ -59,7 +59,7 @@ module Administration
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:address, :items_attributes => [:id, :amount, :_destroy])
+      params.require(:order).permit(items_attributes: [:id, :amount, :_destroy])
     end
   end
 end

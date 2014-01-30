@@ -4,7 +4,6 @@ h1 Listing orders
 
 table
   tr
-    th 住所
     th 総額
     th サロン名称
     th サロンマージン
@@ -13,7 +12,6 @@ table
 
   - @orders.each do |order|
     tr
-      td = order.address
       td = order.total_price
       td = order.salon_name
       td = order.backmargin(:salon)
