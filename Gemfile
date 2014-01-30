@@ -33,9 +33,6 @@ gem 'neat'
 # User Bower
 # gem 'bower-rails', '~> 0.6.0'
 
-# Use TheGrid for csv
-gem 'the_grid'
-
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 

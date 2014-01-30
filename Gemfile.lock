@@ -355,9 +355,6 @@ GEM
     temple (0.6.7)
     term-ansicolor (1.2.2)
       tins (~> 0.8)
-    the_grid (1.1.5)
-      activerecord (>= 3.0)
-      json
     therubyracer (0.12.0)
       libv8 (~> 3.16.14.0)
       ref
@@ -467,7 +464,6 @@ DEPENDENCIES
   slim-rails
   sorcery
   tapp
-  the_grid
   therubyracer
   timecop
   turbolinks

@@ -4,8 +4,9 @@ class Administration::OrdersControllerTest < ActionController::TestCase
 
   before do
     login_user create(:administrator)
+    @consumer = consumers(:one)
     @products = create_list(:product, 4)
-    @order = create(:order_with_items, products: @products)
+    @order = create(:order_with_items, consumer: @consumer, products: @products)
   end
 
   def test_index

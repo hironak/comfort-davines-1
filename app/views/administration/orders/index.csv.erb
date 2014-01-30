@@ -1,0 +1,106 @@
+<% require "csv" %>
+<%=
+  CSV.generate do |csv|
+    csv << %w[
+      注文日時
+      注文番号
+      購入者氏名（漢字）
+      購入者氏名（カナ）
+      購入者会社名（漢字）
+      購入者会社名（カナ）
+      購入者部署名
+      購入者郵便番号
+      購入者住所
+      購入者電話番号
+      購入者メールアドレス
+      お届先氏名（漢字）
+      お届先氏名（カナ）
+      お届先会社名（漢字）
+      お届先会社名（カナ）
+      お届先部署名
+      お届先郵便番号
+      お届先住所
+      お届先電話番号
+      お届先FAX番号
+      配達希望日
+      配送時間帯
+      備考欄
+      配送情報
+      商品コード
+      商品名
+      オプション
+      個数
+      商品小計
+      送料
+      手数料
+      消費税
+      注文合計金額
+      使用ポイント
+      発生ポイント
+      ボーナスポイント
+      支払方法
+      支払期限
+      状態
+      入金日
+      発送日
+      キャンセル依頼
+      キャンセル日
+      端末
+      注文情報メモ
+      支払い回数
+    ]
+
+    @orders.each do |order|
+      order.items.each do |item|
+        csv << [
+          order.created_at,                # 注文日時
+          order.id,                        # 注文番号
+          nil,                             # 購入者氏名（漢字）
+          nil,                             # 購入者氏名（カナ）
+          nil,                             # 購入者会社名（漢字）
+          nil,                             # 購入者会社名（カナ）
+          nil,                             # 購入者部署名
+          nil,                             # 購入者郵便番号
+          nil,                             # 購入者住所
+          nil,                             # 購入者電話番号
+          order.consumer.email,            # 購入者メールアドレス
+          order.shipment.name,             # お届先氏名（漢字）
+          nil,#order.shipment.,            # お届先氏名（カナ）
+          nil,#order.shipment.,            # お届先会社名（漢字）
+          nil,#order.shipment.,            # お届先会社名（カナ）
+          nil,#order.shipment.,            # お届先部署名
+          order.shipment.postalcode,       # お届先郵便番号
+          order.shipment.complete_address, # お届先住所
+          order.shipment.phone,            # お届先電話番号
+          order.shipment.fax,              # お届先FAX番号
+          nil,                             # 配達希望日
+          nil,                             # 配送時間帯
+          nil,                             # 備考欄
+          nil,                             # 配送情報
+          item.product.id,                 # 商品コード
+          item.product.name,               # 商品名
+          nil,                             # オプション
+          item.amount,                     # 個数
+          item.origin_price,               # 商品小計
+          nil,                             # 送料
+          nil,                             # 手数料
+          nil,                             # 消費税
+          item.price,                      # 注文合計金額
+          nil,                             # 使用ポイント
+          nil,                             # 発生ポイント
+          nil,                             # ボーナスポイント
+          nil,                             # 支払方法
+          nil,                             # 支払期限
+          nil,                             # 状態
+          nil,                             # 入金日
+          nil,                             # 発送日
+          nil,                             # キャンセル依頼
+          nil,                             # キャンセル日
+          nil,                             # 端末
+          nil,                             # 注文情報メモ
+          nil,                             # 支払い回数
+        ]
+      end
+    end
+  end
+%>
