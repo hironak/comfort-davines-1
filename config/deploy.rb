@@ -10,17 +10,16 @@ set :deploy_via, :rsync
 set :rsync_stage, "/tmp/deploy"
 set :rsync_options, %w[
   --recursive --delete --delete-excluded
-  --exclude .git*
-  --exclude /config/database.yml
-  --include /test/assets/**
-  --exclude /test/***
-  --exclude /wercker.yml
-  --exclude /.pryrc
-  --exclude /.rubocop.yml
-  --exclude /rubocop-todo.yml
-  --exclude /README.md
-  --exclude /Capfile
-  --exclude /Guardfile
+  --include=/test/assets/**
+  --exclude=.git*
+  --exclude=/config/database.yml
+  --exclude=/wercker.yml
+  --exclude=/.pryrc
+  --exclude=/.rubocop.yml
+  --exclude=/rubocop-todo.yml
+  --exclude=/README.md
+  --exclude=/Capfile
+  --exclude=/Guardfile
 ]
 
 set :format, :pretty
