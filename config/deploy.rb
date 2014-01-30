@@ -12,7 +12,7 @@ set :rsync_options, %w[
   --recursive --delete --delete-excluded
   --exclude .git*
   --exclude /config/database.yml
-  --include /test/assets
+  --include /test/assets/**
   --exclude /test/***
   --exclude /wercker.yml
   --exclude /.pryrc
