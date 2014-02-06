@@ -21,9 +21,9 @@
 // ----------------------------------------
 .header {
   overflow: hidden;
-  margin-bottom: 20px;
-  padding: 5px 0;
-  background: image-url('header/border.jpg') bottom center repeat-x white;
+  margin: 0;
+  padding: 5px 0 0;
+  background: image-url('header/header_line.jpg') top center repeat-x white;
   .logo {
     padding: 10px 0;
     font-weight: bold;
@@ -32,19 +32,39 @@
   .consumer {
     float: right;
     list-style: none;
+    margin: 0;
+    padding: 0;
     li {
-      display: inline;
+      float: left;
+      margin: 0;
+      padding: 0;
+      a {
+        margin-left: 10px;
+        display: block;
+        overflow: hidden;
+        height: 64px;
+        img {
+          display: block;
+        }
+      }
     }
   }
   .globalnavi {
-    float: right;
+    @include clearfix;
     font-size: 12px;
+    font-weight: bold;
+    line-height: 20px;
+    color: white;
+    margin-bottom: 20px;
     ul {
+      float: right;
       li {
         float: left;
+        background: image-url('header/nav_li.png') center left no-repeat;
+        padding-left: 10px;
         margin-left: $gutter;
         a {
-          color: black;
+          color: white;
         }
       }
     }

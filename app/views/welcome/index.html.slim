@@ -1,12 +1,5 @@
-.container
-  / .banner
-  /   .box
-  /     .item
-  /       = image_tag "welcome/topimg01.jpg"
-  /       = image_tag "welcome/topimg02.jpg"
-  /     .item
-  /       = image_tag "welcome/topimg03.jpg"
-  /       = image_tag "welcome/topimg04.jpg"
+.banner
+  .container
 
 .container
   .main
@@ -23,47 +16,48 @@
     .category
     .solution
 
-.news
-  h3
-    | Davines news
-    small ダヴィネス・ニュース
-  .box
-    - 5.times.each do
-      .row
-        .date 2013.12.10
-        .info
-          strong 見出しコメント見出しコメント見出しコメント見出しコメント見出しコメント見出しコメント見出しコメント見出しコメント
-          p コメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメント
+.container
+  .news
+    h3
+      | Davines news
+      small ダヴィネス・ニュース
+    .box
+      - 5.times.each do
+        .row
+          .date 2013.12.10
+          .info
+            strong 見出しコメント見出しコメント見出しコメント見出しコメント見出しコメント見出しコメント見出しコメント見出しコメント
+            p コメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメントコメント
 
-.ranking
-  h3
-    | Ranking
-    small ランキング
-  .box
-    .items
-      - Product.avaiable.limit(5).each_with_index do |item, n|
+  .ranking
+    h3
+      | Ranking
+      small ランキング
+    .box
+      .items
+        - Product.avaiable.limit(5).each_with_index do |item, n|
+          .item
+            .rank = image_tag "welcome/ranking0#{n+1}.jpg", alt: "#{n+1}位"
+            .image
+              = link_to item do
+                = image_tag item.image.url(:thumb)
+            .name
+              = item.name
+
+  .series
+    h3
+      | シリーズで探す
+    .box
+      .items
+        - Series.all.each do |series|
+          .item
+            .image = image_tag series.topimage.url, alt: series.name
+
+  .category
+    h3
+      | カテゴリーで探す
+    .box
+      - Category.all.each do |category|
         .item
-          .rank = image_tag "welcome/ranking0#{n+1}.jpg", alt: "#{n+1}位"
-          .image
-            = link_to item do
-              = image_tag item.image.url(:thumb)
-          .name
-            = item.name
-
-.series
-  h3
-    | シリーズで探す
-  .box
-    .items
-      - Series.all.each do |series|
-        .item
-          .image = image_tag series.topimage.url, alt: series.name
-
-.category
-  h3
-    | カテゴリーで探す
-  .box
-    - Category.all.each do |category|
-      .item
-        = category.name
+          = category.name
 
