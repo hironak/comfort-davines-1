@@ -56,7 +56,11 @@ html
         - if alert
           p.alert = alert
 
-      = yield
+      - if controller_name == 'welcome'
+        = yield
+      - else
+        .container
+          = yield
 
       .totop
         = link_to '#header', class: 'scrolltotop' do
