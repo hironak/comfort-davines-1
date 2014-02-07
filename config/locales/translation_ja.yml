@@ -110,6 +110,7 @@ ja:
         title: タイトル
 
       product:
+        refnum: レフ番
         category: :activerecord.models.category  #g
         image_content_type: image_content_type  #g
         image_file_name: image_file_name  #g
