@@ -3,132 +3,139 @@
   height: 364px;
 }
 
-h3 {
-  font-weight: normal;
-  line-height: 1.2em;
-  padding: 0 5px;
-  margin-bottom: 10px;
-  border-left: 10px solid $medium-gray;
-  font-size: 1.3em;
-  small {
-    margin-left: 0.5em;
-    font-size: 0.3em;
-  }
+.main {
+  @include span-columns(9 of 12);
+}
+.side {
+  @include span-columns(3 of 12);
 }
 
-.box {
-  margin-bottom: 30px;
-  @include fill-parent;
-  @include clearfix;
-}
-
-.banner {
-  overflow: hidden;
-  margin-bottom: $gutter;
-  .box {
-    .item {
-      @include span-columns(6 of 12);
-      @include omega(2n);
-      img {
-        display: block;
-        width: 100%;
-        margin-bottom: $gutter;
-      }
-    }
-  }
-}
-
-.news {
-  .box {
-    height: 200px;
-    overflow: scroll;
-    background: image-url('welcome/news-background.jpg');
-    font-size: 0.8em;
-    border: 2px solid $medium-gray;
-    padding: 20px;
-    .row {
-      position: relative;
-      $date-width: 100px;
-      .date {
-        position: absolute;
-        width: $date-width;
-      }
-      .info {
-        margin-left: $date-width;
-        strong {
-          font-weight: normal;
-          color: $blue;
-        }
-      }
-    }
-  }
-}
-
-.ranking {
-  .box {
-    .items {
-      @include fill-parent;
-      @include clearfix;
-      border: 1px solid black;
-      padding: 20px;
-      .item {
-        @include fill-parent;
-        @include span-columns(2 of 10);
-        @include omega(5n);
-        @include media($medium-screen) {
-          @include span-columns(1 of 2);
-          @include omega(2n);
-          text-align: center;
-        }
-        @include media($small-screen) {
-          @include span-columns(1 of 1);
-          @include omega(1n);
-        }
-        height: 150px;
-        position: relative;
-        .rank {
-          position: absolute;
-          top: 0px;
-          left: 0px;
-        }
-        .image {
-          text-align: center;
-        }
-        .name {
-          font-size: 12px;
-        }
-      }
-    }
-  }
-}
-
-.series {
-  .box {
-    .items {
-      @include fill-parent;
-      @include clearfix;
-      .item {
-        @include fill-parent;
-        @include span-columns(3 of 12);
-        @include omega(4n);
-        @include media($medium-screen) {
-          @include span-columns(6 of 12);
-          @include omega(2n);
-        }
-        @include media($small-screen) {
-          @include span-columns(12 of 12);
-          @include omega(1n);
-        }
-        img {
-          width: 100%;
-        }
-      }
-    }
-  }
-}
-
-.introduction {
-  h2 {
-    @extend %bordered-header;
-  }
-}
+// h3 {
+//   font-weight: normal;
+//   line-height: 1.2em;
+//   padding: 0 5px;
+//   margin-bottom: 10px;
+//   border-left: 10px solid $medium-gray;
+//   font-size: 1.3em;
+//   small {
+//     margin-left: 0.5em;
+//     font-size: 0.3em;
+//   }
+// }
+//
+// .box {
+//   margin-bottom: 30px;
+//   @include fill-parent;
+//   @include clearfix;
+// }
+//
+// .banner {
+//   overflow: hidden;
+//   margin-bottom: $gutter;
+//   .box {
+//     .item {
+//       @include span-columns(6 of 12);
+//       @include omega(2n);
+//       img {
+//         display: block;
+//         width: 100%;
+//         margin-bottom: $gutter;
+//       }
+//     }
+//   }
+// }
+//
+// .news {
+//   .box {
+//     height: 200px;
+//     overflow: scroll;
+//     background: image-url('welcome/news-background.jpg');
+//     font-size: 0.8em;
+//     border: 2px solid $medium-gray;
+//     padding: 20px;
+//     .row {
+//       position: relative;
+//       $date-width: 100px;
+//       .date {
+//         position: absolute;
+//         width: $date-width;
+//       }
+//       .info {
+//         margin-left: $date-width;
+//         strong {
+//           font-weight: normal;
+//           color: $blue;
+//         }
+//       }
+//     }
+//   }
+// }
+//
+// .ranking {
+//   .box {
+//     .items {
+//       @include fill-parent;
+//       @include clearfix;
+//       border: 1px solid black;
+//       padding: 20px;
+//       .item {
+//         @include fill-parent;
+//         @include span-columns(2 of 10);
+//         @include omega(5n);
+//         @include media($medium-screen) {
+//           @include span-columns(1 of 2);
+//           @include omega(2n);
+//           text-align: center;
+//         }
+//         @include media($small-screen) {
+//           @include span-columns(1 of 1);
+//           @include omega(1n);
+//         }
+//         height: 150px;
+//         position: relative;
+//         .rank {
+//           position: absolute;
+//           top: 0px;
+//           left: 0px;
+//         }
+//         .image {
+//           text-align: center;
+//         }
+//         .name {
+//           font-size: 12px;
+//         }
+//       }
+//     }
+//   }
+// }
+//
+// .series {
+//   .box {
+//     .items {
+//       @include fill-parent;
+//       @include clearfix;
+//       .item {
+//         @include fill-parent;
+//         @include span-columns(3 of 12);
+//         @include omega(4n);
+//         @include media($medium-screen) {
+//           @include span-columns(6 of 12);
+//           @include omega(2n);
+//         }
+//         @include media($small-screen) {
+//           @include span-columns(12 of 12);
+//           @include omega(1n);
+//         }
+//         img {
+//           width: 100%;
+//         }
+//       }
+//     }
+//   }
+// }
+//
+// .introduction {
+//   h2 {
+//     @extend %bordered-header;
+//   }
+// }
