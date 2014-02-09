@@ -26,14 +26,14 @@ Commers::Application.routes.draw do
     get "orders"
   end
 
-  # 商品一覧、詳細ページ
-  resources :products, only: [:index, :show] do
-    collection do
-      get :category
-      get :series
-      get :new_items
-    end
+  # 詳細ページ
+  resources :products, only: [:show]
+
+  # 商品一覧
+  namespace :catalog do
+    get ":action/:id"
   end
+
 
   # カート
   resources :carts, only: [:index] do
