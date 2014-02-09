@@ -9,8 +9,6 @@ class Product < ActiveRecord::Base
   belongs_to :category
   belongs_to :page
 
-  has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }
-
   has_many :photos
 
   accepts_nested_attributes_for :photos
