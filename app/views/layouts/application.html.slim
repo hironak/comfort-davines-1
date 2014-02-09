@@ -64,9 +64,10 @@ html
         .container
           = yield
 
-      .totop
-        = link_to '#header', class: 'scrolltotop' do
-          = image_tag 'footer/pagetop.jpg', alt: 'トップページへ'
+      .container
+        .totop
+          = link_to '#header', class: 'scrolltotop' do
+            = image_tag 'footer/pagetop.jpg', alt: 'トップページへ'
 
     .footer
       .container

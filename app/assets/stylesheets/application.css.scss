@@ -80,7 +80,7 @@
 // ----------------------------------------
 .contents {
   @import "editable";
-
+  background: image-url('contents_bg.jpg');
   .side {
     .series,
     .category,

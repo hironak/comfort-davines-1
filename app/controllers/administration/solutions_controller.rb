@@ -1,5 +1,5 @@
 module Administration
-  class SolutionsController < ApplicationController
+  class SolutionsController < BaseController
     before_action :set_solution, only: [:show, :edit, :update, :destroy]
 
     # GET /administration/solutions
