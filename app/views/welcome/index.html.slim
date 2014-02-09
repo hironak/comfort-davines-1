@@ -4,13 +4,18 @@
 .container
   .main
     .lineup
-      h2 ラインナップ
+      h2 = image_tag 'welcome/lineup.png', alt: 'ラインナップ'
     .topics
     .newitem
+      h2 = image_tag 'welcome/newitem.png', alt: 'New Item'
     .ranking
+      h2 = image_tag 'welcome/ranking.png', alt: 'ランキング'
     .voice
+      h2 = image_tag 'welcome/usercoment.png', alt: 'お客様の声'
     .information
+      h2 = image_tag 'welcome/service.png', alt: 'お得なショッピングサービス'
     .news
+      h2 = image_tag 'welcome/news.png', alt: 'News'
     .products
   .side
     = render 'side'

@@ -74,8 +74,8 @@ html
         .links
           h4 PRODUCTS
           ul
-            - Category.all.each do |category|
-              li = category.name
+            - Series.all.each do |series|
+              li = link_to series.name, catalog_path(action: :series, id: series)
 
         .links
           h4 ショッピングガイド
@@ -86,13 +86,14 @@ html
             li = link_to "サイトマップ ", sitemap_path
 
         .links
-          h4 Davinesについて
+          h4 = link_to "会社概要", company_path
           ul
-            li = link_to "ダヴィネスとは ", about_path
-            li = link_to "会社概要", company_path
+            li = link_to "About Davines", about_path
             li = link_to "特定商取引に関する記載", tradeinfo_path
             li = link_to "お問い合わせ", contact_path
             li = link_to "店舗情報", shops_path
 
-        .copyright
-          p &copy;comfort japan all rights reserved.
+        p.about
+          = link_to 'About Davines', about_path
+        p.copyright
+          | &copy;comfort japan all rights reserved.
