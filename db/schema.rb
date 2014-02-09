@@ -59,15 +59,6 @@ ActiveRecord::Schema.define(version: 20140209145001) do
     t.datetime "updated_at"
   end
 
-  create_table "category_items", force: true do |t|
-    t.string   "name"
-    t.integer  "category_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "category_items", ["category_id"], name: "index_category_items_on_category_id", using: :btree
-
   create_table "consumers", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -205,15 +196,6 @@ ActiveRecord::Schema.define(version: 20140209145001) do
     t.datetime "topimage_updated_at"
   end
 
-  create_table "series_items", force: true do |t|
-    t.string   "name"
-    t.integer  "series_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "series_items", ["series_id"], name: "index_series_items_on_series_id", using: :btree
-
   create_table "settings", force: true do |t|
     t.integer  "tax_percentage"
     t.datetime "created_at"
@@ -234,15 +216,6 @@ ActiveRecord::Schema.define(version: 20140209145001) do
   end
 
   add_index "shipments", ["order_id"], name: "index_shipments_on_order_id", using: :btree
-
-  create_table "solution_items", force: true do |t|
-    t.string   "name"
-    t.integer  "solution_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "solution_items", ["solution_id"], name: "index_solution_items_on_solution_id", using: :btree
 
   create_table "solutions", force: true do |t|
     t.string   "name"
