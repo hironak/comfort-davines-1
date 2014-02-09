@@ -3,4 +3,6 @@ class Category < ActiveRecord::Base
   self.authorizer_name = 'AdministrationAuthorizer'
 
   has_many :products
+
+  has_many :items
 end

@@ -6,5 +6,7 @@ class Series < ActiveRecord::Base
 
   has_many :products
 
+  has_many :items
+
   has_attached_file :topimage
 end
