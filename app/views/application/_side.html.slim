@@ -1,15 +1,16 @@
 .series
   h3 ブランド別
+  h4 ナチュラルテック
   ul
     - Series.all.each do |series|
       li = link_to series.name, catalog_path(action: :series, id: series)
 .category
   h3 カテゴリ別
-  ul
-    - Category.all.each do |category|
+  - Category.all.each do |category|
+    ul
       li = link_to category.name, catalog_path(action: :category, id: category)
 .solution
   h3 お悩み別
-  ul
-    - Solution.all.each do |solution|
+  - Solution.all.each do |solution|
+    ul
       li = link_to solution.name, catalog_path(action: :solution, id: solution)

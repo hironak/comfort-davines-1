@@ -1,18 +1,22 @@
 require "test_helper"
 
 class CatalogControllerTest < ActionController::TestCase
+
   test "should get series" do
-    get :series
+    series = series(:one)
+    get :series, id: series
     assert_response :success
   end
 
   test "should get category" do
-    get :category
+    category = categories(:one)
+    get :category, id: category
     assert_response :success
   end
 
   test "should get solution" do
-    get :solution
+    solution = create(:solution)
+    get :solution, id: solution
     assert_response :success
   end
 
