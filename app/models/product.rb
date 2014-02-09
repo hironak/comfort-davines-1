@@ -23,6 +23,10 @@ class Product < ActiveRecord::Base
     self.backmargin_agency ||= 28
   end
 
+  def image *args
+    (self.photos.first || self.photos.new).image *args
+  end
+
   def view_price
     (self.price * Setting.tax_rate).to_i
   end
