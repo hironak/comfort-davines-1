@@ -1,15 +1,23 @@
 .series
   h3 ブランド別
-  ul
-    - Series.all.each do |series|
-      li = link_to series.name, catalog_path(action: :series, id: series)
+  - Series.all.each do |series|
+    h4 = link_to series.name, catalog_path(action: :series, id: series)
+    ul
+      - series.products.each do |product|
+        li = link_to product.name, product
+
 .category
   h3 カテゴリ別
-  ul
-    - Category.all.each do |category|
-      li = link_to category.name, catalog_path(action: :category, id: category)
+  - Category.all.each do |category|
+    h4 = link_to category.name, catalog_path(action: :category, id: category)
+    ul
+      - category.products.each do |product|
+        li = link_to product.name, product
+
 .solution
   h3 お悩み別
-  ul
-    - Solution.all.each do |solution|
-      li = link_to solution.name, catalog_path(action: :solution, id: solution)
+  - Solution.all.each do |solution|
+    h4 = link_to solution.name, catalog_path(action: :solution, id: solution)
+    ul
+      - solution.products.each do |product|
+        li = link_to product.name, product

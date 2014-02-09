@@ -82,6 +82,30 @@
   @import "editable";
 
   .side {
+    .series,
+    .category,
+    .solution {
+      margin-bottom: $base-line-height;
+      a {
+        color: $dark-gray;
+      }
+      h3 {
+        font-size: $base-font-size * 0.8;
+        padding: ($base-line-height * 0.2) 0;
+      }
+      h4 {
+        font-size: $base-font-size * 0.8;
+        padding: $base-line-height * 0.2;
+        background: $light-gray;
+      }
+      ul {
+        font-size: $base-font-size * 0.8;
+        background: white;
+        li {
+          padding: $base-line-height * 0.2;
+        }
+      }
+    }
   }
 
   .global-navigation {
