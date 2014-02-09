@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140209145001) do
+ActiveRecord::Schema.define(version: 20140209152728) do
 
   create_table "administrators", force: true do |t|
     t.string   "username",          null: false
@@ -171,6 +171,30 @@ ActiveRecord::Schema.define(version: 20140209145001) do
   end
 
   add_index "products", ["page_id"], name: "index_products_on_page_id", using: :btree
+
+  create_table "products_categories", force: true do |t|
+    t.integer "product_id"
+    t.integer "category_id"
+  end
+
+  add_index "products_categories", ["category_id"], name: "index_products_categories_on_category_id", using: :btree
+  add_index "products_categories", ["product_id"], name: "index_products_categories_on_product_id", using: :btree
+
+  create_table "products_serieses", force: true do |t|
+    t.integer "product_id"
+    t.integer "series_id"
+  end
+
+  add_index "products_serieses", ["product_id"], name: "index_products_serieses_on_product_id", using: :btree
+  add_index "products_serieses", ["series_id"], name: "index_products_serieses_on_series_id", using: :btree
+
+  create_table "products_solutions", force: true do |t|
+    t.integer "product_id"
+    t.integer "solution_id"
+  end
+
+  add_index "products_solutions", ["product_id"], name: "index_products_solutions_on_product_id", using: :btree
+  add_index "products_solutions", ["solution_id"], name: "index_products_solutions_on_solution_id", using: :btree
 
   create_table "salons", force: true do |t|
     t.string   "name"
