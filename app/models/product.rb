@@ -9,7 +9,9 @@ class Product < ActiveRecord::Base
   belongs_to :category
   belongs_to :page
 
-  has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }
+  has_many :photos
+
+  accepts_nested_attributes_for :photos
 
   scope :avaiable, -> { where(sample: false) }
   scope :stocked, -> { where.not(stock: 0) }
@@ -19,6 +21,10 @@ class Product < ActiveRecord::Base
   def set_default_values
     self.backmargin_salon ||= 30
     self.backmargin_agency ||= 28
+  end
+
+  def image *args
+    (self.photos.first || self.photos.new).image *args
   end
 
   def view_price

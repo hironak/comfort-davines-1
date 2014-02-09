@@ -16,6 +16,7 @@ ja:
       payment_creditcard: クレジットカード
       page: カスタムページ
       product: 商品
+      product_photo: 商品画像
       salon: サロン
       setting: システム設定
 
@@ -116,7 +117,7 @@ ja:
         image_file_name: image_file_name  #g
         image_file_size: image_file_size  #g
         image_updated_at: image_updated_at  #g
-        image: メイン画像
+        photos: :activerecord.models.product_photo
         name: 名称
         page: :activerecord.models.page  #g
         price: 価格
@@ -124,6 +125,9 @@ ja:
         series: :activerecord.models.series  #g
         slug: slug  #g
         stock: 在庫数
+
+      product/photo:
+        image: 商品画像
 
       salon:
         address: 住所

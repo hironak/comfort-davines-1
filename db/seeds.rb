@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Setting.create! tax: 5
+Setting.create! tax_percentage: 5
 
 %w|NATURALTECH AUTHENTIC OI/OIL comingsoon|.each_with_index do |name, n|
   Series.create name: name, topimage: File.new(Rails.root.join("test/assets/products/image/series0#{n + 1}.jpg"))
@@ -26,7 +26,12 @@ CSV.read(Rails.root.join("test/fixtures/products.csv").to_s, headers: :first_row
 
   file = files.find { |f| File.exist?(f) }
 
-  attrs["image"] = File.new(file)
+  attrs.delete 'image'
+  attrs["photos_attributes"] = [
+    {
+      "image" => File.new(file)
+    }
+  ]
   attrs["stock"] = 10
 
   Product.create(attrs)
