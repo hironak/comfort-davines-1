@@ -17,7 +17,7 @@ class Administration::SettingsControllerTest < ActionController::TestCase
   end
 
   test "should get update" do
-    patch :update, setting: { tax: 5 }
+    patch :update, setting: { tax_percentage: 5 }
     assert_redirected_to admin_setting_path
   end
 
