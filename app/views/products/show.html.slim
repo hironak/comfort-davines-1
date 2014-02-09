@@ -1,6 +1,6 @@
 
 .basic-information
-  .image = image_tag @product.image.url
+  .image = image_tag @product.photos[0].image.url
   .information
     h2 = @product.name
     p.price = "#{@product.view_price}円"

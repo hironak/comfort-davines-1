@@ -26,9 +26,10 @@ CSV.read(Rails.root.join("test/fixtures/products.csv").to_s, headers: :first_row
 
   file = files.find { |f| File.exist?(f) }
 
-  attrs["photos_attribuets"] = [
+  attrs.delete 'image'
+  attrs["photos_attributes"] = [
     {
-      image: File.new(file)
+      "image" => File.new(file)
     }
   ]
   attrs["stock"] = 10

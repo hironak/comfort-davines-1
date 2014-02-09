@@ -18,9 +18,10 @@
     = f.label :price
     = f.number_field :price
 
-  .field
-    = f.label :image
-    = f.file_field :image
+  = f.fields_for :photos do |f|
+    .field
+      = f.label :image
+      = f.file_field :image
 
   .field
     = f.label :stock
