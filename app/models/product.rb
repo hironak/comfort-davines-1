@@ -21,6 +21,10 @@ class Product < ActiveRecord::Base
     self.backmargin_agency ||= 28
   end
 
+  def view_price
+    (self.price * Setting.tax_rate).to_i
+  end
+
   def increase amount
     stock = self.stock + amount
     update_column :stock, stock

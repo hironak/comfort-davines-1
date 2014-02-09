@@ -146,3 +146,6 @@ ja:
         topimage_file_name: topimage_file_name  #g
         topimage_file_size: topimage_file_size  #g
         topimage_updated_at: topimage_updated_at  #g
+
+      setting:
+        tax_percentage: 消費税率

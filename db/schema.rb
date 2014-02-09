@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140207042414) do
+ActiveRecord::Schema.define(version: 20140209030835) do
 
   create_table "administrators", force: true do |t|
     t.string   "username",          null: false
@@ -193,7 +193,7 @@ ActiveRecord::Schema.define(version: 20140207042414) do
   end
 
   create_table "settings", force: true do |t|
-    t.integer  "tax"
+    t.integer  "tax_percentage"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

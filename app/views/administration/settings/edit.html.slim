@@ -3,7 +3,7 @@ h1 Administration::Settings#edit
 = form_for [:admin, @setting] do |f|
 
   .field
-    = f.label :tax
-    = f.number_field :tax
+    = f.label :tax_percentage
+    = f.number_field :tax_percentage
 
   = f.submit 'Save'
