@@ -11,13 +11,13 @@ p
   strong Image:
   = image_tag @product.image.url(:medium)
 
-p
-  strong Series:
-  = @product.series.try :name
+/ p
+/   strong Series:
+/   = @product.series.try :name
 
-p
-  strong Category:
-  = @product.category.try :name
+/ p
+/   strong Category:
+/   = @product.category.try :name
 
 p
   strong Stock:

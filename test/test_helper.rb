@@ -27,7 +27,7 @@ class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.(yml|csv) for all tests in alphabetical order.
   fixtures :all
 
-  DatabaseCleaner.strategy = :trancation
+  DatabaseCleaner.strategy = :transaction
 
   before :each do
     DatabaseCleaner.start
