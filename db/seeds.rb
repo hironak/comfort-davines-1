@@ -8,12 +8,16 @@
 
 Setting.create! tax_percentage: 5
 
-%w|NATURALTECH AUTHENTIC OI/OIL comingsoon|.each_with_index do |name, n|
-  Series.create name: name, topimage: File.new(Rails.root.join("test/assets/products/image/series0#{n + 1}.jpg"))
+%w|ナチュラルテック オーセンティック OI/OIL モアインサイド|.each do |name|
+  Series.create name: name
 end
 
-%w|シャンプー コンディショナー オイル クリーム スカルプケア ミスト|.each do |name|
+%w|シャンプー コンディショナー＆パック スペシャルケア オイル スタイリング|.each do |name|
   Category.create name: name
+end
+
+%w|エイジングケア ダメージケア デリケートヘア オイリー・頭皮ケア 保湿ケア|.each do |name|
+  Solution.create name: name
 end
 
 require "csv"
@@ -25,6 +29,9 @@ CSV.read(Rails.root.join("test/fixtures/products.csv").to_s, headers: :first_row
   files = %w|jpg png|.map { |ext| Rails.root.join("test/assets/products/image/#{attrs['image']}.#{ext}") }
 
   file = files.find { |f| File.exist?(f) }
+
+  attrs.delete 'series_id'
+  attrs.delete 'category_id'
 
   attrs.delete 'image'
   attrs["photos_attributes"] = [

@@ -5,13 +5,14 @@ class Product < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name
 
-  belongs_to :series
-  belongs_to :category
+  has_and_belongs_to_many :serieses
+  has_and_belongs_to_many :categories, join_table: :products_categories
+  has_and_belongs_to_many :solutions
+
   belongs_to :page
 
-  has_many :photos
-
-  accepts_nested_attributes_for :photos
+  has_many :photos, dependent: :destroy
+  accepts_nested_attributes_for :photos, allow_destroy: true, limit: 4
 
   scope :avaiable, -> { where(sample: false) }
   scope :stocked, -> { where.not(stock: 0) }

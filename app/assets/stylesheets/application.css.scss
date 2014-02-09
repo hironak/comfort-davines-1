@@ -20,10 +20,13 @@
 // Header
 // ----------------------------------------
 .header {
+  position: relative;
+  z-index: 1000;
+  box-shadow: 0px 0px 5px #999;
   overflow: hidden;
-  margin-bottom: 20px;
-  padding: 5px 0;
-  background: image-url('header/border.jpg') bottom center repeat-x white;
+  margin: 0;
+  padding: 5px 0 0;
+  background: image-url('header/header_line.jpg') top center repeat-x white;
   .logo {
     padding: 10px 0;
     font-weight: bold;
@@ -32,19 +35,39 @@
   .consumer {
     float: right;
     list-style: none;
+    margin: 0;
+    padding: 0;
     li {
-      display: inline;
+      float: left;
+      margin: 0;
+      padding: 0;
+      a {
+        margin-left: 10px;
+        display: block;
+        overflow: hidden;
+        height: 64px;
+        img {
+          display: block;
+        }
+      }
     }
   }
   .globalnavi {
-    float: right;
+    @include clearfix;
     font-size: 12px;
+    font-weight: bold;
+    line-height: 20px;
+    color: white;
+    margin-bottom: 20px;
     ul {
+      float: right;
       li {
         float: left;
+        background: image-url('header/nav_li.png') center left no-repeat;
+        padding-left: 10px;
         margin-left: $gutter;
         a {
-          color: black;
+          color: white;
         }
       }
     }
@@ -57,6 +80,37 @@
 // ----------------------------------------
 .contents {
   @import "editable";
+  background: image-url('contents_bg.jpg');
+  .main {
+    @include span-columns(9 of 12);
+  }
+  .side {
+    @include span-columns(3 of 12);
+    .series,
+    .category,
+    .solution {
+      margin-bottom: $base-line-height;
+      a {
+        color: $dark-gray;
+      }
+      h3 {
+        font-size: $base-font-size * 0.8;
+        padding: ($base-line-height * 0.2) 0;
+      }
+      h4 {
+        font-size: $base-font-size * 0.8;
+        padding: $base-line-height * 0.2;
+        background: $light-gray;
+      }
+      ul {
+        font-size: $base-font-size * 0.8;
+        background: white;
+        li {
+          padding: $base-line-height * 0.2;
+        }
+      }
+    }
+  }
 
   .global-navigation {
     @include clearfix;
@@ -91,20 +145,35 @@
 // Footer
 // ----------------------------------------
 .footer {
+  @include box-sizing(border-box);
+  @include clearfix;
   padding: 5px 0;
-  background: image-url('footer/background.jpg');
-  .links {
-    padding: 15px;
-    @include span-columns(4);
-    @include omega(3n);
-    ul {
-      @extend %default-ul;
+  margin: 0;
+  background: #666261;
+  color: white;
+  a {
+    color: white;
+  }
+  .container {
+    padding: 15px 0;
+    .links {
+      @include span-columns(3);
+      h4 {
+        font-size: $base-font-size * 0.8;
+        margin-bottom: $base-line-height * 0.5;
+      }
+      ul {
+        font-size: $base-font-size * 0.8;
+      }
+    }
+    .about,
+    .copyright {
+      clear: both;
+      margin: 0;
+      padding: 0;
+      line-height: $base-line-height;
+      font-size: $base-font-size * 0.8;
+      text-align: right;
     }
   }
-  .copyright {
-    font-size: 10px;
-    color: #333;
-    text-align: right;
-  }
 }
-

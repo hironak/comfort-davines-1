@@ -3,10 +3,11 @@
 // You can use Less here: http://lesscss.org/
 
 .sample_select {
+  @include clearfix;
   .item {
     margin-bottom: 5px;
-    @include span-columns(6 of 12);
-    @include omega(2n);
+    @include span-columns(3 of 12);
+    @include omega(4n);
     label {
       cursor: pointer;
       padding: 5px;

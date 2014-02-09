@@ -7,19 +7,17 @@ html
     = javascript_include_tag "administration/base", "data-turbolinks-track" => true
     = csrf_meta_tags
   body
-
     .header
       .container
-        - if current_administrator
-          ul.consumer
-            li = link_to admin_logout_path, method: :delete do
-              = image_tag 'administration/logout.jpg', alt: 'ログアウト'
-
-        .logo = link_to admin_root_path do
-          = image_tag 'header/logo.jpg', alt: 'davines', height: 61, width: 230
-
-        - if current_administrator
-          p = current_administrator.username
+        .globalnavi
+          - if current_administrator
+            ul
+              li = current_administrator.username
+              li = link_to 'ログアウト', admin_logout_path, method: :delete
+          p 自然環境にやさしさを、髪にうつくしさを、身心に至高のよろこびをお届けするヘアケアブランド【davines】
+        .logo
+          = link_to admin_root_path do
+            = image_tag 'header/logo.png', alt: 'davines', height: 31, width: 192
 
     .contents class="#{controller.controller_path.split('/').last}"
       .container

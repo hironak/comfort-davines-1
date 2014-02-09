@@ -12,41 +12,43 @@ html
 
     .header
       .container
+        .globalnavi
+          ul
+            li = link_to "ショッピングガイド", introduction_path
+            li = link_to "よくあるご質問 ", faq_path
+            li = link_to "お問い合わせ", contact_path
+          p 自然環境にやさしさを、髪にうつくしさを、身心に至高のよろこびをお届けするヘアケアブランド【davines】
+
         ul.consumer
           - if current_consumer
             li
               = link_to destroy_consumer_session_path, method: :delete do
-                = image_tag 'header/signout.jpg', alt: 'sign out'
-            li
-              = link_to carts_path do
-                = image_tag 'header/cart.jpg', alt: "Cart(#{current_cart.items.count})"
+                = image_tag 'header/nav_01.png', alt: 'sign out'
             li
               = link_to mypage_root_path do
-                = image_tag 'header/signin-mypage.jpg', alt: 'sign in'
+                = image_tag 'header/nav_02.png', alt: 'sign in'
+            li
+              = link_to carts_path do
+                = image_tag 'header/nav_03.png', alt: "Cart(#{current_cart.items.count})"
 
           - else
             li
               = link_to new_consumer_registration_path do
-                = image_tag 'header/signup.jpg', alt: 'sign up'
-            li
-              = link_to carts_path do
-                = image_tag 'header/cart.jpg', alt: "Cart(#{current_cart.items.count})"
+                = image_tag 'header/nav_01.png', alt: 'sign up'
             li
               = link_to new_consumer_session_path do
-                = image_tag 'header/signin-mypage.jpg', alt: 'sign in'
+                = image_tag 'header/nav_02.png', alt: 'sign in'
+            li
+              = link_to carts_path do
+                = image_tag 'header/nav_03.png', alt: "Cart(#{current_cart.items.count})"
+          li
+            = link_to introduction_path do
+              = image_tag 'header/nav_04.png', alt: "ショッピングガイド"
 
         .logo
           = link_to root_path do
-            = image_tag 'header/logo.jpg', alt: 'davines', height: 61, width: 230
-
-        .globalnavi
-          ul
-            li = link_to "初めての方へ", introduction_path
-            li = link_to "ダヴィネスとは ", about_path
-            li = link_to "ご利用案内 ", utilization_path
-            li = link_to "よくあるご質問 ", faq_path
-            li = link_to "サイトマップ ", sitemap_path
-            li = link_to "お問い合わせ", contact_path
+            = image_tag 'header/logo.png', alt: 'davines', height: 31, width: 192
+          = image_tag 'header/souryou.png', alt: '8400円以上お買い上げで送料無料'
 
     .contents class="#{controller.controller_path.gsub('/', '_')}"
 
@@ -56,8 +58,13 @@ html
         - if alert
           p.alert = alert
 
+      - if controller_name == 'welcome'
         = yield
+      - else
+        .container
+          = yield
 
+      .container
         .totop
           = link_to '#header', class: 'scrolltotop' do
             = image_tag 'footer/pagetop.jpg', alt: 'トップページへ'
@@ -65,10 +72,10 @@ html
     .footer
       .container
         .links
-          h4 商品カテゴリー
+          h4 PRODUCTS
           ul
-            - Category.all.each do |category|
-              li = category.name
+            - Series.all.each do |series|
+              li = link_to series.name, catalog_path(action: :series, id: series)
 
         .links
           h4 ショッピングガイド
@@ -79,13 +86,14 @@ html
             li = link_to "サイトマップ ", sitemap_path
 
         .links
-          h4 Davinesについて
+          h4 = link_to "会社概要", company_path
           ul
-            li = link_to "ダヴィネスとは ", about_path
-            li = link_to "会社概要", company_path
+            li = link_to "About Davines", about_path
             li = link_to "特定商取引に関する記載", tradeinfo_path
             li = link_to "お問い合わせ", contact_path
             li = link_to "店舗情報", shops_path
 
-        .copyright
-          p &copy;comfort japan all rights reserved.
+        p.about
+          = link_to 'About Davines', about_path
+        p.copyright
+          | &copy;comfort japan all rights reserved.

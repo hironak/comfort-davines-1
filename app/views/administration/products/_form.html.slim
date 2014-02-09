@@ -18,22 +18,44 @@
     = f.label :price
     = f.number_field :price
 
-  = f.fields_for :photos do |f|
-    .field
+  = f.limited_fields_for :photos do |f|
+    fieldset
+      legend 商品画像
+      = image_tag f.object.image.url(:thumb) if f.object.image.present?
       = f.label :image
       = f.file_field :image
+      p
+        | Delete:
+        = f.check_box :_destroy, checked: !f.object.persisted?
 
   .field
     = f.label :stock
     = f.number_field :stock
 
-  .field
-    = f.label :series
-    = f.collection_select :series_id, Series.all, :id, :name
+  fieldset
+    legend ブランド別
+    - Series.all.each do |series|
+      .item
+        = label_tag "product_series_ids_#{series.id}" do
+          = check_box_tag "product[series_ids][]", series.id, f.object.series_ids.include?(series.id), id: "product_series_ids_#{series.id}"
+          = series.name
 
-  .field
-    = f.label :category
-    = f.collection_select :category_id, Category.all, :id, :name
+  fieldset
+    legend カテゴリー別
+    - Category.all.each do |category|
+      .item
+        = label_tag "product_category_ids_#{category.id}" do
+          = check_box_tag "product[category_ids][]", category.id, f.object.category_ids.include?(category.id), id: "product_category_ids_#{category.id}"
+          = category.name
+
+  fieldset
+    legend お悩み別
+    - Solution.all.each do |solution|
+      .item
+        = label_tag "product_solution_ids_#{solution.id}" do
+          = check_box_tag "product[solution_ids][]", solution.id, f.object.solution_ids.include?(solution.id), id: "product_solution_ids_#{solution.id}"
+          = solution.name
+
 
   .field
     = f.label :page
