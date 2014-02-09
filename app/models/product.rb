@@ -5,12 +5,9 @@ class Product < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name
 
-  belongs_to :series
-  belongs_to :category
   belongs_to :page
 
   has_many :photos
-
   accepts_nested_attributes_for :photos
 
   scope :avaiable, -> { where(sample: false) }

@@ -3,4 +3,5 @@ class Solution < ActiveRecord::Base
   self.authorizer_name = 'AdministrationAuthorizer'
 
   has_many :items
+  accepts_nested_attributes_for :items
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140209144243) do
+ActiveRecord::Schema.define(version: 20140209145001) do
 
   create_table "administrators", force: true do |t|
     t.string   "username",          null: false
@@ -172,8 +172,6 @@ ActiveRecord::Schema.define(version: 20140209144243) do
     t.string   "slug"
     t.boolean  "sample",            default: false
     t.integer  "stock"
-    t.integer  "series_id"
-    t.integer  "category_id"
     t.integer  "price"
     t.integer  "page_id"
     t.integer  "backmargin_salon"
@@ -181,9 +179,7 @@ ActiveRecord::Schema.define(version: 20140209144243) do
     t.string   "refnum"
   end
 
-  add_index "products", ["category_id"], name: "index_products_on_category_id", using: :btree
   add_index "products", ["page_id"], name: "index_products_on_page_id", using: :btree
-  add_index "products", ["series_id"], name: "index_products_on_series_id", using: :btree
 
   create_table "salons", force: true do |t|
     t.string   "name"
