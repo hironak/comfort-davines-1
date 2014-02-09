@@ -18,10 +18,15 @@
     = f.label :price
     = f.number_field :price
 
-  = f.fields_for :photos do |f|
-    .field
+  = f.limited_fields_for :photos do |f|
+    fieldset
+      legend 商品画像
+      = image_tag f.object.image.url(:thumb) if f.object.image.present?
       = f.label :image
       = f.file_field :image
+      p
+        | Delete:
+        = f.check_box :_destroy, checked: !f.object.persisted?
 
   .field
     = f.label :stock

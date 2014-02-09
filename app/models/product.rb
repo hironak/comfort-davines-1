@@ -11,8 +11,8 @@ class Product < ActiveRecord::Base
 
   belongs_to :page
 
-  has_many :photos
-  accepts_nested_attributes_for :photos
+  has_many :photos, dependent: :destroy
+  accepts_nested_attributes_for :photos, allow_destroy: true, limit: 4
 
   scope :avaiable, -> { where(sample: false) }
   scope :stocked, -> { where.not(stock: 0) }
