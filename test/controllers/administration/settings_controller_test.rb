@@ -2,7 +2,6 @@ require "test_helper"
 
 class Administration::SettingsControllerTest < ActionController::TestCase
   before do
-    create(:setting)
     login_user create(:administrator)
   end
 

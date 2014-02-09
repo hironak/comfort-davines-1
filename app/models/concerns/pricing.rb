@@ -13,7 +13,7 @@ module Pricing
     if self.items_price > 6000
       0
     else
-      if self.respond_to?(:shipment) && self.shipment.postage_extra?
+      if self.respond_to?(:shipment) && self.shipment && self.shipment.postage_extra?
         1050
       else
         525
