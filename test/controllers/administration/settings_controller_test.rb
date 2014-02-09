@@ -2,7 +2,6 @@ require "test_helper"
 
 class Administration::SettingsControllerTest < ActionController::TestCase
   before do
-    create(:setting)
     login_user create(:administrator)
   end
 
@@ -17,7 +16,7 @@ class Administration::SettingsControllerTest < ActionController::TestCase
   end
 
   test "should get update" do
-    patch :update, setting: { tax: 5 }
+    patch :update, setting: { tax_percentage: 5 }
     assert_redirected_to admin_setting_path
   end
 
