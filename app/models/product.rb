@@ -11,6 +11,10 @@ class Product < ActiveRecord::Base
 
   has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }
 
+  has_many :photos
+
+  accepts_nested_attributes_for :photos
+
   scope :avaiable, -> { where(sample: false) }
   scope :stocked, -> { where.not(stock: 0) }
   scope :sample, -> { where(sample: true) }
