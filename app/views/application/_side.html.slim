@@ -1,10 +1,10 @@
 .series
-  h3 シリーズ
+  h3 ブランド別
   ul
     - Series.all.each do |series|
       li = link_to series.name, catalog_path(action: :series, id: series)
 .category
-  h3 カテゴリ
+  h3 カテゴリ別
   ul
     - Category.all.each do |category|
       li = link_to category.name, catalog_path(action: :category, id: category)

@@ -81,6 +81,9 @@
 .contents {
   @import "editable";
 
+  .side {
+  }
+
   .global-navigation {
     @include clearfix;
     margin-bottom: 30px;
