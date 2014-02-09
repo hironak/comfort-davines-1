@@ -13,20 +13,15 @@ module Pricing
     if self.items_price > 6000
       0
     else
-      postage_extra
+      if self.respond_to?(:shipment) && self.shipment.postage_extra?
+        1050
+      else
+        525
+      end
     end
   end
 
   def items_price
     self.items.map(&:price).inject(:+).to_i
-  end
-
-  private
-
-  def postage_extra
-    if false
-    else
-      525
-    end
   end
 end
