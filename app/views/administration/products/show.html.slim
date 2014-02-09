@@ -11,13 +11,17 @@ p
   strong Image:
   = image_tag @product.image.url(:medium)
 
-/ p
-/   strong Series:
-/   = @product.series.try :name
+p
+  strong Series:
+  = @product.serieses.pluck(:name).join(' / ')
 
-/ p
-/   strong Category:
-/   = @product.category.try :name
+p
+  strong Category:
+  = @product.categories.pluck(:name).join(' / ')
+
+p
+  strong Solution
+  = @product.solutions.pluck(:name).join(' / ')
 
 p
   strong Stock:
