@@ -8,6 +8,18 @@ h2 {
   margin-bottom: 10px;
 }
 
+.lineup,
+.topics,
+.newitem,
+.ranking,
+.voice,
+.information,
+.news,
+.products {
+  @include clearfix;
+  margin-bottom: $base-line-height;
+}
+
 %item {
   @include span-columns(4 of 12);
   height: 445px;
@@ -36,8 +48,6 @@ h2 {
 }
 
 .newitem {
-  @include clearfix;
-  margin-bottom: $base-line-height;
   .item {
     @extend %item;
     background: image-url('welcome/new_bg.png') left top no-repeat;
@@ -46,8 +56,6 @@ h2 {
 }
 
 .ranking {
-  @include clearfix;
-  margin-bottom: $base-line-height;
   .item {
     @extend %item;
     padding-top: 12px;
@@ -64,5 +72,13 @@ h2 {
       background: image-url('welcome/rank03.png') left top no-repeat;
       background-size: contain;
     }
+  }
+}
+
+.information {
+  .column {
+    @include span-columns(4 of 12);
+    @include omega(3);
+    margin-bottom: $base-line-height;
   }
 }
