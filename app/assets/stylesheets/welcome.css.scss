@@ -1,134 +1,105 @@
+h2 {
+  margin-bottom: $base-line-height * 0.5;
+}
+
 .banner {
   background: image-url('welcome/header_bg.jpg') center center no-repeat white;
   height: 364px;
+  margin-bottom: 10px;
 }
 
-// h3 {
-//   font-weight: normal;
-//   line-height: 1.2em;
-//   padding: 0 5px;
-//   margin-bottom: 10px;
-//   border-left: 10px solid $medium-gray;
-//   font-size: 1.3em;
-//   small {
-//     margin-left: 0.5em;
-//     font-size: 0.3em;
-//   }
-// }
-//
-// .box {
-//   margin-bottom: 30px;
-//   @include fill-parent;
-//   @include clearfix;
-// }
-//
-// .banner {
-//   overflow: hidden;
-//   margin-bottom: $gutter;
-//   .box {
-//     .item {
-//       @include span-columns(6 of 12);
-//       @include omega(2n);
-//       img {
-//         display: block;
-//         width: 100%;
-//         margin-bottom: $gutter;
-//       }
-//     }
-//   }
-// }
-//
-// .news {
-//   .box {
-//     height: 200px;
-//     overflow: scroll;
-//     background: image-url('welcome/news-background.jpg');
-//     font-size: 0.8em;
-//     border: 2px solid $medium-gray;
-//     padding: 20px;
-//     .row {
-//       position: relative;
-//       $date-width: 100px;
-//       .date {
-//         position: absolute;
-//         width: $date-width;
-//       }
-//       .info {
-//         margin-left: $date-width;
-//         strong {
-//           font-weight: normal;
-//           color: $blue;
-//         }
-//       }
-//     }
-//   }
-// }
-//
-// .ranking {
-//   .box {
-//     .items {
-//       @include fill-parent;
-//       @include clearfix;
-//       border: 1px solid black;
-//       padding: 20px;
-//       .item {
-//         @include fill-parent;
-//         @include span-columns(2 of 10);
-//         @include omega(5n);
-//         @include media($medium-screen) {
-//           @include span-columns(1 of 2);
-//           @include omega(2n);
-//           text-align: center;
-//         }
-//         @include media($small-screen) {
-//           @include span-columns(1 of 1);
-//           @include omega(1n);
-//         }
-//         height: 150px;
-//         position: relative;
-//         .rank {
-//           position: absolute;
-//           top: 0px;
-//           left: 0px;
-//         }
-//         .image {
-//           text-align: center;
-//         }
-//         .name {
-//           font-size: 12px;
-//         }
-//       }
-//     }
-//   }
-// }
-//
-// .series {
-//   .box {
-//     .items {
-//       @include fill-parent;
-//       @include clearfix;
-//       .item {
-//         @include fill-parent;
-//         @include span-columns(3 of 12);
-//         @include omega(4n);
-//         @include media($medium-screen) {
-//           @include span-columns(6 of 12);
-//           @include omega(2n);
-//         }
-//         @include media($small-screen) {
-//           @include span-columns(12 of 12);
-//           @include omega(1n);
-//         }
-//         img {
-//           width: 100%;
-//         }
-//       }
-//     }
-//   }
-// }
-//
-// .introduction {
-//   h2 {
-//     @extend %bordered-header;
-//   }
-// }
+.lineup,
+.topics,
+.newitem,
+.ranking,
+.voice,
+.information,
+.news,
+.products {
+  @include clearfix;
+  margin-bottom: $base-line-height;
+}
+
+%item {
+  @include span-columns(4 of 12);
+  height: 445px;
+  .image {
+    img {
+      width: auto;
+      height: 100%;
+    }
+    height: 50%;
+    padding: 15px;
+    text-align: center;
+  }
+  .name,
+  .detail {
+    padding: 0 15px;
+    font-size: $base-font-size * 0.8;
+  }
+  .price {
+    padding: 0 15px;
+    font-weight: bold;
+    color: #9a0000;
+    .small {
+      font-size: $base-font-size * 0.6;
+    }
+  }
+}
+
+.newitem {
+  .item {
+    @extend %item;
+    background: image-url('welcome/new_bg.png') left top no-repeat;
+    background-size: contain;
+  }
+}
+
+.ranking {
+  .item {
+    @extend %item;
+    padding-top: 12px;
+    height: 457px;
+    &.rank1 {
+      background: image-url('welcome/rank01.png') left top no-repeat;
+      background-size: contain;
+    }
+    &.rank2 {
+      background: image-url('welcome/rank02.png') left top no-repeat;
+      background-size: contain;
+    }
+    &.rank3 {
+      background: image-url('welcome/rank03.png') left top no-repeat;
+      background-size: contain;
+    }
+  }
+}
+
+.information {
+  .column {
+    @include span-columns(4 of 12);
+    @include omega(3);
+    margin-bottom: $base-line-height;
+  }
+}
+
+.products {
+  .prev,
+  .next {
+    text-align: center;
+    line-height: 100px;
+    @include span-columns(1 of 22);
+  }
+  ul {
+    @include span-columns(20 of 22);
+    height: 100px;
+    overflow: hidden;
+    li {
+      height: 100px;
+      line-height: 100px;
+      @include span-columns(2 of 12);
+      @include omega(6n);
+      text-align: center;
+    }
+  }
+}

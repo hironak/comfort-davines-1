@@ -58,7 +58,7 @@ html
         - if alert
           p.alert = alert
 
-      - if controller_name == 'welcome'
+      - if controller_name == 'welcome' && action_name == 'index'
         = yield
       - else
         .container

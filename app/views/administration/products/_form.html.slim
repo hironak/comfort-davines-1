@@ -29,6 +29,10 @@
         = f.check_box :_destroy, checked: !f.object.persisted?
 
   .field
+    = f.label :small_detail
+    = f.text_area :small_detail
+
+  .field
     = f.label :stock
     = f.number_field :stock
 

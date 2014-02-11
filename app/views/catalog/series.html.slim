@@ -1,2 +1,6 @@
-h1 Catalog#series
-p Find me in app/views/catalog/series.html.slim
+- @series.products.available.each do |product|
+  .item
+    .name = product.name
+    .photo = image_tag product.image.url(:thumb)
+    .detail = link_to '詳細を見る', product
+    .cart = link_to "カートに入れる", add_carts_path(product_id: product.id, amount: 1), method: :post, class: "add-cart"
