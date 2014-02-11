@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140209153252) do
+ActiveRecord::Schema.define(version: 20140211030033) do
 
   create_table "administrators", force: true do |t|
     t.string   "username",          null: false
@@ -168,6 +168,7 @@ ActiveRecord::Schema.define(version: 20140209153252) do
     t.integer  "backmargin_salon"
     t.integer  "backmargin_agency"
     t.string   "refnum"
+    t.text     "small_detail"
   end
 
   add_index "products", ["page_id"], name: "index_products_on_page_id", using: :btree

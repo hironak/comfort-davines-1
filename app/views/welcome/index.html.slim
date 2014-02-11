@@ -16,8 +16,12 @@
         .item
           .image = image_tag product.image.url(:item), alt: product.name
           .name = link_to product.name, product
-          .detail 本来の美髪への
-          .price = product.price
+          .detail = product.small_detail
+          .price
+            span.small 通常価格
+            '
+            = product.price.to_formatted_s(:currency)
+            span.small （税込）
           .cart = link_to 'カートに入れる', add_carts_path(product_id: product.id, amount: 1), method: :post
     .ranking
       h2 = image_tag 'welcome/ranking.png', alt: 'ランキング'
@@ -25,8 +29,12 @@
         .item class="rank#{i+1}"
           .image = image_tag product.image.url(:item), alt: product.name
           .name = link_to product.name, product
-          .detail 本来の美髪への
-          .price = product.price
+          .detail = product.small_detail
+          .price
+            span.small 通常価格
+            '
+            = product.price.to_formatted_s(:currency)
+            span.small （税込）
           .cart = link_to 'カートに入れる', add_carts_path(product_id: product.id, amount: 1), method: :post
     .voice
       h2 = image_tag 'welcome/usercoment.png', alt: 'お客様の声'
