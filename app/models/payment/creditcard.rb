@@ -7,21 +7,25 @@ class Payment::Creditcard < Payment
         record.charge_create
       rescue WebPay::CardError => e
         case e.code
-        when 'incorrect_number'
-          record.errors.add :card_number, e.message
         when 'invalid_name'
-          record.errors.add :name, e.message
+          record.errors.add :name, e.code.to_sym
+        when 'incorrect_expiry'
+          record.errors.add :expire, e.code.to_sym
         when 'invalid_expiry_month'
-          record.errors.add :exp_month, e.message
+          record.errors.add :exp_month, e.code.to_sym
         when 'invalid_expiry_year'
-          record.errors.add :exp_year, e.message
+          record.errors.add :exp_year, e.code.to_sym
         when 'invalid_cvc', 'incorrect_cvc'
-          record.errors.add :cvc, e.message
-        when 'card_declined'
-          record.errors.add :card_number, e.message
+          record.errors.add :cvc, e.code.to_sym
+        else
+          record.errors.add :card_number, e.code.to_sym
         end
       end
     end
+  end
+
+  def expire
+    "#{self.exp_month} / #{self.exp_year}"
   end
 
   validates_with WebPayValidator, unless: :webpay_id
