@@ -3,7 +3,7 @@
   - Series.all.each do |series|
     h4 = link_to series.name, catalog_path(action: :series, id: series)
     ul
-      - series.products.each do |product|
+      - series.products.available.each do |product|
         li = link_to product.name, product
 
 .category
@@ -11,7 +11,7 @@
   - Category.all.each do |category|
     h4 = link_to category.name, catalog_path(action: :category, id: category)
     ul
-      - category.products.each do |product|
+      - category.products.available.each do |product|
         li = link_to product.name, product
 
 .solution
@@ -19,5 +19,5 @@
   - Solution.all.each do |solution|
     h4 = link_to solution.name, catalog_path(action: :solution, id: solution)
     ul
-      - solution.products.each do |product|
+      - solution.products.available.each do |product|
         li = link_to product.name, product
