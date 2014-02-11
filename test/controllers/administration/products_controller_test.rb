@@ -4,7 +4,7 @@ class Administration::ProductsControllerTest < ActionController::TestCase
 
   before do
     login_user create(:administrator)
-    @product = products(:one)
+    @product = create(:product)
   end
 
   def test_index
