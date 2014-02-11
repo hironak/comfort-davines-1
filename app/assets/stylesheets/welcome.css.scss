@@ -1,5 +1,12 @@
-h2 {
-  margin-bottom: $base-line-height * 0.5;
+.main {
+  h1, h2 {
+    height: 65px;
+    line-height: 65px;
+    margin-bottom: $base-line-height * 0.5;
+    img {
+      vertical-align: bottom;
+    }
+  }
 }
 
 .banner {

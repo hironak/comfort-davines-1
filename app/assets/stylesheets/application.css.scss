@@ -9,6 +9,9 @@
 .container {
   @include outer-container;
   padding: 0 15px;
+  &.maincontent {
+    padding-top: 40px;
+  }
 }
 
 .header {}
