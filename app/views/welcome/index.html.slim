@@ -1,5 +1,8 @@
 .banner
-  .container
+  .visual
+    .container
+  .selector
+    .container
 
 .container
   .main
@@ -22,7 +25,8 @@
             '
             = product.price.to_formatted_s(:currency)
             span.small （税込）
-          .cart = link_to 'カートに入れる', add_carts_path(product_id: product.id, amount: 1), method: :post
+          .cart = link_to add_carts_path(product_id: product.id, amount: 1), method: :post do
+            = image_tag 'welcome/cart_btn.png', alt: 'カートに入れる'
     .ranking
       h2 = image_tag 'welcome/ranking.png', alt: 'ランキング'
       - Product.available.order(:created_at).limit(3).each_with_index do |product, i|
@@ -35,7 +39,8 @@
             '
             = product.price.to_formatted_s(:currency)
             span.small （税込）
-          .cart = link_to 'カートに入れる', add_carts_path(product_id: product.id, amount: 1), method: :post
+          .cart = link_to add_carts_path(product_id: product.id, amount: 1), method: :post do
+            = image_tag 'welcome/cart_btn.png', alt: 'カートに入れる'
     .voice
       h2 = image_tag 'welcome/usercoment.png', alt: 'お客様の声'
     .information
