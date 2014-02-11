@@ -12,7 +12,7 @@ Setting.create! tax_percentage: 5
   Series.create name: name
 end
 
-%w|シャンプー コンディショナー＆パック スペシャルケア オイル スタイリング|.each do |name|
+%w|キット シャンプー コンディショナー＆パック スペシャルケア オイル スタイリング|.each do |name|
   Category.create name: name
 end
 
