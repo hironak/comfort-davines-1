@@ -3,7 +3,7 @@ require "test_helper"
 class ProductsControllerTest < ActionController::TestCase
 
   before do
-    @product = products(:one)
+    @product = create(:product)
   end
 
   def test_show
