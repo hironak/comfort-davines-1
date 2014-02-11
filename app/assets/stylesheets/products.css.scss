@@ -5,7 +5,12 @@
   @include clearfix;
   .main-image {
     @include span-columns(2 of 6);
+    height: 380px;
+    line-height: 380px;
     text-align: center;
+    img {
+      vertical-align: middle;
+    }
   }
   .information {
     @include span-columns(4 of 6);
@@ -30,9 +35,9 @@
   .image-select {
     a {
       display: block;
-      width: 100px;
-      height: 100px;
-      line-height: 100px;
+      width: 80px;
+      height: 80px;
+      line-height: 80px - 8px;
       text-align: center;
       float: left;
       margin-right: 5px;
@@ -44,6 +49,7 @@
       }
       background: white;
       img {
+        vertical-align: middle;
       }
     }
   }

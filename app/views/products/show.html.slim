@@ -18,7 +18,7 @@
       - @product.photos.each_with_index do |photo, i|
         .image
           = link_to photo.image.url(:medium), class: (i == 0 && 'active') do
-            = image_tag photo.image.url(:thumb)
+            = image_tag photo.image.url(:mini)
 
     .product-information
       = form_tag add_carts_path, method: :post do
