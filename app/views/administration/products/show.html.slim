@@ -12,6 +12,10 @@ p
   = image_tag @product.image.url(:medium)
 
 p
+  strong Detail:
+  = @product.detail.html_safe
+
+p
   strong SmallDetail:
   = @product.small_detail
 

@@ -24,6 +24,14 @@ class Product < ActiveRecord::Base
     self.backmargin_agency ||= 28
   end
 
+  def series
+    self.serieses.first
+  end
+
+  def category
+    self.categories.first
+  end
+
   def image *args
     (self.photos.first || self.photos.new).image *args
   end
