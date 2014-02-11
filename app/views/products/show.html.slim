@@ -5,7 +5,7 @@
   p = @product.category.name
 
   .basic-information
-    .main-image = image_tag @product.image.url
+    .main-image = image_tag @product.image.url(:medium)
     .information
       h1 = @product.name
 
@@ -17,7 +17,8 @@
     .image-select
       - @product.photos.each do |photo|
         .image
-          = image_tag photo.image.url(:thumb)
+          = link_to photo.image.url(:medium) do
+            = image_tag photo.image.url(:thumb)
 
     .product-information
       = form_tag add_carts_path, method: :post do

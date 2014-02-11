@@ -5,6 +5,7 @@
   @include clearfix;
   .main-image {
     @include span-columns(2 of 6);
+    text-align: center;
   }
   .information {
     @include span-columns(4 of 6);
@@ -27,6 +28,21 @@
 .optional-information {
   position: relative;
   .image-select {
+    a {
+      display: block;
+      width: 100px;
+      height: 100px;
+      line-height: 100px;
+      text-align: center;
+      float: left;
+      border: 1px solid $light-gray;
+      &.active {
+        border: 4px solid $light-gray;
+      }
+      background: white;
+      img {
+      }
+    }
   }
   .product-information {
     position: absolute;

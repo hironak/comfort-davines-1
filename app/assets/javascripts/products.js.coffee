@@ -1,3 +1,6 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+jQuery ($)->
+
+  $('.image-select a').on 'click', ->
+    src = $(@).attr 'href'
+    $('.main-image img').attr 'src', src
+    return false

@@ -26,19 +26,20 @@ CSV.read(Rails.root.join("test/fixtures/products.csv").to_s, headers: :first_row
 
   attrs = attrs.to_hash
 
-  files = %w|jpg png|.map { |ext| Rails.root.join("test/assets/products/image/#{attrs['image']}.#{ext}") }
+  files = attrs['image'].split(',').map do |image|
+    %w|jpg png|.map { |ext| Rails.root.join("test/assets/products/image/#{image}.#{ext}") }
+  end.flatten
 
-  file = files.find { |f| File.exist?(f) }
-
-  attrs['series_ids']   = attrs.delete 'series_id'
-  attrs['category_ids'] = attrs.delete 'category_id'
+  files = files.find_all { |f| File.exist?(f) }
 
   attrs.delete 'image'
-  attrs["photos_attributes"] = [
-    {
+  attrs["photos_attributes"] = []
+  files.each do |file|
+   attrs["photos_attributes"] << {
       "image" => File.new(file)
     }
-  ]
+  end
+
   attrs["stock"] = 10
 
   Product.create(attrs)
