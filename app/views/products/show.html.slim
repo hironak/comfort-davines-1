@@ -2,7 +2,9 @@
 
   p = @product.series.name
 
-  p = @product.category.name
+  ul.categories
+    - @product.categories.each do |category|
+      li = category.name
 
   .basic-information
     .main-image = image_tag @product.image.url(:medium)
