@@ -9,7 +9,7 @@
 .container {
   @include outer-container;
   padding: 0 15px;
-  width: 960px;
+  width: 990px;
   &.maincontent {
     padding-top: 40px;
   }
