@@ -45,11 +45,17 @@ end
 
 require "csv"
 
+counter = {}
+
 CSV.read(Rails.root.join("presets/data/products.csv").to_s, headers: :first_row, col_sep: "\t").each do |attrs|
 
   attrs = attrs.to_hash
 
-  identify = "#{attrs['template']}_#{attrs['category_ids']}"
+  count = counter[attrs['template']] ||= 1
+
+  identify = "#{attrs['template']}_#{count}"
+
+  counter[attrs['template']] += 1
 
   files = attrs['image'].split(/\s/).map do |image|
     %w|jpg png|.map { |ext| Rails.root.join("presets/assets/products/image/#{image}.#{ext}") }
