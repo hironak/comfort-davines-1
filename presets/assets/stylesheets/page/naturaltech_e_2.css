@@ -2,7 +2,7 @@
   overflow: hidden;
   margin-bottom: 30px;
 }
-.howto-osusume img {
+.mini img {
   width: auto;
 }
 
@@ -44,4 +44,23 @@
 .osusume .shita {
   height: 10px;
   background: url(/f/osusume_bg_shita.png) left top repeat;
+}
+
+ul.flow {
+  overflow: hidden;
+  padding: 10px;
+}
+ul.flow li {
+  float: left;
+  width: 22.5%;
+  height: 145px;
+  line-height: 145px;
+  vertical-align: middle;
+  text-align: center;
+}
+ul.flow li.icon {
+  width: 3%;
+}
+ul.flow li img {
+  width: auto;
 }
