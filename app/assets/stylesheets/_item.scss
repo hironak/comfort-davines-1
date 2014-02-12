@@ -1,0 +1,55 @@
+%item {
+  @include span-columns(4 of 12);
+  @include omega(3n);
+  height: 465px;
+  .image {
+    img {
+      width: auto;
+      height: 100%;
+    }
+    height: 50%;
+    padding: 15px;
+    text-align: center;
+  }
+  .name,
+  .detail {
+    padding: 0 15px;
+    font-size: $base-font-size * 0.8;
+  }
+  .price {
+    padding: 0 15px;
+    font-weight: bold;
+    color: #9a0000;
+    .small {
+      font-size: $base-font-size * 0.6;
+    }
+  }
+  .cart {
+    padding: ($base-line-height * 0.5) 0;
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.ranking {
+  .item {
+    @extend %item;
+    padding-top: 12px;
+    height: 477px;
+    &.rank1 {
+      background: image-url('welcome/rank01.png') left top no-repeat;
+      background-size: 100% auto;
+    }
+    &.rank2 {
+      background: image-url('welcome/rank02.png') left top no-repeat;
+      background-size: 100% auto;
+    }
+    &.rank3 {
+      background: image-url('welcome/rank03.png') left top no-repeat;
+      background-size: 100% auto;
+    }
+  }
+}
+
+

@@ -3,4 +3,7 @@ class Series < ActiveRecord::Base
   self.authorizer_name = 'AdministrationAuthorizer'
 
   has_and_belongs_to_many :products
+
+  has_many :categories, -> { uniq }, through: :products
+  has_many :solutions, -> { uniq }, through: :products
 end
