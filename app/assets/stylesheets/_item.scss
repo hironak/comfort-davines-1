@@ -12,11 +12,28 @@
     text-align: center;
   }
   .name,
-  .detail {
+  .label,
+  .detail,
+  .capacity {
     padding: 0 15px;
     font-size: $base-font-size * 0.8;
   }
+  .label {
+    margin-bottom: $base-line-height * 0.5;
+    font-weight: bold;
+  }
+  .detail {
+    font-size: $base-font-size * 0.7;
+    height: $base-line-height * 3.0;
+    line-height: $base-line-height;
+    margin-bottom: $base-line-height;
+  }
+  .capacity {
+    float: right;
+    font-weight: bold;
+  }
   .price {
+    margin-bottom: $base-line-height * 0.5;
     padding: 0 15px;
     font-weight: bold;
     color: #9a0000;

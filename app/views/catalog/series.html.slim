@@ -7,24 +7,26 @@
   ul.category-select
     li = link_to "すべて", { category_id: nil }, class: (params[:category_id].nil? && "active")
     - @series.categories.all.each do |category|
-      li = link_to category.name, { category_id: category.id }, class: ((params[:category_id] == category.id.to_s) && "active")
+      li = link_to category.name, { category_id: category.id }, class: ((params[:category_id] == category.id.to_s) && 'active')
   .series-items
     - @products.each do |product|
-      .item class=(product.categories.map{|c| "category_#{c.id}" } + ["template_#{product.template_id}"]).join(' ')
+      .item class=product.catalog_classes
         .image = link_to product do
           = image_tag product.image.url(:item)
         ul.categories
           - product.categories.each do |category|
             li = category.name
         .name = link_to product.name, product
+        .label = "【#{product.label}】"
         .detail = product.small_detail
+        .capacity = product.capacity
         .price
-          = product.price.to_formatted_s(:currency)
+          = product.view_price.to_formatted_s(:currency)
           small = "(税込)"
         .navigate
-          = link_to product do
+          = link_to product, class: 'todetail' do
             = image_tag 'catalog/item_detail.gif', alt: '詳しく見る'
-          = link_to add_carts_path(product_id: product.id, amount: 1), method: :post do
+          = link_to add_carts_path(product_id: product.id, amount: 1), method: :post, class: 'addcart' do
             = image_tag 'catalog/item_cartbtn.jpg', alt: 'カートに入れる'
 
   h2 = image_tag 'welcome/ranking.png', alt: 'ランキング'

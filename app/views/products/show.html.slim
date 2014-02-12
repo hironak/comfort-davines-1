@@ -11,10 +11,10 @@
   .basic-information
     .main-image = image_tag @product.image.url(:medium)
     .information
-      h1 = @product.name
-
+      .name
+        h1 = @product.name
+        p.label = "【#{@product.label}】"
       p.detail = @product.detail.html_safe
-
       p.ingredient = image_tag 'products/ingredient_btn.jpg', alt: '成分表示'
 
   .optional-information

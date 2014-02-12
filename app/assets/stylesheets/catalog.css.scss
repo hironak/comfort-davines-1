@@ -57,6 +57,9 @@
         background: image-url('catalog/itembg_w.png') left top no-repeat;
         background-size: 100% auto;
       }
+      .image {
+        height: 40%;
+      }
       .categories {
         @include clearfix;
         padding: 0 15px;
@@ -74,8 +77,13 @@
       }
       .navigate {
         a {
-          @include omega(2);
-          margin-right: 5px;
+          display: block;
+          &.todetail {
+            float: left;
+          }
+          &.addcart {
+            float: right;
+          }
         }
       }
     }

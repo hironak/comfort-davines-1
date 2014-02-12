@@ -31,6 +31,11 @@ class Product < ActiveRecord::Base
     self.serieses.first
   end
 
+  def catalog_classes
+    self.categories.map{|c| "category_#{c.id}" } +
+    ["template_#{self.template_id}"]
+  end
+
   def category
     self.categories.first
   end
@@ -41,6 +46,10 @@ class Product < ActiveRecord::Base
 
   def view_price
     (self.price * Setting.tax_rate).to_i
+  end
+
+  def view_price= price
+    self.price = (price.to_f / Setting.tax_rate).to_i
   end
 
   def increase amount

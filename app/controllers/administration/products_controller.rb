@@ -76,6 +76,7 @@ module Administration
         .require(:product)
         .permit(
           :name,
+          :label,
           :refnum,
           :price,
           :stock,
