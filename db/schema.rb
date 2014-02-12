@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140211174814) do
+ActiveRecord::Schema.define(version: 20140212102205) do
 
   create_table "administrators", force: true do |t|
     t.string   "username",          null: false
@@ -156,6 +156,15 @@ ActiveRecord::Schema.define(version: 20140211174814) do
 
   add_index "product_photos", ["product_id"], name: "index_product_photos_on_product_id", using: :btree
 
+  create_table "product_reviews", force: true do |t|
+    t.integer  "product_id"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "product_reviews", ["product_id"], name: "index_product_reviews_on_product_id", using: :btree
+
   create_table "products", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -171,9 +180,11 @@ ActiveRecord::Schema.define(version: 20140211174814) do
     t.text     "small_detail"
     t.text     "detail"
     t.string   "capacity"
+    t.integer  "template_id"
   end
 
   add_index "products", ["page_id"], name: "index_products_on_page_id", using: :btree
+  add_index "products", ["template_id"], name: "index_products_on_template_id", using: :btree
 
   create_table "products_categories", id: false, force: true do |t|
     t.integer "product_id"
@@ -246,6 +257,15 @@ ActiveRecord::Schema.define(version: 20140211174814) do
 
   create_table "solutions", force: true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "templates", force: true do |t|
+    t.string   "name"
+    t.text     "header"
+    t.text     "list"
+    t.text     "style"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

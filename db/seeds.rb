@@ -22,12 +22,12 @@ end
 
 require "csv"
 
-CSV.read(Rails.root.join("test/fixtures/products.csv").to_s, headers: :first_row, col_sep: "\t").each do |attrs|
+CSV.read(Rails.root.join("presets/data/products.csv").to_s, headers: :first_row, col_sep: "\t").each do |attrs|
 
   attrs = attrs.to_hash
 
   files = attrs['image'].split(',').map do |image|
-    %w|jpg png|.map { |ext| Rails.root.join("test/assets/products/image/#{image}.#{ext}") }
+    %w|jpg png|.map { |ext| Rails.root.join("presets/assets/products/image/#{image}.#{ext}") }
   end.flatten
 
   files = files.find_all { |f| File.exist?(f) }
@@ -49,7 +49,7 @@ CSV.read(Rails.root.join("test/fixtures/products.csv").to_s, headers: :first_row
   Product.create(attrs)
 end
 
-CSV.read(Rails.root.join("test/fixtures/salons.csv").to_s, headers: :first_row, col_sep: "\t").each do |attrs|
+CSV.read(Rails.root.join("presets/data/salons.csv").to_s, headers: :first_row, col_sep: "\t").each do |attrs|
 
   attrs = attrs.to_hash
 

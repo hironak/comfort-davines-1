@@ -1,5 +1,6 @@
 Commers::Application.routes.draw do
 
+  get "template/stylesheets/:key", to: "template#stylesheets"
   get "editable/stylesheets/:key", to: "editable#stylesheets"
 
   # 表側ユーザ
@@ -95,6 +96,9 @@ Commers::Application.routes.draw do
 
     # 裏側ユーザ管理
     resources :administrators
+
+    # デザインテンプレート編集
+    resources :templates
 
     # ページ編集
     resources :pages

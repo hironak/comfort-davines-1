@@ -14,9 +14,10 @@ ja:
       order_item: order_item  #g
       payment: 支払い方法
       payment_creditcard: クレジットカード
+      template: テンプレート
       page: カスタムページ
       product: 商品
-      product_photo: 商品画像
+      product/photo: 商品画像
       salon: サロン
       setting: システム設定
 

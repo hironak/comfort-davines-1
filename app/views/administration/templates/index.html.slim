@@ -1,0 +1,17 @@
+h1 Listing templates
+
+table
+  tr
+    th
+    th
+    th
+
+  - @templates.each do |template|
+    tr
+      td = link_to 'Show', [:admin, template]
+      td = link_to 'Edit', edit_admin_template_path(template)
+      td = link_to 'Destroy', [:admin, template], data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Template', new_admin_template_path

@@ -1,6 +1,8 @@
 .main
 
-  p = @product.series.name
+  - if @product.template
+    .template class="template#{@product.template.id}"
+      = @product.template.header.html_safe
 
   ul.categories
     - @product.categories.each do |category|

@@ -1,0 +1,11 @@
+.contents {
+  .container {
+    .template {
+      <% @templates.each do |template| %>
+        &.template<%= template.id %> {
+          <%= template.style %>
+        }
+      <% end %>
+    }
+  }
+}
