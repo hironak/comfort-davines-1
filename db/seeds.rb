@@ -29,13 +29,14 @@ end
            end
   style_file = "#{Rails.root}/presets/assets/stylesheets/template/#{identify}.css"
   style = if File.exist?(style_file)
-             File.read style_file
-           else
-             ""
-           end
+            File.read style_file
+          else
+            ""
+          end
 
 
-  ::Template.create identify: identify, header: header, style: style
+  template = ::Template.new(identify: identify, header: header, style: style)
+  template.save validate: false
 end
 
 Dir.glob("#{Rails.root}/presets/assets/file_storage/images/**/*").each do |file|
@@ -44,9 +45,17 @@ end
 
 require "csv"
 
+counter = {}
+
 CSV.read(Rails.root.join("presets/data/products.csv").to_s, headers: :first_row, col_sep: "\t").each do |attrs|
 
   attrs = attrs.to_hash
+
+  count = counter[attrs['template']] ||= 1
+
+  identify = "#{attrs['template']}_#{count}"
+
+  counter[attrs['template']] += 1
 
   files = attrs['image'].split(/\s/).map do |image|
     %w|jpg png|.map { |ext| Rails.root.join("presets/assets/products/image/#{image}.#{ext}") }
@@ -57,7 +66,7 @@ CSV.read(Rails.root.join("presets/data/products.csv").to_s, headers: :first_row,
   attrs.delete 'image'
   attrs["photos_attributes"] = []
   files.each do |file|
-   attrs["photos_attributes"] << {
+    attrs["photos_attributes"] << {
       "image" => File.new(file)
     }
   end
@@ -70,6 +79,23 @@ CSV.read(Rails.root.join("presets/data/products.csv").to_s, headers: :first_row,
 
   attrs["stock"] = 10
 
+  body_file = "#{Rails.root}/presets/views/page/#{identify}/body.html"
+  body = if File.exist?(body_file)
+           File.read body_file
+         else
+           ""
+         end
+  style_file = "#{Rails.root}/presets/assets/stylesheets/page/#{identify}.css"
+  style = if File.exist?(style_file)
+            File.read style_file
+          else
+            ""
+          end
+
+  page = Page.new(title: attrs["name"], render_type: "html", body: body, style: style, identify: identify)
+  page.save validate: false
+
+  attrs['page_id'] = page.id
   Product.create(attrs)
 
   attrs["price"] = 0
