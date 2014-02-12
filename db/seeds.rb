@@ -24,6 +24,10 @@ end
   ::Template.create identify: identify
 end
 
+# Dir.glob("#{Rails.root}/presets/assets/file_storage/image/**/*").each do |file|
+#   FileStorage.create file: file
+# end
+
 require "csv"
 
 CSV.read(Rails.root.join("presets/data/products.csv").to_s, headers: :first_row, col_sep: "\t").each do |attrs|

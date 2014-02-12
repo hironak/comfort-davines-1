@@ -1,3 +1,12 @@
-h1 {
-  border: 5px solid red;
+.product-header {
+  border-bottom: 5px solid black;
+}
+.product-header .logo {
+  float: left;
+}
+.product-header .navigation {
+}
+.product-header .navigation li {
+}
+.product-banner {
 }
