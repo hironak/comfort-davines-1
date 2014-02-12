@@ -43,6 +43,10 @@ class Product < ActiveRecord::Base
     (self.price * Setting.tax_rate).to_i
   end
 
+  def view_price= price
+    self.price = (price.to_f / Setting.tax_rate).to_i
+  end
+
   def increase amount
     stock = self.stock + amount
     update_column :stock, stock

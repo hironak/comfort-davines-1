@@ -20,7 +20,7 @@
         .label = "【#{product.label}】"
         .detail = product.small_detail
         .price
-          = product.price.to_formatted_s(:currency)
+          = product.view_price.to_formatted_s(:currency)
           small = "(税込)"
         .navigate
           = link_to product do
