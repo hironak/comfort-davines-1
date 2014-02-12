@@ -20,6 +20,10 @@ end
   Solution.create name: name
 end
 
+%w|naturaltech_n|.each do |identify|
+  ::Template.create identify: identify
+end
+
 require "csv"
 
 CSV.read(Rails.root.join("presets/data/products.csv").to_s, headers: :first_row, col_sep: "\t").each do |attrs|
@@ -38,6 +42,11 @@ CSV.read(Rails.root.join("presets/data/products.csv").to_s, headers: :first_row,
    attrs["photos_attributes"] << {
       "image" => File.new(file)
     }
+  end
+
+  if template_identify = attrs.delete('template')
+    template = ::Template.where(identify: template_identify).first
+    attrs["template_id"] = template.id
   end
 
   attrs["stock"] = 10
