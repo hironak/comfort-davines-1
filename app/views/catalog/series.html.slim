@@ -1,11 +1,20 @@
 .main
+  .categort-select
+    - @series.categories.all.each do |category|
+      = link_to category.name, "#category_#{category.id}", class: 'category-select', data: { select: "category_#{category.id}" }
   .series-items
     - @series.products.available.each do |product|
-      .item
+      .item class=product.categories.map{|c| "category_#{c.id}" }.join(' ')
         .image = link_to product do
           = image_tag product.image.url(:item)
-        .name = product.name
+        ul.categories
+          - product.categories.each do |category|
+            li = category.name
+        .name = link_to product.name, product
         .detail = product.small_detail
+        .price
+          = product.price.to_formatted_s(:currency)
+          small = "(税込)"
         .navigate
           = link_to product do
             = image_tag 'catalog/item_detail.gif', alt: '詳しく見る'
