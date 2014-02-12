@@ -70,6 +70,25 @@ CSV.read(Rails.root.join("presets/data/products.csv").to_s, headers: :first_row,
 
   attrs["stock"] = 10
 
+  identify = "#{attrs['template']}_#{attrs['category_ids']}"
+
+  body_file = "#{Rails.root}/presets/views/page/#{identify}/body.html"
+  body = if File.exist?(body_file)
+             File.read body_file
+           else
+             ""
+           end
+  style_file = "#{Rails.root}/presets/assets/stylesheets/page/#{identify}.css"
+  style = if File.exist?(style_file)
+             File.read style_file
+           else
+             ""
+           end
+
+
+  page = Page.create(name: attrs["name"], body: body, style: style)
+
+  attrs['page_id'] = page.id
   Product.create(attrs)
 
   attrs["price"] = 0
