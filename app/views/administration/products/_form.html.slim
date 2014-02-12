@@ -70,7 +70,7 @@
 
   .field
     = f.label :template
-    = f.collection_select :template_id, Template.all, :id, :title
+    = f.collection_select :template_id, ::Template.all, :id, :name
 
   .field
     = f.label :page

@@ -1,5 +1,8 @@
 p#notice = notice
 
+.template class="page#{@template.id}"
+  = @template.header.html_safe
+
 
 = link_to 'Edit', edit_admin_template_path(@template)
 '|

@@ -1,8 +1,8 @@
 .contents {
   .container {
-    .product_template {
+    .template {
       <% @templates.each do |template| %>
-        &.template<%= page.id %> {
+        &.template<%= template.id %> {
           <%= template.style %>
         }
       <% end %>

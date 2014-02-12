@@ -4,7 +4,7 @@ html
     meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"
     = title_tag
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
-    = stylesheet_link_tag    "/product_template/stylesheets/#{Product::Template.cache_key}", media: "all", "data-turbolinks-track" => true
+    = stylesheet_link_tag    "/template/stylesheets/#{::Template.cache_key}", media: "all", "data-turbolinks-track" => true
     = stylesheet_link_tag    "/editable/stylesheets/#{Page.cache_key}", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags

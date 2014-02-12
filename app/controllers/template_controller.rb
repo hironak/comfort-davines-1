@@ -1,7 +1,7 @@
 class TemplateController < ApplicationController
   def stylesheets
-    unless @editable_style = Rails.cache.read(cache_key)
-      @templates = Template.all
+    unless @template_style = Rails.cache.read(cache_key)
+      @templates = ::Template.all
       scss = render_to_string('stylesheets', formats: :scss)
       @template_style = Sass::Engine.new(scss, syntax: :scss).render
       Rails.cache.write(cache_key, @template_style)
@@ -12,6 +12,6 @@ class TemplateController < ApplicationController
   private
 
   def cache_key
-    @cache_key ||= Template.cache_key
+    @cache_key ||= ::Template.cache_key
   end
 end
