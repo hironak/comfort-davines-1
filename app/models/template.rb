@@ -30,7 +30,7 @@ class Template < ActiveRecord::Base
       if File.exists? header_file
         File.read header_file
       else
-        ""
+        attributes[:header]
       end
     end
 
@@ -38,7 +38,7 @@ class Template < ActiveRecord::Base
       if File.exists? style_file
         File.read style_file
       else
-        ""
+        attributes[:style]
       end
     end
 
