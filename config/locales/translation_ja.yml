@@ -16,7 +16,8 @@ ja:
       payment_creditcard: クレジットカード
       page: カスタムページ
       product: 商品
-      product_photo: 商品画像
+      product/photo: 商品画像
+      product/template: テンプレート
       salon: サロン
       setting: システム設定
 

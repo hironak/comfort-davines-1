@@ -50,4 +50,18 @@ class ActiveSupport::TestCase
   def cart_remove product, amount
     current_cart.remove product, amount
   end
+
+  # Validator Stub
+  def stub_validator
+    stub_request(:get, W3CValidators::CSSValidator::CSS_VALIDATOR_URI)
+      .with(query: hash_including(request_params))
+      .to_return(:status => 200, :body => "", :headers => {})
+  end
+
+  def request_params
+    {
+      output: 'soap12',
+      profile: 'css3',
+    }
+  end
 end

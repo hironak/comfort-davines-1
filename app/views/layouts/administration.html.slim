@@ -28,9 +28,9 @@ html
 
         .menubar
           ul
-            - %w|products serieses categories solutions pages file_storages agencies salons orders administrators|.each do |controller|
+            - %w|products serieses categories solutions product/templates pages file_storages agencies salons orders administrators|.each do |controller|
               - if current_administrator.can_read? controller.singularize.camelize.constantize
-                li = link_to t("activerecord.models.#{controller.singularize}"), [:admin, controller]
+                li = link_to t("activerecord.models.#{controller.singularize}"), [:admin, controller.split('/').last]
 
             - if current_administrator.can_read? Setting
               li = link_to t('activerecord.models.setting'), admin_setting_path
