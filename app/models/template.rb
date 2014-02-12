@@ -1,4 +1,4 @@
-class Product::Template < ActiveRecord::Base
+class Template < ActiveRecord::Base
   include Authority::Abilities
   self.authorizer_name = 'AdministrationAuthorizer'
 

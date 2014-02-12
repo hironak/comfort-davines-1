@@ -72,7 +72,25 @@ module Administration
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:name, :refnum, :price, :stock, :capacity, :detail, :small_detail, :sample, :page_id, :backmargin_salon, :backmargin_agency, photos_attributes: [ :id, :image, :_destroy ], series_ids: [], category_ids: [], solution_ids: [])
+      params
+        .require(:product)
+        .permit(
+          :name,
+          :refnum,
+          :price,
+          :stock,
+          :capacity,
+          :detail,
+          :small_detail,
+          :sample,
+          :template_id,
+          :page_id,
+          :backmargin_salon,
+          :backmargin_agency,
+          photos_attributes: [ :id, :image, :_destroy ],
+          series_ids: [],
+          category_ids: [],
+          solution_ids: [])
     end
   end
 end

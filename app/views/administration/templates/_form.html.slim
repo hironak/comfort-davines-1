@@ -6,4 +6,16 @@
         - @template.errors.full_messages.each do |message|
           li = message
 
+  .field
+    = f.label :name
+    = f.text_field :name
+
+  .field
+    = f.label :header
+    = f.text_area :header
+
+  .field
+    = f.label :style
+    = f.text_area :style
+
   .actions = f.submit 'Save'

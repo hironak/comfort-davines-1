@@ -5,7 +5,7 @@ class Administration::TemplatesControllerTest < ActionController::TestCase
   before do
     stub_validator
     login_user create(:administrator)
-    @template = create(:product_template)
+    @template = create(:template)
   end
 
   def test_index
@@ -20,7 +20,7 @@ class Administration::TemplatesControllerTest < ActionController::TestCase
   end
 
   def test_create
-    assert_difference('Product::Template.count') do
+    assert_difference('Template.count') do
       post :create, template: {  }
     end
 
@@ -43,7 +43,7 @@ class Administration::TemplatesControllerTest < ActionController::TestCase
   end
 
   def test_destroy
-    assert_difference('Product::Template.count', -1) do
+    assert_difference('Template.count', -1) do
       delete :destroy, id: @template
     end
 

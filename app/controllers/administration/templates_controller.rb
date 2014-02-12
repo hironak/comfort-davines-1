@@ -5,7 +5,7 @@ module Administration
     # GET /administration/templates
     # GET /administration/templates.json
     def index
-      @templates = Product::Template.all
+      @templates = Template.all
     end
 
     # GET /administration/templates/1
@@ -15,7 +15,7 @@ module Administration
 
     # GET /administration/templates/new
     def new
-      @template = Product::Template.new
+      @template = Template.new
     end
 
     # GET /administration/templates/1/edit
@@ -25,7 +25,7 @@ module Administration
     # POST /administration/templates
     # POST /administration/templates.json
     def create
-      @template = Product::Template.new(template_params)
+      @template = Template.new(template_params)
 
       respond_to do |format|
         if @template.save
@@ -65,12 +65,12 @@ module Administration
     private
     # Use callbacks to share common setup or constraints between actions.
     def set_template
-      @template = Product::Template.find(params[:id])
+      @template = Template.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def template_params
-      params[:product_template]
+      params.require(:template).permit(:name, :header, :style)
     end
   end
 end

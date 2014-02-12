@@ -68,6 +68,9 @@
           = check_box_tag "product[solution_ids][]", solution.id, f.object.solution_ids.include?(solution.id), id: "product_solution_ids_#{solution.id}"
           = solution.name
 
+  .field
+    = f.label :template
+    = f.collection_select :template_id, Template.all, :id, :title
 
   .field
     = f.label :page
