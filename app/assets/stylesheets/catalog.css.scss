@@ -2,8 +2,33 @@
   .series-items {
     .item {
       @extend %item;
-      background: image-url('catalog/itembg_e.png') left top no-repeat;
-      background-size: 100% auto;
+      padding-top: 60px;
+      margin-bottom: 10px;
+      height: 600px;
+      &.template_1 {
+        background: image-url('catalog/itembg_e.png') left top no-repeat;
+        background-size: 100% auto;
+      }
+      &.template_2 {
+        background: image-url('catalog/itembg_n.png') left top no-repeat;
+        background-size: 100% auto;
+      }
+      &.template_3 {
+        background: image-url('catalog/itembg_r.png') left top no-repeat;
+        background-size: 100% auto;
+      }
+      &.template_4 {
+        background: image-url('catalog/itembg_d.png') left top no-repeat;
+        background-size: 100% auto;
+      }
+      &.template_5 {
+        background: image-url('catalog/itembg_c.png') left top no-repeat;
+        background-size: 100% auto;
+      }
+      &.template_6 {
+        background: image-url('catalog/itembg_w.png') left top no-repeat;
+        background-size: 100% auto;
+      }
       .categories {
         @include clearfix;
         padding: 0 15px;

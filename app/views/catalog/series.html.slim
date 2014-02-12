@@ -1,10 +1,11 @@
 .main
   .categort-select
+    = link_to "すべて", { category_id: nil }
     - @series.categories.all.each do |category|
-      = link_to category.name, "#category_#{category.id}", class: 'category-select', data: { select: "category_#{category.id}" }
+      = link_to category.name, { category_id: category.id }
   .series-items
-    - @series.products.available.each do |product|
-      .item class=product.categories.map{|c| "category_#{c.id}" }.join(' ')
+    - @products.each do |product|
+      .item class=(product.categories.map{|c| "category_#{c.id}" } + ["template_#{product.template_id}"]).join(' ')
         .image = link_to product do
           = image_tag product.image.url(:item)
         ul.categories
