@@ -7,7 +7,7 @@
   ul.category-select
     li = link_to "すべて", { category_id: nil }, class: (params[:category_id].nil? && "active")
     - @series.categories.all.each do |category|
-      li = link_to category.name, { category_id: category.id }, class: ((params[:category_id] == category.id.to_s) && "active")
+      li = link_to category.name, { category_id: category.id }, class: ((params[:category_id] == category.id.to_s) && 'active')
   .series-items
     - @products.each do |product|
       .item class=(product.categories.map{|c| "category_#{c.id}" } + ["template_#{product.template_id}"]).join(' ')
@@ -17,6 +17,7 @@
           - product.categories.each do |category|
             li = category.name
         .name = link_to product.name, product
+        .label = "【#{product.label}】"
         .detail = product.small_detail
         .price
           = product.price.to_formatted_s(:currency)
