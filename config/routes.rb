@@ -1,5 +1,6 @@
 Commers::Application.routes.draw do
 
+  get "f/:filename", to: "file_storage#show"
   get "template/stylesheets/:key", to: "template#stylesheets"
   get "editable/stylesheets/:key", to: "editable#stylesheets"
 

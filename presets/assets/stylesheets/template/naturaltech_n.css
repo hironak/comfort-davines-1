@@ -1,12 +1,20 @@
 .product-header {
-  border-bottom: 5px solid black;
+  position: relative;
 }
 .product-header .logo {
   float: left;
+  margin-bottom: 5px;
 }
 .product-header .navigation {
+  position: absolute;
+  right: 0px;
+  top: 0px;
 }
 .product-header .navigation li {
+  display: inline;
 }
 .product-banner {
+}
+.product-banner img {
+  width: 100%;
 }
