@@ -30,7 +30,7 @@ class Page < ActiveRecord::Base
       if File.exists? body_file
         File.read body_file
       else
-        attributes[:body]
+        attributes["body"]
       end
     end
 
@@ -38,7 +38,7 @@ class Page < ActiveRecord::Base
       if File.exists? style_file
         File.read style_file
       else
-        attributes[:style]
+        attributes["style"]
       end
     end
 
