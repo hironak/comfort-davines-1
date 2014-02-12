@@ -21,12 +21,26 @@ end
 end
 
 %w|naturaltech_n|.each do |identify|
-  ::Template.create identify: identify
+  header_file = "#{Rails.root}/presets/views/template/#{identify}/header.html"
+  header = if File.exist?(header_file)
+             File.read header_file
+           else
+             ""
+           end
+  style_file = "#{Rails.root}/presets/assets/stylesheets/template/#{identify}.css"
+  style = if File.exist?(style_file)
+             File.read style_file
+           else
+             ""
+           end
+
+
+  ::Template.create identify: identify, header: header, style: style
 end
 
-# Dir.glob("#{Rails.root}/presets/assets/file_storage/image/**/*").each do |file|
-#   FileStorage.create file: file
-# end
+Dir.glob("#{Rails.root}/presets/assets/file_storage/images/**/*").each do |file|
+  FileStorage.create(name: file, file: File.new(file)) if File.file? file
+end
 
 require "csv"
 
