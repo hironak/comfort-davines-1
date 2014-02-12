@@ -20,6 +20,28 @@ end
   Solution.create name: name
 end
 
+%w|naturaltech_n|.each do |identify|
+  header_file = "#{Rails.root}/presets/views/template/#{identify}/header.html"
+  header = if File.exist?(header_file)
+             File.read header_file
+           else
+             ""
+           end
+  style_file = "#{Rails.root}/presets/assets/stylesheets/template/#{identify}.css"
+  style = if File.exist?(style_file)
+             File.read style_file
+           else
+             ""
+           end
+
+
+  ::Template.create identify: identify, header: header, style: style
+end
+
+Dir.glob("#{Rails.root}/presets/assets/file_storage/images/**/*").each do |file|
+  FileStorage.create(name: file, file: File.new(file)) if File.file? file
+end
+
 require "csv"
 
 CSV.read(Rails.root.join("presets/data/products.csv").to_s, headers: :first_row, col_sep: "\t").each do |attrs|
@@ -38,6 +60,11 @@ CSV.read(Rails.root.join("presets/data/products.csv").to_s, headers: :first_row,
    attrs["photos_attributes"] << {
       "image" => File.new(file)
     }
+  end
+
+  if template_identify = attrs.delete('template')
+    template = ::Template.where(identify: template_identify).first
+    attrs["template_id"] = template.id
   end
 
   attrs["stock"] = 10

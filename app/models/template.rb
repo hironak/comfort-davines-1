@@ -20,4 +20,36 @@ class Template < ActiveRecord::Base
   def self.latest_update
     latest.try :updated_at || "pages never created."
   end
+
+  if Rails.env.development?
+    def self.latest_update
+      DateTime.now
+    end
+
+    def header
+      if File.exists? header_file
+        File.read header_file
+      else
+        ""
+      end
+    end
+
+    def style
+      if File.exists? style_file
+        File.read style_file
+      else
+        ""
+      end
+    end
+
+    private
+
+    def header_file
+      @header_file ||= "#{Rails.root}/presets/views/template/#{self.identify}/header.html"
+    end
+
+    def style_file
+      @style_file ||= "#{Rails.root}/presets/assets/stylesheets/template/#{self.identify}.css"
+    end
+  end
 end
