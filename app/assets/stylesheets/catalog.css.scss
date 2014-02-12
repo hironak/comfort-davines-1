@@ -1,3 +1,15 @@
-// Place all the styles related to the catalog controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.main {
+  .series-items {
+    .item {
+      @extend %item;
+      background: image-url('catalog/itembg_e.png') left top no-repeat;
+      background-size: 100% auto;
+      .navigate {
+        a {
+          @include omega(2);
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+}

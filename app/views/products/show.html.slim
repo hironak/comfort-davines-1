@@ -16,11 +16,12 @@
       p.ingredient = image_tag 'products/ingredient_btn.jpg', alt: '成分表示'
 
   .optional-information
-    .image-select
-      - @product.photos.each_with_index do |photo, i|
-        .image
-          = link_to photo.image.url(:medium), class: (i == 0 && 'active') do
-            = image_tag photo.image.url(:mini)
+    - if @product.photos.count > 1
+      .image-select
+        - @product.photos.each_with_index do |photo, i|
+          .image
+            = link_to photo.image.url(:medium), class: (i == 0 && 'active') do
+              = image_tag photo.image.url(:mini)
 
     .product-information
       = form_tag add_carts_path, method: :post do
