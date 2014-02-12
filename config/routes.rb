@@ -35,6 +35,8 @@ Commers::Application.routes.draw do
     get ":action/:id"
   end
 
+  # レビュー
+  resources :reviews, only: [:create]
 
   # カート
   resources :carts, only: [:index] do
