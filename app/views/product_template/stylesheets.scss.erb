@@ -1,0 +1,11 @@
+.contents {
+  .container {
+    .product_template {
+      <% @templates.each do |template| %>
+        &.template<%= page.id %> {
+          <%= template.style %>
+        }
+      <% end %>
+    }
+  }
+}

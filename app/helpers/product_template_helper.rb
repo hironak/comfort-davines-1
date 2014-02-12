@@ -1,0 +1,2 @@
+module ProductTemplateHelper
+end

@@ -1,5 +1,6 @@
 Commers::Application.routes.draw do
 
+  get "product_template/stylesheets/:key", to: "product_template#stylesheets"
   get "editable/stylesheets/:key", to: "editable#stylesheets"
 
   # 表側ユーザ
