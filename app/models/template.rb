@@ -1,3 +1,5 @@
+require "digest/sha1"
+
 class Template < ActiveRecord::Base
   include Authority::Abilities
   self.authorizer_name = 'AdministrationAuthorizer'

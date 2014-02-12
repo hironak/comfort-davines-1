@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140212122944) do
+ActiveRecord::Schema.define(version: 20140212151506) do
 
   create_table "administrators", force: true do |t|
     t.string   "username",          null: false
@@ -136,6 +136,7 @@ ActiveRecord::Schema.define(version: 20140212122944) do
     t.datetime "updated_at"
     t.string   "title"
     t.string   "render_type"
+    t.string   "identify"
   end
 
   create_table "payment_creditcards", force: true do |t|

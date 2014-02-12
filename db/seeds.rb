@@ -86,7 +86,7 @@ CSV.read(Rails.root.join("presets/data/products.csv").to_s, headers: :first_row,
            end
 
 
-  page = Page.create(name: attrs["name"], body: body, style: style)
+  page = Page.create(title: attrs["name"], body: body, style: style, identify: identify)
 
   attrs['page_id'] = page.id
   Product.create(attrs)
