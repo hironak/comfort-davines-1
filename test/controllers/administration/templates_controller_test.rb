@@ -21,10 +21,10 @@ class Administration::TemplatesControllerTest < ActionController::TestCase
 
   def test_create
     assert_difference('Template.count') do
-      post :create, template: {  }
+      post :create, template: attributes_for(:template)
     end
 
-    assert_redirected_to template_path(assigns(:template))
+    assert_redirected_to admin_template_path(assigns(:template))
   end
 
   def test_show
@@ -38,8 +38,8 @@ class Administration::TemplatesControllerTest < ActionController::TestCase
   end
 
   def test_update
-    put :update, id: @template, template: {  }
-    assert_redirected_to template_path(assigns(:template))
+    put :update, id: @template, template: attributes_for(:template)
+    assert_redirected_to admin_template_path(assigns(:template))
   end
 
   def test_destroy
@@ -47,6 +47,6 @@ class Administration::TemplatesControllerTest < ActionController::TestCase
       delete :destroy, id: @template
     end
 
-    assert_redirected_to templates_path
+    assert_redirected_to admin_templates_path
   end
 end
