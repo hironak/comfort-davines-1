@@ -6,4 +6,6 @@ class Series < ActiveRecord::Base
 
   has_many :categories, -> { uniq }, through: :products
   has_many :solutions, -> { uniq }, through: :products
+
+  has_many :reviews, -> { uniq }, through: :products
 end
