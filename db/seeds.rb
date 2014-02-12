@@ -20,7 +20,7 @@ end
   Solution.create name: name
 end
 
-%w|naturaltech_n naturaltech_e naturaltech_w naturaltech_r naturaltech_d naturaltech_c|.each do |identify|
+%w|naturaltech_e naturaltech_n naturaltech_r naturaltech_d naturaltech_c naturaltech_w|.each do |identify|
   header_file = "#{Rails.root}/presets/views/template/#{identify}/header.html"
   header = if File.exist?(header_file)
              File.read header_file
