@@ -20,7 +20,7 @@ end
   Solution.create name: name
 end
 
-%w|naturaltech_n|.each do |identify|
+%w|naturaltech_n naturaltech_e naturaltech_w naturaltech_r naturaltech_d naturaltech_c|.each do |identify|
   header_file = "#{Rails.root}/presets/views/template/#{identify}/header.html"
   header = if File.exist?(header_file)
              File.read header_file
@@ -48,7 +48,7 @@ CSV.read(Rails.root.join("presets/data/products.csv").to_s, headers: :first_row,
 
   attrs = attrs.to_hash
 
-  files = attrs['image'].split(',').map do |image|
+  files = attrs['image'].split(/\s/).map do |image|
     %w|jpg png|.map { |ext| Rails.root.join("presets/assets/products/image/#{image}.#{ext}") }
   end.flatten
 
@@ -63,8 +63,9 @@ CSV.read(Rails.root.join("presets/data/products.csv").to_s, headers: :first_row,
   end
 
   if template_identify = attrs.delete('template')
-    template = ::Template.where(identify: template_identify).first
-    attrs["template_id"] = template.id
+    if template = ::Template.where(identify: template_identify).first
+      attrs["template_id"] = template.id
+    end
   end
 
   attrs["stock"] = 10
