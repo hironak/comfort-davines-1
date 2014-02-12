@@ -59,11 +59,9 @@ html
         - if alert
           p.alert = alert
 
-      - if controller_name == 'welcome' && action_name == 'index'
+      = yield :content_header
+      .container.maincontent
         = yield
-      - else
-        .container.maincontent
-          = yield
 
       .container
         .totop
