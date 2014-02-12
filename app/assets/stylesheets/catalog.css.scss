@@ -1,4 +1,32 @@
+.catalog-header {
+  background: $light-gray;
+}
+
 .main {
+  ul.category-select {
+    @include clearfix;
+    margin-bottom: 15px;
+    font-size: $base-font-size * 0.8;
+    li {
+      float: left;
+      a {
+        font-weight: bold;
+        display: block;
+        border: 3px solid #333333;
+        background: white;
+        color: #333333;
+        padding: 5px 15px;
+        line-height: 1.0;
+        margin-right: 5px;
+
+        &.active {
+          border-color: #74726e;
+          background: #74726e;
+          color: #ffffff;
+        }
+      }
+    }
+  }
   .series-items {
     .item {
       @extend %item;
@@ -36,7 +64,7 @@
         text-align: right;
         li {
           display: inline;
-          border: 3px solid #000;
+          border: 3px solid #333333;
           padding: 4px 10px;
           background: white;
           font-size: $base-font-size * 0.6;
