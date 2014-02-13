@@ -1,0 +1,80 @@
+.howto-osusume {
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+.mini img {
+  width: auto;
+}
+
+.howto {
+  box-sizing: border-box;
+  font-size: 0.8em;
+  width: 395px;
+  background: url(/f/howto_bg_naka.png) left top repeat-y;
+  float: left;
+}
+.howto .ue {
+  height: 10px;
+  background: url(/f/howto_bg_ue.png) left top repeat;
+}
+.howto .naka {
+  height: 150px;
+  padding: 15px 25px;
+}
+.howto .shita {
+  height: 10px;
+  background: url(/f/howto_bg_shita.png) left top repeat;
+}
+
+.osusume {
+  box-sizing: border-box;
+  font-size: 0.8em;
+  width: 302px;
+  float: right;
+  background: url(/f/osusume_bg_naka.png) left top repeat-y;
+}
+.osusume .ue {
+  height: 10px;
+  background: url(/f/osusume_bg_ue.png) left top repeat;
+}
+.osusume .naka {
+  height: 150px;
+  padding: 15px 25px;
+}
+.osusume .shita {
+  height: 10px;
+  background: url(/f/osusume_bg_shita.png) left top repeat;
+}
+
+ul.flow {
+  overflow: hidden;
+  padding: 10px;
+}
+ul.flow li {
+  float: left;
+  height: 145px;
+  line-height: 145px;
+  vertical-align: middle;
+  text-align: center;
+}
+ul.flow li.icon {
+}
+ul.flow li img {
+  width: auto;
+}
+ul.flow.col4 {
+}
+ul.flow.col4 li {
+  width: 22.5%;
+}
+ul.flow.col4 li.icon {
+  width: 3%;
+}
+ul.flow.col5 {
+}
+ul.flow.col5 li {
+  width: 18%;
+}
+ul.flow.col5 li.icon {
+  width: 2%;
+}
