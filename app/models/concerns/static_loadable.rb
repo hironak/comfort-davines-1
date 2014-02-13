@@ -22,7 +22,7 @@ module StaticLoadable
         private
 
         def #{attr}_file
-          @#{attr}_file ||= "\#{Rails.root}/presets/loadable/#{self.class_name.downcase}/\#{self.identify}/#{attr}.#{ext}"
+          @#{attr}_file ||= "\#{Rails.root}/presets/loadable/#{self.name.downcase}/\#{self.identify}/#{attr}.#{ext}"
         end
       KLASS
     end

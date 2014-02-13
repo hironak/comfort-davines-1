@@ -22,8 +22,7 @@ deploy:
         code: |-
           echo -e $DEPLOY_KEY_PRIVATE > ~/.ssh/id_rsa
           chmod 0600 ~/.ssh/id_rsa
-    - wercker/cap:
-        stage: staging
+    - wercker/cap
   after-steps:
     - wouter/irc-notify:
         server: irc.freenode.net
