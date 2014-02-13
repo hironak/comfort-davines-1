@@ -107,7 +107,7 @@ CSV.read(Rails.root.join("presets/data/salons.csv").to_s, headers: :first_row, c
 
   attrs = attrs.to_hash
 
-  grades = %w|member platina premium trial|
+  grades = %w|member platina premium|
   attrs["grade"] = grades.detect{|l| attrs["grade_#{l}"] == "○" }
   grades.map{|l| "grade_#{l}" }.each{|grade| attrs.delete(grade) }
 

@@ -13,6 +13,9 @@
     = f.label :name
     = f.text_field :name
   .field
+    = f.label :name_kana
+    = f.text_field :name_kana
+  .field
     = f.label :grade
     = f.text_field :grade
   .field
@@ -21,8 +24,4 @@
   .field
     = f.label :tel
     = f.text_field :tel
-  .field
-    = f.label :website
-    = f.text_field :website
-
   .actions = f.submit 'Save'
