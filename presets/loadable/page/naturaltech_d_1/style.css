@@ -52,14 +52,28 @@ ul.flow {
 }
 ul.flow li {
   float: left;
-  width: 22.5%;
-  height: 145px;
-  line-height: 145px;
-  vertical-align: middle;
-  text-align: center;
 }
-ul.flow li.icon {
-  width: 3%;
+ul.flow li.left {
+  padding: 10px 0 0 10px;
+  border-radius: 10px;
+  background: white;
+  width: 50%;
+}
+ul.flow li.left img {
+  display: block;
+  margin: 0 10px 10px 0;
+  float: left;
+}
+ul.flow li.middle {
+  text-align: center;
+  vertical-align: middle;
+  line-height: 150px;
+  width: 15%;
+}
+ul.flow li.right {
+  text-align: center;
+  vertical-align: middle;
+  width: 35%;
 }
 ul.flow li img {
   width: auto;

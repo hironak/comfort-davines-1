@@ -15,5 +15,5 @@ name	label	image	view_price	template	series_ids	category_ids	solution_ids	capaci
 オーセンティック　バーム＜コンディショナー＞		balm_img	2100		2	3	3	250mL		
 オーセンティック　オイル＜オイル＞		oil_img	3780		2	5	2	250mL		
 オーセンティック　バター＜クリーム＞		butter_img	3150		2	4	2	250mL		
-オイ　オイル		oil_img01	2310		3	5	5	250mL		
-オイ　オイル　L		oil_img01	4200		3	5	5	250mL		
+オイ　オイル		oioil	2310		3	5	5	250mL		
+オイ　オイル　L		oioil_l	4200		3	5	5	250mL		
