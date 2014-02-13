@@ -2,6 +2,7 @@ $table-border-color: #a0a0a0;
 
 table {
   border-collapse: collapse;
+  border-spacing: 10px 10px;
   margin: ($base-line-height / 2) 0;
   table-layout: fixed;
   width: 100%;
@@ -45,58 +46,61 @@ table {
 table.cart {
   thead {
     th {
+      font-weight: bold;
       text-align: center;
     }
   }
   th, td {
-    border: 1px solid $base-border-color;
+    border: none;
+    * {
+      vertical-align: middle;
+    }
     &.product {
-      width: 80%;
+      width: 60%;
     }
-    &.price {
-      width: 10%;
-    }
-    &.amount {
-      width: 10%;
-    }
+    &.price,
+    &.amount,
+    &.total,
+    &.shipment,
     &.remove {
       width: 10%;
     }
   }
   tbody {
     tr.item {
-      td.product {
-        vertical-align: top;
-        .image {
-          text-align: center;
-          border:1px solid $dark-gray;
-          width: 100px;
-          margin-right: 10px;
-          float: left;
-        }
-        .information {
-        }
-      }
-      td.price {
-        text-align: right;
-      }
-      td.amount {
-        form {
-          text-align: center;
-          select {
-            margin: 0;
-            display: inline;
-          }
-        }
-      }
-      td.remove {
-        text-align: center;
+      th, td {
+        border-bottom: 1px solid $base-border-color;
       }
     }
-    tr {
-      td.results {
-        text-align: right;
+    td.product {
+      img {
+        margin: 10px;
       }
+    }
+    td.price {
+      text-align: right;
+    }
+    td.amount {
+      form {
+        text-align: center;
+        select {
+          margin: 0;
+          display: inline;
+        }
+      }
+    }
+    td.total {
+      text-align: right;
+    }
+    td.shipment {
+      text-align: center;
+    }
+    td.remove {
+      text-align: center;
+    }
+    td.results {
+      font-weight: bold;
+      text-align: right;
     }
   }
 }
