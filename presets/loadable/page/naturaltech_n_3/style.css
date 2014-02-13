@@ -52,15 +52,29 @@ ul.flow {
 }
 ul.flow li {
   float: left;
-  width: 22.5%;
   height: 145px;
   line-height: 145px;
   vertical-align: middle;
   text-align: center;
 }
 ul.flow li.icon {
-  width: 3%;
 }
 ul.flow li img {
   width: auto;
+}
+ul.flow.col4 {
+}
+ul.flow.col4 li {
+  width: 22.5%;
+}
+ul.flow.col4 li.icon {
+  width: 3%;
+}
+ul.flow.col5 {
+}
+ul.flow.col5 li {
+  width: 18%;
+}
+ul.flow.col5 li.icon {
+  width: 2%;
 }
