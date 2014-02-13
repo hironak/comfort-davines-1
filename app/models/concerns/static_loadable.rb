@@ -4,7 +4,7 @@ module StaticLoadable
   extend ActiveSupport::Concern
 
   module ClassMethods
-    def attr_static attr
+    def attr_static attr, ext='html'
       @@attr_statics ||= {}
       @@attr_statics[self] ||= []
       @@attr_statics[self] << attr
@@ -22,7 +22,7 @@ module StaticLoadable
         private
 
         def #{attr}_file
-          @#{attr}_file ||= "\#{Rails.root}/presets/views/#{self.class_name.downcase}/\#{self.identify}/#{attr}.html"
+          @#{attr}_file ||= "\#{Rails.root}/presets/loadable/#{self.class_name.downcase}/\#{self.identify}/#{attr}.#{ext}"
         end
       KLASS
     end

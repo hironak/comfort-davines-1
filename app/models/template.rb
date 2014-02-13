@@ -8,7 +8,7 @@ class Template < ActiveRecord::Base
   include StaticLoadable
 
   attr_static :header
-  attr_static :style
+  attr_static :style, :css
 
   # validates :body, html: true
   validates :style, css: true

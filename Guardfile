@@ -4,12 +4,13 @@
 notification :gntp
 
 guard 'livereload' do
-  watch(%r{(presets|app)/views/.+\.(html|erb|haml|slim)$})
+  watch(%r{app/views/.+\.(html|erb|haml|slim)$})
   watch(%r{app/helpers/.+\.rb})
   watch(%r{public/.+\.(css|js|html)})
   watch(%r{config/locales/.+\.yml})
+  watch(%r{presets/.+\.(html|css)$})
   # Rails Assets Pipeline
-  watch(%r{(presets|app|vendor)(/assets/\w+/(.+\.(css|less|scss|js|coffee|html|slim))).*}) { |m| "/assets/#{m[3]}" }
+  watch(%r{(app|vendor)(/assets/\w+/(.+\.(css|less|scss|js|coffee|html|slim))).*}) { |m| "/assets/#{m[3]}" }
 end
 
 ## Sample template for guard-unicorn
