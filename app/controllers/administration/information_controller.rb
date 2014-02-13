@@ -36,7 +36,7 @@ module Administration
       when Agency
         params.require(:agency).permit(:name)
       when Salon
-        params.require(:salon).permit(:name, :address, :tel, :website)
+        params.require(:salon).permit(:name, :name_kana, :address, :tel)
       end
     end
   end
