@@ -10,19 +10,19 @@ module StaticLoadable
       @@attr_statics[self] << attr
       class_eval <<-KLASS
         if Rails.env.development?
-           def #{attr}
-             if File.exists? #{attr}_file
-               File.read #{attr}_file
-             else
-               attributes["#{attr}"]
-             end
-           end
-         end
+          def #{attr}
+            if File.exists? #{attr}_file
+              File.read #{attr}_file
+            else
+              attributes["#{attr}"]
+            end
+          end
+        end
 
         private
 
         def #{attr}_file
-          @#{attr}_file ||= "\#{Rails.root}/presets/views/page/\#{self.identify}/#{attr}.html"
+          @#{attr}_file ||= "\#{Rails.root}/presets/views/#{self.class_name.downcase}/\#{self.identify}/#{attr}.html"
         end
       KLASS
     end
