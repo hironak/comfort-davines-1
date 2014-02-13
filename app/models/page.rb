@@ -21,6 +21,11 @@ class Page < ActiveRecord::Base
     latest.try :updated_at || "pages never created."
   end
 
+  def load_static
+   self.body = File.read body_file if File.exists? body_file
+   self.style = File.read style_file if File.exists? style_file
+  end
+
   if Rails.env.development?
     def self.latest_update
       DateTime.now
@@ -41,15 +46,15 @@ class Page < ActiveRecord::Base
         attributes["style"]
       end
     end
+  end
 
-    private
+  private
 
-    def body_file
-      @body_file ||= "#{Rails.root}/presets/views/page/#{self.identify}/body.html"
-    end
+  def body_file
+    @body_file ||= "#{Rails.root}/presets/views/page/#{self.identify}/body.html"
+  end
 
-    def style_file
-      @style_file ||= "#{Rails.root}/presets/assets/stylesheets/page/#{self.identify}.css"
-    end
+  def style_file
+    @style_file ||= "#{Rails.root}/presets/assets/stylesheets/page/#{self.identify}.css"
   end
 end

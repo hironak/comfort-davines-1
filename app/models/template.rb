@@ -23,6 +23,11 @@ class Template < ActiveRecord::Base
     latest.try :updated_at || "pages never created."
   end
 
+  def load_static
+   self.header = File.read header_file if File.exists? header_file
+   self.style = File.read style_file if File.exists? style_file
+  end
+
   if Rails.env.development?
     def self.latest_update
       DateTime.now
@@ -43,15 +48,15 @@ class Template < ActiveRecord::Base
         attributes["style"]
       end
     end
+  end
 
-    private
+  private
 
-    def header_file
-      @header_file ||= "#{Rails.root}/presets/views/template/#{self.identify}/header.html"
-    end
+  def header_file
+    @header_file ||= "#{Rails.root}/presets/views/template/#{self.identify}/header.html"
+  end
 
-    def style_file
-      @style_file ||= "#{Rails.root}/presets/assets/stylesheets/template/#{self.identify}.css"
-    end
+  def style_file
+    @style_file ||= "#{Rails.root}/presets/assets/stylesheets/template/#{self.identify}.css"
   end
 end
