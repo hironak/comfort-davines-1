@@ -72,7 +72,7 @@ module Administration
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def salon_params
-      params.require(:salon).permit(:number, :name, :grade, :address, :tel, :website)
+      params.require(:salon).permit(:number, :name, :name_kana, :grade, :address, :tel)
     end
   end
 end
