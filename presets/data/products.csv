@@ -11,9 +11,9 @@ name	label	image	view_price	template	series_ids	category_ids	solution_ids	capaci
 ナチュラルテック　シャンプー＜W＞	保湿ケア用	wellbeing_img01 w_img2	1995	naturaltech_w	1	2	5	250mL	乾燥しやすい頭皮と髪のうるおいをキープします。環境の変化を受けやすい髪を強くしなやかな髪質へと導きます。髪のうるおいを保つエチナセア<sup>＊1</sup>配合で、理想的なふんわりとまとまるヘアに仕上げます。クローブ、ナツメグ、サンダルウッドのぬくもりのある女性らしい香りが、癒しのバスタイムを演出します。<br><br><small>＊1：コンディショニング成分</small>	乾燥しやすい頭皮と髪のうるおいをキープします。
 ナチュラルテック　コンディショナー＜W＞	保湿ケア用	wellbeing_img04 w_img2	1890	naturaltech_w	1	3	5	150mL	適度なうるおいを与え、ふんわりまとまる美しい髪質をつくります。1本1本をうるおいの膜で包み込む、クリームのようなテクスチャーと心地よい香りが特徴です。乾燥を防ぐホホバオイル<sup>＊2</sup>を配合し、やわらかでスタイリングしやすい髪へと導きます。<br><br><small>＊2：エモリエント成分</small>	適度なうるおいを与え、ふんわりまとまる美しい髪質をつくります。
 ナチュラルテック　マッサージ コンセントレイト＜W＞	保湿ケア用	wellbeing_img04 w_img2	5775	naturaltech_w	1	4	5	100mL	乾燥しがちな頭皮をうるおし、健康な状態を保つリッチなテクスチャーの保湿ケア用美容液。ぬくもりのある香りに包まれながら、頭皮をやさしくマッサージします。頭皮環境を整えることで、健康でしなやかな髪へと導きます。乾燥してパサつく髪に集中美容液としても効果的です。	乾燥しがちな頭皮をうるおし、健康な状態を保つリッチなテクスチャーの保湿美容液。
-オーセンティック　ネクター＜シャンプー＞		nectar_img	2310		2	2	3	250mL		
-オーセンティック　バーム＜コンディショナー＞		balm_img	2100		2	3	3	250mL		
-オーセンティック　オイル＜オイル＞		oil_img	3780		2	5	2	250mL		
-オーセンティック　バター＜クリーム＞		butter_img	3150		2	4	2	250mL		
-オイ　オイル		oioil	2310		3	5	5	250mL		
-オイ　オイル　L		oioil_l	4200		3	5	5	250mL		
+オーセンティック　ネクター＜シャンプー＞	text	nectar_img	2310	authentic	2	2	3	250mL	text	text
+オーセンティック　バーム＜コンディショナー＞	text	balm_img	2100	authentic	2	3	3	250mL	text	text
+オーセンティック　オイル＜オイル＞	text	oil_img	3780	authentic	2	5	2	250mL	text	text
+オーセンティック　バター＜クリーム＞	text	butter_img	3150	authentic	2	4	2	250mL	text	text
+オイ　オイル	text	oioil	2310	oioil	3	5	5	250mL	text	text
+オイ　オイル　L	text	oioil_l	4200	oioil	3	5	5	250mL	text	text
