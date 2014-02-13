@@ -1,4 +1,5 @@
 <% require "csv" %>
+<% require "kconv" %>
 <%=
   CSV.generate do |csv|
     csv << %w[
@@ -102,5 +103,5 @@
         ]
       end
     end
-  end
+  end.tosjis
 %>
