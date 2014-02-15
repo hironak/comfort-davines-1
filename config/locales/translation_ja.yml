@@ -54,7 +54,7 @@ ja:
         cart: :activerecord.models.cart  #g
         current_sign_in_at: current_sign_in_at  #g
         current_sign_in_ip: current_sign_in_ip  #g
-        email: Eメール
+        email: メールアドレス
         password: パスワード
         password_confirmation: パスワードの確認
         encrypted_password: encrypted_password  #g

@@ -1,2 +1,16 @@
-.introduction
-  h2 初めての方へ
+.main
+  h1 = image_tag 'introduction/member_line.png', alt: '初めての方へ'
+
+  p
+    | ダヴィネスオンラインショップをご利用頂くと公式ならではのサービスや特典がご利用頂けます。
+    br
+    | ※ご利用の際は会員登録が必要です。（入会費、年会費は無料です。）
+
+  p 会員登録をするとお得なショッピングサービスが沢山！
+
+  p = image_tag 'introduction/tokuten_01.png', alt: '特典１'
+  p
+    = image_tag 'introduction/tokuten_02.png', alt: '特典２'
+    = image_tag 'introduction/tokuten_03.png', alt: '特典３'
+
+.side = render 'side'

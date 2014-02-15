@@ -1,3 +1,42 @@
-// Place all the styles related to the Mypage controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+h1 {
+  font-size: $base-font-size;
+  margin-bottom: $base-line-height;
+}
+
+p.underline {
+  border-bottom: 2px solid #000;
+  margin-bottom: $base-line-height * 2;
+}
+
+form {
+  padding: 0 20%;
+  margin-bottom: 40px;
+
+  table {
+    th {
+      padding: $base-line-height * 0.5;
+    }
+    td {
+      padding: 0;
+      input {
+        height: 100%;
+      }
+    }
+  }
+
+  .reminder {
+    text-align: right;
+  }
+}
+
+.tokuten {
+  margin-bottom: 20px;
+}
+
+.actions {
+  input {
+    display: inline;
+  }
+  text-align: center;
+}
+

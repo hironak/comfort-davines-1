@@ -1,7 +1,7 @@
 class FileStorageController < ApplicationController
   def show
     if file_storage = FileStorage.where(file_file_name: file_name).first
-      redirect_to file_storage.file.url
+      send_data File.read(file_storage.file.path)
     elsif Rails.env.development?
       filename = File.join("#{Rails.root}/presets/**", file_name)
       if filename = Dir.glob(filename).first
