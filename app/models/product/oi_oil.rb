@@ -1,3 +1,3 @@
 class Product::OiOil < Product
-  extend InheritenceBaseNaming
+  include InheritenceBaseNaming
 end

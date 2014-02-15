@@ -1,3 +1,3 @@
 class Product::Naturaltech < Product
-  extend InheritenceBaseNaming
+  include InheritenceBaseNaming
 end

@@ -1,3 +1,3 @@
 class Product::Authentic < Product
-  extend InheritenceBaseNaming
+  include InheritenceBaseNaming
 end
