@@ -6,7 +6,7 @@
 .main
   ul.category-select
     li = link_to "すべて", { category_id: nil }, class: (params[:category_id].nil? && "active")
-    - @series.categories.all.each do |category|
+    - @series.categories.load.each do |category|
       li = link_to category.name, { category_id: category.id }, class: ((params[:category_id] == category.id.to_s) && 'active')
   .series-items
     - @products.each do |product|
