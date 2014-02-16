@@ -23,17 +23,19 @@ end
 %w|naturaltech_e naturaltech_n naturaltech_r naturaltech_d naturaltech_c naturaltech_w|.each do |identify|
   template = ::Template.new(identify: identify)
   header_file = template.send :header_file
-  template.header = if File.exist?(header_file)
-                      File.read header_file
-                    else
-                      ""
-                    end
+  template.attributes['header'] =
+    if File.exist?(header_file)
+      File.read header_file
+    else
+      ""
+    end
   style_file = template.send :style_file
-  template.style = if File.exist?(style_file)
-                     File.read style_file
-                   else
-                     ""
-                   end
+  template.attributes['style'] =
+    if File.exist?(style_file)
+      File.read style_file
+    else
+      ""
+    end
 
 
   template.save validate: false
@@ -81,17 +83,19 @@ CSV.read(Rails.root.join("presets/data/products.csv").to_s, headers: :first_row,
 
   page = Page.new(title: attrs["name"], render_type: "html", identify: identify)
   body_file = page.send :body_file
-  page.body = if File.exist?(body_file)
-                File.read body_file
-              else
-                ""
-              end
+  page.attributes['body'] =
+    if File.exist?(body_file)
+      File.read body_file
+    else
+      ""
+    end
   style_file = page.send :style_file
-  page.style = if File.exist?(style_file)
-                 File.read style_file
-               else
-                 ""
-               end
+  page.attributes['style'] =
+    if File.exist?(style_file)
+      File.read style_file
+    else
+      ""
+    end
 
   page.save validate: false
 
