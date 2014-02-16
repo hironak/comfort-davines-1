@@ -21,21 +21,21 @@ end
 end
 
 %w|naturaltech_e naturaltech_n naturaltech_r naturaltech_d naturaltech_c naturaltech_w|.each do |identify|
-  header_file = "#{Rails.root}/presets/views/template/#{identify}/header.html"
-  header = if File.exist?(header_file)
-             File.read header_file
-           else
-             ""
-           end
-  style_file = "#{Rails.root}/presets/assets/stylesheets/template/#{identify}.css"
-  style = if File.exist?(style_file)
-            File.read style_file
-          else
-            ""
-          end
+  template = ::Template.new(identify: identify)
+  header_file = template.send :header_file
+  template.header = if File.exist?(header_file)
+                      File.read header_file
+                    else
+                      ""
+                    end
+  style_file = template.send :style_file
+  template.style = if File.exist?(style_file)
+                     File.read style_file
+                   else
+                     ""
+                   end
 
 
-  template = ::Template.new(identify: identify, header: header, style: style)
   template.save validate: false
 end
 
@@ -79,20 +79,20 @@ CSV.read(Rails.root.join("presets/data/products.csv").to_s, headers: :first_row,
 
   attrs["stock"] = 10
 
-  body_file = "#{Rails.root}/presets/views/page/#{identify}/body.html"
-  body = if File.exist?(body_file)
-           File.read body_file
-         else
-           ""
-         end
-  style_file = "#{Rails.root}/presets/assets/stylesheets/page/#{identify}.css"
-  style = if File.exist?(style_file)
-            File.read style_file
-          else
-            ""
-          end
+  page = Page.new(title: attrs["name"], render_type: "html", identify: identify)
+  body_file = page.send :body_file
+  page.body = if File.exist?(body_file)
+                File.read body_file
+              else
+                ""
+              end
+  style_file = page.send :style_file
+  page.style = if File.exist?(style_file)
+                 File.read style_file
+               else
+                 ""
+               end
 
-  page = Page.new(title: attrs["name"], render_type: "html", body: body, style: style, identify: identify)
   page.save validate: false
 
   attrs['page_id'] = page.id
