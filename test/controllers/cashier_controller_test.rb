@@ -77,7 +77,7 @@ class CashierControllerTest < ActionController::TestCase
     get :payment
     post :payment_create, { order: { payment_type: 'Payment::Creditcard', payment_attributes: attributes_for(:payment_creditcard) } }
     get :confirm
-    post :confirm_create
+    post :confirm_create, { order: { note: 'Note' } }
     assert_redirected_to cashier_complete_url
   end
 
@@ -88,7 +88,7 @@ class CashierControllerTest < ActionController::TestCase
     get :payment
     post :payment_create, { order: { payment_type: 'Payment::Creditcard', payment_attributes: attributes_for(:payment_creditcard) } }
     get :confirm
-    post :confirm_create
+    post :confirm_create, { order: { note: 'Note' } }
     get :complete
     assert_response :success
   end

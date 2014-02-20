@@ -1,5 +1,12 @@
 h1 Cashier#confirm
-= form_for @order, url: cashier_confirm_path do |f|
-  = f.submit 'confirm'
 
 = render "order_list"
+
+= form_for @order, url: cashier_confirm_path do |f|
+
+  .field
+    = f.label :note
+    = f.text_area :note
+
+  = f.submit 'confirm'
+

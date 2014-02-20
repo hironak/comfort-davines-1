@@ -72,6 +72,7 @@ class CashierController < ApplicationController
   end
 
   def confirm_create
+    @order.attributes = confirm_params
     @order.save
     current_cart.clear
     session_clear_order
@@ -132,7 +133,7 @@ class CashierController < ApplicationController
     when 'Payment::Creditcard'
       payment_params.permit(:payment_type, payment_attributes: [:card_number, :exp_month, :exp_year, :cvc, :name])
     when 'Payment::Collect'
-      payment_params.permit(:payment_type, payment_attributes: [:)
+      payment_params.permit(:payment_type, payment_attributes: [:payment])
     end
   end
 

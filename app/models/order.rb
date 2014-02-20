@@ -103,6 +103,10 @@ class Order < ActiveRecord::Base
   class ItemEmpty < StandardError
   end
 
+  def payment_type_human
+    Payment::TYPES.key(self.payment_type)
+  end
+
   def build_payment(params=nil, *assignment_options)
     raise "Unknown payment_type: #{payment_type}" unless Payment::TYPES.values.include?(payment_type)
     self.payment = payment_type.constantize.new(params)
