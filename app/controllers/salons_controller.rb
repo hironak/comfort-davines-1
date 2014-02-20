@@ -2,10 +2,12 @@ class SalonsController < ApplicationController
   # GET /salons
   # GET /salons.json
   def index
-    @salons = if params[:term]
-                Salon.where("name like ?", "%#{params[:term]}%")
-              else
-                []
-              end
+    @salons =
+      if params[:term]
+        Salon.where("name like ? or name_kana like ?", "%#{params[:term]}%", "%#{params[:term]}%")
+      else
+        Salin.none
+      end
+    @salons = @salons.where("address like ?", "#{params[:prefecture]}%") if params[:prefecture]
   end
 end

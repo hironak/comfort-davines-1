@@ -7,9 +7,10 @@ $ ->
     res items
 
   $( '#order_salon_name' ).autocomplete
-    minLength: 2
+    minLength: 1
     source: ( req, res )->
       term = req.term
+      prefecture = $('#salons-prefecture').val()
       if term in cache
         suggestion res, cache[ term ]
         return
