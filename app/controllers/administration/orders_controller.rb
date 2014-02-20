@@ -9,6 +9,7 @@ module Administration
     def index
       @orders = Order.where.not(created_at: nil)
       @orders = @orders.where(status: params[:status]) unless params[:status].blank?
+      @orders = @orders.where(payment_type: params[:payment_type]) unless params[:payment_type].blank?
       respond_to do |format|
         format.html
         format.csv do

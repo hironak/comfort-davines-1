@@ -2,6 +2,7 @@ h1 Listing orders
 
 = form_tag admin_orders_path, method: :get do
   = select_tag 'status', options_for_select({'すべて' => nil}.merge(Order::STATUSES), params[:status])
+  = select_tag 'payment_type', options_for_select({'すべて' => nil}.merge(Payment::TYPES), params[:payment_type])
   = submit_tag 'submit'
 
 = link_to "CSV Download", status: params[:status], format: :csv
