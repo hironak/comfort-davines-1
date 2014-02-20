@@ -104,7 +104,7 @@ class Order < ActiveRecord::Base
   end
 
   def build_payment(params=nil, *assignment_options)
-    raise "Unknown payment_type: #{payment_type}" unless Payment::TYPES.include?(payment_type)
+    raise "Unknown payment_type: #{payment_type}" unless Payment::TYPES.values.include?(payment_type)
     self.payment = payment_type.constantize.new(params)
   end
 end

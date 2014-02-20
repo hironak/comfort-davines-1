@@ -12,27 +12,28 @@ h1 Cashier#payment
     = f.label :payment_type
     = f.select :payment_type, Payment::TYPES
 
-  = f.fields_for :payment, (f.object.payment || Payment::Creditcard.new) do |f|
+  .payment-type.payment-creditcard
+    = f.fields_for :payment, (f.object.payment || Payment::Creditcard.new) do |f|
 
-    .field
-      = f.label :card_number
-      = f.text_field :card_number
+      .field
+        = f.label :card_number
+        = f.text_field :card_number
 
-    .field
-      = f.label :exp_month
-      = f.text_field :exp_month
+      .field
+        = f.label :exp_month
+        = f.text_field :exp_month
 
-    .field
-      = f.label :exp_year
-      = f.text_field :exp_year
+      .field
+        = f.label :exp_year
+        = f.text_field :exp_year
 
-    .field
-      = f.label :cvc
-      = f.text_field :cvc
+      .field
+        = f.label :cvc
+        = f.text_field :cvc
 
-    .field
-      = f.label :name
-      = f.text_field :name
+      .field
+        = f.label :name
+        = f.text_field :name
 
   = f.submit 'payment'
 

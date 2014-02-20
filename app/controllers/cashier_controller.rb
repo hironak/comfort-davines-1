@@ -127,10 +127,14 @@ class CashierController < ApplicationController
   end
 
   def payment_params
-    params.require(:order).permit(:payment_type, payment_attributes: [:card_number, :exp_month, :exp_year, :cvc, :name])
+    payment_params = params.require(:order)
+    case payment_params[:payment_type]
+    when 'Payment::Creditcard'
+      payment_params.permit(:payment_type, payment_attributes: [:card_number, :exp_month, :exp_year, :cvc, :name])
+    when 'Payment::Collect'
+      payment_params.permit(:payment_type)
+    end
   end
-
-  private
 
   def consumer_params
     params.require(:consumer).permit(:email, :password, :password_confirmation)

@@ -4,5 +4,8 @@ class Payment < ActiveRecord::Base
 
   has_one :order
 
-  TYPES = ['Payment::Creditcard']
+  TYPES = {
+    'クレジットカード' => 'Payment::Creditcard',
+    '代金引換'         => 'Payment::Collect'
+  }
 end
