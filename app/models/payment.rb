@@ -6,6 +6,7 @@ class Payment < ActiveRecord::Base
 
   TYPES = {
     'クレジットカード' => 'Payment::Creditcard',
+    '後払い'           => 'Payment::Deferred'
     '代金引換'         => 'Payment::Collect'
   }
 end

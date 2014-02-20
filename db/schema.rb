@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140220192456) do
+ActiveRecord::Schema.define(version: 20140220200613) do
 
   create_table "administrators", force: true do |t|
     t.string   "username",          null: false
@@ -149,6 +149,11 @@ ActiveRecord::Schema.define(version: 20140220192456) do
 
   create_table "payment_creditcards", force: true do |t|
     t.string   "webpay_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "payment_deferreds", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end

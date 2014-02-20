@@ -144,6 +144,8 @@ class CashierController < ApplicationController
     case payment_params[:payment_type]
     when 'Payment::Creditcard'
       payment_params.permit(:payment_type, payment_attributes: [:card_number, :exp_month, :exp_year, :cvc, :name])
+    when 'Payment::Deferred'
+      payment_params.permit(:payment_type, payment_attributes: [:payment])
     when 'Payment::Collect'
       payment_params.permit(:payment_type, payment_attributes: [:payment])
     end
