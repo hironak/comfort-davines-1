@@ -1,4 +1,10 @@
 class Order < ActiveRecord::Base
+
+  STATUSES = {
+    '新規作成' => :created,
+    '発送済み' => :shipped,
+  }
+
   include Authority::Abilities
   self.authorizer_name = 'AdministrationAuthorizer'
 
@@ -22,6 +28,11 @@ class Order < ActiveRecord::Base
   accepts_nested_attributes_for :items, allow_destroy: true
 
   validates :samples, length: { maximum: 2 }
+
+  validates :shipment, presence: true, on: :shipment
+  validates :shipment, presence: true, on: :confirm
+  validates :payment,  presence: true, on: :payment
+  validates :payment,  presence: true, on: :confirm
 
   def samples
     if self.persisted?
@@ -103,8 +114,35 @@ class Order < ActiveRecord::Base
   class ItemEmpty < StandardError
   end
 
+  def status_human
+    STATUSES.key(self.status.to_sym)
+  end
+
+  def payment_type_human
+    Payment::TYPES.key(self.payment_type)
+  end
+
   def build_payment(params=nil, *assignment_options)
-    raise "Unknown payment_type: #{payment_type}" unless Payment::TYPES.include?(payment_type)
+    raise "Unknown payment_type: #{payment_type}" unless Payment::TYPES.values.include?(payment_type)
     self.payment = payment_type.constantize.new(params)
+  end
+
+  def phase
+    case
+    when self.payment_ready? && self.shipment_ready?
+      'confirm'
+    when self.shipment_ready?
+      'payment'
+    else
+      'shipment'
+    end
+  end
+
+  def shipment_ready?
+    self.shipment && self.shipment.valid?
+  end
+
+  def payment_ready?
+    self.payment && self.payment.valid?
   end
 end

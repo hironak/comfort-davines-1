@@ -40,19 +40,22 @@ class CashierController < ApplicationController
   def sample_create
     @order.select_samples sample_params[:samples]
     if session_save_order
-      redirect_to cashier_order_path
+      redirect_for @order
     else
       render 'sample'
     end
   end
 
-  def order
+  def shipment
   end
 
-  def order_create
-    @order.attributes = order_params
-    session_save_order
-    redirect_to cashier_payment_path
+  def shipment_create
+    @order.attributes = shipment_params
+    if session_save_order
+      redirect_for @order
+    else
+      render 'shipment'
+    end
   end
 
   def payment
@@ -62,16 +65,18 @@ class CashierController < ApplicationController
     @order.attributes = payment_params
     @order.payment.amount = @order.total_price
     if session_save_order
-      redirect_to cashier_confirm_path
+      redirect_for @order
     else
       render 'payment'
     end
   end
 
   def confirm
+    redirect_for @order unless @order.phase == "confirm"
   end
 
   def confirm_create
+    @order.attributes = confirm_params
     @order.save
     current_cart.clear
     session_clear_order
@@ -82,6 +87,14 @@ class CashierController < ApplicationController
   end
 
   private
+
+  def redirect_for order
+    case @order.phase
+    when 'shipment' then redirect_to cashier_shipment_path
+    when 'payment'  then redirect_to cashier_payment_path
+    when 'confirm'  then redirect_to cashier_confirm_path
+    end
+  end
 
   def protect_empty_cart
     redirect_to root_path and return unless current_cart.items.size > 0
@@ -94,7 +107,7 @@ class CashierController < ApplicationController
   end
 
   def session_save_order
-    if @order.valid?
+    if @order.valid?(@order.phase)
       @order.save_payment
       session[:cashing_order] = @order.to_hash
     else
@@ -110,17 +123,39 @@ class CashierController < ApplicationController
     params.require(:order).permit(samples: [])
   end
 
-  def order_params
-    params.require(:order).permit(:salon_name, shipment_attributes: [:name, :postalcode, :prefecture, :address, :building, :phone, :fax])
+  def shipment_params
+    params.require(:order)
+      .permit(
+        :salon_name,
+        shipment_attributes: [
+          :family_name,
+          :given_name,
+          :family_name_kana,
+          :given_name_kana,
+          :postalcode,
+          :prefecture,
+          :address,
+          :building,
+          :phone])
   end
 
   def payment_params
-    params.require(:order).permit(:payment_type, payment_attributes: [:card_number, :exp_month, :exp_year, :cvc, :name])
+    payment_params = params.require(:order)
+    case payment_params[:payment_type]
+    when 'Payment::Creditcard'
+      payment_params.permit(:payment_type, payment_attributes: [:card_number, :exp_month, :exp_year, :cvc, :name])
+    when 'Payment::Deferred'
+      payment_params.permit(:payment_type, payment_attributes: [:payment])
+    when 'Payment::Collect'
+      payment_params.permit(:payment_type, payment_attributes: [:payment])
+    end
   end
-
-  private
 
   def consumer_params
     params.require(:consumer).permit(:email, :password, :password_confirmation)
+  end
+
+  def confirm_params
+    params.require(:order).permit(:note)
   end
 end

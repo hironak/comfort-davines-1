@@ -1,7 +1,3 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
-
 $ ->
 
   cache = {}
@@ -21,4 +17,12 @@ $ ->
       $.getJSON  "/salons.json", req, ( data, status, xhr )->
         cache[ term ] = data
         suggestion res, data
+
+  $('#order_payment_type').on 'change', ->
+    type = $(@).val()
+    type = type.toLowerCase().replace(/::/, '-')
+    $('.payment-type').hide()
+    $(".payment-type.#{type}").show()
+
+  $('#order_payment_type').trigger 'change'
 

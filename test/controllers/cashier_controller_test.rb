@@ -27,34 +27,34 @@ class CashierControllerTest < ActionController::TestCase
     get :index
     get :sample
     post :sample_create, { order: { sample: Product.sample.first.id } }
-    assert_redirected_to cashier_order_url
+    assert_redirected_to cashier_shipment_url
   end
 
-  test "should get order" do
+  test "should get shipment" do
     get :index
-    get :order
+    get :shipment
     assert_response :success
   end
 
-  test "should post order" do
+  test "should post shipment" do
     get :index
-    get :order
-    post :order_create, { order: { address: 'test' } }
+    get :shipment
+    post :shipment_create, { order: { shipment_attributes: attributes_for(:shipment) } }
     assert_redirected_to cashier_payment_url
   end
 
   test "should get payment" do
     get :index
-    get :order
-    post :order_create, { order: { address: 'test' } }
+    get :shipment
+    post :shipment_create, { order: { shipment_attributes: attributes_for(:shipment) } }
     get :payment
     assert_response :success
   end
 
   test "should post payment" do
     get :index
-    get :order
-    post :order_create, { order: { address: 'test' } }
+    get :shipment
+    post :shipment_create, { order: { shipment_attributes: attributes_for(:shipment) } }
     get :payment
     post :payment_create, { order: { payment_type: 'Payment::Creditcard', payment_attributes: attributes_for(:payment_creditcard) } }
     assert_redirected_to cashier_confirm_url
@@ -62,8 +62,8 @@ class CashierControllerTest < ActionController::TestCase
 
   test "should get confirm" do
     get :index
-    get :order
-    post :order_create, { order: { address: 'test' } }
+    get :shipment
+    post :shipment_create, { order: { shipment_attributes: attributes_for(:shipment) } }
     get :payment
     post :payment_create, { order: { payment_type: 'Payment::Creditcard', payment_attributes: attributes_for(:payment_creditcard) } }
     get :confirm
@@ -72,23 +72,23 @@ class CashierControllerTest < ActionController::TestCase
 
   test "should post confirm" do
     get :index
-    get :order
-    post :order_create, { order: { address: 'test' } }
+    get :shipment
+    post :shipment_create, { order: { shipment_attributes: attributes_for(:shipment) } }
     get :payment
     post :payment_create, { order: { payment_type: 'Payment::Creditcard', payment_attributes: attributes_for(:payment_creditcard) } }
     get :confirm
-    post :confirm_create
+    post :confirm_create, { order: { note: 'Note' } }
     assert_redirected_to cashier_complete_url
   end
 
   test "should get complete" do
     get :index
-    get :order
-    post :order_create, { order: { address: 'test' } }
+    get :shipment
+    post :shipment_create, { order: { shipment_attributes: attributes_for(:shipment) } }
     get :payment
     post :payment_create, { order: { payment_type: 'Payment::Creditcard', payment_attributes: attributes_for(:payment_creditcard) } }
     get :confirm
-    post :confirm_create
+    post :confirm_create, { order: { note: 'Note' } }
     get :complete
     assert_response :success
   end

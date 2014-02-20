@@ -1,5 +1,16 @@
 h1 Cashier#confirm
-= form_for @order, url: cashier_confirm_path do |f|
-  = f.submit 'confirm'
 
 = render "order_list"
+
+p = link_to 'サンプルの選択', cashier_sample_url
+p = link_to '送付先情報', cashier_shipment_url
+p = link_to '支払い情報', cashier_payment_url
+
+= form_for @order, url: cashier_confirm_path do |f|
+
+  .field
+    = f.label :note
+    = f.text_area :note
+
+  = f.submit 'confirm'
+

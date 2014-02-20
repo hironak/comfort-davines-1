@@ -59,8 +59,8 @@ Commers::Application.routes.draw do
     get "sample"
     post "sample", action: "sample_create"
 
-    get "order"
-    post "order", action: "order_create"
+    get "shipment"
+    post "shipment", action: "shipment_create"
 
     get "payment"
     post "payment", action: "payment_create"

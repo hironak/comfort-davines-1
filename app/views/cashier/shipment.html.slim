@@ -1,5 +1,12 @@
 h1 Cashier#order
-= form_for @order, url: cashier_order_path do |f|
+= form_for @order, url: cashier_shipment_path do |f|
+
+  - if @order.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@order.errors.count, "error")} prohibited this order from being saved:"
+      ul
+        - @order.errors.full_messages.each do |message|
+          li = message
 
   .field.ui-widget
     = f.label :salon_name
@@ -10,8 +17,20 @@ h1 Cashier#order
     = f.fields_for :shipment, (f.object.shipment || Shipment.new) do |f|
 
       .field
-        = f.label :name
-        = f.text_field :name
+        = f.label :family_name
+        = f.text_field :family_name
+
+      .field
+        = f.label :given_name
+        = f.text_field :given_name
+
+      .field
+        = f.label :family_name_kana
+        = f.text_field :family_name_kana
+
+      .field
+        = f.label :given_name_kana
+        = f.text_field :given_name_kana
 
       .field
         = f.label :postalcode
@@ -32,10 +51,6 @@ h1 Cashier#order
       .field
         = f.label :phone
         = f.text_field :phone
-
-      .field
-        = f.label :fax
-        = f.text_field :fax
 
   = f.submit 'order'
 
