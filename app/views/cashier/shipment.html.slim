@@ -1,5 +1,12 @@
 h1 Cashier#order
-= form_for @order, url: cashier_order_path do |f|
+= form_for @order, url: cashier_shipment_path do |f|
+
+  - if @order.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@order.errors.count, "error")} prohibited this order from being saved:"
+      ul
+        - @order.errors.full_messages.each do |message|
+          li = message
 
   .field.ui-widget
     = f.label :salon_name

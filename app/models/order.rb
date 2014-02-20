@@ -23,6 +23,11 @@ class Order < ActiveRecord::Base
 
   validates :samples, length: { maximum: 2 }
 
+  validates :shipment, presence: true, on: :shipment
+  validates :shipment, presence: true, on: :confirm
+  validates :payment,  presence: true, on: :payment
+  validates :payment,  presence: true, on: :confirm
+
   def samples
     if self.persisted?
       self.items.includes(:product).where(products: { sample: true } )
@@ -110,5 +115,24 @@ class Order < ActiveRecord::Base
   def build_payment(params=nil, *assignment_options)
     raise "Unknown payment_type: #{payment_type}" unless Payment::TYPES.values.include?(payment_type)
     self.payment = payment_type.constantize.new(params)
+  end
+
+  def phase
+    case
+    when self.payment_ready? && self.shipment_ready?
+      'confirm'
+    when self.shipment_ready?
+      'payment'
+    else
+      'shipment'
+    end
+  end
+
+  def shipment_ready?
+    self.shipment && self.shipment.valid?
+  end
+
+  def payment_ready?
+    self.payment && self.payment.valid?
   end
 end
