@@ -9,7 +9,8 @@ class CashierControllerTest < ActionController::TestCase
     stub_request(:post, "https://api.webpay.jp/v1/charges/ch_fp83Bi1RsdR1afC/capture")
       .to_return(:status => 200, :body => charge_response, :headers => {})
     sign_in consumers(:one)
-    cart_add products(:one), 1
+    cart_add create(:product), 1
+    create(:salon)
   end
 
   test "should get index" do
@@ -39,14 +40,14 @@ class CashierControllerTest < ActionController::TestCase
   test "should post shipment" do
     get :index
     get :shipment
-    post :shipment_create, { order: { shipment_attributes: attributes_for(:shipment) } }
+    post :shipment_create, { order: { salon_name: 'My Salon', shipment_attributes: attributes_for(:shipment) } }
     assert_redirected_to cashier_payment_url
   end
 
   test "should get payment" do
     get :index
     get :shipment
-    post :shipment_create, { order: { shipment_attributes: attributes_for(:shipment) } }
+    post :shipment_create, { order: { salon_name: 'My Salon', shipment_attributes: attributes_for(:shipment) } }
     get :payment
     assert_response :success
   end
@@ -54,7 +55,7 @@ class CashierControllerTest < ActionController::TestCase
   test "should post payment" do
     get :index
     get :shipment
-    post :shipment_create, { order: { shipment_attributes: attributes_for(:shipment) } }
+    post :shipment_create, { order: { salon_name: 'My Salon', shipment_attributes: attributes_for(:shipment) } }
     get :payment
     post :payment_create, { order: { payment_type: 'Payment::Creditcard', payment_attributes: attributes_for(:payment_creditcard) } }
     assert_redirected_to cashier_confirm_url
@@ -63,7 +64,7 @@ class CashierControllerTest < ActionController::TestCase
   test "should get confirm" do
     get :index
     get :shipment
-    post :shipment_create, { order: { shipment_attributes: attributes_for(:shipment) } }
+    post :shipment_create, { order: { salon_name: 'My Salon', shipment_attributes: attributes_for(:shipment) } }
     get :payment
     post :payment_create, { order: { payment_type: 'Payment::Creditcard', payment_attributes: attributes_for(:payment_creditcard) } }
     get :confirm
@@ -73,7 +74,7 @@ class CashierControllerTest < ActionController::TestCase
   test "should post confirm" do
     get :index
     get :shipment
-    post :shipment_create, { order: { shipment_attributes: attributes_for(:shipment) } }
+    post :shipment_create, { order: { salon_name: 'My Salon', shipment_attributes: attributes_for(:shipment) } }
     get :payment
     post :payment_create, { order: { payment_type: 'Payment::Creditcard', payment_attributes: attributes_for(:payment_creditcard) } }
     get :confirm
@@ -84,7 +85,7 @@ class CashierControllerTest < ActionController::TestCase
   test "should get complete" do
     get :index
     get :shipment
-    post :shipment_create, { order: { shipment_attributes: attributes_for(:shipment) } }
+    post :shipment_create, { order: { salon_name: 'My Salon', shipment_attributes: attributes_for(:shipment) } }
     get :payment
     post :payment_create, { order: { payment_type: 'Payment::Creditcard', payment_attributes: attributes_for(:payment_creditcard) } }
     get :confirm

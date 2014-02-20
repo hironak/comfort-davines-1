@@ -135,7 +135,7 @@ class CashierController < ApplicationController
           :family_name_kana,
           :given_name_kana,
           :postalcode,
-          :prefecture,
+          :prefecture_code,
           :address,
           :building,
           :phone])

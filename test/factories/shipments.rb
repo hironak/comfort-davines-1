@@ -7,7 +7,7 @@ FactoryGirl.define do
     given_name "MyString"
     given_name_kana "MyString"
     postalcode "MyString"
-    prefecture "MyString"
+    prefecture_code "13"
     address "MyString"
     building "MyString"
     phone "MyString"

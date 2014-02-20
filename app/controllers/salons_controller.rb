@@ -6,7 +6,7 @@ class SalonsController < ApplicationController
       if params[:term]
         Salon.where("name like ? or name_kana like ?", "%#{params[:term]}%", "%#{params[:term]}%")
       else
-        Salin.none
+        Salon.none
       end
     @salons = @salons.where("address like ?", "#{params[:prefecture]}%") if params[:prefecture]
   end

@@ -5,9 +5,6 @@ class Order < ActiveRecord::Base
     '発送済み' => :shipped,
   }
 
-  attr_accessor :salon_prefecture
-  attr_accessor :salon_not_found
-
   include Authority::Abilities
   self.authorizer_name = 'AdministrationAuthorizer'
 
@@ -31,13 +28,9 @@ class Order < ActiveRecord::Base
   accepts_nested_attributes_for :items, allow_destroy: true
 
   validates :samples, length: { maximum: 2 }
-
-  validates :salon_name, presence: true, unless: :salon_not_found
-
-  validates :shipment, presence: true, on: :shipment
-  validates :shipment, presence: true, on: :confirm
-  validates :payment,  presence: true, on: :payment
-  validates :payment,  presence: true, on: :confirm
+  validates :salon_name, presence: true, unless: :salon_not_found, if: :sample_ready?
+  validates :shipment, presence: true, on: :shipment, if: :sample_ready?
+  validates :payment,  presence: true, on: :payment, if: :shipment_ready?
 
   def samples
     if self.persisted?
@@ -134,7 +127,7 @@ class Order < ActiveRecord::Base
 
   def phase
     case
-    when self.payment_ready? && self.shipment_ready?
+    when self.payment_ready?
       'confirm'
     when self.shipment_ready?
       'payment'
@@ -144,10 +137,14 @@ class Order < ActiveRecord::Base
   end
 
   def shipment_ready?
-    self.shipment && self.shipment.valid?
+    payment_ready? && self.shipment && self.shipment.valid?
   end
 
   def payment_ready?
     self.payment && self.payment.valid?
+  end
+
+  def sample_ready?
+    self.samples.count < 3
   end
 end
