@@ -85,6 +85,9 @@ gem 'ace-rails-ap', '~> 2.0.0'
 # W3c Validators
 gem 'w3c_validators'
 
+# Japanese Prefectures
+gem 'jp_prefecture'
+
 # FactoryGirl
 gem 'factory_girl', require: false
 

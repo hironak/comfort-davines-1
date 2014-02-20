@@ -10,13 +10,15 @@ $ ->
     minLength: 1
     source: ( req, res )->
       term = req.term
-      prefecture = $('#salons-prefecture').val()
-      if term in cache
-        suggestion res, cache[ term ]
+      prefecture = $('#order_salon_prefecture').val()
+      req.prefecture = prefecture
+      cache_key = "#{term}-#{prefecture}"
+      if cache_key in cache
+        suggestion res, cache[ cache_key ]
         return
 
       $.getJSON  "/salons.json", req, ( data, status, xhr )->
-        cache[ term ] = data
+        cache[ cache_key ] = data
         suggestion res, data
 
   $('#order_payment_type').on 'change', ->

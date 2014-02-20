@@ -81,7 +81,9 @@ ja:
         payment_type: 支払い方法
         products: 注文商品
         salon: :activerecord.models.salon  #g
+        salon_prefecture: サロン所在都道府県
         salon_name: サロン名称
+        salon_not_found: 該当なし
 
       shipment:
         name: お名前
@@ -91,7 +93,7 @@ ja:
         family_name_kana: セイ
         given_name_kana: メイ
         postalcode: 郵便番号
-        prefecture: 県
+        prefecture_code: 県
         address: 住所
         building: 建物名・部屋番号
         phone: 電話番号

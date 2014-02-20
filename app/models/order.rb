@@ -5,6 +5,9 @@ class Order < ActiveRecord::Base
     '発送済み' => :shipped,
   }
 
+  attr_accessor :salon_prefecture
+  attr_accessor :salon_not_found
+
   include Authority::Abilities
   self.authorizer_name = 'AdministrationAuthorizer'
 
@@ -28,6 +31,8 @@ class Order < ActiveRecord::Base
   accepts_nested_attributes_for :items, allow_destroy: true
 
   validates :samples, length: { maximum: 2 }
+
+  validates :salon_name, presence: true, unless: :salon_not_found
 
   validates :shipment, presence: true, on: :shipment
   validates :shipment, presence: true, on: :confirm

@@ -126,7 +126,9 @@ class CashierController < ApplicationController
   def shipment_params
     params.require(:order)
       .permit(
+        :salon_prefecture,
         :salon_name,
+        :salon_not_found,
         shipment_attributes: [
           :family_name,
           :given_name,

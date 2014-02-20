@@ -9,8 +9,12 @@ h1 Cashier#order
           li = message
 
   .field.ui-widget
+    = f.label :salon_prefecture
+    = f.collection_select :salon_prefecture, JpPrefecture::Prefecture.all, :name, :name
     = f.label :salon_name
     = f.text_field :salon_name
+    = f.label :salon_not_found
+    = f.check_box :salon_not_found, value: false
 
   fieldset
     legend お届け先情報
@@ -37,8 +41,8 @@ h1 Cashier#order
         = f.text_field :postalcode
 
       .field
-        = f.label :prefecture
-        = f.text_field :prefecture
+        = f.label :prefecture_code
+        = f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name
 
       .field
         = f.label :address
