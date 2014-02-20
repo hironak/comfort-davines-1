@@ -132,11 +132,15 @@ class CashierController < ApplicationController
     when 'Payment::Creditcard'
       payment_params.permit(:payment_type, payment_attributes: [:card_number, :exp_month, :exp_year, :cvc, :name])
     when 'Payment::Collect'
-      payment_params.permit(:payment_type)
+      payment_params.permit(:payment_type, payment_attributes: [:)
     end
   end
 
   def consumer_params
     params.require(:consumer).permit(:email, :password, :password_confirmation)
+  end
+
+  def confirm_params
+    params.require(:order).permit(:note)
   end
 end
