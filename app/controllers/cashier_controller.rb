@@ -5,18 +5,19 @@ class CashierController < ApplicationController
   before_filter :set_order, except: [:index, :complete]
 
   def index
+    session_clear_order
     @order = Order.new
     @order.extend_items current_cart
     session_save_order
     if consumer_signed_in?
-      redirect_to cashier_sample_path
+      redirect_for @order
     else
       redirect_to cashier_signature_path
     end
   end
 
   def signature
-    redirect_to cashier_sample_path and return if consumer_signed_in?
+    redirect_for @order and return if consumer_signed_in?
 
     store_location_for :consumer, cashier_signature_path
     @consumer = Consumer.new
@@ -31,13 +32,14 @@ class CashierController < ApplicationController
     session_cart.save
 
     sign_in @consumer
-    redirect_to cashier_sample_path
+    redirect_for @order
   end
 
   def sample
   end
 
   def sample_create
+    @order.phase = 'sample'
     @order.select_samples sample_params[:samples]
     if session_save_order
       redirect_for @order
@@ -50,6 +52,7 @@ class CashierController < ApplicationController
   end
 
   def shipment_create
+    @order.phase = 'shipment'
     @order.attributes = shipment_params
     if session_save_order
       redirect_for @order
@@ -62,6 +65,7 @@ class CashierController < ApplicationController
   end
 
   def payment_create
+    @order.phase = 'payment'
     @order.attributes = payment_params
     @order.payment.amount = @order.total_price
     if session_save_order
@@ -72,7 +76,7 @@ class CashierController < ApplicationController
   end
 
   def confirm
-    redirect_for @order unless @order.phase == "confirm"
+    redirect_for @order unless @order.valid?
   end
 
   def confirm_create
@@ -89,10 +93,17 @@ class CashierController < ApplicationController
   private
 
   def redirect_for order
-    case @order.phase
-    when 'shipment' then redirect_to cashier_shipment_path
-    when 'payment'  then redirect_to cashier_payment_path
-    when 'confirm'  then redirect_to cashier_confirm_path
+    case
+    when @order.payment_ready?
+      redirect_to cashier_confirm_path
+    when @order.shipment_ready?
+      redirect_to cashier_payment_path
+    when @order.sample_ready?
+      redirect_to cashier_shipment_path
+    when @order.initialize_ready?
+      redirect_to cashier_sample_path
+    else
+      redirect_to cashier_path
     end
   end
 
@@ -107,7 +118,7 @@ class CashierController < ApplicationController
   end
 
   def session_save_order
-    if @order.valid?(@order.phase)
+    if @order.valid?
       @order.save_payment
       session[:cashing_order] = @order.to_hash
     else

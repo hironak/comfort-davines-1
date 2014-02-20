@@ -5,6 +5,8 @@ class Order < ActiveRecord::Base
     '発送済み' => :shipped,
   }
 
+  attr_accessor :phase
+
   include Authority::Abilities
   self.authorizer_name = 'AdministrationAuthorizer'
 
@@ -27,10 +29,14 @@ class Order < ActiveRecord::Base
   accepts_nested_attributes_for :payment, allow_destroy: true
   accepts_nested_attributes_for :items, allow_destroy: true
 
-  validates :samples, length: { maximum: 2 }
-  validates :salon_name, presence: true, unless: :salon_not_found, if: :sample_ready?
-  validates :shipment, presence: true, on: :shipment, if: :sample_ready?
-  validates :payment,  presence: true, on: :payment, if: :shipment_ready?
+  validates :items, length: { minimum: 1 }
+
+  validates :samples, length: { maximum: 2 }, if: :phase_sample?
+
+  validates :salon_name, presence: true, unless: :salon_not_found, if: :phase_shipment?
+  validates :shipment, presence: true, on: :shipment, if: :phase_shipment?
+
+  validates :payment,  presence: true, on: :payment, if: :phase_payment?
 
   def samples
     if self.persisted?
@@ -125,26 +131,35 @@ class Order < ActiveRecord::Base
     self.payment = payment_type.constantize.new(params)
   end
 
-  def phase
-    case
-    when self.payment_ready?
-      'confirm'
-    when self.shipment_ready?
-      'payment'
-    else
-      'shipment'
-    end
+  def phase_confirm?
+    !self.phase
+  end
+
+  def phase_sample?
+    phase_confirm? || self.phase == 'sample'
+  end
+
+  def phase_shipment?
+    phase_confirm? || self.phase == 'shipment'
+  end
+
+  def phase_payment?
+    phase_confirm? || self.phase == 'payment'
   end
 
   def shipment_ready?
-    payment_ready? && self.shipment && self.shipment.valid?
+    payment_ready? && self.phase = 'shipment' && self.valid?
   end
 
   def payment_ready?
-    self.payment && self.payment.valid?
+    sample_ready? && self.phase = 'payment' && self.valid?
   end
 
   def sample_ready?
-    self.samples.count < 3
+    initialize_ready? && self.phase = 'sample' && self.valid?
+  end
+
+  def initialize_ready?
+    self.items.size > 0
   end
 end

@@ -1,6 +1,13 @@
 h1 Cashier#sample
 = form_for @order, url: cashier_sample_path do |f|
 
+  - if @order.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@order.errors.count, "error")} prohibited this order from being saved:"
+      ul
+        - @order.errors.full_messages.each do |message|
+          li = message
+
   .sample_select
     - Product.sample.each do |product|
       .item

@@ -8,9 +8,9 @@ class CashierControllerTest < ActionController::TestCase
       .to_return(:status => 200, :body => charge_response, :headers => {})
     stub_request(:post, "https://api.webpay.jp/v1/charges/ch_fp83Bi1RsdR1afC/capture")
       .to_return(:status => 200, :body => charge_response, :headers => {})
+    create(:salon)
     sign_in consumers(:one)
     cart_add create(:product), 1
-    create(:salon)
   end
 
   test "should get index" do
