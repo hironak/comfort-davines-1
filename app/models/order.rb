@@ -1,4 +1,10 @@
 class Order < ActiveRecord::Base
+
+  STATUSES = {
+    '新規作成' => :created,
+    '発送済み' => :shipped,
+  }
+
   include Authority::Abilities
   self.authorizer_name = 'AdministrationAuthorizer'
 
@@ -106,6 +112,10 @@ class Order < ActiveRecord::Base
   end
 
   class ItemEmpty < StandardError
+  end
+
+  def status_human
+    STATUSES.key(self.status.to_sym)
   end
 
   def payment_type_human

@@ -1,6 +1,10 @@
 h1 Listing orders
 
-= link_to "CSV Download", format: :csv
+= form_tag admin_orders_path, method: :get do
+  = select_tag 'status', options_for_select({'すべて' => nil}.merge(Order::STATUSES), params[:status])
+  = submit_tag 'submit'
+
+= link_to "CSV Download", status: params[:status], format: :csv
 
 table
   tr
