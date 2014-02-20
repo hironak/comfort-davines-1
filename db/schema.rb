@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140220180247) do
+ActiveRecord::Schema.define(version: 20140220192456) do
 
   create_table "administrators", force: true do |t|
     t.string   "username",          null: false
@@ -124,6 +124,7 @@ ActiveRecord::Schema.define(version: 20140220180247) do
     t.integer  "payment_id"
     t.string   "payment_type"
     t.text     "note"
+    t.string   "status",       default: "created"
   end
 
   add_index "orders", ["consumer_id"], name: "index_orders_on_consumer_id", using: :btree
