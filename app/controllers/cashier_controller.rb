@@ -8,6 +8,7 @@ class CashierController < ApplicationController
     session_clear_order
     @order = Order.new
     @order.extend_items current_cart
+    @order.phase = 'initialize'
     session_save_order
     if consumer_signed_in?
       redirect_for @order

@@ -29,7 +29,7 @@ class Order < ActiveRecord::Base
   accepts_nested_attributes_for :payment, allow_destroy: true
   accepts_nested_attributes_for :items, allow_destroy: true
 
-  validates :items, length: { minimum: 1 }
+  validates :items, length: { minimum: 1 }, if: :phase_initialize?
 
   validates :samples, length: { maximum: 2 }, if: :phase_sample?
 
@@ -133,6 +133,10 @@ class Order < ActiveRecord::Base
 
   def phase_confirm?
     !self.phase
+  end
+
+  def phase_initialize?
+    phase_confirm? || self.phase == 'initialize'
   end
 
   def phase_sample?
