@@ -111,7 +111,19 @@ class CashierController < ApplicationController
   end
 
   def order_params
-    params.require(:order).permit(:salon_name, shipment_attributes: [:name, :postalcode, :prefecture, :address, :building, :phone, :fax])
+    params.require(:order)
+      .permit(
+        :salon_name,
+        shipment_attributes: [
+          :family_name,
+          :given_name,
+          :family_name_kana,
+          :given_name_kana,
+          :postalcode,
+          :prefecture,
+          :address,
+          :building,
+          :phone])
   end
 
   def payment_params

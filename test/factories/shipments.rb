@@ -2,12 +2,14 @@
 
 FactoryGirl.define do
   factory :shipment do
-    name "MyString"
+    family_name "MyString"
+    family_name_kana "MyString"
+    given_name "MyString"
+    given_name_kana "MyString"
     postalcode "MyString"
     prefecture "MyString"
     address "MyString"
     building "MyString"
     phone "MyString"
-    fax "MyString"
   end
 end

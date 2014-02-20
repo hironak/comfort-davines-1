@@ -84,7 +84,12 @@ ja:
         salon_name: サロン名称
 
       shipment:
-        name: お届け先氏名
+        name: お名前
+        family_name: 姓
+        given_name: 名
+        name_kana: お名前（フリガナ）
+        family_name_kana: セイ
+        given_name_kana: メイ
         postalcode: 郵便番号
         prefecture: 県
         address: 住所

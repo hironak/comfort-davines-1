@@ -65,15 +65,15 @@
           nil,                             # 購入者住所
           nil,                             # 購入者電話番号
           order.consumer.email,            # 購入者メールアドレス
-          order.shipment.name,             # お届先氏名（漢字）
-          nil,#order.shipment.,            # お届先氏名（カナ）
-          nil,#order.shipment.,            # お届先会社名（漢字）
-          nil,#order.shipment.,            # お届先会社名（カナ）
+          order.shipment.family_name,      # お届先氏名（漢字）
+          order.shipment.given_name,       # お届先氏名（カナ）
+          order.shipment.family_name_kana, # お届先会社名（漢字）
+          order.shipment.given_name_kana,  # お届先会社名（カナ）
           nil,#order.shipment.,            # お届先部署名
           order.shipment.postalcode,       # お届先郵便番号
           order.shipment.complete_address, # お届先住所
           order.shipment.phone,            # お届先電話番号
-          order.shipment.fax,              # お届先FAX番号
+          nil, #order.shipment.fax,        # お届先FAX番号
           nil,                             # 配達希望日
           nil,                             # 配送時間帯
           nil,                             # 備考欄
