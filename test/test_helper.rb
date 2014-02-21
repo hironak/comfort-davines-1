@@ -31,6 +31,7 @@ class ActiveSupport::TestCase
 
   before :each do
     DatabaseCleaner.start
+    stub_payment
   end
 
   after :each do
@@ -63,5 +64,79 @@ class ActiveSupport::TestCase
       output: 'soap12',
       profile: 'css3',
     }
+  end
+
+  # WebPay stub
+  def stub_payment
+    stub_request(:post, "https://api.webpay.jp/v1/charges")
+      .to_return(:status => 200, :body => success_charge_create_body, :headers => {})
+    stub_request(:get, "https://api.webpay.jp/v1/charges/ch_fp83Bi1RsdR1afC")
+      .to_return(:status => 200, :body => charge_response, :headers => {})
+    stub_request(:post, "https://api.webpay.jp/v1/charges/ch_fp83Bi1RsdR1afC/capture")
+      .to_return(:status => 200, :body => charge_response, :headers => {})
+  end
+
+  def success_charge_create_body
+    <<-JSON
+      {
+        "id": "ch_fp83Bi1RsdR1afC",
+        "object": "charge",
+        "livemode": false,
+        "currency": "jpy",
+        "description": null,
+        "amount": 400,
+        "amount_refunded": 0,
+        "customer": null,
+        "created": 1390875702,
+        "paid": true,
+        "refunded": false,
+        "failure_message": null,
+        "card": {
+          "object": "card",
+          "exp_year": 2014,
+          "exp_month": 11,
+          "fingerprint": "215b5b2fe460809b8bb90bae6eeac0e0e0987bd7",
+          "name": "KEI KUBO",
+          "country": "JP",
+          "type": "Visa",
+          "cvc_check": "pass",
+          "last4": "4242"
+        },
+        "captured": false,
+        "expire_time": null
+      }
+    JSON
+  end
+
+  def charge_response
+    <<-JSON
+      {
+        "id": "ch_fp83Bi1RsdR1afC",
+        "object": "charge",
+        "livemode": false,
+        "currency": "jpy",
+        "description": null,
+        "amount": 400,
+        "amount_refunded": 0,
+        "customer": null,
+        "created": 1390875702,
+        "paid": true,
+        "refunded": false,
+        "failure_message": null,
+        "card": {
+          "object": "card",
+          "exp_year": 2014,
+          "exp_month": 11,
+          "fingerprint": "215b5b2fe460809b8bb90bae6eeac0e0e0987bd7",
+          "name": "KEI KUBO",
+          "country": "JP",
+          "type": "Visa",
+          "cvc_check": "pass",
+          "last4": "4242"
+        },
+        "captured": true,
+        "expire_time": null
+      }
+    JSON
   end
 end

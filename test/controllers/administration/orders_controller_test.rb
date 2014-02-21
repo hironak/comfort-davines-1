@@ -6,7 +6,8 @@ class Administration::OrdersControllerTest < ActionController::TestCase
     login_user create(:administrator)
     @consumer = consumers(:one)
     @products = create_list(:product, 4)
-    @order = create(:order_with_items, consumer: @consumer, products: @products)
+    @samples = create_list(:product, 2, sample: true)
+    @order = create(:order_with_items, consumer: @consumer, samples: @samples, products: @products)
   end
 
   def test_index

@@ -31,12 +31,12 @@ class Order < ActiveRecord::Base
 
   validates :items, length: { minimum: 1 }, if: :phase_initialize?
 
-  validates :samples, length: { maximum: 2 }, if: :phase_sample?
+  validates :samples, length: { minimum: 1, maximum: 2 }, if: :phase_sample?
 
   validates :salon_name, presence: true, unless: :salon_not_found, if: :phase_shipment?
-  validates :shipment, presence: true, on: :shipment, if: :phase_shipment?
+  validates :shipment,   presence: true, if: :phase_shipment?
 
-  validates :payment,  presence: true, on: :payment, if: :phase_payment?
+  validates :payment,  presence: true, if: :phase_payment?
 
   def samples
     if self.persisted?
@@ -132,7 +132,7 @@ class Order < ActiveRecord::Base
   end
 
   def phase_confirm?
-    !self.phase
+    !self.phase || (self.phase == 'confirm')
   end
 
   def phase_initialize?
@@ -151,16 +151,16 @@ class Order < ActiveRecord::Base
     phase_confirm? || self.phase == 'payment'
   end
 
-  def shipment_ready?
-    payment_ready? && self.phase = 'shipment' && self.valid?
+  def payment_ready?
+    shipment_ready? && (self.phase = 'payment') && self.valid? || (self.phase = nil)
   end
 
-  def payment_ready?
-    sample_ready? && self.phase = 'payment' && self.valid?
+  def shipment_ready?
+    sample_ready? && (self.phase = 'shipment') && self.valid? || (self.phase = nil)
   end
 
   def sample_ready?
-    initialize_ready? && self.phase = 'sample' && self.valid?
+    initialize_ready? && (self.phase = 'sample') && self.valid? || (self.phase = nil)
   end
 
   def initialize_ready?
