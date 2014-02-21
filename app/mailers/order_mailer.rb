@@ -7,9 +7,7 @@ class OrderMailer < ActionMailer::Base
   #   en.order_mailer.complete.subject
   #
   def complete to, order
-
     @order = order
-
     mail to: to
   end
 end
