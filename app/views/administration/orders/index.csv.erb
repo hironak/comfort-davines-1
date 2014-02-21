@@ -1,7 +1,7 @@
 <% require "csv" %>
 <% require "kconv" %>
 <%=
-  CSV.generate do |csv|
+  CSV.generate force_quotes: true do |csv|
     csv << %w[
       注文日時
       注文番号
@@ -153,5 +153,5 @@
         ]
       end
     end
-  end.tosjis
+  end.tosjis.html_safe
 %>
