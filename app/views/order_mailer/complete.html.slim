@@ -1,0 +1,7 @@
+
+ul
+  - @order.items.each do |item|
+    li
+      = item.product.name
+      = item.amount
+

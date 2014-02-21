@@ -2,7 +2,9 @@ require "test_helper"
 
 class MypageControllerTest < ActionController::TestCase
   before do
-    sign_in consumers(:one)
+    @consumer = consumers(:one)
+    @consumer.confirm!
+    sign_in @consumer
   end
 
   test "should get index" do

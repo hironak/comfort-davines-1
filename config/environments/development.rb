@@ -30,7 +30,17 @@ Commers::Application.configure do
   # BUG: 以下のオプションが効かない
   config.sass.debug_info = true
 
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_url_options = {
+    host: ENV['HOSTNAME'] || 'comfort-davines.dev'
+  }
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+
+  config.action_mailer.smtp_settings = {
+    address: 'localhost',
+    post: 1025
+  }
 
   WebMock.disable!
 end

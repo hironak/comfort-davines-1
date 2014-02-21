@@ -88,6 +88,7 @@ class CashierController < ApplicationController
     @order.save
     current_cart.clear
     session_clear_order
+    OrderMailer.complete(current_consumer.email, @order).deliver
     redirect_to cashier_complete_path
   end
 
