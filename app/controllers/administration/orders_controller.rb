@@ -1,3 +1,5 @@
+require "kconv"
+
 module Administration
   class OrdersController < BaseController
     authorize_actions_for Order
@@ -13,7 +15,8 @@ module Administration
       respond_to do |format|
         format.html
         format.csv do
-          filename = "注文一覧-#{Date.today.to_s}.csv"
+          # filename = "注文一覧-#{Date.today.to_s}.csv".tosjis
+          filename = "orders-#{Date.today.to_s}.csv"
           filename = ERB::Util.url_encode(filename)
           response.headers['Content-Disposition'] = "attachment; filename=\"#{filename}\""
         end
