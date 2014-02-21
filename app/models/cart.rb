@@ -6,4 +6,8 @@ class Cart < ActiveRecord::Base
   belongs_to :consumer
   has_many :items, class_name: 'CartItem', dependent: :delete_all
   has_many :products, through: :items
+
+  def payment_type
+    'Payment::Creditcard'
+  end
 end
