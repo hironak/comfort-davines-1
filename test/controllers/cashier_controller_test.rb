@@ -4,7 +4,9 @@ class CashierControllerTest < ActionController::TestCase
   before do
     stub_payment
     session.clear
-    sign_in consumers(:one)
+    @consumer = consumers(:one)
+    @consumer.confirm!
+    sign_in @consumer
     create(:salon)
     cart_add create(:product), 1
   end
