@@ -14,6 +14,14 @@ class Shipment < ActiveRecord::Base
 
   validates :phone, presence: true
 
+  def name
+    "#{self.family_name} #{self.given_name}"
+  end
+
+  def name_kana
+    "#{self.family_name_kana} #{self.given_name_kana}"
+  end
+
   def complete_address
     "#{self.prefecture.name} #{self.address} #{self.building}"
   end

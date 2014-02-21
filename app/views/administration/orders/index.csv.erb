@@ -56,19 +56,19 @@
         csv << [
           order.created_at,                # 注文日時
           order.id,                        # 注文番号
-          nil,                             # 購入者氏名（漢字）
-          nil,                             # 購入者氏名（カナ）
+          order.shipment.name,             # 購入者氏名（漢字）
+          order.shipment.name_kana,        # 購入者氏名（カナ）
           nil,                             # 購入者会社名（漢字）
           nil,                             # 購入者会社名（カナ）
           nil,                             # 購入者部署名
-          nil,                             # 購入者郵便番号
-          nil,                             # 購入者住所
-          nil,                             # 購入者電話番号
+          order.shipment.postalcode,       # 購入者郵便番号
+          order.shipment.complete_address, # 購入者住所
+          order.shipment.phone,            # 購入者電話番号
           order.consumer.email,            # 購入者メールアドレス
-          order.shipment.family_name,      # お届先氏名（漢字）
-          order.shipment.given_name,       # お届先氏名（カナ）
-          order.shipment.family_name_kana, # お届先会社名（漢字）
-          order.shipment.given_name_kana,  # お届先会社名（カナ）
+          order.shipment.name,             # お届先氏名（漢字）
+          order.shipment.name_kana,        # お届先氏名（カナ）
+          nil,                             # お届先会社名（漢字）
+          nil,                             # お届先会社名（カナ）
           nil,                             # お届先部署名
           order.shipment.postalcode,       # お届先郵便番号
           order.shipment.complete_address, # お届先住所
@@ -83,9 +83,9 @@
           nil,                             # オプション
           item.amount,                     # 個数
           item.origin_price,               # 商品小計
-          nil,                             # 送料
-          nil,                             # 手数料
-          nil,                             # 消費税
+          order.postage,                   # 送料
+          order.commission,                # 手数料
+          item.tax,                        # 消費税
           item.price,                      # 注文合計金額
           nil,                             # 使用ポイント
           nil,                             # 発生ポイント

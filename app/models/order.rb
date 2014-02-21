@@ -166,4 +166,13 @@ class Order < ActiveRecord::Base
   def initialize_ready?
     self.items.size > 0
   end
+
+  def commission
+    case self.payment_type
+    when 'Payment::Collect'
+      315
+    else
+      0
+    end
+  end
 end
