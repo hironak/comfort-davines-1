@@ -18,25 +18,25 @@
             td.product
               = image_tag item.product.image.url(:thumb)
               = link_to item.product.name, item.product
-            td.price = item.view_origin_price.to_formatted_s(:currency)
+            td.price = number_to_currency item.view_origin_price
             td.amount
               = form_tag add_carts_path(product_id: item.product.id), method: :post, class: 'autosend' do
                 = select_tag :amount, options_for_select((1..item.product.stock), selected: item.amount)
-            td.total = item.price.to_formatted_s(:currency)
+            td.total = number_to_currency item.price
             td.shipment 別
             td.remove
               = link_to "削除", remove_carts_path(product_id: item.product.id, amount: 1), method: :delete
 
         tr
           td.results colspan=3 合計
-          td.total = current_cart.items_price.to_formatted_s(:currency)
-          td.total = current_cart.postage.to_formatted_s(:currency)
+          td.total = number_to_currency current_cart.items_price
+          td.total = number_to_currency current_cart.postage
           td.remove
 
         tr
           td.results colspan=3 総合計
           td.total
-          td.total = current_cart.total_price.to_formatted_s(:currency)
+          td.total = number_to_currency current_cart.total_price
           td.remove
 
     p
