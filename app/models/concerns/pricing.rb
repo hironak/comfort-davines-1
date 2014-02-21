@@ -2,7 +2,7 @@ module Pricing
   extend ActiveSupport::Concern
 
   def total_price
-    (items_price + postage).to_i
+    (items_price + postage + commission).to_i
   end
 
   def tax
@@ -23,5 +23,14 @@ module Pricing
 
   def items_price
     self.items.map(&:price).inject(:+).to_i
+  end
+
+  def commission
+    case self.payment_type
+    when 'Payment::Collect'
+      315
+    else
+      0
+    end
   end
 end

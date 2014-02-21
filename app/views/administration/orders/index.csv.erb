@@ -82,11 +82,11 @@
           item.product.name,               # 商品名
           nil,                             # オプション
           item.amount,                     # 個数
-          item.origin_price,               # 商品小計
+          item.view_origin_price,          # 商品小計
           0,                               # 送料
           0,                               # 手数料
-          item.tax,                        # 消費税
-          item.price,                      # 注文合計金額
+          0,                               # 消費税
+          order.total_price,               # 注文合計金額
           nil,                             # 使用ポイント
           nil,                             # 発生ポイント
           nil,                             # ボーナスポイント
@@ -136,7 +136,7 @@
           order.postage,                   # 送料
           order.commission,                # 手数料
           0,                               # 消費税
-          0,                               # 注文合計金額
+          order.total_price,                               # 注文合計金額
           nil,                             # 使用ポイント
           nil,                             # 発生ポイント
           nil,                             # ボーナスポイント
