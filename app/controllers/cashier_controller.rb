@@ -37,6 +37,7 @@ class CashierController < ApplicationController
   end
 
   def sample
+    redirect_for @order unless @order.initialize_ready?
   end
 
   def sample_create
@@ -50,6 +51,7 @@ class CashierController < ApplicationController
   end
 
   def shipment
+    redirect_for @order unless @order.sample_ready?
   end
 
   def shipment_create
@@ -63,6 +65,7 @@ class CashierController < ApplicationController
   end
 
   def payment
+    redirect_for @order unless @order.shipment_ready?
   end
 
   def payment_create

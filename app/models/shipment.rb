@@ -11,7 +11,6 @@ class Shipment < ActiveRecord::Base
 
   validates :prefecture_code, presence: true
   validates :address, presence: true
-  validates :building, presence: true
 
   validates :phone, presence: true
 
