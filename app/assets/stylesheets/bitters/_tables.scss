@@ -43,7 +43,7 @@ table {
   }
 }
 
-table.cart {
+table {
   thead {
     th {
       font-weight: bold;
@@ -67,9 +67,14 @@ table.cart {
     }
   }
   tbody {
-    tr.item {
+    tr {
       th, td {
         border-bottom: 1px solid $base-border-color;
+      }
+    }
+    tr.no-border {
+      th, td {
+        border-bottom: none;
       }
     }
     td.product {

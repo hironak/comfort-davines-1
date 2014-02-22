@@ -27,13 +27,13 @@
             td.remove
               = link_to "削除", remove_carts_path(product_id: item.product.id, amount: 1), method: :delete
 
-        tr
+        tr.no-border
           td.results colspan=3 合計
           td.total = number_to_currency current_cart.items_price
           td.total = number_to_currency current_cart.postage
           td.remove
 
-        tr
+        tr.no-border
           td.results colspan=3 総合計
           td.total
           td.total = number_to_currency current_cart.total_price
