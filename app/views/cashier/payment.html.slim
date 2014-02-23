@@ -1,40 +1,51 @@
-h1 Cashier#payment
-= form_for @order, url: cashier_payment_path do |f|
+.main
 
-  - if @order.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@order.errors.count, "error")} prohibited this order from being saved:"
-      ul
-        - @order.errors.full_messages.each do |message|
-          li = message
+  h1 = image_tag 'cashier/order_line.png', alt: 'ご注文手続き'
 
-  .field
-    = f.label :payment_type
-    = f.select :payment_type, Payment::TYPES
+  .step = image_tag 'cashier/order_step02.png', alt: 'Step2'
 
-  .payment-type.payment-creditcard
-    = f.fields_for :payment, (f.object.payment || Payment::Creditcard.new) do |f|
+  h2 お支払い方法
 
-      .field
-        = f.label :card_number
-        = f.text_field :card_number
+  = form_for @order, url: cashier_payment_path do |f|
 
-      .field
-        = f.label :exp_month
-        = f.text_field :exp_month
+    - if @order.errors.any?
+      #error_explanation
+        h2 = "#{pluralize(@order.errors.count, "error")} prohibited this order from being saved:"
+        ul
+          - @order.errors.full_messages.each do |message|
+            li = message
 
-      .field
-        = f.label :exp_year
-        = f.text_field :exp_year
+    table
+      tbody
+        tr
+          th = f.label :payment_type
+          td = f.select :payment_type, Payment::TYPES
 
-      .field
-        = f.label :cvc
-        = f.text_field :cvc
+    .payment-type.payment-creditcard
+      table
+        tbody
+          = f.fields_for :payment, (f.object.payment || Payment::Creditcard.new) do |f|
 
-      .field
-        = f.label :name
-        = f.text_field :name
+            tr
+              th = f.label :card_number
+              td = f.text_field :card_number
 
-  = f.submit 'payment'
+            tr
+              th = f.label :exp_month
+              td = f.text_field :exp_month
 
-= render "order_list"
+            tr
+              th = f.label :exp_year
+              td = f.text_field :exp_year
+
+            tr
+              th = f.label :cvc
+              td = f.text_field :cvc
+
+            tr
+              th = f.label :name
+              td = f.text_field :name
+
+    .action = f.submit '次のステップへ'
+
+.side = render 'side'

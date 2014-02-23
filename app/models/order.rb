@@ -38,9 +38,17 @@ class Order < ActiveRecord::Base
 
   validates :payment,  presence: true, if: :phase_payment?
 
+  def items_without_samples
+    if self.persisted?
+      self.items.without_samples
+    else
+      self.items.select{|item| !item.product.sample }
+    end
+  end
+
   def samples
     if self.persisted?
-      self.items.includes(:product).where(products: { sample: true } )
+      self.items.samples
     else
       self.items.select{|item| item.product.sample }
     end

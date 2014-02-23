@@ -1,7 +1,7 @@
 .main
   h1 = image_tag 'cashier/cart_line.png', alt: 'ショッピングカートを見る'
 
-  - if current_cart.items.count > 0
+  - if current_cart.items.without_samples.count > 0
     table.cart
       thead
         tr
@@ -13,7 +13,7 @@
           th.remove
 
       tbody
-        - current_cart.items.each do |item|
+        - current_cart.items.without_samples.each do |item|
           tr.item
             td.product
               = image_tag item.product.image.url(:thumb)

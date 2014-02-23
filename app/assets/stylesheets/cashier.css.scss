@@ -55,6 +55,22 @@ h2 {
   margin-bottom: 60px;
 }
 
+.note {
+  margin-bottom: 40px;
+  h2 {
+    margin-bottom: 0;
+  }
+  .box {
+    background: white;
+    padding: 15px;
+    textarea {
+      width: 100%;
+      margin: 0;
+      height: 5.0em;
+    }
+  }
+}
+
 .action {
   text-align: center;
 }
