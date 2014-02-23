@@ -82,7 +82,7 @@ select {
 button,
 input[type="submit"] {
   @extend %button;
-  @include appearance(none);
+  display: inline;
   cursor: pointer;
   user-select: none;
   vertical-align: middle;

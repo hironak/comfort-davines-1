@@ -23,3 +23,5 @@ $ ->
     $(@).submit()
 
 
+  $('.side .category h4, .side .solution h4').on 'click', ->
+    $(@).next().slideToggle()

@@ -1,22 +1,37 @@
-h1 Cashier#sample
-= form_for @order, url: cashier_sample_path do |f|
+.main
 
-  - if @order.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@order.errors.count, "error")} prohibited this order from being saved:"
-      ul
-        - @order.errors.full_messages.each do |message|
-          li = message
+  h1 = image_tag 'cashier/order_line.png', alt: 'ご注文手続き'
 
-  .sample_select
-    - Product.sample.each do |product|
-      .item
-        = label_tag "order_samples_#{product.id}" do
-          .image
-            = image_tag product.image.url(:thumb)
-          = check_box_tag "order[samples][]", product.id, false, id: "order_samples_#{product.id}"
-          = product.name
+  .step = image_tag 'cashier/order_step01.png', alt: 'Step1'
 
-  = f.submit 'sample'
+  = form_for @order, url: cashier_sample_path do |f|
+    - if @order.errors.any?
+      #error_explanation
+        h2 = "#{pluralize(@order.errors.count, "error")} prohibited this order from being saved:"
+        ul
+          - @order.errors.full_messages.each do |message|
+            li = message
 
-= render "order_list"
+    = render "order_list"
+
+    h2 サンプルをお選びください
+
+    .sample_select
+      p
+        | 商品をお買い上げ頂くと毎回サンプルを2点プレゼントしております。下記よりお選びください。
+        br
+        | ※1種類1点のみお選びいただきます。
+
+
+      .items
+        - Product.sample.each do |product|
+          .item
+            = label_tag "order_samples_#{product.id}" do
+              .image
+                = image_tag product.image.url(:thumb)
+              .check = check_box_tag "order[samples][]", product.id, false, id: "order_samples_#{product.id}"
+              .name = product.name
+
+    .action = f.submit '次のステップへ'
+
+.side = render 'side'
