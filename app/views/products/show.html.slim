@@ -2,7 +2,7 @@
 
   - if @product.template
     .template class="template#{@product.template.id}"
-      = @product.template.header.html_safe
+      = render inline: @product.template.header.html_safe, type: 'erb'
 
   ul.categories
     - @product.categories.each do |category|
