@@ -13,4 +13,14 @@ body {
   -webkit-text-size-adjust: 100%;
 }
 
+a {
+  img {
+    border-style: none;
+  }
+}
+
 @import "item";
+
+.hidden {
+  display: none;
+}

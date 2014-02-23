@@ -1,4 +1,9 @@
 %button {
-  @include button(simple, $base-accent-color);
+  border: none;
+  margin: none;
+  color: white;
+  background: #393939;
+  padding: ($base-line-height * 0.5) ($base-font-size * 1.5);
   font-size: $base-font-size;
+  font-weight: bold;
 }

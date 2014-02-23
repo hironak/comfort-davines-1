@@ -106,6 +106,10 @@
         font-size: $base-font-size * 0.8;
         padding: $base-line-height * 0.2;
         background: #eeeeee;
+        cursor: pointer;
+        a {
+          display: block;
+        }
       }
       ul {
         font-size: $base-font-size * 0.7;

@@ -1,61 +1,72 @@
-h1 Cashier#order
-= form_for @order, url: cashier_shipment_path do |f|
+.main
 
-  - if @order.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@order.errors.count, "error")} prohibited this order from being saved:"
-      ul
-        - @order.errors.full_messages.each do |message|
-          li = message
+  h1 = image_tag 'cashier/order_line.png', alt: 'ご注文手続き'
 
-  .field.ui-widget
-    = f.label :salon_prefecture
-    = f.collection_select :salon_prefecture, JpPrefecture::Prefecture.all, :name, :name
-    = f.label :salon_name
-    = f.text_field :salon_name
-    = f.label :salon_not_found
-    = f.check_box :salon_not_found, value: false
+  .step = image_tag 'cashier/order_step02.png', alt: 'Step2'
 
-  fieldset
-    legend お届け先情報
+  = form_for @order, url: cashier_shipment_path do |f|
+
+    / = render "order_list"
+
+    - if @order.errors.any?
+      #error_explanation
+        h2 = "#{pluralize(@order.errors.count, "error")} prohibited this order from being saved:"
+        ul
+          - @order.errors.full_messages.each do |message|
+            li = message
+
+    h2 お届け先情報
+
+    tr.ui-widget
+      = f.label :salon_prefecture
+      = f.collection_select :salon_prefecture, JpPrefecture::Prefecture.all, :name, :name
+      = f.label :salon_name
+      = f.text_field :salon_name
+      = f.label :salon_not_found do
+        = f.check_box :salon_not_found, value: false
+
     = f.fields_for :shipment, (f.object.shipment || Shipment.new) do |f|
 
-      .field
-        = f.label :family_name
-        = f.text_field :family_name
+      table
+        tbody
+          tr
+            th お名前
+            td
+              = f.label :family_name do
+                = f.object.class.human_attribute_name :family_name
+                = f.text_field :family_name
+              = f.label :given_name do
+                = f.object.class.human_attribute_name :given_name
+                = f.text_field :given_name
+          tr
+            th フリガナ
+            td
+              = f.label :family_name_kana do
+                = f.object.class.human_attribute_name :family_name_kana
+                = f.text_field :family_name_kana
+              = f.label :given_name_kana do
+                = f.object.class.human_attribute_name :given_name_kana
+                = f.text_field :given_name_kana
+          tr
+            th = f.label :postalcode
+            td = f.text_field :postalcode
 
-      .field
-        = f.label :given_name
-        = f.text_field :given_name
+          tr
+            th = f.label :prefecture_code
+            td = f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name
 
-      .field
-        = f.label :family_name_kana
-        = f.text_field :family_name_kana
+          tr
+            th = f.label :address
+            td = f.text_field :address
 
-      .field
-        = f.label :given_name_kana
-        = f.text_field :given_name_kana
+          tr
+            th = f.label :building
+            td = f.text_field :building
 
-      .field
-        = f.label :postalcode
-        = f.text_field :postalcode
+          tr
+            th = f.label :phone
+            td = f.text_field :phone
 
-      .field
-        = f.label :prefecture_code
-        = f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name
+    .action  = f.submit '次のステップ'
 
-      .field
-        = f.label :address
-        = f.text_field :address
-
-      .field
-        = f.label :building
-        = f.text_field :building
-
-      .field
-        = f.label :phone
-        = f.text_field :phone
-
-  = f.submit 'order'
-
-= render "order_list"
+.side = render 'side'

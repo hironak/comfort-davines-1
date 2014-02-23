@@ -31,7 +31,7 @@
           dt 通常価格
           dd
             .price
-              = @product.view_price.to_formatted_s(:currency)
+              = number_to_currency @product.view_price
               small = "(税込)"
           dt 容量
           dd = @product.capacity

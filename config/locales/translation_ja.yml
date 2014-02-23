@@ -84,6 +84,7 @@ ja:
         salon_prefecture: サロン所在都道府県
         salon_name: サロン名称
         salon_not_found: 該当なし
+        note: 備考欄
 
       shipment:
         name: お名前
@@ -93,7 +94,7 @@ ja:
         family_name_kana: セイ
         given_name_kana: メイ
         postalcode: 郵便番号
-        prefecture_code: 県
+        prefecture_code: 都道府県
         address: 住所
         building: 建物名・部屋番号
         phone: 電話番号

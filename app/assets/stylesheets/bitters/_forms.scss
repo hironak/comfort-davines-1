@@ -17,7 +17,6 @@ fieldset {
 input,
 label,
 select {
-  display: block;
   font-family: $form-font-family;
   font-size: $form-font-size;
 }
@@ -48,7 +47,6 @@ textarea,
   margin-bottom: $base-line-height / 2;
   padding: ($base-line-height / 3) ($base-line-height / 3);
   resize: vertical;
-  width: 100%;
 
   &:hover {
     border-color: $form-border-color-hover;
@@ -82,7 +80,7 @@ select {
 button,
 input[type="submit"] {
   @extend %button;
-  @include appearance(none);
+  display: inline;
   cursor: pointer;
   user-select: none;
   vertical-align: middle;

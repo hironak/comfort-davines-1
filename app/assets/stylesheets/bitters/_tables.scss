@@ -34,6 +34,7 @@ tr, td, th {
 }
 
 table {
+  margin-bottom: 45px;
   th, td {
     @each $w in (10, 20, 30, 40, 50, 60, 70, 80, 90) {
       &.w#{$w} {
@@ -41,9 +42,6 @@ table {
       }
     }
   }
-}
-
-table.cart {
   thead {
     th {
       font-weight: bold;
@@ -67,9 +65,14 @@ table.cart {
     }
   }
   tbody {
-    tr.item {
+    tr {
       th, td {
         border-bottom: 1px solid $base-border-color;
+      }
+    }
+    tr.no-border {
+      th, td {
+        border-bottom: none;
       }
     }
     td.product {
@@ -81,6 +84,7 @@ table.cart {
       text-align: right;
     }
     td.amount {
+      text-align: right;
       form {
         text-align: center;
         select {

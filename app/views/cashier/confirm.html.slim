@@ -1,16 +1,32 @@
-h1 Cashier#confirm
+.main
 
-= render "order_list"
+  h1 = image_tag 'cashier/order_line.png', alt: 'ご注文手続き'
 
-p = link_to 'サンプルの選択', cashier_sample_url
-p = link_to '送付先情報', cashier_shipment_url
-p = link_to '支払い情報', cashier_payment_url
+  .step = image_tag 'cashier/order_step02.png', alt: 'Step2'
 
-= form_for @order, url: cashier_confirm_path do |f|
+  = form_for @order, url: cashier_confirm_path do |f|
 
-  .field
-    = f.label :note
-    = f.text_area :note
+    = render "order_list"
 
-  = f.submit 'confirm'
+    h2 お支払い・配送方法
 
+    table
+      tbody
+        tr
+          th お支払い方法
+          td = link_to '支払い情報', cashier_payment_url
+
+        tr
+          th 送付先
+          td = link_to '送付先情報', cashier_shipment_url
+
+
+    .note
+      h2 = f.label :note
+      .box = f.text_area :note
+
+    .action
+      p 注文を確定される前に、内容をよくご確認ください。
+      = f.submit '注文を確定する'
+
+.side = render 'side'

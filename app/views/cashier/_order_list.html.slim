@@ -1,32 +1,42 @@
-table
-  tr
-    th 名称
-    th 個数
-    th 金額
+.order-list
+  h2 カートに入っている商品
 
-  - @order.items.each do |item|
-    tr
-      td = item.product.name
-      td = "[#{item.amount}個]"
-      td = number_to_currency item.price
-  tr
-    td
-    td
-    td
-      |小計:
-      = number_to_currency @order.items_price
+  table
+    thead
+      tr
+        th.product 商品名
+        th.price 金額
+        th.amount 個数
+        th.total 小計
+        th.shipment 送料
+    tbody
+      - @order.items_without_samples.each do |item|
+        tr.item
+          td.product
+            = image_tag item.product.image.url(:thumb)
+            = item.product.name
+          td.price = number_to_currency item.view_origin_price
+          td.amount = item.amount
+          td.total = number_to_currency item.price
+          td.shipment 別
 
-  tr
-    td
-    td
-    td
-      |送料:
-      = number_to_currency @order.postage
+      tr.no-border
+        td.results colspan=3 合計
+        td.total = number_to_currency current_cart.items_price
+        td.total = number_to_currency current_cart.postage
 
-  tr
-    td
-    td
-    td
-      | 合計金額:
-      = number_to_currency @order.total_price
+      tr.no-border
+        td.results colspan=3 総合計
+        td.total
+        td.total = number_to_currency current_cart.total_price
 
+  - if @order.samples.size > 0
+    h2 選択したサンプル
+    p = link_to 'サンプルの選択', cashier_sample_url
+    table
+      tbody
+        - @order.samples.each do |item|
+          tr.item
+            td.product
+              = image_tag item.product.image.url(:thumb)
+              = item.product.name
