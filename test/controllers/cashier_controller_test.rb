@@ -29,8 +29,6 @@ class CashierControllerTest < ActionController::TestCase
     get :confirm
     assert_response :success
     post :confirm_create, { order: { note: 'Note' } }
-    assert_redirected_to cashier_complete_url
-    get :complete
     assert_response :success
   end
 end
