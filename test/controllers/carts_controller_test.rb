@@ -32,7 +32,7 @@ class CartsControllerTest < ActionController::TestCase
   end
 
   test "l should get index" do
-    @consumer = consumers(:one)
+    @consumer = create(:consumer)
     @consumer.confirm!
     sign_in @consumer
     get :index
@@ -40,7 +40,7 @@ class CartsControllerTest < ActionController::TestCase
   end
 
   test "l should post add" do
-    @consumer = consumers(:one)
+    @consumer = create(:consumer)
     @consumer.confirm!
     sign_in @consumer
     post :add, { product_id: @product.id, amount: 1 }
@@ -48,7 +48,7 @@ class CartsControllerTest < ActionController::TestCase
   end
 
   test "l should patch increment" do
-    @consumer = consumers(:one)
+    @consumer = create(:consumer)
     @consumer.confirm!
     sign_in @consumer
     patch :increment, { product_id: @product.id }
@@ -56,7 +56,7 @@ class CartsControllerTest < ActionController::TestCase
   end
 
   test "l should patch decrement" do
-    @consumer = consumers(:one)
+    @consumer = create(:consumer)
     @consumer.confirm!
     sign_in @consumer
     patch :decrement, { product_id: @product.id }
@@ -64,7 +64,7 @@ class CartsControllerTest < ActionController::TestCase
   end
 
   test "l should delete remove" do
-    @consumer = consumers(:one)
+    @consumer = create(:consumer)
     @consumer.confirm!
     sign_in @consumer
     delete :remove, { product_id: @product.id }

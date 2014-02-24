@@ -2,7 +2,7 @@ require "test_helper"
 
 class MypageControllerTest < ActionController::TestCase
   before do
-    @consumer = consumers(:one)
+    @consumer = create(:consumer)
     @consumer.confirm!
     sign_in @consumer
   end

@@ -4,7 +4,7 @@ class Administration::OrdersControllerTest < ActionController::TestCase
 
   before do
     login_user create(:administrator)
-    @consumer = consumers(:one)
+    @consumer = create(:consumer)
     @products = create_list(:product, 4)
     @samples = create_list(:product, 2, sample: true)
     @order = create(:order_with_items, consumer: @consumer, samples: @samples, products: @products)
