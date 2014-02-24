@@ -14,6 +14,8 @@ class Order < ActiveRecord::Base
   include Regulating
 
   belongs_to :consumer
+  after_initialize :load_consumer_information
+
   has_many :items, class_name: 'OrderItem', dependent: :delete_all
   has_many :products, through: :items
 
@@ -21,6 +23,7 @@ class Order < ActiveRecord::Base
   before_save :set_salon
 
   has_one :shipment
+  before_save :save_email
 
   belongs_to :payment, polymorphic: true, dependent: :destroy
   before_save :payment_capture
@@ -173,5 +176,22 @@ class Order < ActiveRecord::Base
 
   def initialize_ready?
     self.items.size > 0
+  end
+
+  private
+
+  def load_consumer_information
+    if self.consumer && self.consumer.information && !self.shipment
+      attributes = self.consumer.information.attributes
+      attributes.delete "id"
+      attributes.delete "consumer_id"
+      attributes.delete "created_at"
+      attributes.delete "updated_at"
+      self.build_shipment(attributes)
+    end
+  end
+
+  def save_email
+    self.email = self.consumer.email
   end
 end

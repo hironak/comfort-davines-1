@@ -10,29 +10,6 @@ class CashierController < ApplicationController
     @order.extend_items current_cart
     @order.phase = 'initialize'
     session_save_order
-    if consumer_signed_in?
-      redirect_for @order
-    else
-      redirect_to cashier_signature_path
-    end
-  end
-
-  def signature
-    redirect_for @order and return if consumer_signed_in?
-
-    store_location_for :consumer, cashier_signature_path
-    @consumer = Consumer.new
-  end
-
-  def signature_create
-    @consumer = Consumer.create consumer_params
-
-    render "signature" and return unless @consumer
-
-    session_cart.consumer = @consumer
-    session_cart.save
-
-    sign_in @consumer
     redirect_for @order
   end
 
@@ -96,6 +73,9 @@ class CashierController < ApplicationController
 
   def redirect_for order
     case
+    when !consumer_signed_in?
+      store_location_for :consumer, cashier_path
+      redirect_to consumer_session_path
     when @order.payment_ready?
       redirect_to cashier_confirm_path
     when @order.shipment_ready?
@@ -114,8 +94,10 @@ class CashierController < ApplicationController
   end
 
   def set_order
-    @order = Order.new(session[:cashing_order])
-    @order.consumer = current_consumer if current_consumer
+    @order =
+      Order.new(session[:cashing_order]).tap do |order|
+      order.consumer = current_consumer if current_consumer
+      end
     raise Order::ItemEmpty unless @order.items.size > 0
   end
 
@@ -139,19 +121,19 @@ class CashierController < ApplicationController
   def shipment_params
     params.require(:order)
       .permit(
-        :salon_prefecture,
-        :salon_name,
-        :salon_not_found,
-        shipment_attributes: [
-          :family_name,
-          :given_name,
-          :family_name_kana,
-          :given_name_kana,
-          :postalcode,
-          :prefecture_code,
-          :address,
-          :building,
-          :phone])
+    :salon_prefecture,
+    :salon_name,
+    :salon_not_found,
+    shipment_attributes: [
+      :family_name,
+      :given_name,
+      :family_name_kana,
+      :given_name_kana,
+      :postalcode,
+      :prefecture_code,
+      :address,
+      :building,
+      :phone])
   end
 
   def payment_params

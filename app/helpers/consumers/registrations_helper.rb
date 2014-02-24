@@ -1,0 +1,2 @@
+module Consumers::RegistrationsHelper
+end

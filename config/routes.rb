@@ -5,9 +5,12 @@ Commers::Application.routes.draw do
   get "editable/stylesheets/:key", to: "editable#stylesheets"
 
   # 表側ユーザ
-  devise_for :consumers, :controllers => {
-    :sessions => "sessions"
-  }
+  devise_for :consumers,
+    path: 'mypage',
+    controllers: {
+      sessions: "sessions",
+      registrations: "consumers/registrations"
+    }
 
   # トップページ
   controller :welcome do
@@ -52,9 +55,6 @@ Commers::Application.routes.draw do
   # 注文
   namespace :cashier do
     get "", action: "index"
-
-    get "signature"
-    post "signature", action: "signature_create"
 
     get "sample"
     post "sample", action: "sample_create"

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140221082632) do
+ActiveRecord::Schema.define(version: 20140224191948) do
 
   create_table "administrators", force: true do |t|
     t.string   "username",          null: false
@@ -58,6 +58,23 @@ ActiveRecord::Schema.define(version: 20140221082632) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "consumer_information", force: true do |t|
+    t.integer  "consumer_id"
+    t.string   "family_name"
+    t.string   "given_name"
+    t.string   "family_name_kana"
+    t.string   "given_name_kana"
+    t.string   "postalcode"
+    t.string   "prefecture_code"
+    t.string   "address"
+    t.string   "building"
+    t.string   "phone"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "consumer_information", ["consumer_id"], name: "index_consumer_information_on_consumer_id", using: :btree
 
   create_table "consumers", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -131,6 +148,7 @@ ActiveRecord::Schema.define(version: 20140221082632) do
     t.string   "status",           default: "created"
     t.string   "salon_prefecture"
     t.boolean  "salon_not_found"
+    t.string   "email"
   end
 
   add_index "orders", ["consumer_id"], name: "index_orders_on_consumer_id", using: :btree

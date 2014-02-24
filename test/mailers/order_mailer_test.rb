@@ -2,6 +2,7 @@ require "test_helper"
 
 class OrderMailerTest < ActionMailer::TestCase
   test "complete" do
+    @consumer = create(:consumer)
     @products = create_list(:product, 4)
     @samples = create_list(:product, 2, sample: true)
     @order = create(:order_with_items, consumer: @consumer, samples: @samples, products: @products)
