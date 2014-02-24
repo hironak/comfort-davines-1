@@ -14,6 +14,8 @@ class Order < ActiveRecord::Base
   include Regulating
 
   belongs_to :consumer
+  after_initialize :load_consumer_information
+
   has_many :items, class_name: 'OrderItem', dependent: :delete_all
   has_many :products, through: :items
 
@@ -177,6 +179,16 @@ class Order < ActiveRecord::Base
   end
 
   private
+
+  def load_consumer_information
+    if self.consumer && self.consumer.information && !self.shipment
+      attributes = self.consumer.information.attributes
+      attributes.delete "consumer_id"
+      attributes.delete "created_at"
+      attributes.delete "updated_at"
+      self.build_shipment(attributes)
+    end
+  end
 
   def save_email
     self.email = self.consumer.email
