@@ -2,7 +2,7 @@
 
   - if @product.template
     .template class="template#{@product.template.id}"
-      = @product.template.header.html_safe
+      = render inline: @product.template.header.html_safe, type: 'erb'
 
   ul.categories
     - @product.categories.each do |category|
@@ -42,7 +42,7 @@
 
   - if @product.page
     .editable class="page#{@product.page.id}"
-      = page_body @product.page.body, @product.page.render_type
+      = render inline: @product.page.body.html_safe, type: @product.page.render_type
 
   h3 = image_tag 'products/user_line.png', alt: '商品を使っているご愛用者の声'
   .reviews
