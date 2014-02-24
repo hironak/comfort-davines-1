@@ -5,7 +5,8 @@ h1 Listing orders
   = select_tag 'payment_type', options_for_select({'すべて' => nil}.merge(Payment::TYPES), params[:payment_type])
   = submit_tag 'submit'
 
-= link_to "CSV Download", status: params[:status], payment_type: params[:payment_type], format: :csv
+p = link_to "CSV Download", status: params[:status], payment_type: params[:payment_type], format: :csv
+p = link_to "CSV NP後払い", status: params[:status], payment_type: params[:payment_type], output: 'NP', format: :csv
 
 table
   tr

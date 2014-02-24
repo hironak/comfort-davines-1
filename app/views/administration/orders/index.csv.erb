@@ -52,7 +52,7 @@
     ]
 
     @orders.each do |order|
-      information = order.consumer.information
+      information = order.consumer.try(:information) || order.shipment
       shipment = order.shipment
       order.items.each do |item|
         csv << [
