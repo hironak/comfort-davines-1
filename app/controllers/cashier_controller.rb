@@ -94,11 +94,10 @@ class CashierController < ApplicationController
   end
 
   def set_order
-    @order = if current_consumer
-               current_consumer.orders.new(session[:cashing_order])
-             else
-               Order.new(session[:cashing_order])
-             end
+    @order =
+      Order.new(session[:cashing_order]).tap do |order|
+      order.consumer = current_consumer if current_consumer
+      end
     raise Order::ItemEmpty unless @order.items.size > 0
   end
 
@@ -122,19 +121,19 @@ class CashierController < ApplicationController
   def shipment_params
     params.require(:order)
       .permit(
-        :salon_prefecture,
-        :salon_name,
-        :salon_not_found,
-        shipment_attributes: [
-          :family_name,
-          :given_name,
-          :family_name_kana,
-          :given_name_kana,
-          :postalcode,
-          :prefecture_code,
-          :address,
-          :building,
-          :phone])
+    :salon_prefecture,
+    :salon_name,
+    :salon_not_found,
+    shipment_attributes: [
+      :family_name,
+      :given_name,
+      :family_name_kana,
+      :given_name_kana,
+      :postalcode,
+      :prefecture_code,
+      :address,
+      :building,
+      :phone])
   end
 
   def payment_params

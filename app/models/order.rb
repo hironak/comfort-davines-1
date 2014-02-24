@@ -183,6 +183,7 @@ class Order < ActiveRecord::Base
   def load_consumer_information
     if self.consumer && self.consumer.information && !self.shipment
       attributes = self.consumer.information.attributes
+      attributes.delete "id"
       attributes.delete "consumer_id"
       attributes.delete "created_at"
       attributes.delete "updated_at"
