@@ -9,16 +9,23 @@ module Administration
     # GET /administration/orders
     # GET /administration/orders.json
     def index
+      params[:payment_type] = 'Payment::Deferred' if params[:output] == 'NP'
       @orders = Order.where.not(created_at: nil)
       @orders = @orders.where(status: params[:status]) unless params[:status].blank?
       @orders = @orders.where(payment_type: params[:payment_type]) unless params[:payment_type].blank?
       respond_to do |format|
         format.html
         format.csv do
-          # filename = "注文一覧-#{Date.today.to_s}.csv".tosjis
-          filename = "orders-#{Date.today.to_s}.csv"
+          filename = if params[:output] == 'NP'
+                       "orders-NP-#{Date.today.to_s}.csv"
+                     else
+                       "orders-#{Date.today.to_s}.csv"
+                     end
           filename = ERB::Util.url_encode(filename)
           response.headers['Content-Disposition'] = "attachment; filename=\"#{filename}\""
+          if params[:output] == 'NP'
+            render "index_np"
+          end
         end
       end
     end
