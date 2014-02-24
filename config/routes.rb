@@ -5,9 +5,11 @@ Commers::Application.routes.draw do
   get "editable/stylesheets/:key", to: "editable#stylesheets"
 
   # 表側ユーザ
-  devise_for :consumers, :controllers => {
-    :sessions => "sessions"
-  }
+  devise_for :consumers,
+    path: 'mypage',
+    controllers: {
+      sessions: "sessions"
+    }
 
   # トップページ
   controller :welcome do
