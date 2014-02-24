@@ -21,6 +21,7 @@ class Order < ActiveRecord::Base
   before_save :set_salon
 
   has_one :shipment
+  before_save :save_email
 
   belongs_to :payment, polymorphic: true, dependent: :destroy
   before_save :payment_capture
@@ -173,5 +174,11 @@ class Order < ActiveRecord::Base
 
   def initialize_ready?
     self.items.size > 0
+  end
+
+  private
+
+  def save_email
+    self.email = self.consumer.email
   end
 end
