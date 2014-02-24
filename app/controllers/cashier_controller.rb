@@ -94,8 +94,11 @@ class CashierController < ApplicationController
   end
 
   def set_order
-    @order = Order.new(session[:cashing_order])
-    @order.consumer = current_consumer if current_consumer
+    @order = if current_consumer
+               current_consumer.orders.new(session[:cashing_order])
+             else
+               Order.new(session[:cashing_order])
+             end
     raise Order::ItemEmpty unless @order.items.size > 0
   end
 
