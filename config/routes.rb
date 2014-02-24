@@ -8,7 +8,8 @@ Commers::Application.routes.draw do
   devise_for :consumers,
     path: 'mypage',
     controllers: {
-      sessions: "sessions"
+      sessions: "sessions",
+      registrations: "consumers/registrations"
     }
 
   # トップページ
