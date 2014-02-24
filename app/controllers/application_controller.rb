@@ -7,6 +7,8 @@ class ApplicationController < ActionController::Base
 
   before_filter :default_title
 
+  before_filter :configure_permitted_parameters, if: :devise_controller?
+
   private
 
   def current_cart
@@ -33,5 +35,23 @@ class ApplicationController < ActionController::Base
 
   def rmt successfull, verb, resource
     I18n.t("resource.#{successfull}.#{verb}", model: I18n.t("activerecord.models.#{resource.class.name.underscore}"))
+  end
+
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_up) do |u|
+      u.permit(:email, :password, :password_confirmation, information_attributes: [
+        :family_name,
+        :given_name,
+        :family_name_kana,
+        :given_name_kana,
+        :postalcode,
+        :prefecture_code,
+        :address,
+        :building,
+        :phone,
+      ])
+    end
   end
 end
