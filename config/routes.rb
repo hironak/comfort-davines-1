@@ -53,9 +53,6 @@ Commers::Application.routes.draw do
   namespace :cashier do
     get "", action: "index"
 
-    get "signature"
-    post "signature", action: "signature_create"
-
     get "sample"
     post "sample", action: "sample_create"
 
