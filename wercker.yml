@@ -11,11 +11,6 @@ build:
   after-steps:
     - 1syo/idobata-notify@0.1.1:
         token: 958cd6e5-1efe-4dad-bfda-fd5089871b3a
-    - wouter/irc-notify:
-        server: irc.freenode.net
-        port: 6667
-        nickname: hackers-bot
-        channel: hackers-jp
 deploy:
   steps:
     - bundle-install
@@ -28,8 +23,3 @@ deploy:
   after-steps:
     - 1syo/idobata-notify@0.1.1:
         token: 958cd6e5-1efe-4dad-bfda-fd5089871b3a
-    - wouter/irc-notify:
-        server: irc.freenode.net
-        port: 6667
-        nickname: hackers-bot
-        channel: hackers-jp
