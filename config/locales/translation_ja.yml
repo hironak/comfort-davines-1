@@ -65,6 +65,20 @@ ja:
         reset_password_sent_at: reset_password_sent_at  #g
         reset_password_token: reset_password_token  #g
 
+      consumer/information:
+        name: お名前
+        family_name: 姓
+        given_name: 名
+        name_kana: お名前（フリガナ）
+        family_name_kana: セイ
+        given_name_kana: メイ
+        postalcode: 郵便番号
+        prefecture_code: 都道府県
+        address: 住所
+        building: 建物名・部屋番号
+        phone: 電話番号
+        fax: Fax番号
+
       file_storage:
         file_content_type: file_content_type  #g
         file_file_name: file_file_name  #g
