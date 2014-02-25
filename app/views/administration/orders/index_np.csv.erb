@@ -36,7 +36,7 @@ CSV.generate row_sep: "\r" do |csv|
     order.items.each do |item|
       csv << [
         order.id,                        # 加盟店取引ID
-        l(order.created_at.to_date, format: :csv),     # 注文日時
+        l(order.created_at.to_date),     # 注文日時
         nil,                             # 購入者会社名
         nil,                             # 購入者部署名
         information.name,                # 購入者氏名（漢字）
