@@ -86,3 +86,14 @@ input[type="submit"] {
   vertical-align: middle;
   white-space: nowrap;
 }
+
+.easy-form {
+  label {
+    display: block;
+  }
+  textarea,
+  #{$all-text-inputs} {
+    display: block;
+    width: 100%;
+  }
+}

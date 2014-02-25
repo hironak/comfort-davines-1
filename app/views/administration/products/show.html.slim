@@ -1,46 +1,54 @@
-
 p
-  strong Name:
-  = @product.name
+  = link_to '編集', edit_admin_product_path(@product)
+  '|
+  = link_to '削除', [:admin, @product], data: { confirm: 'Are you sure?' }, method: :delete
+  '|
+  = link_to '戻る', admin_products_path
 
-p
-  strong Price:
-  = @product.price
+br
 
-p
-  strong Image:
-  = image_tag @product.image.url(:medium)
+.products
+  - if @product.template
+    .template class="template#{@product.template.id}"
+      = render inline: @product.template.header.html_safe, type: 'erb'
 
-p
-  strong Detail:
-  = @product.detail.html_safe
+  ul.categories
+    - @product.categories.each do |category|
+      li = category.name
 
-p
-  strong SmallDetail:
-  = @product.small_detail
+  .basic-information
+    .main-image = image_tag @product.image.url(:medium)
+    .information
+      .name
+        h1 = @product.name
+        p.label = "【#{@product.label}】"
+      p.detail = @product.detail.html_safe
+      p.ingredient = image_tag 'products/ingredient_btn.jpg', alt: '成分表示'
 
-p
-  strong Series:
-  = @product.serieses.pluck(:name).join(' / ')
+  .optional-information
+    - if @product.photos.count > 1
+      .image-select
+        - @product.photos.each_with_index do |photo, i|
+          .image
+            = link_to photo.image.url(:medium), class: (i == 0 && 'active') do
+              = image_tag photo.image.url(:mini)
 
-p
-  strong Category:
-  = @product.categories.pluck(:name).join(' / ')
+    .product-information
+      = form_tag add_carts_path, method: :post do
+        dl
+          dt 通常価格
+          dd
+            .price
+              = number_to_currency @product.view_price
+              small = "(税込)"
+          dt 容量
+          dd = @product.capacity
+          dt 個数
+          dd = select_tag :amount, options_for_select(1..@product.stock)
+        = hidden_field_tag :product_id, @product.id
+        = image_submit_tag 'products/n_cart_btn.jpg', alt: "カートに入れる"
 
-p
-  strong Solution
-  = @product.solutions.pluck(:name).join(' / ')
+  - if @product.page
+    .editable class="page#{@product.page.id}"
+      = render inline: @product.page.body.html_safe, type: @product.page.render_type
 
-p
-  strong Stock:
-  = @product.stock
-
-- if @product.page
-  .editable class="page#{@product.page.id}"
-    = page_body @product.page.body, @product.page.render_type
-
-= link_to '編集', edit_admin_product_path(@product)
-'|
-= link_to '削除', [:admin, @product], data: { confirm: 'Are you sure?' }, method: :delete
-'|
-= link_to '戻る', admin_products_path
