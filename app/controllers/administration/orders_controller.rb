@@ -14,7 +14,7 @@ module Administration
       @orders = @orders.where(status: params[:status]) unless params[:status].blank?
       @orders = @orders.where(payment_type: params[:payment_type]) unless params[:payment_type].blank?
       respond_to do |format|
-        format.html
+        format.html { @orders = @orders.page(params[:page]) }
         format.csv do
           filename = if params[:output] == 'NP'
                        "orders-NP-#{Date.today.to_s}.csv"

@@ -73,6 +73,9 @@ gem 'webpay'
 # FriendlyIg
 gem 'friendly_id', '~> 5.0.0'
 
+# Paging
+gem 'kaminari'
+
 # Markdown
 gem 'redcarpet'
 
