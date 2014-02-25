@@ -65,7 +65,7 @@ gem 'sorcery'
 
 # Permission
 gem 'authority'
-gem 'rolify'
+# gem 'rolify'
 
 # Payment
 gem 'webpay'
