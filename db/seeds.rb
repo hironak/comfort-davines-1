@@ -101,10 +101,6 @@ CSV.read(Rails.root.join("presets/data/products.csv").to_s, headers: :first_row,
 
   attrs['page_id'] = page.id
   Product.create(attrs)
-
-  attrs["price"] = 0
-  attrs["sample"] = true
-  Product.create(attrs)
 end
 
 CSV.read(Rails.root.join("presets/data/salons.csv").to_s, headers: :first_row, col_sep: "\t").each do |attrs|
