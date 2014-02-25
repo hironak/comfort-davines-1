@@ -34,7 +34,7 @@ CSV.generate row_sep: "\r" do |csv|
     information = order.consumer.try(:information) || order.shipment
     shipment = order.shipment
     first_row = [
-      order.id,                        # 加盟店取引ID
+      order.number,                    # 加盟店取引ID
       l(order.created_at.to_date),     # 注文日時
       nil,                             # 購入者会社名
       nil,                             # 購入者部署名

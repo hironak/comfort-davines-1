@@ -41,6 +41,10 @@ class Order < ActiveRecord::Base
 
   validates :payment,  presence: true, if: :phase_payment?
 
+  def number
+    "DD#{"%010d" % self.id}"
+  end
+
   def items_without_samples
     if self.persisted?
       self.items.without_samples

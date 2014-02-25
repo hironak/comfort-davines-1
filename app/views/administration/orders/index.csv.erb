@@ -57,7 +57,7 @@
       order.items.each do |item|
         csv << [
           l(order.created_at.to_date),     # 注文日時
-          order.id,                        # 注文番号
+          order.number,                    # 注文番号
           information.name,                # 購入者氏名（漢字）
           information.name_kana,           # 購入者氏名（カナ）
           nil,                             # 購入者会社名（漢字）
@@ -107,7 +107,7 @@
       order.tap do |order|
         csv << [
           l(order.created_at.to_date),     # 注文日時
-          order.id,                        # 注文番号
+          order.number,                    # 注文番号
           information.name,                # 購入者氏名（漢字）
           information.name_kana,           # 購入者氏名（カナ）
           nil,                             # 購入者会社名（漢字）
