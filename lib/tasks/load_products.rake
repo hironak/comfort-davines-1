@@ -56,7 +56,7 @@ task :load_products => :environment do
     page.save validate: false
 
     attrs['page_id'] = page.id
-    product = Product.find_or_initialize_by(name: attrs['name'])
+    product = Product.find_or_initialize_by(name: attrs['name'], sample: attrs['sample'])
     product.attributes = attrs
     product.save
   end
