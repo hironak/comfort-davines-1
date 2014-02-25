@@ -1,15 +1,17 @@
 table
   thead
     tr
-      th.w40 注文ID
-      th.w30 注文日時
-      th.w30 決済方法
+      th.w25 注文ID
+      th.w25 注文日時
+      th.w25 決済方法
+      th.w25 ステータス
 
   tbody
     tr
-      td.w40 = @order.number
-      td.w30 = l @order.created_at
-      td.w30 = @order.payment_type_human
+      td.w25 = @order.number
+      td.w25 = l @order.created_at
+      td.w25 = @order.payment_type_human
+      td.w25 = @order.status_human
 
 table
   thead
