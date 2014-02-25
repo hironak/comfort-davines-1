@@ -9,7 +9,7 @@ gem 'bundler', '~> 1.5.2'
 gem 'dotenv-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.2'
+gem 'rails', '4.0.3'
 gem 'rails-i18n', '~> 4.0.0'
 
 # Use mysql as the database for Active Record
