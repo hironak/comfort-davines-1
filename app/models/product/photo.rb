@@ -7,4 +7,6 @@ class Product::Photo < ActiveRecord::Base
       item: "230x230<",
       thumb: "100x100>",
       mini: "65x65>" }
+
+  validates_attachment_content_type :image, :content_type => %w(image/jpeg image/jpg image/png)
 end
