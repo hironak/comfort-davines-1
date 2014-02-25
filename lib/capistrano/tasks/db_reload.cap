@@ -1,0 +1,11 @@
+namespace :db do
+  desc "Runs rake load_static, load_products"
+  task :reload do
+    on roles(:web) do
+      within current_path do
+        execute :bundle, :exec, :rake, "load_static", "RAILS_ENV=#{fetch(:stage)}"
+        execute :bundle, :exec, :rake, "load_products", "RAILS_ENV=#{fetch(:stage)}"
+      end
+    end
+  end
+end
