@@ -13,7 +13,7 @@ module Informationable
     validates :prefecture_code, presence: true
     validates :address, presence: true
 
-    validates :phone, presence: true
+    validates :phone, presence: true, format: { with: /\d{2,4}-\d{2,4}-\d{4}/ }
   end
 
   def name
