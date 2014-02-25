@@ -9,20 +9,15 @@ p = link_to "CSV Download", status: params[:status], payment_type: params[:payme
 p = link_to "CSV NP後払い", status: params[:status], payment_type: params[:payment_type], output: 'NP', format: :csv
 
 table
-  tr
-    th 総額
-    th サロン名称
-    th サロンマージン
-    th 代理店マージン
-    th
-
-  - @orders.each do |order|
+  thead
     tr
-      td = order.total_price
-      td = order.salon_name
-      td = order.backmargin(:salon)
-      td = order.backmargin(:agency)
-      td = l order.created_at
-      // td = link_to 'Show', [:admin, order]
-      // td = link_to 'Edit', edit_admin_order_path(order)
-      // td = link_to 'Destroy', [:admin, order], data: {:confirm => 'Are you sure?'}, :method => :delete
+      th.w40 注文ID
+      th.w30 注文日時
+      th.w30 決済方法
+
+  tbody
+    - @orders.each do |order|
+      tr
+        td.w40 = link_to order.number, [:admin, order]
+        td.w30 = l order.created_at
+        td.w30 = order.payment_type_human

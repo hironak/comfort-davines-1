@@ -1,12 +1,45 @@
-p#notice = notice
+table
+  thead
+    tr
+      th.w40 注文ID
+      th.w30 注文日時
+      th.w30 決済方法
 
-.field
+  tbody
+    tr
+      td.w40 = @order.number
+      td.w30 = l @order.created_at
+      td.w30 = @order.payment_type_human
 
-.field
-  .items
-    ul
-      - @order.items.each do |item|
-        li = "#{item.product.name} : #{item.amount}"
+table
+  thead
+    tr
+      th.w80 商品名
+      th.w10 数量
+      th.w10 小計
+  tbody
+    - @order.items.each do |item|
+      tr
+        td
+          = "[#{item.product.refnum}] "
+          = item.product.name
+        td.price = item.amount
+        td.price = number_to_currency item.price
+
+    tr
+      td colspan=1
+      td 送料
+      td.price = number_to_currency @order.postage
+
+    tr
+      td colspan=1
+      td 手数料
+      td.price = number_to_currency @order.commission
+
+    tr
+      td colspan=1
+      td 総額
+      td.price = number_to_currency @order.total_price
 
 = link_to 'Edit', edit_admin_order_path(@order)
 '|
