@@ -10,6 +10,6 @@ FactoryGirl.define do
     prefecture_code "1"
     address "Test"
     building "Test"
-    phone "Test"
+    phone "000-0000-0000"
   end
 end
