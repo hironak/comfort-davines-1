@@ -25,8 +25,32 @@ end
   Solution.create name: name
 end
 
-%w|naturaltech_e naturaltech_n naturaltech_r naturaltech_d naturaltech_c naturaltech_w|.each do |identify|
-  template = ::Template.new(name: identify, identify: identify)
+Dir.glob("#{Rails.root}/presets/assets/file_storage/images/**/*").each do |file|
+  if File.file? file
+    name = file.gsub("#{Rails.root}/presets/assets/file_storage/images/", '')
+    FileStorage.find_or_initialize_by(name: name).tap do |storage|
+      storage.file = File.new(file)
+      storage.save
+    end
+  end
+end
+
+require "csv"
+
+%w[
+naturaltech_e
+naturaltech_n
+naturaltech_r
+naturaltech_d
+naturaltech_c
+naturaltech_w
+authentic_01
+authentic_02
+authentic_03
+authentic_04
+].each do |identify|
+  template = ::Template.find_or_initialize_by(identify: identify)
+  template.name = identify
   header_file = template.send :header_file
   template.header =
     if File.exist?(header_file)
@@ -41,28 +65,12 @@ end
     else
       ""
     end
-
-
   template.save validate: false
 end
-
-Dir.glob("#{Rails.root}/presets/assets/file_storage/images/**/*").each do |file|
-  FileStorage.create(name: file, file: File.new(file)) if File.file? file
-end
-
-require "csv"
-
-counter = {}
 
 CSV.read(Rails.root.join("presets/data/products.csv").to_s, headers: :first_row, col_sep: "\t").each do |attrs|
 
   attrs = attrs.to_hash
-
-  count = counter[attrs['template']] ||= 1
-
-  identify = "#{attrs['template']}_#{count}"
-
-  counter[attrs['template']] += 1
 
   files = attrs['image'].split(/\s/).map do |image|
     %w|jpg png|.map { |ext| Rails.root.join("presets/assets/products/image/#{image}.#{ext}") }
@@ -86,25 +94,28 @@ CSV.read(Rails.root.join("presets/data/products.csv").to_s, headers: :first_row,
 
   attrs["stock"] = 10
 
-  page = Page.new(title: attrs["name"], render_type: "html", identify: identify)
-  body_file = page.send :body_file
-  page.body =
-    if File.exist?(body_file)
-      File.read body_file
-    else
-      ""
-    end
-  style_file = page.send :style_file
-  page.style =
-    if File.exist?(style_file)
-      File.read style_file
-    else
-      ""
-    end
+  if identify = attrs.delete('page')
+    page = Page.find_or_initialize_by(identify: identify)
+    page.title = attrs["name"]
+    page.render_type =  "html"
+    body_file = page.send :body_file
+    page.body =
+      if File.exist?(body_file)
+        File.read body_file
+      else
+        ""
+      end
+    style_file = page.send :style_file
+    page.style =
+      if File.exist?(style_file)
+        File.read style_file
+      else
+        ""
+      end
+    page.save validate: false
+    attrs['page_id'] = page.id
+  end
 
-  page.save validate: false
-
-  attrs['page_id'] = page.id
   Product.create(attrs)
 end
 

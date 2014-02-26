@@ -3,17 +3,40 @@ task :load_products => :environment do
 
   require "csv"
 
-  counter = {}
+  %w[
+    naturaltech_e
+    naturaltech_n
+    naturaltech_r
+    naturaltech_d
+    naturaltech_c
+    naturaltech_w
+    authentic_01
+    authentic_02
+    authentic_03
+    authentic_04
+  ].each do |identify|
+    template = ::Template.find_or_initialize_by(identify: identify)
+    template.name = identify
+    header_file = template.send :header_file
+    template.header =
+      if File.exist?(header_file)
+        File.read header_file
+      else
+        ""
+      end
+    style_file = template.send :style_file
+    template.style =
+      if File.exist?(style_file)
+        File.read style_file
+      else
+        ""
+      end
+    template.save validate: false
+  end
 
   CSV.read(Rails.root.join("presets/data/products.csv").to_s, headers: :first_row, col_sep: "\t").each do |attrs|
 
     attrs = attrs.to_hash
-
-    count = counter[attrs['template']] ||= 1
-
-    identify = "#{attrs['template']}_#{count}"
-
-    counter[attrs['template']] += 1
 
     files = attrs['image'].split(/\s/).map do |image|
       %w|jpg png|.map { |ext| Rails.root.join("presets/assets/products/image/#{image}.#{ext}") }
@@ -36,26 +59,28 @@ task :load_products => :environment do
     end
 
     attrs["stock"] = 10
+    if identify = attrs.delete('page')
+      page = Page.find_or_initialize_by(identify: identify)
+      page.title = attrs["name"]
+      page.render_type =  "html"
+      body_file = page.send :body_file
+      page.body =
+        if File.exist?(body_file)
+          File.read body_file
+        else
+          ""
+        end
+      style_file = page.send :style_file
+      page.style =
+        if File.exist?(style_file)
+          File.read style_file
+        else
+          ""
+        end
+      page.save validate: false
+      attrs['page_id'] = page.id
+    end
 
-    page = Page.find_or_initialize_by(title: attrs["name"], render_type: "html", identify: identify)
-    body_file = page.send :body_file
-    page.body =
-      if File.exist?(body_file)
-        File.read body_file
-      else
-        ""
-      end
-    style_file = page.send :style_file
-    page.style =
-      if File.exist?(style_file)
-        File.read style_file
-      else
-        ""
-      end
-
-    page.save validate: false
-
-    attrs['page_id'] = page.id
     Product.find_or_initialize_by(refnum: attrs['refnum']).tap do |product|
       product.photos.each_with_index do |photo, i|
         if attrs["photos_attributes"][i]
