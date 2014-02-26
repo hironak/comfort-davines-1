@@ -48,13 +48,13 @@ authentic_01
 authentic_02
 authentic_03
 authentic_04
-moreiside01
-moreiside02
-moreiside03
-moreiside04
-moreiside05
-moreiside06
-moreiside07
+moreinside01
+moreinside02
+moreinside03
+moreinside04
+moreinside05
+moreinside06
+moreinside07
 ].each do |identify|
   template = ::Template.find_or_initialize_by(identify: identify)
   template.name = identify

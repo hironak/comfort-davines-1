@@ -34,6 +34,9 @@
         @include span-columns(4 of 12);
         @include omega(3n);
         height: 600px;
+        .image {
+          height: 40%;
+        }
       }
       &.authentic-item {
         @extend %item;
@@ -43,32 +46,26 @@
         .detail {
           height: $base-line-height * 2.0;
         }
+        .image {
+          height: 40%;
+        }
+      }
+      &.moreinside-item {
+        @extend %item;
+        @include span-columns(4 of 12);
+        @include omega(3n);
+        height: 600px;
+        .image {
+          height: 40%;
+        }
       }
       padding-top: 60px;
       margin-bottom: 10px;
-      &.naturaltech_e {
-        background: image-url('catalog/itembg_e.png') left top no-repeat;
-        background-size: 100% auto;
-      }
-      &.naturaltech_n {
-        background: image-url('catalog/itembg_n.png') left top no-repeat;
-        background-size: 100% auto;
-      }
-      &.naturaltech_r {
-        background: image-url('catalog/itembg_r.png') left top no-repeat;
-        background-size: 100% auto;
-      }
-      &.naturaltech_d {
-        background: image-url('catalog/itembg_d.png') left top no-repeat;
-        background-size: 100% auto;
-      }
-      &.naturaltech_c {
-        background: image-url('catalog/itembg_c.png') left top no-repeat;
-        background-size: 100% auto;
-      }
-      &.naturaltech_w {
-        background: image-url('catalog/itembg_w.png') left top no-repeat;
-        background-size: 100% auto;
+      @each $n in e, n, r, d, c, w {
+        &.naturaltech_#{$n} {
+          background: image-url('catalog/itembg_#{$n}.png') left top no-repeat;
+          background-size: 100% auto;
+        }
       }
       @for $n from 1 through 4 {
         &.authentic_0#{$n} {
@@ -76,9 +73,11 @@
           background-size: 100% auto;
         }
       }
-
-      .image {
-        height: 40%;
+      @for $n from 1 through 7 {
+        &.moreinside0#{$n} {
+          background: image-url("catalog/itembg_0#{$n}.png") left top no-repeat;
+          background-size: 100% auto;
+        }
       }
       .kind {
         @include clearfix;
