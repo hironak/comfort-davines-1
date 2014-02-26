@@ -21,6 +21,4 @@ jQuery ($)->
 
   resize()
 
-  rotate()
-
-  # setInterval rotate, 3000
+  setInterval rotate, 3000
