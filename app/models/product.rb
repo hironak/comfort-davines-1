@@ -32,8 +32,7 @@ class Product < ActiveRecord::Base
   end
 
   def catalog_classes
-    self.categories.map{|c| "category_#{c.id}" } +
-    ["template_#{self.template_id}"]
+    self.categories.map{|c| "category_#{c.id}" } + [self.template.identify, "#{self.series.identify}-item"]
   end
 
   def category

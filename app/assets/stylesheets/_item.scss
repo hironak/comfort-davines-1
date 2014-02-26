@@ -1,6 +1,4 @@
 %item {
-  @include span-columns(4 of 12);
-  @include omega(3n);
   height: 465px;
   .image {
     img {
@@ -52,6 +50,8 @@
 .ranking {
   .item {
     @extend %item;
+    @include span-columns(4 of 12);
+    @include omega(3n);
     padding-top: 12px;
     height: 477px;
     &.rank1 {
