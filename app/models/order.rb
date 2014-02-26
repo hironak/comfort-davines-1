@@ -24,6 +24,7 @@ class Order < ActiveRecord::Base
   include Regulating
 
   belongs_to :consumer
+  has_one :information, through: :consumer, class_name: 'Consumer::Information'
 
   has_many :items, class_name: 'OrderItem', dependent: :delete_all
   has_many :products, through: :items
@@ -50,7 +51,7 @@ class Order < ActiveRecord::Base
 
   validates :payment,  presence: true, if: :phase_payment?
 
-  validates :delivery_date, inclusion: { in: -> order { (2.day.since.to_date...1.weeks.since.to_date).map{|d| I18n.l(d) } } }, on: :create, if: :phase_confirm?
+  validates :delivery_date, inclusion: { in: -> order { (2.day.since.to_date...1.weeks.since.to_date).map{|d| I18n.l(d) } }, allow_blank: true }, on: :create, if: :phase_confirm?
   validates :delivery_time, inclusion: { in: DELIVERY_TIMES.values }, if: :phase_confirm?
 
   def number
@@ -103,6 +104,10 @@ class Order < ActiveRecord::Base
         backmargin_agency: item.product.backmargin_agency
       )
     end
+  end
+
+  def delivery_time_human
+    DELIVERY_TIMES.key(self.delivery_time)
   end
 
   def save_payment

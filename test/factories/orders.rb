@@ -3,13 +3,15 @@
 FactoryGirl.define do
   factory :order do
 
-
     salon_prefecture '東京都'
     salon_name 'My Salon'
     salon_not_found true
 
     shipment { build(:shipment) }
     payment { build(:payment_creditcard) }
+
+    delivery_date { I18n.l 3.days.since.to_date }
+    delivery_time '12'
 
     factory :order_with_items do
 
