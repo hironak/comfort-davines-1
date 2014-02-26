@@ -4,9 +4,8 @@
     .template class="template#{@product.template.id}"
       = render inline: @product.template.header.html_safe, type: 'erb'
 
-  ul.categories
-    - @product.categories.each do |category|
-      li = category.name
+  ul.kind
+    li = @product.kind
 
   .basic-information
     .main-image = image_tag @product.image.url(:medium)
