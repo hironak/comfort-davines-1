@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140226000300) do
+ActiveRecord::Schema.define(version: 20140226103502) do
 
   create_table "administrators", force: true do |t|
     t.string   "username",          null: false
@@ -222,6 +222,7 @@ ActiveRecord::Schema.define(version: 20140226000300) do
     t.integer  "template_id"
     t.string   "label"
     t.string   "type"
+    t.string   "kind"
   end
 
   add_index "products", ["page_id"], name: "index_products_on_page_id", using: :btree
