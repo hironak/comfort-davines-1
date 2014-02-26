@@ -85,60 +85,10 @@
           nil,                             # オプション
           item.amount,                     # 個数
           item.view_origin_price,          # 商品小計
-          0,                               # 送料
-          0,                               # 手数料
-          0,                               # 消費税
-          order.total_price,               # 注文合計金額
-          nil,                             # 使用ポイント
-          nil,                             # 発生ポイント
-          nil,                             # ボーナスポイント
-          order.payment_type_human,        # 支払方法
-          nil,                             # 支払期限
-          order.status_human,              # 状態
-          nil,                             # 入金日
-          nil,                             # 発送日
-          nil,                             # キャンセル依頼
-          nil,                             # キャンセル日
-          nil,                             # 端末
-          nil,                             # 注文情報メモ
-          nil,                             # 支払い回数
-        ]
-      end
-      order.tap do |order|
-        csv << [
-          l(order.created_at.to_date),     # 注文日時
-          order.number,                    # 注文番号
-          information.name,                # 購入者氏名（漢字）
-          information.name_kana,           # 購入者氏名（カナ）
-          nil,                             # 購入者会社名（漢字）
-          nil,                             # 購入者会社名（カナ）
-          nil,                             # 購入者部署名
-          information.postalcode,          # 購入者郵便番号
-          information.complete_address,    # 購入者住所
-          information.phone,               # 購入者電話番号
-          order.email,                     # 購入者メールアドレス
-          shipment.name,                   # お届先氏名（漢字）
-          shipment.name_kana,              # お届先氏名（カナ）
-          nil,                             # お届先会社名（漢字）
-          nil,                             # お届先会社名（カナ）
-          nil,                             # お届先部署名
-          shipment.postalcode,             # お届先郵便番号
-          shipment.complete_address,       # お届先住所
-          shipment.phone,                  # お届先電話番号
-          nil,                             # お届先FAX番号
-          nil,                             # 配達希望日
-          nil,                             # 配送時間帯
-          order.note,                      # 備考欄
-          nil,                             # 配送情報
-          nil,                             # 商品コード
-          "送料",                          # 商品名
-          nil,                             # オプション
-          0,                               # 個数
-          0,                               # 商品小計
           order.postage,                   # 送料
           order.commission,                # 手数料
           0,                               # 消費税
-          order.total_price,                               # 注文合計金額
+          order.total_price,               # 注文合計金額
           nil,                             # 使用ポイント
           nil,                             # 発生ポイント
           nil,                             # ボーナスポイント
