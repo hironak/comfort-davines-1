@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140226103502) do
+ActiveRecord::Schema.define(version: 20140226121048) do
 
   create_table "administrators", force: true do |t|
     t.string   "username",          null: false
@@ -149,6 +149,8 @@ ActiveRecord::Schema.define(version: 20140226103502) do
     t.string   "salon_prefecture"
     t.boolean  "salon_not_found"
     t.string   "email"
+    t.string   "delivery_date",    default: ""
+    t.string   "delivery_time",    default: ""
   end
 
   add_index "orders", ["consumer_id"], name: "index_orders_on_consumer_id", using: :btree

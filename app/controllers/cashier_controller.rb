@@ -57,12 +57,12 @@ class CashierController < ApplicationController
   end
 
   def confirm
-    redirect_for @order unless @order.valid?
+    redirect_for @order unless @order.payment_ready?
   end
 
   def confirm_create
     @order.attributes = confirm_params
-    @order.save
+    render 'confirm' and return unless @order.save
     current_cart.clear
     session_clear_order
     OrderMailer.complete(current_consumer.email, @order).deliver
@@ -156,6 +156,6 @@ class CashierController < ApplicationController
   end
 
   def confirm_params
-    params.require(:order).permit(:note)
+    params.require(:order).permit(:delivery_date, :delivery_time, :note)
   end
 end

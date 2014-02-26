@@ -98,6 +98,8 @@ ja:
         salon_prefecture: サロン所在都道府県
         salon_name: サロン名称
         salon_not_found: 該当なし
+        delivery_date: 配達希望日
+        delivery_time: 配達時間帯
         note: 備考欄
 
       shipment:

@@ -5,6 +5,16 @@ class Order < ActiveRecord::Base
     '発送済み' => :shipped,
   }
 
+  DELIVERY_TIMES = {
+    '指定なし' => '',
+    '午前中' => '08',
+    '12〜14時' => '12',
+    '14〜16時' => '14',
+    '16〜18時' => '16',
+    '18〜20時' => '18',
+    '19〜14時' => '19'
+  }
+
   attr_accessor :phase
 
   include Authority::Abilities
@@ -39,6 +49,9 @@ class Order < ActiveRecord::Base
   validates :shipment,   presence: true, if: :phase_shipment?
 
   validates :payment,  presence: true, if: :phase_payment?
+
+  validates :delivery_date, inclusion: { in: -> order { (2.day.since.to_date...1.weeks.since.to_date).map{|d| I18n.l(d) } } }, on: :create, if: :phase_confirm?
+  validates :delivery_time, inclusion: { in: DELIVERY_TIMES.values }, if: :phase_confirm?
 
   def number
     "DD#{"%010d" % self.id}"

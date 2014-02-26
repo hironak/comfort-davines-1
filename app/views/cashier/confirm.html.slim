@@ -20,6 +20,15 @@
           th 送付先
           td = link_to '送付先情報', cashier_shipment_url
 
+    .deliver
+      h2 お届け希望日・時間帯
+      table
+        tr
+          th = f.label :delivery_date
+          td = f.select :delivery_date, (2.day.since.to_date...1.weeks.since.to_date).map{|d| I18n.l(d) }, include_blank: '指定なし'
+        tr
+          th = f.label :delivery_time
+          td = f.select :delivery_time, Order::DELIVERY_TIMES
 
     .note
       h2 = f.label :note

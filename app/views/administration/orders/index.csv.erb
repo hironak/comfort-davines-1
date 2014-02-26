@@ -76,8 +76,8 @@
           shipment.complete_address,       # お届先住所
           shipment.phone,                  # お届先電話番号
           nil,                             # お届先FAX番号
-          nil,                             # 配達希望日
-          nil,                             # 配送時間帯
+          order.delivery_date,             # 配達希望日
+          order.delivery_time,             # 配送時間帯
           order.note,                      # 備考欄
           nil,                             # 配送情報
           item.product.refnum,             # 商品コード
