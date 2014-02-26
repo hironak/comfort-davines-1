@@ -8,6 +8,6 @@ class OrderMailer < ActionMailer::Base
   #
   def complete to, order
     @order = order
-    mail to: to
+    mail subject: "【ダヴィネス ダイレクト】ご注文ありがとうございました", to: to
   end
 end
