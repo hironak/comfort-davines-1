@@ -1,3 +1,26 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+jQuery ($)->
+
+  width = -> $('body').width()
+
+  slides = $('.slide')
+
+  current = 0
+
+  rotate = ->
+    current++
+    current = 0 if slides.length < current
+    $('.background').animate 'scrollLeft' : width() * current
+
+  resize = ->
+    w = width()
+    $('.background').scrollLeft 0 #w * current
+    $('.frame').css 'width', w * slides.length
+    slides.css 'width', w
+
+  $(window).on 'resize', resize
+
+  resize()
+
+  rotate()
+
+  # setInterval rotate, 3000

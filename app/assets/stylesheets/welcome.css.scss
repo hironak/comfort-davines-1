@@ -19,20 +19,43 @@
   .visual {
     position: relative;
     height: 356px;
+    .background,
+    .foreground {
+      position: absolute;
+      height: 356px;
+      width: 100%;
+    }
     .background {
-      .visual01 {
+      z-index: 0;
+      overflow: hidden;
+      .frame {
         height: 356px;
-        width: 100%;
-        background: image-url('welcome/header_bg_01.jpg') center center no-repeat;
+        .slide {
+          float: left;
+          height: 356px;
+          &.visual01 {
+            background: image-url('welcome/header_bg_01.jpg') center center no-repeat;
+          }
+          &.visual02 {
+            background: image-url('welcome/header_bg_01.jpg') center center no-repeat;
+          }
+          &.visual03 {
+            background: image-url('welcome/header_bg_01.jpg') center center no-repeat;
+          }
+        }
       }
     }
-    .container {
-      .large {
-        height: 250px;
-      }
-      .catalog {
-        li {
-          @include span-columns(2 of 10);
+    .foreground {
+      z-index: 10;
+      .container {
+        z-index: 10;
+        .large {
+          height: 250px;
+        }
+        .catalog {
+          li {
+            @include span-columns(2 of 10);
+          }
         }
       }
     }
