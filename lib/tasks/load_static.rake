@@ -10,7 +10,13 @@ task :load_static => :environment do
       name = file.gsub("#{Rails.root}/presets/assets/file_storage/images/", '')
       FileStorage.find_or_initialize_by(name: name).tap do |storage|
         storage.file = File.new(file)
-        storage.save
+        puts "#{storage.save} #{file}"
+        puts storage.file_content_type
+        unless storage.valid?
+          storage.errors.full_messages.each do |message|
+            puts message
+          end
+        end
       end
     end
   end
