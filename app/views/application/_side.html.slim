@@ -1,23 +1,24 @@
-.series
-  h3 ブランド別
-  - Series.all.each do |series|
-    h4 = link_to series.name, catalog_path(action: :series, id: series)
-    ul
-      - series.products.available.each do |product|
-        li = link_to product.name, product
+- cache Product.last_updated_at
+  .series
+    h3 ブランド別
+    - Series.includes(:products).each do |series|
+      h4 = link_to series.name, catalog_path(action: :series, id: series)
+      ul
+        - series.products.available.each do |product|
+          li = link_to product.name, product
 
-.category
-  h3 カテゴリ別
-  - Category.all.each do |category|
-    h4 = category.name
-    ul.hidden
-      - category.products.available.each do |product|
-        li = link_to product.name, product
+  .category
+    h3 カテゴリ別
+    - Category.includes(:products).each do |category|
+      h4 = category.name
+      ul.hidden
+        - category.products.available.each do |product|
+          li = link_to product.name, product
 
-.solution
-  h3 お悩み別
-  - Solution.all.each do |solution|
-    h4 = solution.name
-    ul.hidden
-      - solution.products.available.each do |product|
-        li = link_to product.name, product
+  .solution
+    h3 お悩み別
+    - Solution.includes(:products).each do |solution|
+      h4 = solution.name
+      ul.hidden
+        - solution.products.available.each do |product|
+          li = link_to product.name, product

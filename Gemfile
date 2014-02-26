@@ -129,12 +129,12 @@ group :development, :test do
 
   # Browser Debugger
   gem 'better_errors'
-  gem 'binding_of_caller'
-  gem 'annotate', github: 'ctran/annotate_models'
-  gem 'timecop'
+  # gem 'binding_of_caller'
+  # gem 'annotate', github: 'ctran/annotate_models'
+  # gem 'timecop'
   gem 'colorize_unpermitted_parameters'
-  gem 'rack-mini-profiler'
-  gem 'xray-rails'
+  # gem 'rack-mini-profiler'
+  # gem 'xray-rails'
 
   # Test Framework
   gem 'minitest-rails'

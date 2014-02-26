@@ -63,4 +63,8 @@ class Product < ActiveRecord::Base
     # TODO: 一定数以下になったら通知する
     update_column :stock, stock
   end
+
+  def self.last_updated_at
+    self.order(updated_at: :desc).first.updated_at
+  end
 end
