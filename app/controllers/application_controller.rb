@@ -26,11 +26,11 @@ class ApplicationController < ActionController::Base
   end
 
   def title string
-    @title = "#{@default_title} - #{string}"
+    @title = "#{string} | davines 公式オンラインショップ　【ダヴィネスダイレクト】"
   end
 
   def default_title
-    @default_title ||= "davines online"
+    @default_title ||= "イタリア・パルマ生まれのdavines 公式オンラインショップ【ダヴィネスダイレクト】"
   end
 
   def rmt successfull, verb, resource

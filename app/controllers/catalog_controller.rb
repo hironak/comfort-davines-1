@@ -1,6 +1,7 @@
 class CatalogController < ApplicationController
   def series
     @series = Series.find(params[:id])
+    title @series.name
     @products = @series.products.available
     if params[:category_id]
       @products = @products
@@ -11,9 +12,11 @@ class CatalogController < ApplicationController
 
   def category
     @category = Category.find(params[:id])
+    title "#{@category.name}一覧"
   end
 
   def solution
     @solution = Solution.find(params[:id])
+    title "お悩み別−#{@solution.name}"
   end
 end
