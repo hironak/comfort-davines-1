@@ -28,9 +28,6 @@ html
             li
               = link_to mypage_root_path do
                 = image_tag 'header/nav_02.png', alt: 'sign in'
-            li
-              = link_to carts_path do
-                = image_tag 'header/nav_03.png', alt: "Cart(#{current_cart.items.count})"
 
           - else
             li
@@ -39,11 +36,11 @@ html
             li
               = link_to new_consumer_session_path do
                 = image_tag 'header/nav_02.png', alt: 'sign in'
-            li
-              = link_to carts_path do
-                = image_tag 'header/nav_03.png', alt: "Cart(#{current_cart.items.count})"
           li
-            = link_to introduction_path do
+            = link_to carts_path do
+              = image_tag 'header/nav_03.png', alt: "Cart(#{current_cart.items.count})"
+          li
+            = link_to utilization_path do
               = image_tag 'header/nav_04.png', alt: "ショッピングガイド"
 
         .logo
@@ -88,10 +85,11 @@ html
           h4 = link_to "会社概要", company_path
           ul
             li = link_to "About Davines", about_path
-            li = link_to "特定商取引に関する記載", tradeinfo_path
-            li = link_to "お問い合わせ", contact_path
-            li = link_to "店舗情報", shops_path
+            li = link_to "特定商取引", tradeinfo_path
+            li = link_to "プライバシーポリシー", privacypolicy_path
+            // li = link_to "店舗情報", shops_path
 
+        p.contact = link_to "お問い合わせ", contact_path
         p.about
           = link_to 'About Davines', about_path
         p.copyright

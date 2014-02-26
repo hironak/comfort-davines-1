@@ -23,6 +23,7 @@ Commers::Application.routes.draw do
     get "contact", action: "contact"
     get "company", action: "company"
     get "tradeinfo", action: "tradeinfo"
+    get "privacypolicy", action: "privacypolicy"
     get "shops", action: "shops"
   end
 

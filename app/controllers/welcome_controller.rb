@@ -34,6 +34,11 @@ class WelcomeController < ApplicationController
     title "特定商取引に関する記載"
   end
 
+  def privacypolicy
+    title "プライバシーポリシー"
+    @policy = File.read("#{Rails.root}/PRIVACYPOLICY.md")
+  end
+
   def shops
     title "店舗情報"
   end
