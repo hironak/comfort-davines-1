@@ -57,6 +57,13 @@ task :load_products => :environment do
 
     attrs['page_id'] = page.id
     Product.find_or_initialize_by(name: attrs['name'], sample: attrs['sample']).tap do |product|
+      product.photos.each_with_index do |photo, i|
+        if attrs["photos_attributes"][i]
+          attrs["photos_attributes"][i]["id"] = photo.id
+        else
+          photo.destroy
+        end
+      end
       product.attributes = attrs
       product.save
     end
