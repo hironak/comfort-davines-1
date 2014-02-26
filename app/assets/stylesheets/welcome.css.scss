@@ -19,6 +19,16 @@
   .visual {
     background: image-url('welcome/header_bg_01.jpg') center center no-repeat;
     height: 356px;
+    .container {
+      .large {
+        height: 250px;
+      }
+      .catalog {
+        li {
+          @include span-columns(2 of 10);
+        }
+      }
+    }
   }
   .selector {
     .container {

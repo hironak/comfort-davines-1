@@ -8,8 +8,13 @@
 
 Setting.create! tax_percentage: 5
 
-%w|ナチュラルテック オーセンティック OI/OIL モアインサイド|.each do |name|
-  Series.create name: name
+[
+  ['ナチュラルテック', :naturaltech],
+  ['オーセンティック', :authentic],
+  ['OI/OIL',           :oil],
+  ['モアインサイド',   :moreinside]
+].each do |name, identify|
+  Series.create name: name, identify: identify
 end
 
 %w|キット シャンプー コンディショナー＆パック スペシャルケア オイル スタイリング|.each do |name|

@@ -2,8 +2,18 @@
   .banner
     .visual
       .container
+        .large
+        ul.catalog
+          - Series.all.each do |series|
+            li
+              = link_to catalog_path(action: :series, id: series.id) do
+                = image_tag "welcome/nav_#{series.identify}.png"
+
     .selector
       .container
+
+
+
 
 .main
   .lineup

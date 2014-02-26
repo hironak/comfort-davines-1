@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140224191948) do
+ActiveRecord::Schema.define(version: 20140226000300) do
 
   create_table "administrators", force: true do |t|
     t.string   "username",          null: false
@@ -270,6 +270,7 @@ ActiveRecord::Schema.define(version: 20140224191948) do
     t.string   "topimage_content_type"
     t.integer  "topimage_file_size"
     t.datetime "topimage_updated_at"
+    t.string   "identify"
   end
 
   create_table "settings", force: true do |t|
