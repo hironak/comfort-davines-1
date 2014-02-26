@@ -19,7 +19,8 @@ deploy:
         code: |-
           echo -e $DEPLOY_KEY_PRIVATE > ~/.ssh/id_rsa
           chmod 0600 ~/.ssh/id_rsa
-    - wercker/cap
+    - wercker/cap:
+      tasks: deploy db:reload
   after-steps:
     - 1syo/idobata-notify@0.1.1:
         token: 958cd6e5-1efe-4dad-bfda-fd5089871b3a
