@@ -83,6 +83,8 @@
 .newitem {
   .item {
     @extend %item;
+    @include span-columns(4 of 12);
+    @include omega(3n);
     background: image-url('welcome/new_bg.png') left top no-repeat;
     background-size: 100% auto;
   }
