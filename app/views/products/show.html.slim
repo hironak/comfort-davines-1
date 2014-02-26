@@ -14,7 +14,7 @@
         h1 = @product.name
         p.label = "【#{@product.label}】"
       p.detail = @product.detail.html_safe
-      p.ingredient = image_tag 'products/ingredient_btn.jpg', alt: '成分表示'
+      p.ingredient = image_tag 'products/ingredient_btn.jpg', alt: '成分表示', title: @product.ingredient
 
   .optional-information
     - if @product.photos.count > 1

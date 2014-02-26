@@ -197,3 +197,10 @@
     }
   }
 }
+
+.ui-tooltip {
+  width: 300px;
+  font-size: $base-font-size * 0.7;
+  padding: 10px;
+  border: 2px solid black;
+}

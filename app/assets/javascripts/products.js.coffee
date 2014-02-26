@@ -6,3 +6,5 @@ jQuery ($)->
     $('.image-select a').removeClass 'active'
     $(@).addClass 'active'
     return false
+
+  $('.ingredient img').tooltip(track: true)
