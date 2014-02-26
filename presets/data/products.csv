@@ -24,17 +24,17 @@ name	refnum	type	label	image	view_price	template	sample	series_ids	category_ids	
 モアインサイド　マリオ＜ソフトヘアワックス＞	87007	Product::MoreInside	無造作ヘアスタイルに	mario_img02	2835		0	4			125mL	リッチな質感でありながら、伸びが良く、自然な仕上がりをキープするペースト状のワックス。髪に適度なセット力と自然な輝きを与え、やわらかい印象のスタイルをつくります。ショート、ミディアムヘアにおすすめのユニセックスなソフトワックスです。	
 モアインサイド　マルセル＜ミディアムヘアワックス＞	87008	Product::MoreInside	動きのあるマットスタイルに	marcel_img02	2835		0	4			100mL	ドライなテクスチャーでありながら、しなやかに伸びるミディアムワックス。適度なセット力があり、マットな仕上がりをキープします。髪に油っぽさを残さず、立体感を与えます。がっちりと固めたくないショート、ミディアムヘアに適したミディアムホールドワックスです。	
 モアインサイド　トニー＜ハードヘアワックス＞	87009	Product::MoreInside	しっかり固めるハードスタイルに	tony_img02	3150		0	4			100mL	強力なセット力を持つ、マットな質感のハードワックス。髪に立体感を与え、思い通りのスタイリングを可能にします。べたつきを残さず、しっとりとまとめ上げ、ポイントになる毛束を際立たせます。1日中ヘアの動きをキープしたいスタイルにおすすめです。	
-ナチュラルテック　シャンプー＜E＞	71184	Product::Naturaltech	エイジングケア用	sumple_nt_e01	0	naturaltech_e	1				250mL		
-ナチュラルテック　シャンプー＜N＞	71186	Product::Naturaltech	ダメージヘア用	sumple_nt_n01	0	naturaltech_n	1				250mL		
+ナチュラルテック　シャンプー＜E＞	71184	Product::Naturaltech	エイジングケア用	sample_nt_e01	0	naturaltech_e	1				250mL		
+ナチュラルテック　シャンプー＜N＞	71186	Product::Naturaltech	ダメージヘア用	sample_nt_n01	0	naturaltech_n	1				250mL		
 ナチュラルテック　コンディショナー＜N＞	71188	Product::Naturaltech	ダメージヘア用	sumple_nt_n02	0	naturaltech_n	1				250mL		
 ナチュラルテック　ヘアパック＜N＞	71187	Product::Naturaltech	ダメージヘア用	sumple_nt_n03	0	naturaltech_n	1				250mL		
-ナチュラルテック　シャンプー＜R＞	71191	Product::Naturaltech	オイリーヘア用	sumple_nt_r01	0	naturaltech_r	1				250mL		
-ナチュラルテック　スクラブ シャンプー＜D＞	71192	Product::Naturaltech	スカルプケア用	sumple_nt_d01	0	naturaltech_d	1				250mL		
-ナチュラルテック　シャンプー＜C＞	71195	Product::Naturaltech	デリケートヘア用	sumple_nt_c01	0	naturaltech_c	1				250mL		
-ナチュラルテック　シャンプー＜W＞	71193	Product::Naturaltech	保湿ケア用	sumple_nt_w01	0	naturaltech_w	1				250mL		
-ナチュラルテック　コンディショナー＜W＞	71194	Product::Naturaltech	保湿ケア用	sumple_nt_w02	0	naturaltech_w	1				150mL		
-オーセンティック　ネクター	74017	Product::Authentic	text	nectar_img	0	authentic	1						
-オーセンティック　バーム	74018	Product::Authentic	text	balm_img	0	authentic	1						
-オーセンティック　オイル	74019	Product::Authentic	text	oil_img	0	authentic	1						
-オーセンティック　バター	74020	Product::Authentic	text	butter_img	0	authentic	1						
-オイ　オイル	73304	Product::OiOil	text	oioil	0	oioil	1				50mL		
+ナチュラルテック　シャンプー＜R＞	71191	Product::Naturaltech	オイリーヘア用	sample_nt_r01	0	naturaltech_r	1				250mL		
+ナチュラルテック　スクラブ シャンプー＜D＞	71192	Product::Naturaltech	スカルプケア用	sample_nt_d01	0	naturaltech_d	1				250mL		
+ナチュラルテック　シャンプー＜C＞	71195	Product::Naturaltech	デリケートヘア用	sample_nt_c01	0	naturaltech_c	1				250mL		
+ナチュラルテック　シャンプー＜W＞	71193	Product::Naturaltech	保湿ケア用	sample_nt_w01	0	naturaltech_w	1				250mL		
+ナチュラルテック　コンディショナー＜W＞	71194	Product::Naturaltech	保湿ケア用	sample_nt_w02	0	naturaltech_w	1				150mL		
+オーセンティック　ネクター	74017	Product::Authentic	text	sample_at_nectar	0	authentic	1						
+オーセンティック　バーム	74018	Product::Authentic	text	sample_at_balm	0	authentic	1						
+オーセンティック　オイル	74019	Product::Authentic	text	sample_at_oil	0	authentic	1						
+オーセンティック　バター	74020	Product::Authentic	text	sample_at_butter	0	authentic	1						
+オイ　オイル	73304	Product::OiOil	text	sample_oioil	0	oioil	1				50mL		
