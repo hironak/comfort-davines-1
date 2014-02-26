@@ -17,8 +17,15 @@
 .banner {
   margin-bottom: 10px;
   .visual {
-    background: image-url('welcome/header_bg_01.jpg') center center no-repeat;
+    position: relative;
     height: 356px;
+    .background {
+      .visual01 {
+        height: 356px;
+        width: 100%;
+        background: image-url('welcome/header_bg_01.jpg') center center no-repeat;
+      }
+    }
     .container {
       .large {
         height: 250px;
