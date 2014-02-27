@@ -10,7 +10,7 @@
       - @series.categories.load.each do |category|
         li = link_to category.name, { category_id: category.id }, class: ((params[:category_id] == category.id.to_s) && 'active')
   .series-items
-    = render partial: "product_#{@series.identify}", collection: @products
+    = render partial: "product_#{@series.identify}", collection: @products, as: :product
 
   h2 = image_tag 'welcome/ranking.png', alt: 'ランキング'
   .ranking
