@@ -90,12 +90,12 @@
   .up {
     overflow: hidden;
     margin-bottom: 13px;
-    img {
+    a {
       @include span-columns(4.5 of 9);
     }
   }
   .down {
-    img {
+    a {
       @include span-columns(3 of 9);
     }
   }
@@ -124,6 +124,9 @@
       margin: 0;
       padding: 0;
       padding-bottom: 20px;
+      a {
+        text-decoration: underline;
+      }
     }
   }
 }
@@ -183,6 +186,9 @@
       margin: 0;
       padding: 0;
       padding-bottom: 20px;
+      a {
+        text-decoration: underline;
+      }
     }
   }
 }

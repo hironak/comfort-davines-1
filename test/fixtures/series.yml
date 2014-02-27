@@ -3,6 +3,8 @@
 
 one:
   name: MyString
+  identify: myseries1
 
 two:
   name: MyString
+  identify: myseries2

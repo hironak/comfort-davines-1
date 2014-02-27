@@ -2,7 +2,7 @@
   .series
     h3 ブランド別
     - Series.includes(:products).each do |series|
-      h4 = link_to series.name, catalog_path(action: :series, id: series)
+      h4 = link_to series.name, catalog_path(action: :series, id: series.identify)
       ul
         - series.products.available.each do |product|
           li = link_to product.name, product

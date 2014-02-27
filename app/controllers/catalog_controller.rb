@@ -1,6 +1,6 @@
 class CatalogController < ApplicationController
   def series
-    @series = Series.find(params[:id])
+    @series = Series.where(identify: params[:id]).first
     title @series.name
     @products = @series.products.available
     if params[:category_id]
