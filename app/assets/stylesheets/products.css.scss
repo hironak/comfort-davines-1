@@ -16,10 +16,9 @@
 
 .basic-information {
   @include clearfix;
+  margin-bottom: 10px;
   .main-image {
     @include span-columns(2 of 6);
-    height: 380px;
-    line-height: 380px;
     margin-bottom: $base-line-height;
     text-align: center;
     img {
@@ -55,6 +54,7 @@
 
 .optional-information {
   @include clearfix;
+  margin-bottom: 30px;
   .image-select {
     a {
       display: block;
