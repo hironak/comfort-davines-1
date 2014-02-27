@@ -11,7 +11,7 @@ Setting.create! tax_percentage: 5
 [
   ['ナチュラルテック', :naturaltech],
   ['オーセンティック', :authentic],
-  ['OI/OIL',           :oil],
+  ['オイ オイル',      :oioil],
   ['モアインサイド',   :moreinside]
 ].each do |name, identify|
   Series.create name: name, identify: identify
@@ -97,6 +97,11 @@ CSV.read(Rails.root.join("presets/data/products.csv").to_s, headers: :first_row,
     if template = ::Template.where(identify: template_identify).first
       attrs["template_id"] = template.id
     end
+  end
+
+  if series = Series.where(identify: attributes['series']).first
+    attributes['series_ids'] = [series.id]
+    attributes.delete('series')
   end
 
   attrs["stock"] = 10

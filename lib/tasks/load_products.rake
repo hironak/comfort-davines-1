@@ -65,7 +65,13 @@ task :load_products => :environment do
       end
     end
 
+    if series = Series.where(identify: attributes['series']).first
+      attributes['series_ids'] = [series.id]
+      attributes.delete('series')
+    end
+
     attrs["stock"] = 10
+
     if identify = attrs.delete('page')
       page = Page.find_or_initialize_by(identify: identify)
       page.title = attrs["name"]
