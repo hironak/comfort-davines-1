@@ -102,8 +102,8 @@ CSV.read(Rails.root.join("presets/data/products.csv").to_s, headers: :first_row,
 
   if series = Series.where(identify: attrs['series']).first
     attrs['series_ids'] = [series.id]
-    attrs.delete('series')
   end
+  attrs.delete('series')
 
   attrs["stock"] = 10
 

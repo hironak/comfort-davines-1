@@ -43,7 +43,7 @@ p {
 
 a {
   color: $base-link-color;
-  text-decoration: none;
+  text-decoration: underline;
   @include transition(color 0.1s linear);
 
   &:hover {

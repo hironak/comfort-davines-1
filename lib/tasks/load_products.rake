@@ -68,8 +68,8 @@ task :load_products => :environment do
 
     if series = Series.where(identify: attrs['series']).first
       attrs['series_ids'] = [series.id]
-      attrs.delete('series')
     end
+    attrs.delete('series')
 
     attrs["stock"] = 10
 

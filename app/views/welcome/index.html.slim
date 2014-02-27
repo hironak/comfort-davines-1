@@ -10,6 +10,9 @@
         .container
           .large
           ul.catalog
+            li
+              = link_to '' do
+                = image_tag "welcome/nav_travelkit.png"
             - Series.all.each do |series|
               li
                 = link_to catalog_path(action: :series, id: series.id) do
@@ -24,15 +27,18 @@
 .main
   .lineup
     h2 = image_tag 'welcome/lineup.png', alt: 'ラインナップ'
-    p
+    p.up
       = image_tag 'welcome/bnr01.png'
       = image_tag 'welcome/bnr02.png'
+    p.down
       = image_tag 'welcome/bnr03.png'
       = image_tag 'welcome/bnr04.png'
       = image_tag 'welcome/bnr05.png'
   .topics
     h2 = image_tag 'welcome/topics.png', aly: 'TOPICS'
     dl
+      dt 2013年 3月 1日
+      dd 3月 6日より大阪三越伊勢丹で発売開始！
       dt 2013年 3月 1日
       dd 3月 6日より大阪三越伊勢丹で発売開始！
 
@@ -67,6 +73,13 @@
           span.small （税込）
         .cart = link_to add_carts_path(product_id: product.id, amount: 1), method: :post do
           = image_tag 'welcome/cart_btn.png', alt: 'カートに入れる'
+  .media
+    h2 = image_tag 'welcome/media.png', alt: 'メディア掲載情報'
+    p
+      = image_tag 'welcome/media01.png'
+      = image_tag 'welcome/media01.png'
+      = image_tag 'welcome/media01.png'
+      = image_tag 'welcome/media01.png'
   .voice
     h2 = image_tag 'welcome/usercoment.png', alt: 'お客様の声'
   .information
@@ -80,6 +93,13 @@
     = image_tag 'welcome/about_davines.png', alt: 'About Davines'
   .news
     h2 = image_tag 'welcome/news.png', alt: 'News'
+    dl
+      dt 2013年 3月20日
+      dd 
+        p
+          a 3月27日より伊勢丹新宿ビューティアポセカリーにてキット販売中！
+          br
+          新商品オイオイルにナチュラルテック＜N＞のシャンプー、コンディショナーがついた伊勢丹限定キットです。
   .products
     h2 = image_tag 'welcome/products.jpg', alt: 'PRODUCTS'
     .prev = image_tag 'welcome/products_left.png', alt: 'prev'
