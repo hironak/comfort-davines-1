@@ -2,9 +2,9 @@
 # http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  name: MyString
-  identify: myseries1
+  name: Naturaltech
+  identify: naturaltech
 
 two:
-  name: MyString
-  identify: myseries2
+  name: Authentic
+  identify: authentic

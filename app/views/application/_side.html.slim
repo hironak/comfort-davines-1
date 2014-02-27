@@ -10,7 +10,9 @@
   .category
     h3 カテゴリー別
     - Category.includes(:products).each do |category|
-      h4 = category.name
+      h4
+        span.arrow = image_tag 'application/li_black.png'
+        = category.name
       ul.hidden
         - category.products.available.each do |product|
           li = link_to product.name, product
@@ -18,7 +20,9 @@
   .solution
     h3 お悩み別
     - Solution.includes(:products).each do |solution|
-      h4 = solution.name
+      h4
+        span.arrow = image_tag 'application/li_black.png'
+        = solution.name
       ul.hidden
         - solution.products.available.each do |product|
           li = link_to product.name, product

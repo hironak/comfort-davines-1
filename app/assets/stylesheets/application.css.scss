@@ -113,6 +113,9 @@
         padding: ($base-line-height * 0.2) 0;
       }
       h4 {
+        .arrow {
+          padding: 4px;
+        }
         font-size: $base-font-size * 0.8;
         padding: $base-line-height * 0.2;
         background: #eeeeee;
