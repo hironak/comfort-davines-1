@@ -1,6 +1,9 @@
+.container.maincontent {
+  padding-top: 0;
+}
+
 .main {
   h1, h2 {
-    height: 65px;
     line-height: 65px;
     margin-bottom: $base-line-height * 0.5;
     img {
@@ -50,11 +53,14 @@
       .container {
         z-index: 10;
         .large {
-          height: 250px;
+          height: 235px;
         }
         .catalog {
           li {
-            @include span-columns(2 of 10);
+            @include span-columns(2.4 * 4 of 12 * 4);
+            img {
+              width: 100%;
+            }
           }
         }
       }
@@ -85,14 +91,12 @@
     overflow: hidden;
     margin-bottom: 13px;
     img {
-      display: block;
-      @include span-columns(6 of 12);
+      @include span-columns(4.5 of 9);
     }
   }
   .down {
     img {
-      display: block;
-      @include span-columns(4 of 12);
+      @include span-columns(3 of 9);
     }
   }
 }
@@ -186,7 +190,6 @@
 .main {
   &.privacypolicy {
     h2 {
-      height: auto;
       margin-bottom: 55px;
     }
     h3 {

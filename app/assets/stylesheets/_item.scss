@@ -50,7 +50,7 @@
 .ranking {
   .item {
     @extend %item;
-    @include span-columns(4 of 12);
+    @include span-columns(3 of 9);
     @include omega(3n);
     padding-top: 12px;
     height: 477px;

@@ -31,7 +31,7 @@
     .item {
       &.naturaltech-item {
         @extend %item;
-        @include span-columns(4 of 12);
+        @include span-columns(3 of 9);
         @include omega(3n);
         height: 600px;
         .image {
@@ -40,7 +40,7 @@
       }
       &.authentic-item {
         @extend %item;
-        @include span-columns(6 of 12);
+        @include span-columns(4.5 of 9);
         @include omega(2);
         height: 600px;
         .detail {
