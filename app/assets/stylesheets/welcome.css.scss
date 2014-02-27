@@ -189,6 +189,30 @@
   }
 }
 
+.side {
+  .side-shoppingguide {
+    position: relative;
+    font-size: $base-font-size * 0.8;
+    ul {
+      position: absolute;
+      top: 50px;
+      padding: 20px 30px;
+
+      li {
+        line-height: 27px;
+        list-style-position: outside;
+        list-style-image: image-url('welcome/shoppingguide_li.png');
+        &.noarrow {
+          list-style: none;
+        }
+        a {
+          color: $base-font-color;
+        }
+      }
+    }
+  }
+}
+
 .main {
   &.privacypolicy {
     h2 {
