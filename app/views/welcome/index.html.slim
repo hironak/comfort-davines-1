@@ -3,9 +3,11 @@
     .visual
       .background
         .frame
-          .slide.visual01
-          .slide.visual02
-          .slide.visual03
+          .slide.travelkit
+          .slide.naturaltech
+          .slide.authentic
+          .slide.oioil
+          .slide.moreinside
       .foreground
         .container
           .large
@@ -15,7 +17,7 @@
                 = image_tag "welcome/nav_travelkit.png"
             - Series.all.each do |series|
               li
-                = link_to catalog_path(action: :series, id: series.id) do
+                = link_to catalog_path(action: :series, id: series.identify) do
                   = image_tag "welcome/nav_#{series.identify}.png"
 
     .selector
@@ -40,7 +42,7 @@
       = link_to catalog_path(action: :series, id: :oioil) do
         = image_tag 'welcome/bnr05.png'
   .topics
-    h2 = image_tag 'welcome/topics.png', aly: 'TOPICS'
+    h2 = image_tag 'welcome/topics_line.png', aly: 'TOPICS'
     dl
       dt 2013年 3月 1日
       dd 
@@ -107,6 +109,12 @@
           a 3月27日より伊勢丹新宿ビューティアポセカリーにてキット販売中！
           br
           新商品オイオイルにナチュラルテック＜N＞のシャンプー、コンディショナーがついた伊勢丹限定キットです。
+      dt 2013年 3月 1日
+      dd
+        p
+          a 3月 6日よりJR 大阪三越伊勢丹で発売開始！
+          br
+          JR 大阪伊勢丹8階にオーセンティックとナチュラルテック（一部の商品）取扱中。
   .products
     h2 = image_tag 'welcome/products.jpg', alt: 'PRODUCTS'
     .prev = image_tag 'welcome/products_left.png', alt: 'prev'
@@ -116,5 +124,14 @@
           = image_tag product.image.url(:thumb)
     .next = image_tag 'welcome/products_right.png', alt: 'next'
 
+  p
+    = image_tag 'welcome/'
+    = image_tag 'welcome/'
+    = image_tag 'welcome/'
+
 .side
   = render 'side'
+  p = link_to contact_path do
+    = image_tag 'welcome/contact.jpg', alt: 'お問い合わせ'
+  p = link_to 'facebook' do
+    = image_tag 'welcome/facebook.jpg', alt: 'DAVINES FACEBOOK'

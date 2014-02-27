@@ -1,6 +1,6 @@
 - cache Product.last_updated_at
   .series
-    h3 ブランド別
+    h3 ライン別
     - Series.includes(:products).each do |series|
       h4 = link_to series.name, catalog_path(action: :series, id: series.identify)
       ul
@@ -8,7 +8,7 @@
           li = link_to product.name, product
 
   .category
-    h3 カテゴリ別
+    h3 カテゴリー別
     - Category.includes(:products).each do |category|
       h4 = category.name
       ul.hidden

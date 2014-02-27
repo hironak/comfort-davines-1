@@ -36,14 +36,10 @@
         .slide {
           float: left;
           height: 356px;
-          &.visual01 {
-            background: image-url('welcome/header_bg_01.jpg') center center no-repeat;
-          }
-          &.visual02 {
-            background: image-url('welcome/header_bg_01.jpg') center center no-repeat;
-          }
-          &.visual03 {
-            background: image-url('welcome/header_bg_01.jpg') center center no-repeat;
+          @each $series in travelkit, naturaltech, authentic, oioil, moreinside {
+            &.#{$series} {
+              background: image-url('welcome/header_#{$series}.jpg') center center no-repeat;
+            }
           }
         }
       }
