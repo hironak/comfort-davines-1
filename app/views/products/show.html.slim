@@ -5,7 +5,7 @@
       = render inline: @product.template.header.html_safe, type: 'erb'
 
   ul.kind
-    - @product.kind.split.each do |kind|
+    - @product.kind.to_s.split.each do |kind|
       li = kind
 
   .basic-information
