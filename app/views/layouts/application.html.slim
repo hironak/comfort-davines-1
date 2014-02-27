@@ -50,11 +50,14 @@ html
 
     .contents class="#{controller.controller_path.gsub('/', '_')}"
 
-      .container
-        - if notice
-          p.notice = notice
-        - if alert
-          p.alert = alert
+      - if notice
+        .notice
+          .container
+            p = notice
+      - if alert
+        .alert
+          .container
+            p = alert
 
       = yield :content_header
       .container.maincontent

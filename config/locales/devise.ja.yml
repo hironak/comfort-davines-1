@@ -1,0 +1,7 @@
+# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+
+ja:
+  devise:
+    mailer:
+      confirmation_instructions:
+        subject: "davines direct本登録メール"
