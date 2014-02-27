@@ -118,10 +118,11 @@
   .products
     h2 = image_tag 'welcome/products.jpg', alt: 'PRODUCTS'
     .prev = image_tag 'welcome/products_left.png', alt: 'prev'
-    ul
-      - Product.available.each do |product|
-        li = link_to product do
-          = image_tag product.image.url(:thumb)
+    .frame
+      ul
+        - Product.available.each do |product|
+          li = link_to product do
+            = image_tag product.image.url(:thumb)
     .next = image_tag 'welcome/products_right.png', alt: 'next'
 
   /p

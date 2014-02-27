@@ -148,19 +148,23 @@
 .products {
   .prev,
   .next {
+    cursor: pointer;
     text-align: center;
     line-height: 100px;
     @include span-columns(1 of 22);
   }
-  ul {
+  .frame {
     @include span-columns(20 of 22);
     height: 100px;
     overflow: hidden;
-    li {
-      height: 100px;
-      line-height: 100px;
-      @include span-columns(2 of 12);
-      text-align: center;
+    ul {
+      li {
+        width: 105px;
+        float: left;
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+      }
     }
   }
 }
