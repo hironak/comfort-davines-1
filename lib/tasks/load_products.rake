@@ -15,13 +15,13 @@ task :load_products => :environment do
     authentic_03
     authentic_04
     oioil
-    moreinside01
-    moreinside02
-    moreinside03
-    moreinside04
-    moreinside05
-    moreinside06
-    moreinside07
+    moreinside_01
+    moreinside_02
+    moreinside_03
+    moreinside_04
+    moreinside_05
+    moreinside_06
+    moreinside_07
   ].each do |identify|
     template = ::Template.find_or_initialize_by(identify: identify)
     template.name = identify

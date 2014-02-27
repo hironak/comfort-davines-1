@@ -1,0 +1,21 @@
+.product-header {
+  position: relative;
+}
+.product-header .logo {
+  height: 65px;
+  float: left;
+  margin-bottom: 5px;
+}
+.product-header .navigation {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
+.product-header .navigation li {
+  display: inline;
+}
+.product-banner {
+}
+.product-banner img {
+  width: 100%;
+}
