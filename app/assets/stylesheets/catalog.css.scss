@@ -73,7 +73,7 @@
         }
       }
       @for $n from 1 through 7 {
-        &.moreinside0#{$n} {
+        &.moreinside_0#{$n} {
           background: image-url("catalog/moreinside/itembg_0#{$n}.png") left top no-repeat;
           background-size: 100% auto;
         }
