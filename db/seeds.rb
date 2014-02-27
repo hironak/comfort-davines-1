@@ -48,6 +48,7 @@ authentic_01
 authentic_02
 authentic_03
 authentic_04
+oioil
 moreinside01
 moreinside02
 moreinside03
@@ -99,9 +100,9 @@ CSV.read(Rails.root.join("presets/data/products.csv").to_s, headers: :first_row,
     end
   end
 
-  if series = Series.where(identify: attributes['series']).first
-    attributes['series_ids'] = [series.id]
-    attributes.delete('series')
+  if series = Series.where(identify: attrs['series']).first
+    attrs['series_ids'] = [series.id]
+    attrs.delete('series')
   end
 
   attrs["stock"] = 10
