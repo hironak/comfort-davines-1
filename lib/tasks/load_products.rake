@@ -66,6 +66,8 @@ task :load_products => :environment do
       end
     end
 
+    attrs['category_ids'] = attrs['category_ids'].to_s.split
+
     if series = Series.where(identify: attrs['series']).first
       attrs['series_ids'] = [series.id]
     end

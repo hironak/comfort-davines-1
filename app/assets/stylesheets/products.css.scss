@@ -1,4 +1,3 @@
-
 .kind {
   @include clearfix;
   margin-bottom: $base-line-height * 0.5;
@@ -6,6 +5,7 @@
   li {
     display: inline;
     border: 3px solid #000;
+    margin-left: 10px;
     padding: 4px 10px;
     background: white;
     font-size: $base-font-size * 0.6;
@@ -29,7 +29,6 @@
   .information {
     @include span-columns(4 of 6);
     position: relative;
-    height: 380px;
     margin-bottom: $base-line-height;
     .name {
       padding: ($base-line-height * 1.2) 0;
@@ -51,17 +50,11 @@
     .detail {
       font-size: $base-font-size * 0.8;
     }
-    .ingredient {
-      position: absolute;
-      bottom: 0px;
-      right: 0px;
-    }
   }
 }
 
 .optional-information {
-  height: 180px;
-  position: relative;
+  @include clearfix;
   .image-select {
     a {
       display: block;
@@ -84,9 +77,10 @@
     }
   }
   .product-information {
-    position: absolute;
-    top: -$base-font-size * 0.7;
-    right: 0px;
+    float: right;
+    .ingredient {
+      text-align: right;
+    }
     dl {
       margin: 0;
       padding: 0;
@@ -111,6 +105,19 @@
           display: inline;
         }
       }
+    }
+  }
+}
+
+.reviews {
+  form {
+    textarea {
+      height: 80px;
+      @include span-columns(7 of 9);
+    }
+    input {
+      height: 80px;
+      @include span-columns(2 of 9);
     }
   }
 }

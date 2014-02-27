@@ -5,7 +5,8 @@
       = render inline: @product.template.header.html_safe, type: 'erb'
 
   ul.kind
-    li = @product.kind
+    - @product.kind.split.each do |kind|
+      li = kind
 
   .basic-information
     .main-image = image_tag @product.image.url(:medium)
@@ -14,7 +15,6 @@
         h1 = @product.name
         p.label = "【#{@product.label}】"
       p.detail = @product.detail.html_safe
-      p.ingredient = image_tag 'products/ingredient_btn.jpg', alt: '成分表示', title: @product.ingredient
 
   .optional-information
     - if @product.photos.count > 1
@@ -25,9 +25,10 @@
               = image_tag photo.image.url(:mini)
 
     .product-information
+      p.ingredient = image_tag 'products/ingredient_btn.jpg', alt: '成分表示', title: @product.ingredient
       = form_tag add_carts_path, method: :post do
         dl
-          dt 
+          dt
           dd
             .price
               = number_to_currency @product.view_price
@@ -50,9 +51,9 @@
         .product = link_to review.product.name, review.product
         .body = simple_format review.body
 
-  = form_for @product.reviews.new, url: reviews_path, method: :post do |f|
-    = f.text_area :body
-    = f.hidden_field :product_id
-    = f.submit
+    = form_for @product.reviews.new, url: reviews_path, method: :post do |f|
+      = f.text_area :body
+      = f.hidden_field :product_id
+      = f.submit
 
 .side = render 'side'

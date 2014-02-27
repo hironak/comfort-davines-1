@@ -100,6 +100,8 @@ CSV.read(Rails.root.join("presets/data/products.csv").to_s, headers: :first_row,
     end
   end
 
+  attrs['category_ids'] = attrs['category_ids'].to_s.split
+
   if series = Series.where(identify: attrs['series']).first
     attrs['series_ids'] = [series.id]
   end
