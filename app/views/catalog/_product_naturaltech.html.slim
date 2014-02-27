@@ -1,0 +1,18 @@
+- product = product_naturaltech
+.item class=product.catalog_classes
+  .image = link_to product do
+    = image_tag product.image.url(:item)
+  ul.kind
+    li = product.kind
+  .name = link_to product.name, product
+  .label = "【#{product.label}】"
+  .detail = product.small_detail
+  .capacity = product.capacity
+  .price
+    = number_to_currency product.view_price
+    small = "(税込)"
+  .navigate
+    = link_to product, class: 'todetail' do
+      = image_tag 'catalog/naturaltech/item_detail.gif', alt: '詳しく見る'
+    = link_to add_carts_path(product_id: product.id, amount: 1), method: :post, class: 'addcart' do
+      = image_tag 'catalog/naturaltech/item_cartbtn.jpg', alt: 'カートに入れる'

@@ -1,32 +1,16 @@
 = content_for :content_header do
   .catalog-header
     .container
-      p Test
+      = image_tag "catalog/header_#{@series.identify}.jpg", alt: @series.name
 
 .main
-  ul.category-select
-    li = link_to "すべて", { category_id: nil }, class: (params[:category_id].nil? && "active")
-    - @series.categories.load.each do |category|
-      li = link_to category.name, { category_id: category.id }, class: ((params[:category_id] == category.id.to_s) && 'active')
+  - if @series.identify == 'naturaltech'
+    ul.category-select
+      li = link_to "すべて", { category_id: nil }, class: (params[:category_id].nil? && "active")
+      - @series.categories.load.each do |category|
+        li = link_to category.name, { category_id: category.id }, class: ((params[:category_id] == category.id.to_s) && 'active')
   .series-items
-    - @products.each do |product|
-      .item class=product.catalog_classes 
-        .image = link_to product do
-          = image_tag product.image.url(:item)
-        ul.kind
-          li = product.kind
-        .name = link_to product.name, product
-        .label = "【#{product.label}】"
-        .detail = product.small_detail
-        .capacity = product.capacity
-        .price
-          = number_to_currency product.view_price
-          small = "(税込)"
-        .navigate
-          = link_to product, class: 'todetail' do
-            = image_tag 'catalog/item_detail.gif', alt: '詳しく見る'
-          = link_to add_carts_path(product_id: product.id, amount: 1), method: :post, class: 'addcart' do
-            = image_tag 'catalog/item_cartbtn.jpg', alt: 'カートに入れる'
+    = render partial: "product_#{@series.identify}", collection: @products
 
   h2 = image_tag 'welcome/ranking.png', alt: 'ランキング'
   .ranking
@@ -37,7 +21,7 @@
         .name = link_to product.name, product
         .detail = product.small_detail
         .price
-          span.small 
+          span.small
           '
           = number_to_currency product.price
           span.small （税込）

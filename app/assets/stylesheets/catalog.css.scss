@@ -1,5 +1,4 @@
 .catalog-header {
-  background: $light-gray;
 }
 
 .main {
@@ -63,19 +62,19 @@
       margin-bottom: 10px;
       @each $n in e, n, r, d, c, w {
         &.naturaltech_#{$n} {
-          background: image-url('catalog/itembg_#{$n}.png') left top no-repeat;
+          background: image-url('catalog/naturaltech/itembg_#{$n}.png') left top no-repeat;
           background-size: 100% auto;
         }
       }
       @for $n from 1 through 4 {
         &.authentic_0#{$n} {
-          background: image-url("catalog/at_itembg0#{$n}.png") left top no-repeat;
+          background: image-url("catalog/authentic/at_itembg0#{$n}.png") left top no-repeat;
           background-size: 100% auto;
         }
       }
       @for $n from 1 through 7 {
         &.moreinside0#{$n} {
-          background: image-url("catalog/itembg_0#{$n}.png") left top no-repeat;
+          background: image-url("catalog/moreinside/itembg_0#{$n}.png") left top no-repeat;
           background-size: 100% auto;
         }
       }
