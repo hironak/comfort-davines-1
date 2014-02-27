@@ -28,7 +28,7 @@
 
 .main
   .lineup
-    h2 = image_tag 'welcome/lineup.png', alt: 'ラインナップ'
+    h2 = image_tag 'welcome/lineup_line.png', alt: 'ラインナップ'
     p.up
       = link_to '' do
         = image_tag 'welcome/bnr01.png'
@@ -45,10 +45,10 @@
     h2 = image_tag 'welcome/topics_line.png', aly: 'TOPICS'
     dl
       dt 2013年 3月 1日
-      dd 
+      dd
         a 3月 6日より大阪三越伊勢丹で発売開始！
       dt 2013年 3月 1日
-      dd 
+      dd
         a 3月 6日より大阪三越伊勢丹で発売開始！
 
   h2 = image_tag 'welcome/newitem.png', alt: 'New Item'
@@ -60,7 +60,7 @@
         .name = link_to product.name, product
         .detail = product.small_detail
         .price
-          span.small 
+          span.small
           '
           = number_to_currency product.view_price
           span.small （税込）
@@ -76,7 +76,7 @@
         .name = link_to product.name, product
         .detail = product.small_detail
         .price
-          span.small 
+          span.small
           '
           = number_to_currency product.view_price
           span.small （税込）
@@ -84,7 +84,7 @@
           = image_tag 'welcome/cart_btn.png', alt: 'カートに入れる'
   .media
     h2 = image_tag 'welcome/media_line.png', alt: 'メディア掲載情報'
-    p
+    /p
       = image_tag 'welcome/media01.png'
       = image_tag 'welcome/media01.png'
       = image_tag 'welcome/media01.png'
@@ -104,7 +104,7 @@
     h2 = image_tag 'welcome/news.png', alt: 'News'
     dl
       dt 2013年 3月20日
-      dd 
+      dd
         p
           a 3月27日より伊勢丹新宿ビューティアポセカリーにてキット販売中！
           br
@@ -124,10 +124,10 @@
           = image_tag product.image.url(:thumb)
     .next = image_tag 'welcome/products_right.png', alt: 'next'
 
-  p
-    = image_tag 'welcome/'
-    = image_tag 'welcome/'
-    = image_tag 'welcome/'
+  /p
+  /  = image_tag 'welcome/'
+  /  = image_tag 'welcome/'
+  /  = image_tag 'welcome/'
 
 .side
   = render 'side'
