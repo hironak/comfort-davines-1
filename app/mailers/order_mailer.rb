@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class OrderMailer < ActionMailer::Base
   default from: "order@davines.com"
 
@@ -8,6 +9,6 @@ class OrderMailer < ActionMailer::Base
   #
   def complete to, order
     @order = order
-    mail subject: "【ダヴィネス ダイレクト】ご注文ありがとうございました", to: to
+    mail subject: "【davines direct】ご注文ありがとうございました", to: to
   end
 end
