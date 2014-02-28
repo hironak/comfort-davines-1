@@ -60,21 +60,22 @@
   h3 = image_tag 'products/plus1_line.png', alt: 'おすすめプラス１アイテム'
   .plusone
     - @product.plusone.tap do |product|
-      .image = image_tag product.image.url(:item)
-      .information
-        p.name = product.name
-        p.label = "【#{@product.label}】"
-        .data
-          span.price
-            = number_to_currency product.view_price
-            | (税込)　
-          = product.capacity
-          br
-          br
-          = link_to product do
-            = image_tag 'products/plus1_btn.jpg', alt: '詳しく見る'
-        .detail
-          = product.detail.html_safe
+      - if product
+        .image = image_tag product.image.url(:item)
+        .information
+          p.name = product.name
+          p.label = "【#{@product.label}】"
+          .data
+            span.price
+              = number_to_currency product.view_price
+              | (税込)　
+            = product.capacity
+            br
+            br
+            = link_to product do
+              = image_tag 'products/plus1_btn.jpg', alt: '詳しく見る'
+          .detail
+            = product.detail.html_safe
 
   h3 = image_tag 'products/otheritem_line.png', alt: 'この商品を見た方は、こちらの商品も見ています。'
   .recommendation
@@ -91,6 +92,8 @@
           = product.capacity
         .detail
           = product.small_detail
+
+  .hr = image_tag 'application/line.png', alt: '----------------'
 
   h3 = image_tag 'products/otherproducts.jpg', alt: 'other products'
   ul.otherproducts
