@@ -181,7 +181,11 @@
         line-height: 1.2em;
       }
     }
-
+    .otherproducts {
+      li {
+        @include span-columns(18 of 90);
+      }
+    }
   }
 
   .global-navigation {

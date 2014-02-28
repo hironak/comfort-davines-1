@@ -28,4 +28,21 @@
         .cart = link_to add_carts_path(product_id: product.id, amount: 1), method: :post do
           = image_tag 'welcome/cart_btn.png', alt: 'カートに入れる'
 
+  h2 = image_tag 'welcome/usercoment.png', alt: 'お客様の声'
+  .reviews = render 'reviews'
+
+  h3 = image_tag 'products/otherproducts.jpg', alt: 'other products'
+  ul.otherproducts
+    li = link_to catalog_path(action: :series, id: '') do
+      = image_tag 'products/otherproducts_01.png', alt: ''
+    li = link_to catalog_path(action: :series, id: 'moreinside') do
+      = image_tag 'products/otherproducts_02.png', alt: 'モアインサイド'
+    li = link_to catalog_path(action: :series, id: 'naturaltech') do
+      = image_tag 'products/otherproducts_03.png', alt: 'ナチュラルテック'
+    li = link_to catalog_path(action: :series, id: 'authentic') do
+      = image_tag 'products/otherproducts_04.png', alt: 'オーセンティック'
+    li = link_to catalog_path(action: :series, id: 'oioil') do
+      = image_tag 'products/otherproducts_05.png', alt: 'オイ オイル'
+
+
 .side = render 'side'
