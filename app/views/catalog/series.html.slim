@@ -12,6 +12,8 @@
   .series-items
     = render partial: "product_#{@series.identify}", collection: @products, as: :product
 
+  = render 'authentic' if @series.identify == 'authentic'
+
   h2 = image_tag 'welcome/ranking.png', alt: 'ランキング'
   .ranking
     - Product.available.order(:created_at).limit(3).each_with_index do |product, i|

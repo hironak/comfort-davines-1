@@ -182,6 +182,8 @@
       }
     }
     .magazines {
+      @include clearfix;
+      margin-bottom: 20px;
       li {
         @include span-columns(2.25 of 9);
       }
