@@ -66,4 +66,12 @@ class Product < ActiveRecord::Base
   def self.last_updated_at
     self.order(updated_at: :desc).first.updated_at
   end
+
+  def plusone
+    Product::OiOil.available.first
+  end
+
+  def recommendations
+    Product.available.limit(4).load
+  end
 end
