@@ -181,6 +181,11 @@
         line-height: 1.2em;
       }
     }
+    .magazines {
+      li {
+        @include span-columns(2.25 of 9);
+      }
+    }
     .otherproducts {
       li {
         @include span-columns(18 of 90);
@@ -220,7 +225,7 @@
     @import "devise/registrations";
   }
   .totop {
-    margin-top: 300px;
+    margin: 0;
     text-align: right;
   }
 }
