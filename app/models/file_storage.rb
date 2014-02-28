@@ -5,4 +5,15 @@ class FileStorage < ActiveRecord::Base
   has_attached_file :file
 
   validates_attachment_content_type :file, :content_type => %w(image/jpeg image/jpg image/png image/gif)
+
+  def self.load src
+    if Rails.env.development? && File.exist?("#{Rails.root}/presets/assets/file_storage/images/#{src}")
+      self.find_or_initialize_by(name: src).tap do |storage|
+        storage.file = File.new("#{Rails.root}/presets/assets/file_storage/images/#{src}")
+        storage.save
+      end
+    else
+      self.where(name: src).first
+    end
+  end
 end
