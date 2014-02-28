@@ -13,6 +13,7 @@
     = render partial: "product_#{@series.identify}", collection: @products, as: :product
 
   = render 'authentic' if @series.identify == 'authentic'
+  = render 'moreinside' if @series.identify == 'moreinside'
 
   h2 = image_tag 'welcome/ranking.png', alt: 'ランキング'
   .ranking
