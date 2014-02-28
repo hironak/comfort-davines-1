@@ -1,1 +1,11 @@
-h1 Utilization
+.main.utilization
+  h1 = image_tag 'utilization/guide_line.png', alt: 'ショッピングガイド'
+
+  ul.guidenav
+    - (1..6).each do |n|
+      li = link_to "#0#{n}" do
+        = image_tag "utilization/guidenav0#{n}_off.jpg"
+
+  = page_body_markdown @utilization
+
+.side = render 'side'

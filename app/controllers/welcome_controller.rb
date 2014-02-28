@@ -11,7 +11,8 @@ class WelcomeController < ApplicationController
   end
 
   def utilization
-    title "ご利用案内"
+    title "ショッピングガイド"
+    @utilization = File.read("#{Rails.root}/UTILIZATION.md")
   end
 
   def faq

@@ -194,3 +194,14 @@
 
 .side {
 }
+
+.main.utilization {
+  .guidenav {
+    margin-bottom: 40px;
+    @include clearfix;
+    li {
+      @include span-columns(30 of 90);
+      @include omega(3n);
+    }
+  }
+}
