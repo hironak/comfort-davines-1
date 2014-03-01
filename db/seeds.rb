@@ -80,7 +80,7 @@ CSV.read(Rails.root.join("presets/data/products.csv").to_s, headers: :first_row,
 
   attrs = attrs.to_hash
 
-  files = attrs['image'].split(/\s/).map do |image|
+  files = attrs['image'].to_s.split(/\s/).map do |image|
     %w|jpg png|.map { |ext| Rails.root.join("presets/assets/products/image/#{image}.#{ext}") }
   end.flatten
 
