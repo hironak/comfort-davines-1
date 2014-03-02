@@ -7,7 +7,7 @@ class Series < ActiveRecord::Base
   has_many :categories, -> { uniq }, through: :products
   has_many :solutions, -> { uniq }, through: :products
 
-  has_many :reviews, -> { uniq }, through: :products
+  has_many :reviews, -> { uniq }, through: :products, class_name: 'Product::Review'
 
   belongs_to :singleton, class_name: 'Product'
 end
