@@ -2,8 +2,6 @@
   .catalog-header
     .container
       = image_tag "catalog/header_#{@catalog.identify}.jpg", alt: @catalog.name
-      - if @catalog.identify == 'oioil'
-        .pose = image_tag "catalog/category_oioil_txt.png", alt: ""
 .main
   - if @catalog.identify == 'naturaltech'
     ul.category-select

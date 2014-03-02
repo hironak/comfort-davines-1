@@ -1,5 +1,8 @@
-- if @series.identify == 'oioil'
-  - @series.products.available.each do |product|
+- if @catalog.identify == 'oioil'
+  .pose = image_tag "catalog/category_oioil_txt.png", alt: ""
+
+- if @catalog.identify == 'oioil'
+  - @catalog.products.available.each do |product|
     = render partial: 'product', locals: { :@product => product }
 
 p = image_tag 'catalog/oioil/oioil_point.png', alt: ''

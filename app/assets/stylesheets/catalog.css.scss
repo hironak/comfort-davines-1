@@ -1,12 +1,8 @@
-.catalog-header {
+.main {
   .pose {
     text-align: center;
-    background: white;
-    padding: 20px 0;
   }
-}
 
-.main {
   ul.category-select {
     @include clearfix;
     margin-bottom: 15px;
