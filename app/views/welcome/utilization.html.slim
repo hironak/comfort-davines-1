@@ -2,10 +2,19 @@
   h1 = image_tag 'utilization/guide_line.png', alt: 'ショッピングガイド'
 
   ul.guidenav
-    - (1..6).each do |n|
-      li = link_to "#0#{n}" do
-        = image_tag "utilization/guidenav0#{n}_off.jpg"
+    li = link_to "#会員登録について" do
+      = image_tag "utilization/guidenav01_off.jpg"
+    li = link_to "#ご注文方法" do
+      = image_tag "utilization/guidenav02_off.jpg"
+    li = link_to "#送料・配送について" do
+      = image_tag "utilization/guidenav03_off.jpg"
+    li = link_to "#お支払い方法について" do
+      = image_tag "utilization/guidenav04_off.jpg"
+    li = link_to "#商品の交換・返品について" do
+      = image_tag "utilization/guidenav05_off.jpg"
+    li = link_to "#海外の発送について" do
+      = image_tag "utilization/guidenav06_off.jpg"
 
-  = page_body_markdown @utilization
+  = md @utilization
 
 .side = render 'side'

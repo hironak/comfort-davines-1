@@ -33,7 +33,12 @@ module ApplicationHelper
   end
 
   def page_body_markdown(text)
-    @@markdown ||= Redcarpet::Markdown.new(Redcarpet::Render::HTML, tables: true, autolink: true, space_after_headers: true)
+    md text
+  end
+
+  def md(text)
+    @@render_html ||= Redcarpet::Render::HTML.new(with_toc_data: true, hard_wrap: true)
+    @@markdown ||= Redcarpet::Markdown.new(@@render_html, tables: true, autolink: true, space_after_headers: true)
     @@markdown.render(text).html_safe
   end
 
