@@ -1,9 +1,13 @@
-= content_for :content_header do
-  .catalog-header
-    .container
-      = image_tag "catalog/header_#{@series.identify}.jpg", alt: @series.name
+- unless @series.identify == 'oioil'
+  = content_for :content_header do
+    .catalog-header
+      .container
+        = image_tag "catalog/header_#{@series.identify}.jpg", alt: @series.name
 
 .main
+  - if @series.identify == 'oioil'
+    = image_tag "catalog/header_oioil.jpg", alt: @series.name
+
   - if @series.identify == 'naturaltech'
     ul.category-select
       li = link_to "すべて", { category_id: nil }, class: (params[:category_id].nil? && "active")

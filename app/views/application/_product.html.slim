@@ -13,8 +13,10 @@
     .information
       .name
         h1 = @product.name
-        p.label = "【#{@product.label}】"
-      p.detail = @product.detail.html_safe
+        - if @product.label
+          p.label = "【#{@product.label}】"
+      - if @product.detail
+        p.detail = @product.detail.html_safe
 
   .optional-information
     - if @product.photos.count > 1
