@@ -12,7 +12,7 @@ table
     tr
       td = review.body
       td = review.accepted
-      td = link_to 'Show', [:admin, review]
+      td = link_to 'Show', admin_review_path(review)
       td = link_to 'Edit', edit_admin_review_path(review)
-      td = link_to 'Destroy', [:admin, review], data: {:confirm => 'Are you sure?'}, :method => :delete
+      td = link_to 'Destroy', admin_review_path(review), data: {:confirm => 'Are you sure?'}, :method => :delete
 

@@ -22,7 +22,7 @@ module Administration
     def update
       respond_to do |format|
         if @review.update(review_params)
-          format.html { redirect_to @review, notice: 'Review was successfully updated.' }
+          format.html { redirect_to admin_review_path(@review), notice: 'Review was successfully updated.' }
           format.json { head :no_content }
         else
           format.html { render action: 'edit' }
@@ -36,7 +36,7 @@ module Administration
     def destroy
       @review.destroy
       respond_to do |format|
-        format.html { redirect_to reviews_url }
+        format.html { redirect_to admin_reviews_url }
         format.json { head :no_content }
       end
     end
