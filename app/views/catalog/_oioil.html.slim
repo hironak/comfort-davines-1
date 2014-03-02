@@ -1,0 +1,5 @@
+- if @series.identify == 'oioil'
+  - @series.products.available.each do |product|
+    = render partial: 'product', locals: { :@product => product }
+
+p = image_tag 'catalog/oioil/oioil_point.png', alt: ''

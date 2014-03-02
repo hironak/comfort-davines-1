@@ -1,13 +1,10 @@
-- unless @series.identify == 'oioil'
-  = content_for :content_header do
-    .catalog-header
-      .container
-        = image_tag "catalog/header_#{@series.identify}.jpg", alt: @series.name
-
+= content_for :content_header do
+  .catalog-header
+    .container
+      = image_tag "catalog/header_#{@series.identify}.jpg", alt: @series.name
+      - if @series.identify == 'oioil'
+        .pose = image_tag "catalog/category_oioil_txt.png", alt: ""
 .main
-  - if @series.identify == 'oioil'
-    = image_tag "catalog/header_oioil.jpg", alt: @series.name
-
   - if @series.identify == 'naturaltech'
     ul.category-select
       li = link_to "すべて", { category_id: nil }, class: (params[:category_id].nil? && "active")
@@ -18,9 +15,7 @@
 
   = render 'authentic' if @series.identify == 'authentic'
   = render 'moreinside' if @series.identify == 'moreinside'
-  - if @series.identify == 'oioil'
-    - @series.products.available.each do |product|
-      = render partial: 'product', locals: { :@product => product }
+  = render 'oioil' if @series.identify == 'oioil'
 
   h2 = image_tag 'welcome/ranking.png', alt: 'ランキング'
   .ranking
