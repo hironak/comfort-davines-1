@@ -74,4 +74,12 @@ class Product < ActiveRecord::Base
   def recommendations
     Product.available.limit(4).load
   end
+
+  def showable?
+    !self.sample
+  end
+
+  def singleton?
+    self.series.singleton == self
+  end
 end

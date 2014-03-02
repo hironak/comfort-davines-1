@@ -1,7 +1,6 @@
 class CatalogController < ApplicationController
   def series
     @series = Series.where(identify: params[:id]).first
-    redirect_to @series.singleton and return if @series.singleton
     title @series.name
     @products = @series.products.available
     if params[:category_id]

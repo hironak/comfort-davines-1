@@ -5,6 +5,10 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
+    redirect_to root_path and return unless @product.showable?
+    if @product.series.singleton
+      redirect_to catalog_path(action: :series, id: @product.series.identify, anchor: @product.slug) and return
+    end
     title @product.name
   end
 
