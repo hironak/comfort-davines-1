@@ -77,10 +77,9 @@ html
               li = link_to series.name, catalog_path(action: :series, id: series)
 
         .links
-          h4 ショッピングガイド
+          h4 = link_to "ショッピングガイド", utilization_path
           ul
             li = link_to "初めての方へ", introduction_path
-            li = link_to "ご利用案内 ", utilization_path
             li = link_to "よくあるご質問 ", faq_path
             li = link_to "サイトマップ ", sitemap_path
 

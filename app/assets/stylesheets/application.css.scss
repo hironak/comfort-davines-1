@@ -160,6 +160,11 @@
   }
 
   .main {
+    &.privacypolicy,
+    &.utilization,
+    &.faq {
+      padding-top: 20px;
+    }
     &.privacypolicy {
       h2 {
         margin-bottom: 55px;
