@@ -74,7 +74,7 @@ html
           h4 PRODUCTS
           ul
             - Series.all.each do |series|
-              li = link_to series.name, catalog_path(action: :series, id: series)
+              li = link_to series.name, catalog_path(action: :series, id: series.identify)
 
         .links
           h4 = link_to "ショッピングガイド", utilization_path
