@@ -1,4 +1,4 @@
-json.array!(@administration_reviews) do |administration_review|
-  json.extract! administration_review, :id, :body, :accepted
-  json.url administration_review_url(administration_review, format: :json)
+json.array!(@reviews) do |review|
+  json.extract! review, :id, :body, :accepted
+  json.url admin_review_url(review, format: :json)
 end

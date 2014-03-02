@@ -1,10 +1,11 @@
-class Administration::ReviewsController < ApplicationController
-  before_action :set_administration_review, only: [:show, :edit, :update, :destroy]
+module Administration
+  class ReviewsController < BaseController
+  before_action :set_review, only: [:show, :edit, :update, :destroy]
 
   # GET /administration/reviews
   # GET /administration/reviews.json
   def index
-    @administration_reviews = Administration::Review.all
+    @reviews = Product::Review.unscope
   end
 
   # GET /administration/reviews/1
@@ -12,41 +13,20 @@ class Administration::ReviewsController < ApplicationController
   def show
   end
 
-  # GET /administration/reviews/new
-  def new
-    @administration_review = Administration::Review.new
-  end
-
   # GET /administration/reviews/1/edit
   def edit
-  end
-
-  # POST /administration/reviews
-  # POST /administration/reviews.json
-  def create
-    @administration_review = Administration::Review.new(administration_review_params)
-
-    respond_to do |format|
-      if @administration_review.save
-        format.html { redirect_to @administration_review, notice: 'Review was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @administration_review }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @administration_review.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
   # PATCH/PUT /administration/reviews/1
   # PATCH/PUT /administration/reviews/1.json
   def update
     respond_to do |format|
-      if @administration_review.update(administration_review_params)
-        format.html { redirect_to @administration_review, notice: 'Review was successfully updated.' }
+      if @review.update(review_params)
+        format.html { redirect_to @review, notice: 'Review was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @administration_review.errors, status: :unprocessable_entity }
+        format.json { render json: @review.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -54,21 +34,21 @@ class Administration::ReviewsController < ApplicationController
   # DELETE /administration/reviews/1
   # DELETE /administration/reviews/1.json
   def destroy
-    @administration_review.destroy
+    @review.destroy
     respond_to do |format|
-      format.html { redirect_to administration_reviews_url }
+      format.html { redirect_to reviews_url }
       format.json { head :no_content }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_administration_review
-      @administration_review = Administration::Review.find(params[:id])
+    def set_review
+      @review = Product::Review.unscope.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def administration_review_params
-      params.require(:administration_review).permit(:body, :accepted)
+    def review_params
+      params.require(:review).permit(:body, :accepted)
     end
 end

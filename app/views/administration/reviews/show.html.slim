@@ -2,11 +2,11 @@ p#notice = notice
 
 p
   strong Body:
-  = @administration_review.body
+  = @review.body
 p
   strong Accepted:
-  = @administration_review.accepted
+  = @review.accepted
 
-= link_to 'Edit', edit_administration_review_path(@administration_review)
+= link_to 'Edit', edit_admin_review_path(@review)
 '|
-= link_to 'Back', administration_reviews_path
+= link_to 'Back', admin_reviews_path

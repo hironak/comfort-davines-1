@@ -1,4 +1,4 @@
-h1 Listing administration_reviews
+h1 Listing reviews
 
 table
   tr
@@ -8,14 +8,11 @@ table
     th
     th
 
-  - @administration_reviews.each do |administration_review|
+  - @reviews.each do |review|
     tr
-      td = administration_review.body
-      td = administration_review.accepted
-      td = link_to 'Show', administration_review
-      td = link_to 'Edit', edit_administration_review_path(administration_review)
-      td = link_to 'Destroy', administration_review, data: {:confirm => 'Are you sure?'}, :method => :delete
+      td = review.body
+      td = review.accepted
+      td = link_to 'Show', [:admin, review]
+      td = link_to 'Edit', edit_admin_review_path(review)
+      td = link_to 'Destroy', [:admin, review], data: {:confirm => 'Are you sure?'}, :method => :delete
 
-br
-
-= link_to 'New Review', new_administration_review_path

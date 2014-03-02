@@ -1,9 +1,9 @@
-= form_for @administration_review do |f|
-  - if @administration_review.errors.any?
+= form_for [:admin, @review] do |f|
+  - if @review.errors.any?
     #error_explanation
-      h2 = "#{pluralize(@administration_review.errors.count, "error")} prohibited this administration_review from being saved:"
+      h2 = "#{pluralize(@review.errors.count, "error")} prohibited this review from being saved:"
       ul
-        - @administration_review.errors.full_messages.each do |message|
+        - @review.errors.full_messages.each do |message|
           li = message
 
   .field
