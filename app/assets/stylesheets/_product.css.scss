@@ -1,0 +1,195 @@
+.product-show {
+  .kind {
+    @include clearfix;
+    margin-bottom: $base-line-height * 0.5;
+    text-align: right;
+    li {
+      display: inline;
+      border: 3px solid #000;
+      margin-left: 10px;
+      padding: 4px 10px;
+      background: white;
+      font-size: $base-font-size * 0.6;
+      line-height: 1.0;
+      font-weight: bold;
+    }
+  }
+
+  .basic-information {
+    @include clearfix;
+    margin-bottom: 10px;
+    .main-image {
+      @include span-columns(2 of 6);
+      margin-bottom: $base-line-height;
+      text-align: center;
+      img {
+        vertical-align: middle;
+      }
+    }
+    .information {
+      @include span-columns(4 of 6);
+      position: relative;
+      margin-bottom: $base-line-height;
+      .name {
+        padding: ($base-line-height * 1.2) 0;
+        border-top: 3px solid #000;
+        border-bottom: 3px solid #000;
+        margin-bottom: $base-line-height;
+        h1 {
+          font-size: $base-font-size * 1.3;
+          margin-bottom: $base-line-height * 0.3;
+        }
+        .label {
+          margin: 0;
+          margin-left: -0.5em;
+          padding: 0;
+          font-size: $base-font-size;
+          font-weight: normal;
+        }
+      }
+      .detail {
+        font-size: $base-font-size * 0.8;
+      }
+    }
+  }
+
+  .optional-information {
+    @include clearfix;
+    margin-bottom: 30px;
+    .image-select {
+      a {
+        display: block;
+        width: 80px;
+        height: 80px;
+        line-height: 80px - 8px;
+        text-align: center;
+        float: left;
+        margin-right: 10px;
+        border: 1px solid $light-gray;
+        padding: 3px;
+        &.active {
+          border: 4px solid $light-gray;
+          padding: 0;
+        }
+        background: white;
+        img {
+          vertical-align: middle;
+        }
+      }
+    }
+    .product-information {
+      float: right;
+      .ingredient {
+        text-align: right;
+      }
+      dl {
+        margin: 0;
+        padding: 0;
+        line-height: $base-font-size * 2.5;
+        dt {
+          margin-top: 0;
+          clear: both;
+          float: left;
+        }
+        dd {
+          text-align: right;
+          .price {
+            font-size: $base-font-size * 1.2;
+            font-weight: bold;
+            color: #9a0000;
+            small {
+              font-size: $base-font-size * 0.8;
+            }
+          }
+          select {
+            margin: 0;
+            display: inline;
+          }
+        }
+      }
+    }
+  }
+
+  .reviews,
+  .plusone,
+  .recommendation,
+  .otherproducts,
+  .reviews,
+  .editable {
+    margin-bottom: 40px;
+  }
+
+  .reviews {
+    form {
+      textarea {
+        height: 80px;
+        @include span-columns(7 of 9);
+      }
+      input {
+        height: 80px;
+        @include span-columns(2 of 9);
+      }
+    }
+  }
+
+  .plusone {
+    background: image-url('products/plus1_bg.png') left top no-repeat;
+    height: 363px;
+    margin-top: 15px;
+    padding: 20px;
+    .image {
+      @include span-columns(3 of 10);
+      background: image-url('products/plus1.png') right top no-repeat;
+      line-height: 363px;
+      text-align: center;
+      img {
+        vertical-align: middle;
+      }
+    }
+    .information {
+      @include span-columns(7 of 10);
+      .name {
+        font-weight: bold;
+        font-size: $base-font-size * 1.1;
+      }
+      .label {
+        float: left;
+      }
+      .data {
+        text-align: right;
+        margin-bottom: 15px;
+        .price {
+          color: #9a0000;
+          font-weight: bold;
+        }
+      }
+      .detail {
+        font-size: $base-font-size * 0.8;
+      }
+    }
+  }
+
+  .recommendation {
+    @include clearfix;
+    padding: 0 20px;
+    .item {
+      @include span-columns(2.25 of 9);
+      font-size: $base-font-size * 0.8;
+      line-height: $base-line-height * 0.8;
+      .image,
+      .name {
+        text-align: center;
+        margin-bottom: 15px;
+      }
+      .data {
+        margin-bottom: 15px;
+        .price {
+          color: #9a0000;
+          font-weight: bold;
+        }
+      }
+      .detail {
+      }
+    }
+  }
+}

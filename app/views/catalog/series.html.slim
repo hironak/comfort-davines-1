@@ -14,6 +14,9 @@
 
   = render 'authentic' if @series.identify == 'authentic'
   = render 'moreinside' if @series.identify == 'moreinside'
+  - if @series.identify == 'oioil'
+    - @series.products.available.each do |product|
+      = render partial: 'product', locals: { :@product => product }
 
   h2 = image_tag 'welcome/ranking.png', alt: 'ランキング'
   .ranking
