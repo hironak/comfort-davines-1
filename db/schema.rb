@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140226174140) do
+ActiveRecord::Schema.define(version: 20140302040933) do
 
   create_table "administrators", force: true do |t|
     t.string   "username",          null: false
@@ -275,7 +275,10 @@ ActiveRecord::Schema.define(version: 20140226174140) do
     t.integer  "topimage_file_size"
     t.datetime "topimage_updated_at"
     t.string   "identify"
+    t.integer  "singleton_id"
   end
+
+  add_index "serieses", ["singleton_id"], name: "index_serieses_on_singleton_id", using: :btree
 
   create_table "settings", force: true do |t|
     t.integer  "tax_percentage"

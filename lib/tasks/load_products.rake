@@ -97,6 +97,8 @@ task :load_products => :environment do
       attrs['page_id'] = page.id
     end
 
+    singleton = attrs.delete('singleton')
+
     Product.find_or_initialize_by(refnum: attrs['refnum']).tap do |product|
       product.photos.each_with_index do |photo, i|
         if attrs["photos_attributes"][i]
@@ -107,6 +109,11 @@ task :load_products => :environment do
       end
       product.attributes = attrs
       product.save
+
+      if singleton == '1'
+        product.series.singleton = product
+        product.series.save
+      end
     end
   end
 end

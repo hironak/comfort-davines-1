@@ -131,7 +131,14 @@ CSV.read(Rails.root.join("presets/data/products.csv").to_s, headers: :first_row,
     attrs['page_id'] = page.id
   end
 
-  Product.create(attrs)
+  singleton = attrs.delete('singleton')
+
+  product = Product.create(attrs)
+
+  if singleton == '1'
+    product.series.singleton = product
+    product.series.save
+  end
 end
 
 CSV.read(Rails.root.join("presets/data/salons.csv").to_s, headers: :first_row, col_sep: "\t").each do |attrs|

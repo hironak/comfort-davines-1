@@ -8,4 +8,6 @@ class Series < ActiveRecord::Base
   has_many :solutions, -> { uniq }, through: :products
 
   has_many :reviews, -> { uniq }, through: :products
+
+  belongs_to :singleton, class_name: 'Product'
 end
