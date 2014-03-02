@@ -3,4 +3,6 @@ class Category < ActiveRecord::Base
   self.authorizer_name = 'AdministrationAuthorizer'
 
   has_and_belongs_to_many :products, join_table: :products_categories
+
+  has_many :reviews, -> { uniq }, through: :products
 end

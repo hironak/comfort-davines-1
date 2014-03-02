@@ -1,5 +1,6 @@
 class WelcomeController < ApplicationController
   def index
+    @reviews = Product::Review.limit(3)
   end
 
   def introduction

@@ -10,6 +10,7 @@ class ProductsController < ApplicationController
       redirect_to catalog_path(action: :series, id: @product.series.identify, anchor: @product.slug) and return
     end
     title @product.name
+    @reviews = @product.reviews
   end
 
   private

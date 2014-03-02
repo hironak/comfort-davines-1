@@ -3,6 +3,7 @@ class CatalogController < ApplicationController
     @catalog = Series.where(identify: params[:id]).first
     title @catalog.name
     @products = @catalog.products.available
+    @reviews = @catalog.reviews
     if params[:category_id]
       @products = @products
         .includes(:categories)
@@ -15,6 +16,7 @@ class CatalogController < ApplicationController
     @catalog = Category.where(identify: params[:id]).first
     title "#{@catalog.name}一覧"
     @products = @catalog.products.available
+    @reviews = @catalog.reviews
     render 'show'
   end
 
@@ -22,6 +24,7 @@ class CatalogController < ApplicationController
     @catalog = Solution.find(params[:id])
     title "お悩み別−#{@catalog.name}"
     @products = @catalog.products.available
+    @reviews = @catalog.reviews
     render 'show'
   end
 end

@@ -1,13 +1,20 @@
-- Product.first.tap do |product|
-  .voice.left
-    .data
-      .name
-        | 愛用商品：
-        = link_to product.name, product
-      p 手の届く贅沢です！これなら主婦の私でも続けられます(笑)何より好きなのはこの香り。ずっと洗っていたくなるのでこのシリーズにしてから念入りに頭皮マッサージしちゃいます。顔と一枚皮の頭皮ですから出来るだけオーガニックなものを使いたいです。
-  .voice.right
-    .data
-      .name
-        | 愛用商品：
-        = link_to product.name, product
-      p 手の届く贅沢です！これなら主婦の私でも続けられます(笑)何より好きなのはこの香り。ずっと洗っていたくなるのでこのシリーズにしてから念入りに頭皮マッサージしちゃいます。顔と一枚皮の頭皮ですから出来るだけオーガニックなものを使いたいです。
+- @reviews.each_cons(2) do |first, second|
+  - if first
+    .voice.left
+      .data
+        .name
+          | 愛用商品：
+          = link_to first.product.name, first.product
+        p = first.body
+  - if second
+    .voice.right
+      .data
+        .name
+          | 愛用商品：
+          = link_to second.product.name, second.product
+        p = review.body
+
+/ = form_for @product.reviews.new, url: reviews_path, method: :post do |f|
+/   = f.text_area :body
+/   = f.hidden_field :product_id
+/   = f.submit

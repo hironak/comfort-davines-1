@@ -3,17 +3,7 @@
   = render 'product'
 
   h3 = image_tag 'products/user_line.png', alt: '商品を使っているご愛用者の声'
-  .reviews
-    = render 'reviews'
-    / - @product.reviews.each do |review|
-    /   .review
-    /     .product = link_to review.product.name, review.product
-    /     .body = simple_format review.body
-
-    / = form_for @product.reviews.new, url: reviews_path, method: :post do |f|
-    /   = f.text_area :body
-    /   = f.hidden_field :product_id
-    /   = f.submit
+  .reviews = render 'reviews'
 
   h3 = image_tag 'products/plus1_line.png', alt: 'おすすめプラス１アイテム'
   .plusone
