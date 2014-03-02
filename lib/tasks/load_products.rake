@@ -2,6 +2,31 @@ desc "load products data"
 task :load_products => :environment do
 
   require "csv"
+  [
+    ['ナチュラルテック', :naturaltech],
+    ['オーセンティック', :authentic],
+    ['オイ オイル',      :oioil],
+    ['モアインサイド',   :moreinside]
+  ].each do |name, identify|
+    Series.find_or_initialize_by(name: name).tap do |series|
+      series.identify = identify
+      series.save
+    end
+  end
+
+  [
+    ['キット', :kit],
+    ['シャンプー', ''],
+    ['コンディショナー＆パック', ''],
+    ['スペシャルケア', ''],
+    ['オイル', ''],
+    ['スタイリング', '']
+  ].each do |name, identify|
+    Category.find_or_initialize_by(name: name).tap do |category|
+      category.identify = identify
+      category.save
+    end
+  end
 
   %w[
     naturaltech_e

@@ -17,8 +17,15 @@ Setting.create! tax_percentage: 5
   Series.create name: name, identify: identify
 end
 
-%w|キット シャンプー コンディショナー＆パック スペシャルケア オイル スタイリング|.each do |name|
-  Category.create name: name
+[
+  ['キット', :kit],
+  ['シャンプー', ''],
+  ['コンディショナー＆パック', ''],
+  ['スペシャルケア', ''],
+  ['オイル', ''],
+  ['スタイリング', '']
+].each do |name, identify|
+  Category.create name: name, identify: identify
 end
 
 %w|エイジングケア ダメージケア デリケートヘア オイリー・頭皮ケア 保湿ケア|.each do |name|

@@ -1,22 +1,27 @@
 class CatalogController < ApplicationController
   def series
-    @series = Series.where(identify: params[:id]).first
-    title @series.name
-    @products = @series.products.available
+    @catalog = Series.where(identify: params[:id]).first
+    title @catalog.name
+    @products = @catalog.products.available
     if params[:category_id]
       @products = @products
         .includes(:categories)
         .where(categories: { id: params[:category_id] })
     end
+    render 'show'
   end
 
   def category
-    @category = Category.find(params[:id])
-    title "#{@category.name}一覧"
+    @catalog = Category.where(identify: params[:id]).first
+    title "#{@catalog.name}一覧"
+    @products = @catalog.products.available
+    render 'show'
   end
 
   def solution
-    @solution = Solution.find(params[:id])
-    title "お悩み別−#{@solution.name}"
+    @catalog = Solution.find(params[:id])
+    title "お悩み別−#{@catalog.name}"
+    @products = @catalog.products.available
+    render 'show'
   end
 end

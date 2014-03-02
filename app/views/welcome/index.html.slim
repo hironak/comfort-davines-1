@@ -13,7 +13,7 @@
           .large
           ul.catalog
             li
-              = link_to '' do
+              = link_to catalog_path(action: :category, id: :kit) do
                 = image_tag "welcome/nav_travelkit.png"
             - Series.all.each do |series|
               li
@@ -30,7 +30,7 @@
   .lineup
     h2 = image_tag 'welcome/lineup_line.png', alt: 'ラインナップ'
     p.up
-      = link_to '' do
+      = link_to catalog_path(action: :category, id: :kit) do
         = image_tag 'welcome/bnr01.png'
       = link_to catalog_path(action: :series, id: :moreinside) do
         = image_tag 'welcome/bnr02.png'
