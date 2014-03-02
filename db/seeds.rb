@@ -175,4 +175,8 @@ if (Rails.env.development? || Rails.env.staging?) && Administrator.count == 0
   create :administrator,
     username: "testsalon",
     contractable: salon
+
+  Product.available.load.each do |product|
+    product.reviews.create body: "手の届く贅沢です！これなら主婦の私でも続けられます(笑)何より好きなのはこの香り。ずっと洗っていたくなるのでこのシリーズにしてから念入りに頭皮マッサージしちゃいます。顔と一枚皮の頭皮ですから出来るだけオーガニックなものを使いたいです。"
+  end
 end
