@@ -93,6 +93,9 @@ Commers::Application.routes.draw do
     resources :serieses
     resources :solutions
 
+    # お客様の声
+    resources :reviews, only: [:index, :show, :edit, :update, :destroy]
+
     # 注文管理
     resources :orders, except: [:new, :create]
 

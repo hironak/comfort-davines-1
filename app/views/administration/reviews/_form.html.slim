@@ -1,0 +1,15 @@
+= form_for @review, url: admin_review_path(@review) do |f|
+  - if @review.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@review.errors.count, "error")} prohibited this review from being saved:"
+      ul
+        - @review.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :body
+    = f.text_area :body
+  .field
+    = f.label :accepted
+    = f.check_box :accepted
+  .actions = f.submit 'Save'

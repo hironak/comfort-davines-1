@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong Body:
+  = @review.body
+p
+  strong Accepted:
+  = @review.accepted
+
+= link_to 'Edit', edit_admin_review_path(@review)
+'|
+= link_to 'Back', admin_reviews_path
