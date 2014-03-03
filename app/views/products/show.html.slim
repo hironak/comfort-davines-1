@@ -48,13 +48,13 @@
   ul.otherproducts
     li = link_to catalog_path(action: :series, id: '') do
       = image_tag 'products/otherproducts_01.png', alt: ''
-    li = link_to catalog_path(action: :series, id: 'moreinside') do
-      = image_tag 'products/otherproducts_02.png', alt: 'モアインサイド'
     li = link_to catalog_path(action: :series, id: 'naturaltech') do
       = image_tag 'products/otherproducts_03.png', alt: 'ナチュラルテック'
     li = link_to catalog_path(action: :series, id: 'authentic') do
       = image_tag 'products/otherproducts_04.png', alt: 'オーセンティック'
     li = link_to catalog_path(action: :series, id: 'oioil') do
       = image_tag 'products/otherproducts_05.png', alt: 'オイ オイル'
-
+    li = link_to catalog_path(action: :series, id: 'moreinside') do
+      = image_tag 'products/otherproducts_02.png', alt: 'モアインサイド'
+      
 .side = render 'side'
