@@ -2,8 +2,8 @@
   .fukidashi = image_tag "catalog/kit/hukidashi_#{product.template.identify.gsub(/naturaltech_/, '')}.png"
   .image = link_to product do
     = image_tag product.image.url(:item)
-  ul.kind
-    li = product.kind
+  ul.type
+    li.kind = product.kind
   .name = link_to product.name, product
   .detail = product.small_detail
   .capacity = product.capacity
