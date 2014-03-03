@@ -19,8 +19,6 @@
     = image_tag 'introduction/tokuten_02.png', alt: '特典２'
     = image_tag 'introduction/tokuten_03.png', alt: '特典３'
 
-  .actions
-    = link_to new_registration_path(resource_name) do
-      = image_tag 'mypage/shinki_touroku_btn02.jpg', alt: "新規会員登録"
+  p = link_to '新規登録', new_consumer_registration_path
 
 .side = render 'side'
