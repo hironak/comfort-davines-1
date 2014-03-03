@@ -165,14 +165,6 @@
     &.utilization,
     &.faq {
       padding-top: 20px;
-      h3 {
-        padding: 5px;
-        margin-bottom: 10px;
-        font-size: $base-font-size;
-        line-height: $base-line-height !important;
-        background-color: #888888;
-        color: white;
-      }
     }
     &.privacypolicy {
       h2 {
@@ -210,6 +202,16 @@
       }
       p {
         line-height: 1.2em;
+      }
+    }
+    &.faq {
+      h3 {
+        padding: 5px;
+        margin-bottom: 10px;
+        font-size: $base-font-size;
+        line-height: $base-line-height !important;
+        background-color: #888888;
+        color: white;
       }
     }
     .magazines {
