@@ -18,7 +18,6 @@
   background: url(/f/howto_bg_ue.png) left top repeat;
 }
 .howto .naka {
-  height: 140px;
   padding: 15px 25px;
 }
 .howto .shita {
@@ -46,21 +45,31 @@
   background: url(/f/osusume_bg_shita.png) left top repeat;
 }
 
-ul.flow {
-  overflow: hidden;
-  padding: 10px;
-}
 ul.flow li {
   float: left;
-  width: 18%;
   height: 145px;
   line-height: 145px;
   vertical-align: middle;
   text-align: center;
 }
 ul.flow li.icon {
-  width: 2%;
 }
 ul.flow li img {
   width: auto;
+}
+ul.flow.col4 {
+}
+ul.flow.col4 li {
+  width: 22.5%;
+}
+ul.flow.col4 li.icon {
+  width: 3%;
+}
+ul.flow.col5 {
+}
+ul.flow.col5 li {
+  width: 18%;
+}
+ul.flow.col5 li.icon {
+  width: 2%;
 }
