@@ -2,9 +2,11 @@
   .image = link_to product do
     = image_tag product.image.url(:item)
   .type
+    - product.parts.to_s.split(/\s/).each do |part|
+      = image_tag "catalog/#{part}.png", alt: part
     span.kind = product.kind
   .name = link_to product.name, product
-  .label = "【#{product.label}】"
+  .label style="color: #{product.label_color}" = "【#{product.label}】"
   .detail = product.small_detail
   .capacity = product.capacity
   .price
