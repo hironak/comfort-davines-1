@@ -29,6 +29,7 @@
         }
       }
       .image-select {
+        @include clearfix;
         a {
           display: block;
           width: 80px;
@@ -48,6 +49,9 @@
             vertical-align: middle;
           }
         }
+      }
+      .review {
+        padding-top: 30px;
       }
     }
 

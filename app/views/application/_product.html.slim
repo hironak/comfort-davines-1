@@ -17,7 +17,9 @@
             .image
               = link_to photo.image.url(:medium), class: (i == 0 && 'active') do
                 = image_tag photo.image.url(:mini)
-        .review
+      .review
+        = link_to anchor: "review" do
+          = image_tag "products/review.png", alt: "レビューを書く"
 
     .right
       .information
