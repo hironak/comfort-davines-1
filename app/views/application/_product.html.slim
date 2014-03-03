@@ -25,7 +25,16 @@
         .name
           h1 = @product.name
           - if @product.label
-            p.label = "【#{@product.label}】"
+            - case @product
+            - when Product::MoreInside
+              p.label style="color: #{@product.label_color}" = @product.label
+            - else
+              p.label = "【#{@product.label}】"
+        - if Product::MoreInside === @product
+          p.keeplevel
+            = image_tag "products/keeplevel.png"
+            | '
+            = image_tag "catalog/#{@product.parts}.png", alt: @product.parts
         - if @product.detail
           p.detail = @product.detail.html_safe
 
