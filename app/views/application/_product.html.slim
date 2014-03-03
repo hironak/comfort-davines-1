@@ -17,10 +17,6 @@
             .image
               = link_to photo.image.url(:medium), class: (i == 0 && 'active') do
                 = image_tag photo.image.url(:mini)
-      .review
-        = link_to "", class: "write-review" do
-          = image_tag "products/review.png", alt: "レビューを書く"
-
     .right
       .information
         .name
@@ -31,7 +27,13 @@
           p.detail = @product.detail.html_safe
 
       .product-information
-        p.ingredient = image_tag 'products/ingredient_btn.jpg', alt: '成分表示', title: @product.ingredient
+
+        .information
+          span.review
+            = link_to "", class: "write-review" do
+              = image_tag "products/review.png", alt: "レビューを書く"
+          | 　
+          span.ingredient = image_tag 'products/ingredient_btn.jpg', alt: '成分表示', title: @product.ingredient
         = form_tag add_carts_path, method: :post do
           dl
             dt 価格

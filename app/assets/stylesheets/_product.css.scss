@@ -85,8 +85,11 @@
       margin-bottom: 30px;
       .product-information {
         float: right;
-        .ingredient {
+        .information {
           text-align: right;
+          img {
+            vertical-align: middle;
+          }
         }
         dl {
           margin: 0;
