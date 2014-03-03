@@ -69,6 +69,7 @@
 
   .series-items,
   .category-items {
+    @include clearfix;
     .item {
       padding-top: 60px;
       margin-bottom: 10px;
@@ -124,6 +125,17 @@
           }
         }
       }
+    }
+  }
+  .catalog-page {
+    clear: both;
+  }
+
+  ul.natural6 {
+    li {
+      @include span-columns(6 of 12);
+      @include omega(2n);
+      margin-bottom: 20px;
     }
   }
 }
