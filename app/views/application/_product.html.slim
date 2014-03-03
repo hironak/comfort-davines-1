@@ -34,7 +34,7 @@
         p.ingredient = image_tag 'products/ingredient_btn.jpg', alt: '成分表示', title: @product.ingredient
         = form_tag add_carts_path, method: :post do
           dl
-            dt
+            dt 価格
             dd
               .price
                 = number_to_currency @product.view_price
