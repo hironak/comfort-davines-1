@@ -1,9 +1,9 @@
 .product-show {
-  .kind {
+  .type {
     @include clearfix;
     margin-bottom: $base-line-height * 0.5;
     text-align: right;
-    li {
+    .kind {
       display: inline;
       border: 3px solid #000;
       margin-left: 10px;
@@ -12,6 +12,10 @@
       font-size: $base-font-size * 0.6;
       line-height: 1.0;
       font-weight: bold;
+    }
+    img {
+      margin-left: 7px;
+      vertical-align: middle;
     }
   }
 

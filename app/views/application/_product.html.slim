@@ -4,9 +4,12 @@
     .template class="template#{@product.template.id}"
       = render inline: @product.template.header.html_safe, type: 'erb'
 
-  ul.kind
+  p.type
     - @product.kind.to_s.split.each do |kind|
-      li = kind
+      span.kind = kind
+    - if Product::Authentic === @product
+      - @product.parts.to_s.split(/\s/).each do |part|
+        span = image_tag "catalog/#{part}.png"
 
   .basic-information
     .left
