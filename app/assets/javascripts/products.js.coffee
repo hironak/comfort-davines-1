@@ -8,3 +8,7 @@ jQuery ($)->
     return false
 
   $('.ingredient img').tooltip(track: true)
+
+  $('.write-review').on 'click', ->
+    alert 1
+    return false
