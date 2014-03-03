@@ -1,10 +1,10 @@
-.item class=product.catalog_classes
+.item class="#{@catalog.identify}-item #{product.template.identify}"
+  .fukidashi = image_tag "catalog/kit/hukidashi_#{product.template.identify.gsub(/naturaltech_/, '')}.png"
   .image = link_to product do
     = image_tag product.image.url(:item)
   ul.kind
     li = product.kind
   .name = link_to product.name, product
-  .label = "【#{product.label}】"
   .detail = product.small_detail
   .capacity = product.capacity
   .price

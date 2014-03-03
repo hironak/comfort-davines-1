@@ -31,10 +31,6 @@ class Product < ActiveRecord::Base
     self.serieses.first
   end
 
-  def catalog_classes
-    self.categories.map{|c| "category_#{c.id}" } + [self.template.identify, "#{self.series.identify}-item"]
-  end
-
   def category
     self.categories.first
   end

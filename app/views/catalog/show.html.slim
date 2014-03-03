@@ -8,7 +8,8 @@
       li = link_to "すべて", { category_id: nil }, class: (params[:category_id].nil? && "active")
       - @catalog.categories.load.each do |category|
         li = link_to category.name, { category_id: category.id }, class: ((params[:category_id] == category.id.to_s) && 'active')
-  .series-items
+
+  div class = "#{action_name}-items"
     = render partial: "product_#{@catalog.identify}", collection: @products, as: :product
 
   = render 'authentic' if @catalog.identify == 'authentic'

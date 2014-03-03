@@ -1,4 +1,4 @@
-.item class=product.catalog_classes
+.item class="#{@catalog.identify}-item #{product.template.identify}"
   .image = link_to product do
     = image_tag product.image.url(:item)
   ul.kind

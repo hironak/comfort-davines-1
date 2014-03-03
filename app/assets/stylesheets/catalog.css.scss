@@ -27,9 +27,53 @@
       }
     }
   }
-  .series-items {
+
+  @each $n in e, n, r, d, c, w {
+    .series-items {
+      .item {
+        &.naturaltech_#{$n} {
+          background: image-url('catalog/naturaltech/itembg_#{$n}.png') left top no-repeat;
+          background-size: 100% auto;
+        }
+      }
+    }
+    .category-items {
+      .item {
+        &.naturaltech_#{$n} {
+          background: image-url('catalog/kit/kit_#{$n}_bg.png') left top no-repeat;
+          background-size: 100% auto;
+        }
+      }
+    }
+  }
+  @for $n from 1 through 4 {
+    .series-items {
+      .item {
+        &.authentic_0#{$n} {
+          background: image-url("catalog/authentic/at_itembg0#{$n}.png") left top no-repeat;
+          background-size: 100% auto;
+        }
+      }
+    }
+  }
+  @for $n from 1 through 7 {
+    .series-items {
+      .item {
+        &.moreinside_0#{$n} {
+          background: image-url("catalog/moreinside/itembg_0#{$n}.png") left top no-repeat;
+          background-size: 100% auto;
+        }
+      }
+    }
+  }
+
+  .series-items,
+  .category-items {
     .item {
-      &.naturaltech-item {
+      padding-top: 60px;
+      margin-bottom: 10px;
+      &.naturaltech-item,
+      &.moreinside-item {
         @extend %item;
         @include span-columns(3 of 9);
         @include omega(3n);
@@ -38,7 +82,8 @@
           height: 40%;
         }
       }
-      &.authentic-item {
+      &.authentic-item,
+      &.kit-item {
         @extend %item;
         @include span-columns(4.5 of 9);
         @include omega(2);
@@ -50,34 +95,8 @@
           height: 40%;
         }
       }
-      &.moreinside-item {
-        @extend %item;
-        @include span-columns(4 of 12);
-        @include omega(3n);
-        height: 600px;
-        .image {
-          height: 40%;
-        }
-      }
-      padding-top: 60px;
-      margin-bottom: 10px;
-      @each $n in e, n, r, d, c, w {
-        &.naturaltech_#{$n} {
-          background: image-url('catalog/naturaltech/itembg_#{$n}.png') left top no-repeat;
-          background-size: 100% auto;
-        }
-      }
-      @for $n from 1 through 4 {
-        &.authentic_0#{$n} {
-          background: image-url("catalog/authentic/at_itembg0#{$n}.png") left top no-repeat;
-          background-size: 100% auto;
-        }
-      }
-      @for $n from 1 through 7 {
-        &.moreinside_0#{$n} {
-          background: image-url("catalog/moreinside/itembg_0#{$n}.png") left top no-repeat;
-          background-size: 100% auto;
-        }
+      .fukidashi {
+        padding: 0 15px;
       }
       .kind {
         @include clearfix;
