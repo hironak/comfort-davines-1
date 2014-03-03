@@ -4,13 +4,16 @@
       .background
         .frame
           .slide.travelkit
+            .container
+              .link
+                = link_to catalog_path(action: :category, id: :kit) do
+                  = image_tag "welcome/header_kit_btn.png", alt: "トライアルセットお申し込み"
           .slide.naturaltech
           .slide.authentic
           .slide.oioil
           .slide.moreinside
       .foreground
         .container
-          .large
           ul.catalog
             li
               = link_to catalog_path(action: :category, id: :kit) do

@@ -29,7 +29,7 @@
       width: 100%;
     }
     .background {
-      z-index: 0;
+      // z-index: 0;
       overflow: hidden;
       .frame {
         height: 356px;
@@ -41,16 +41,23 @@
               background: image-url('welcome/header_#{$series}.jpg') center center no-repeat;
             }
           }
+          &.travelkit {
+            .container {
+              position: relative;
+              .link {
+                position: absolute;
+                top: 60px;
+                right: 40px;
+              }
+            }
+          }
         }
       }
     }
     .foreground {
-      z-index: 10;
+      height: 356px - 235px;
+      top: 235px;
       .container {
-        z-index: 10;
-        .large {
-          height: 235px;
-        }
         .catalog {
           li {
             @include span-columns(2.4 * 4 of 12 * 4);
