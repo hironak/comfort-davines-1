@@ -10,5 +10,5 @@ jQuery ($)->
   $('.ingredient img').tooltip(track: true)
 
   $('.write-review').on 'click', ->
-    alert 1
+    $(@).parents().find(".write-review-form").toggle()
     return false

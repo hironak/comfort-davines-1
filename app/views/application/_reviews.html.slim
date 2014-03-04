@@ -13,8 +13,3 @@
           | 愛用商品：
           = link_to second.product.name, second.product
         p = second.body
-
-/ = form_for @product.reviews.new, url: reviews_path, method: :post do |f|
-/   = f.text_area :body
-/   = f.hidden_field :product_id
-/   = f.submit

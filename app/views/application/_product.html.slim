@@ -40,12 +40,22 @@
 
       .product-information
 
-        .information
+        .review-ingredient
           span.review
             = link_to "", class: "write-review" do
               = image_tag "products/review.png", alt: "レビューを書く"
           | 　
           span.ingredient = image_tag 'products/ingredient_btn.jpg', alt: '成分表示', title: @product.ingredient
+          .write-review-form style="display:none;"
+            = form_for @product.reviews.new, url: reviews_path, method: :post do |f|
+              = f.text_field :name, placeholder: "ニックネーム"
+              br
+              = f.text_field :subject, placeholder: "タイトル"
+              br
+              = f.text_area :body, placeholder: "本文"
+              br
+              = f.hidden_field :product_id
+              = f.submit "送信する"
         = form_tag add_carts_path, method: :post do
           dl
             dt 価格
