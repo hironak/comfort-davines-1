@@ -95,12 +95,11 @@
     .reviews = render 'reviews'
   .information
     h2 = image_tag 'welcome/service.png', alt: 'お得なショッピングサービス'
-    .column
-      = image_tag 'welcome/service01.png', alt: ''
-    .column
-      = image_tag 'welcome/service02.png', alt: ''
-    .column
-      = image_tag 'welcome/service03.png', alt: ''
+    .otoku
+      .column = image_tag 'mypage/tokuten01.png', alt: '特典1'
+      .column = image_tag 'mypage/tokuten02.png', alt: '特典2'
+      .column = image_tag 'mypage/tokuten03.png', alt: '特典3'
+
     = image_tag 'welcome/about_davines.png', alt: 'About Davines'
   .news
     h2 = image_tag 'welcome/news.png', alt: 'News'

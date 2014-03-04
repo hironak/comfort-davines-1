@@ -145,10 +145,12 @@
 }
 
 .information {
-  .column {
-    @include span-columns(4 of 12);
-    @include omega(3);
-    margin-bottom: $base-line-height;
+  .otoku {
+    .column {
+      @include span-columns(4 of 12);
+      @include omega(3);
+      margin-bottom: $base-line-height;
+    }
   }
 }
 
