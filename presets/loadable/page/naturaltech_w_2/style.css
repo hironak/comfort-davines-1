@@ -59,7 +59,7 @@ p.flow-bar {
 p.flow-bar sup {
   vertical-align: middle;
   position: relative;
-  top: -7px;
+  top: -5px;
 }
 p.flow-bar span {
   background: white;
@@ -76,8 +76,8 @@ ul.flow {
 }
 ul.flow li {
   float: left;
-  height: 145px;
-  line-height: 145px;
+  height: 160px;
+  line-height: 160px;
   vertical-align: middle;
   text-align: center;
 }
