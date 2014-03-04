@@ -70,7 +70,7 @@ module Administration
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def topic_params
-      params.require(:topic).permit(:date, :subject, :url)
+      params.require(:topic).permit(:date, :subject, :url, :body)
     end
   end
 end
