@@ -1,12 +1,15 @@
-h1 Listing orders
+.main
+  h1 Listing orders
 
-table
-  tr
-    th
-    th
-    th
-
-  - @orders.each do |order|
+  table
     tr
-      td = link_to 'Show', order
-      td = link_to 'Edit', edit_order_path(order)
+      th
+      th
+      th
+
+    - @orders.each do |order|
+      tr
+        td = link_to 'Show', order
+        td = link_to 'Edit', edit_order_path(order)
+
+.side = render 'side'
