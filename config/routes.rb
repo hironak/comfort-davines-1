@@ -90,6 +90,9 @@ Commers::Application.routes.draw do
     get "login" => "sessions#new"
     post "login" => "sessions#create"
 
+    # プレスリリース
+    resources :press_releases
+
     # Topics
     resources :topics
 

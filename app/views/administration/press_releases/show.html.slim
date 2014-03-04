@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Magazine:
+  = @press_release.magazine
+p
+  strong Corner:
+  = @press_release.corner
+p
+  strong Products:
+  = @press_release.products
+
+= link_to 'Edit', edit_admin_press_release_path(@press_release)
+'|
+= link_to 'Back', admin_press_releases_path
