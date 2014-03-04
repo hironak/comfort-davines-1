@@ -3,13 +3,14 @@ require "test_helper"
 class Administration::TopicsControllerTest < ActionController::TestCase
 
   before do
-    @administration_topic = administration_topics(:one)
+    login_user create(:administrator)
+    @topic = create(:topic)
   end
 
   def test_index
     get :index
     assert_response :success
-    assert_not_nil assigns(:administration_topics)
+    assert_not_nil assigns(:topics)
   end
 
   def test_new
@@ -18,33 +19,33 @@ class Administration::TopicsControllerTest < ActionController::TestCase
   end
 
   def test_create
-    assert_difference('Administration::Topic.count') do
-      post :create, administration_topic: {  }
+    assert_difference('Topic.count') do
+      post :create, topic: attributes_for(:topic)
     end
 
-    assert_redirected_to administration_topic_path(assigns(:administration_topic))
+    assert_redirected_to topic_path(assigns(:topic))
   end
 
   def test_show
-    get :show, id: @administration_topic
+    get :show, id: @topic
     assert_response :success
   end
 
   def test_edit
-    get :edit, id: @administration_topic
+    get :edit, id: @topic
     assert_response :success
   end
 
   def test_update
-    put :update, id: @administration_topic, administration_topic: {  }
-    assert_redirected_to administration_topic_path(assigns(:administration_topic))
+    put :update, id: @topic, topic: attributes_for(:topic)
+    assert_redirected_to topic_path(assigns(:topic))
   end
 
   def test_destroy
-    assert_difference('Administration::Topic.count', -1) do
-      delete :destroy, id: @administration_topic
+    assert_difference('Topic.count', -1) do
+      delete :destroy, id: @topic
     end
 
-    assert_redirected_to administration_topics_path
+    assert_redirected_to topics_path
   end
 end
