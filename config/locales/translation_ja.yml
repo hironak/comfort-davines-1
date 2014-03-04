@@ -64,6 +64,7 @@ ja:
         remember_created_at: remember_created_at  #g
         reset_password_sent_at: reset_password_sent_at  #g
         reset_password_token: reset_password_token  #g
+        accepted_magazine: メールマガジン登録
 
       consumer/information:
         name: お名前

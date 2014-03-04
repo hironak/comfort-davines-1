@@ -6,29 +6,31 @@
     table
       tbody
         tr
-          th = f.label :email
-          td = f.email_field :email, :autofocus => true
+          th.w30 = f.label :email
+          td.w70 = f.email_field :email, :autofocus => true
         tr
-          th = f.label :password
-          td = f.password_field :password
+          th.w30 = f.label :password
+          td.w70 = f.password_field :password
         tr
-          th = f.label :password_confirmation
-          td = f.password_field :password_confirmation
+          th.w30 = f.label :password_confirmation
+          td.w70 = f.password_field :password_confirmation
 
       = f.fields_for :information do |f|
 
         tr
-          th お名前
-          td
+          th.w30 お名前
+          td.w70
             = f.label :family_name do
+              | 　
               = f.object.class.human_attribute_name :family_name
               = f.text_field :family_name
             = f.label :given_name do
+              | 　
               = f.object.class.human_attribute_name :given_name
               = f.text_field :given_name
         tr
-          th フリガナ
-          td
+          th.w30 フリガナ
+          td.w70
             = f.label :family_name_kana do
               = f.object.class.human_attribute_name :family_name_kana
               = f.text_field :family_name_kana
@@ -36,28 +38,28 @@
               = f.object.class.human_attribute_name :given_name_kana
               = f.text_field :given_name_kana
         tr
-          th = f.label :postalcode
-          td = f.text_field :postalcode
+          th.w30 = f.label :postalcode
+          td.w70 = f.text_field :postalcode
 
         tr
-          th = f.label :prefecture_code
-          td = f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name
+          th.w30 = f.label :prefecture_code
+          td.w70 = f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name
 
         tr
-          th = f.label :address
-          td = f.text_field :address
+          th.w30 = f.label :address
+          td.w70 = f.text_field :address
 
         tr
-          th = f.label :building
-          td = f.text_field :building
+          th.w30 = f.label :building
+          td.w70 = f.text_field :building
 
         tr
-          th = f.label :phone
-          td = f.text_field :phone
+          th.w30 = f.label :phone
+          td.w70 = f.text_field :phone
 
       tr
-        th = f.label :accepted_magazine
-        td = f.check_box :accepted_magazine
+        th.w30 = f.label :accepted_magazine
+        td.w70 = f.check_box :accepted_magazine
 
     .actions
       = f.submit "Sign up"
