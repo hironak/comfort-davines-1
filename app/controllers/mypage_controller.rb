@@ -15,7 +15,7 @@ class MypageController < ApplicationController
   end
 
   def destory
-    @destoroy = current_consumer.information.destoroy
+    @destroy = current_consumer.information.destroy
   end
 
 end
