@@ -8,10 +8,11 @@
   .name = link_to product.name, product
   .label = strip_tags "【#{product.label_simple}】"
   .detail = product.small_detail
-  .capacity = raw product.capacity
-  .price
-    = number_to_currency product.view_price
-    small = "(税込)"
+  p
+    span.price
+      = number_to_currency product.view_price
+      small = "(税込)"
+    span.capacity = raw product.capacity
   .navigate
     = link_to product, class: 'todetail' do
       = image_tag 'catalog/authentic/item_detail.jpg', alt: '詳しく見る'

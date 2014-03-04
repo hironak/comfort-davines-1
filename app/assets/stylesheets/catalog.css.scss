@@ -89,11 +89,18 @@
         @include span-columns(4.5 of 9);
         @include omega(2);
         height: 600px;
+        .name {
+          line-height: $base-line-height;
+          height: $base-line-height;
+        }
         .detail {
           height: $base-line-height * 2.0;
         }
+        .capacity {
+          float: none;
+        }
         .image {
-          height: 40%;
+          height: 45%;
         }
       }
       .fukidashi {

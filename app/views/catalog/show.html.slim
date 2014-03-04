@@ -44,7 +44,7 @@
 
   h3 = image_tag 'products/otherproducts.jpg', alt: 'other products'
   ul.otherproducts
-    li = link_to catalog_path(action: :series, id: '') do
+    li = link_to catalog_path(action: :category, id: 'kit') do
       = image_tag 'products/otherproducts_01.png', alt: ''
     li = link_to catalog_path(action: :series, id: 'naturaltech') do
       = image_tag 'products/otherproducts_03.png', alt: 'ナチュラルテック'
