@@ -2,8 +2,8 @@
 class MypageController < ApplicationController
   before_filter :authenticate_consumer!
 
-  def edit
-    @edit = Consumer_information.current_consumer
+  def update
+    @update = Consumer_information.current_consumer
   end
 　
   def orders
