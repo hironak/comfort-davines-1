@@ -47,12 +47,13 @@
   .topics
     h2 = image_tag 'welcome/topics_line.png', aly: 'TOPICS'
     dl
-      dt 2013年 3月 1日
-      dd
-        a 3月 6日より大阪三越伊勢丹で発売開始！
-      dt 2013年 3月 1日
-      dd
-        a 3月 6日より大阪三越伊勢丹で発売開始！
+      - Topic.limit(2).each do |topic|
+        dt = l topic.date
+        dd
+          - if topic.url.present?
+            = link_to topic.subject, topc.url
+          - else
+            = topic.subject
 
   h2 = image_tag 'welcome/newitem.png', alt: 'New Item'
   .newitem

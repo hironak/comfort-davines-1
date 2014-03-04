@@ -90,6 +90,9 @@ Commers::Application.routes.draw do
     get "login" => "sessions#new"
     post "login" => "sessions#create"
 
+    # Topics
+    resources :topics
+
     # News
     resources :news_releases
 

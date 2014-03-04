@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Date:
+  = @topic.date
+p
+  strong Subject:
+  = @topic.subject
+p
+  strong Url:
+  = @topic.url
+
+= link_to 'Edit', edit_admin_topic_path(@topic)
+'|
+= link_to 'Back', admin_topics_path
