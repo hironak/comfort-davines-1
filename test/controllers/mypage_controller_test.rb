@@ -7,13 +7,8 @@ class MypageControllerTest < ActionController::TestCase
     sign_in @consumer
   end
 
-  test "should get index" do
-    get :index
-    assert_response :success
-  end
-
-  test "should get orders" do
-    get :orders
+  test "should get information" do
+    get :information
     assert_response :success
   end
 

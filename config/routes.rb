@@ -29,9 +29,12 @@ Commers::Application.routes.draw do
   end
 
   namespace :mypage do
-    root action: :index
-    get "orders"
+    root action: :information
+    patch "information", action: :update_information
   end
+
+  # 注文履歴
+  resources :orders, only: [:index, :show, :edit, :update]
 
   # プレスリリース
   resources :press_releases, only: [:index]

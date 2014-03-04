@@ -1,0 +1,56 @@
+.main
+  h1 = image_tag 'introduction/member_line.png', alt: '初めての方へ'
+  = form_for(current_consumer, :url => mypage_information_path, method: :patch) do |f|
+
+    table
+      tbody
+        = f.fields_for :information do |f|
+          tr
+            th.w30 お名前
+            td.w70
+              = f.label :family_name do
+                | 　
+                = f.object.class.human_attribute_name :family_name
+                = f.text_field :family_name
+              = f.label :given_name do
+                | 　
+                = f.object.class.human_attribute_name :given_name
+                = f.text_field :given_name
+          tr
+            th.w30 フリガナ
+            td.w70
+              = f.label :family_name_kana do
+                = f.object.class.human_attribute_name :family_name_kana
+                = f.text_field :family_name_kana
+              = f.label :given_name_kana do
+                = f.object.class.human_attribute_name :given_name_kana
+                = f.text_field :given_name_kana
+          tr
+            th.w30 = f.label :postalcode
+            td.w70 = f.text_field :postalcode
+
+          tr
+            th.w30 = f.label :prefecture_code
+            td.w70 = f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name
+
+          tr
+            th.w30 = f.label :address
+            td.w70 = f.text_field :address
+
+          tr
+            th.w30 = f.label :building
+            td.w70 = f.text_field :building
+
+          tr
+            th.w30 = f.label :phone
+            td.w70 = f.text_field :phone
+
+      tr
+        th.w30 = f.label :accepted_magazine
+        td.w70 = f.check_box :accepted_magazine
+
+    .actions
+      = f.submit "Sign up"
+  /= render "consumers/shared/links"
+
+.side = render 'side'
