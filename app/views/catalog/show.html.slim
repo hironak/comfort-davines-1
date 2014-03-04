@@ -1,7 +1,12 @@
-= content_for :content_header do
-  .catalog-header
-    .container
-      = image_tag "catalog/header_#{@catalog.identify}.jpg", alt: @catalog.name
+- if @catalog.identify == 'kit'
+  = content_for :content_header do
+    .catalog-header.travelkit
+- else
+  = content_for :content_header do
+    .catalog-header
+      .container
+        = image_tag "catalog/header_#{@catalog.identify}.jpg", alt: @catalog.name
+
 .main
   - if @catalog.identify == 'naturaltech'
     ul.category-select

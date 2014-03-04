@@ -1,3 +1,10 @@
+.catalog-header {
+  &.travelkit {
+    background: image-url("catalog/header_kit.png") center top no-repeat;
+    height: 490px;
+  }
+}
+
 .main {
   .pose {
     text-align: center;
