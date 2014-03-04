@@ -156,6 +156,9 @@ end
 # Use Active Merchant for payment
 gem 'activemerchant'
 
+# Use for Google Analytics
+gem 'rack-google-analytics'
+
 # Use unicorn as the app server
 gem 'unicorn'
 gem 'unicorn-rails'
