@@ -10,7 +10,7 @@ FactoryGirl.define do
     shipment { build(:shipment) }
     payment { build(:payment_creditcard) }
 
-    delivery_date { I18n.l 3.days.since.to_date }
+    delivery_date { I18n.l 5.days.since.to_date }
     delivery_time '12'
 
     factory :order_with_items do
