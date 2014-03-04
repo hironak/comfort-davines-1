@@ -40,3 +40,5 @@ jQuery ($) ->
 
   $('.products .prev').on 'click', prev
   $('.products .next').on 'click', next
+
+  $(window).on 'load', -> setInterval next, 3000
