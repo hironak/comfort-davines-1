@@ -1,3 +1,21 @@
-// Place all the styles related to the NewsReleases controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+dl {
+  font-size: $base-font-size * 0.8;
+  background: image-url("news_releases/news.png") left bottom no-repeat;
+  dt {
+    margin: 0;
+    margin-right: 40px;
+    padding: 0;
+    padding-bottom: 20px;
+    float: left;
+    clear: left;
+    font-weight: normal;
+  }
+  dd {
+    margin: 0;
+    padding: 0;
+    padding-bottom: 20px;
+    a {
+      text-decoration: underline;
+    }
+  }
+}

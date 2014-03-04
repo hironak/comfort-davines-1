@@ -4,7 +4,7 @@ class NewsReleasesController < ApplicationController
   # GET /news_releases
   # GET /news_releases.json
   def index
-    @news_releases = NewsRelease.all
+    @news_releases = NewsRelease.available
   end
 
   # GET /news_releases/1
@@ -64,7 +64,7 @@ class NewsReleasesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_news_release
-      @news_release = NewsRelease.find(params[:id])
+      @news_release = NewsRelease.available.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
