@@ -2,7 +2,7 @@
 class MypageController < ApplicationController
   before_filter :authenticate_consumer!
 
-  def index
+  def edit
     @edit = current_consumer.information
     update
   end
