@@ -161,10 +161,17 @@
   }
 
   .main {
+    &.introduction,
     &.privacypolicy,
     &.utilization,
     &.faq {
       padding-top: 20px;
+    }
+    &.introduction {
+      .lead {
+        text-align: center;
+        font-size: $base-font-size * 0.8;
+      }
     }
     &.privacypolicy {
       h2 {

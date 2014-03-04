@@ -1,17 +1,18 @@
-.main
+.main.introduction
   h1 = image_tag 'introduction/member_line.png', alt: '初めての方へ'
 
-  p = image_tag 'introduction/welcome_img.png', alt: 'welcome'
-  p
-    | davines〈ダヴィネス〉は世界70カ国以上のヘアサロンで愛用されている、
-    br
-    | イタリア・パルマ生まれのナチュラルヘアケアブランドです。
-    
-  p = image_tag 'introduction/tokuten_img.png', alt: 'ダヴィネスダイレクト特典'
-  p
-    | ダヴィネスダイレクトをご利用頂くとオフィシャルショップならではのサービスや特典がご利用頂けます。
-    br
-    | ご利用の際は、会員登録が必要です。
+  .lead
+    p = image_tag 'introduction/welcome_img.png', alt: 'welcome'
+    p
+      | davines〈ダヴィネス〉は世界70カ国以上のヘアサロンで愛用されている、
+      br
+      | イタリア・パルマ生まれのナチュラルヘアケアブランドです。
+
+    p = image_tag 'introduction/tokuten_img.png', alt: 'ダヴィネスダイレクト特典'
+    p
+      | ダヴィネスダイレクトをご利用頂くとオフィシャルショップならではのサービスや特典がご利用頂けます。
+      br
+      | ご利用の際は、会員登録が必要です。
 
 
   p = image_tag 'introduction/tokuten_01.png', alt: '特典１'
@@ -19,6 +20,9 @@
     = image_tag 'introduction/tokuten_02.png', alt: '特典２'
     = image_tag 'introduction/tokuten_03.png', alt: '特典３'
 
-  p = link_to '新規登録', new_consumer_registration_path
+  .lead
+    p = link_to new_consumer_registration_path do
+      = image_tag "introduction/shinkitouroku_btn.jpg", alt: "今すぐ新規登録する"
+
 
 .side = render 'side'
