@@ -1,5 +1,6 @@
 Commers::Application.routes.draw do
 
+  get "press_releases/index"
   get "f/:filename", to: "file_storage#show"
   get "template/stylesheets/:key", to: "template#stylesheets"
   get "editable/stylesheets/:key", to: "editable#stylesheets"
@@ -31,6 +32,9 @@ Commers::Application.routes.draw do
     root action: :index
     get "orders"
   end
+
+  # プレスリリース
+  resources :press_releases, only: [:index]
 
   # News
   resources :news_releases, only: [:index, :show]
