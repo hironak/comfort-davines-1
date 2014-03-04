@@ -25,10 +25,11 @@ class ReviewsController < ApplicationController
   # POST /reviews.json
   def create
     @review = Product::Review.new(review_params)
+    @review.accepted = false
 
     respond_to do |format|
       if @review.save
-        format.html { redirect_to @review.product, notice: 'Product::Review.was successfully created.' }
+        format.html { redirect_to @review.product, notice: 'レビューを投稿しました。' }
         format.json { render action: 'show', status: :created, location: @review }
       else
         format.html { render action: 'new' }
