@@ -51,10 +51,9 @@
         dt = l topic.date
         dd
           - if topic.url.present?
-            p = link_to topic.subject, topc.url
+            = link_to topic.subject, topc.url
           - else
-            p = topic.subject
-          = simple_format topic.body
+            = topic.subject
 
   h2 = image_tag 'welcome/newitem.png', alt: 'New Item'
   .newitem
