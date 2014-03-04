@@ -3,7 +3,6 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 #
 #= require jquery
-#= require jquery.turbolinks
 #= require jquery_ujs
 #= require jquery.ui.all
 #= require ace/ace
@@ -13,4 +12,3 @@
 #= require ace/theme-tomorrow
 #= require_self
 #= require_tree .
-#= require turbolinks
