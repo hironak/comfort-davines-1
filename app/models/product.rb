@@ -78,4 +78,8 @@ class Product < ActiveRecord::Base
   def singleton?
     self.series.singleton == self
   end
+
+  def label_simple
+    self.label.gsub(/\*\d/, '')
+  end
 end

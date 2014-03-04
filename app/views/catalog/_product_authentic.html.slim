@@ -6,7 +6,7 @@
     - product.parts.to_s.split(/\s/).each do |part|
       = image_tag "catalog/#{part}.png", alt: part
   .name = link_to product.name, product
-  .label = "【#{product.label}】"
+  .label = "【#{product.label_simple}】"
   .detail = product.small_detail
   .capacity = product.capacity
   .price
