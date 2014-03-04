@@ -1,0 +1,18 @@
+= form_for @administration_topic do |f|
+  - if @administration_topic.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@administration_topic.errors.count, "error")} prohibited this administration_topic from being saved:"
+      ul
+        - @administration_topic.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :date
+    = f.date_select :date
+  .field
+    = f.label :subject
+    = f.text_field :subject
+  .field
+    = f.label :url
+    = f.text_field :url
+  .actions = f.submit 'Save'

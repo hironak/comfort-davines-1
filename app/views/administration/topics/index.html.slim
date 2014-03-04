@@ -1,0 +1,23 @@
+h1 Listing administration_topics
+
+table
+  tr
+    th Date
+    th Subject
+    th Url
+    th
+    th
+    th
+
+  - @administration_topics.each do |administration_topic|
+    tr
+      td = administration_topic.date
+      td = administration_topic.subject
+      td = administration_topic.url
+      td = link_to 'Show', administration_topic
+      td = link_to 'Edit', edit_administration_topic_path(administration_topic)
+      td = link_to 'Destroy', administration_topic, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Topic', new_administration_topic_path
