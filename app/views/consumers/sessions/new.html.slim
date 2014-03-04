@@ -22,7 +22,8 @@
 
     .actions = image_submit_tag "mypage/mypage_login_btn.jpg"
 
-  p.underline まだ会員登録していない方はこちら
+  .notuser
+    = image_tag 'mypage/no_user_line.jpg', alt: 'まだ登録していない方はこちら'
 
   .tokuten
     = image_tag 'mypage/tokuten01.png', alt: '特典1'
