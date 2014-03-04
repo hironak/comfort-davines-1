@@ -70,7 +70,7 @@ module Administration
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def press_release_params
-      params.require(:press_release).permit(:magazine, :corner, :products)
+      params.require(:press_release).permit(:image, :magazine, :corner, :products)
     end
   end
 end
