@@ -70,29 +70,36 @@ html
 
     .footer
       .container
-        .links
-          h4 PRODUCTS
-          ul
-            - Series.all.each do |series|
-              li = link_to series.name, catalog_path(action: :series, id: series.identify)
+        .links-contact
+          .links
+            div
+              h4 PRODUCTS
+              ul
+                - Series.all.each do |series|
+                  li = link_to series.name, catalog_path(action: :series, id: series.identify)
+            div
+              h4 = link_to "ショッピングガイド", utilization_path
+              ul
+                li = link_to "初めての方へ", introduction_path
+                li = link_to "よくあるご質問 ", faq_path
+                li = link_to "サイトマップ ", sitemap_path
+            div
+              h4 = link_to "会社概要", company_path
+              ul
+                li = link_to "About Davines", "http://comfortjapan.jp/"
+                li = link_to "特定商取引", tradeinfo_path
+                li = link_to "プライバシーポリシー", privacypolicy_path
 
-        .links
-          h4 = link_to "ショッピングガイド", utilization_path
-          ul
-            li = link_to "初めての方へ", introduction_path
-            li = link_to "よくあるご質問 ", faq_path
-            li = link_to "サイトマップ ", sitemap_path
+          .contact = link_to "メールでのお問い合わせ", contact_path
 
-        .links
-          h4 = link_to "会社概要", company_path
-          ul
-            li = link_to "About Davines", "http://comfortjapan.jp/"
-            li = link_to "特定商取引", tradeinfo_path
-            li = link_to "プライバシーポリシー", privacypolicy_path
-            // li = link_to "店舗情報", shops_path
-
-        p.contact = link_to "お問い合わせ", contact_path
-        p.about
-          = link_to 'About Davines', "http://comfortjapan.jp/"
-        p.copyright
+        .about
+          = link_to '・About Davines', "http://comfortjapan.jp/"
+          | 　
+          = link_to '・お問い合わせ', contact_path
+          | 　
+          = link_to '・ 特定商取引', tradeinfo_path
+          | 　
+          = link_to '・プライバシーポリシー', privacypolicy_path
+          // = link_to '・サイトマップ', "http://comfortjapan.jp/"
+        .copyright
           | &copy;comfort japan all rights reserved.

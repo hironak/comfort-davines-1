@@ -275,21 +275,51 @@
   @include clearfix;
   padding: 5px 0;
   margin: 0;
-  background: #666261;
+  background: #656160;
   color: white;
   a {
     color: white;
   }
   .container {
-    padding: 15px 0;
+    padding: 30px 0;
+    .links-contact {
+      @include clearfix;
+      margin-bottom: 20px;
+    }
     .links {
-      @include span-columns(3);
-      h4 {
-        font-size: $base-font-size * 0.8;
-        margin-bottom: $base-line-height * 0.5;
+      @include span-columns(9 of 12);
+      div {
+        @include span-columns(2 of 7);
+        h4 {
+          background: image-url("footer/arrow.png") left center no-repeat;
+          text-indent: 9px;
+          font-size: $base-font-size * 0.8;
+          margin-bottom: $base-line-height * 0.5;
+        }
+        ul {
+          padding-left: 10px;
+          font-size: $base-font-size * 0.8;
+          line-height: $base-line-height * 1.3;
+          li {
+            a {
+              display: block;
+              background: image-url("footer/arrow.png") left center no-repeat;
+              text-indent: 9px;
+            }
+          }
+        }
       }
-      ul {
+    }
+    .contact {
+      @include span-columns(3 of 12);
+      a {
+        background: image-url("footer/arrow.png") left 30px center no-repeat;
+        text-indent: 9px;
         font-size: $base-font-size * 0.8;
+        font-weight: bold;
+        display: block;
+        border: 1px solid white;
+        padding: 15px 30px;
       }
     }
     .about,
@@ -297,7 +327,7 @@
       clear: both;
       margin: 0;
       padding: 0;
-      line-height: $base-line-height;
+      line-height: $base-line-height * 1.2;
       font-size: $base-font-size * 0.8;
       text-align: right;
     }
