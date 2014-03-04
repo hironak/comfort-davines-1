@@ -1,0 +1,23 @@
+h1 Listing news_releases
+
+table
+  tr
+    th Date
+    th Title
+    th Body
+    th
+    th
+    th
+
+  - @news_releases.each do |news_release|
+    tr
+      td = news_release.date
+      td = news_release.title
+      td = news_release.body
+      td = link_to 'Show', [:admin, news_release]
+      td = link_to 'Edit', edit_admin_news_release_path(news_release)
+      td = link_to 'Destroy', [:admin, news_release], data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New News release', new_admin_news_release_path
