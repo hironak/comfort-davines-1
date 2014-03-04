@@ -3,12 +3,12 @@ class MypageController < ApplicationController
   before_filter :authenticate_consumer!
 
   def edit
-    @edit = current_consumer.information
+    @edit = Current_consumer.information
     update
   end
 　
   def orders
-    @orders = current_consumer.information.orders
+    @orders = Current_consumer.information.orders
     update
   end
 end
