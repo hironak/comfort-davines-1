@@ -83,7 +83,7 @@ module Administration
           :capacity,
           :detail,
           :small_detail,
-          :annotate,
+          :annotation,
           :sample,
           :template_id,
           :page_id,
