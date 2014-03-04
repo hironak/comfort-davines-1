@@ -47,6 +47,7 @@
           | 　
           span.ingredient = image_tag 'products/ingredient_btn.jpg', alt: '成分表示', title: @product.ingredient
           .write-review-form style="display:none;"
+            .close = image_tag "application/close.png", alt: "close"
             = form_for @product.reviews.new, url: reviews_path, method: :post do |f|
               = f.text_field :name, placeholder: "ニックネーム"
               br

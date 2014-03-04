@@ -10,5 +10,9 @@ jQuery ($)->
   $('.ingredient img').tooltip(track: true)
 
   $('.write-review').on 'click', ->
-    $(@).parents().find(".write-review-form").toggle()
+    $(@).parents(".product-information").find(".write-review-form").toggle()
+    return false
+
+  $('.write-review-form .close img').on 'click', ->
+    $(@).parents(".write-review-form").hide()
     return false
