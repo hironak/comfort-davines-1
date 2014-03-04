@@ -243,6 +243,10 @@
   &.welcome {
     @import "welcome";
   }
+  &.press_releases {
+    @import "press_releases";
+  }
+
   &.news_releases {
     @import "news_releases";
   }
