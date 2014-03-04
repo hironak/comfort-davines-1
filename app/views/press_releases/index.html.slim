@@ -2,6 +2,7 @@
   h1 = image_tag "welcome/media_line.png", alt: "メディア掲載情報"
 
   - @press_releases.each do |release|
+    .image = image_tag release.image.url(:medium)
     .magazine = release.magazine
     .corner = release.corner
     .products = simple_format release.products
