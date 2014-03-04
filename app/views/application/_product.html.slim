@@ -73,3 +73,5 @@
   - if @product.page
     .editable class="page#{@product.page.id}"
       = render inline: @product.page.body.html_safe, type: @product.page.render_type
+
+  .annotate = @product.annotate
