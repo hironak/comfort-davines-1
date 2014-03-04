@@ -87,6 +87,10 @@ class Order < ActiveRecord::Base
     end
   end
 
+  def sample_ids
+    self.samples.map(&:id)
+  end
+
   def select_samples ids
     products = Product.sample.where(id: ids)
     self.samples = products.map do |product|

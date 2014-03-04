@@ -29,3 +29,11 @@ $ ->
 
   $('#order_payment_type').trigger 'change'
 
+  sample_checks = $('input[name="order[samples][]"]')
+  sample_checks.on 'change', ->
+    console.log sample_checks.filter(':checked').length
+    if sample_checks.filter(':checked').length > 1
+      sample_checks.filter(':not(:checked)').prop disabled: true
+    else
+      sample_checks.prop disabled: false
+
