@@ -3,7 +3,7 @@ class MypageController < ApplicationController
   before_filter :authenticate_consumer!
 
   def edit
-    @edit = Current_consumer.information
+    @edit = Current_consumer.infomation.all
     update
   end
 　
