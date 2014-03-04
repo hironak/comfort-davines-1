@@ -44,6 +44,30 @@
   height: 10px;
   background: url(/f/osusume_bg_shita.png) left top repeat;
 }
+p.flow-bar {
+  background: #999;
+  color: white;
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 5px;
+  line-height: 1.7em;
+  padding: 3px;
+  margin-bottom: 20px;
+}
+p.flow-bar sup {
+  vertical-align: middle;
+  position: relative;
+  top: -7px;
+}
+p.flow-bar span {
+  background: white;
+  color: #999;
+  padding: 1px 1.2em;
+  margin: -1px 2px;
+  border-radius: 0.7em;
+}
+
 
 ul.flow {
   overflow: hidden;
