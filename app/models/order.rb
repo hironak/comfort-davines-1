@@ -51,7 +51,7 @@ class Order < ActiveRecord::Base
 
   validates :payment,  presence: true, if: :phase_payment?
 
-  validates :delivery_date, inclusion: { in: -> order { (2.day.since.to_date...1.weeks.since.to_date).map{|d| I18n.l(d) } }, allow_blank: true }, on: :create, if: :phase_confirm?
+  validates :delivery_date, inclusion: { in: -> order { (4.day.since.to_date...1.month.since.to_date).map{|d| I18n.l(d) } }, allow_blank: true }, on: :create, if: :phase_confirm?
   validates :delivery_time, inclusion: { in: DELIVERY_TIMES.values }, if: :phase_confirm?
 
   def number
