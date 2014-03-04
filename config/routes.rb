@@ -32,6 +32,9 @@ Commers::Application.routes.draw do
     get "orders"
   end
 
+  # News
+  resources :news_releases, only: [:index, :show]
+
   # 詳細ページ
   resources :products, only: [:show]
 
@@ -86,6 +89,9 @@ Commers::Application.routes.draw do
     delete "logout" => "sessions#destroy"
     get "login" => "sessions#new"
     post "login" => "sessions#create"
+
+    # News
+    resources :news_releases
 
     # 商品マスタ管理
     resources :products

@@ -104,18 +104,14 @@
   .news
     h2 = image_tag 'welcome/news.png', alt: 'News'
     dl
-      dt 2013年 3月20日
-      dd
-        p
-          a 3月27日より伊勢丹新宿ビューティアポセカリーにてキット販売中！
-          br
-          新商品オイオイルにナチュラルテック＜N＞のシャンプー、コンディショナーがついた伊勢丹限定キットです。
-      dt 2013年 3月 1日
-      dd
-        p
-          a 3月 6日よりJR 大阪三越伊勢丹で発売開始！
-          br
-          JR 大阪伊勢丹8階にオーセンティックとナチュラルテック（一部の商品）取扱中。
+      - NewsRelease.available.each do |news|
+        dt = l news.date, format: :long
+        dd
+          p
+            = link_to news.title, news
+            = simple_format news.body
+
+      p = link_to "一覧", news_releases_path
   .products
     h2 = image_tag 'welcome/products.jpg', alt: 'PRODUCTS'
     .prev = image_tag 'welcome/products_left.png', alt: 'prev'

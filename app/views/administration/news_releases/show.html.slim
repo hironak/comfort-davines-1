@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Date:
+  = @news_release.date
+p
+  strong Title:
+  = @news_release.title
+p
+  strong Body:
+  = @news_release.body
+
+= link_to 'Edit', edit_admin_news_release_path(@news_release)
+'|
+= link_to 'Back', admin_news_releases_path

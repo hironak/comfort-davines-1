@@ -1,0 +1,17 @@
+.main
+  h1 = image_tag "welcome/news.png", alt: "News"
+
+  p 新商品のお知らせや、新店舗情報など、新着情報をお知らせしていきます。
+
+  dl
+    dt = l @news_release.date, format: :long
+    dd
+      p
+        = link_to @news_release.title, @news_release
+        = simple_format @news_release.body
+
+  = link_to news_releases_path do
+    = image_tag "news_releases/news_back.jpg", alt: "一覧へ戻る"
+
+.side = render "side"
+

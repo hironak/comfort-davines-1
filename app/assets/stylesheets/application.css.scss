@@ -243,6 +243,9 @@
   &.welcome {
     @import "welcome";
   }
+  &.news_releases {
+    @import "news_releases";
+  }
   &.catalog {
     @import "catalog";
   }
