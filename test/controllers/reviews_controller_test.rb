@@ -19,8 +19,8 @@ class ReviewsControllerTest < ActionController::TestCase
 
   def test_create
     @product = create(:product)
-    assert_difference('Product::Review.count') do
-      post :create, product_review: { body: "Review", product_id: @product.id }
+    assert_difference('Product::Review.unscoped.count') do
+      post :create, product_review: { name: "hoge", subject: "huga", body: "Review", product_id: @product.id }
     end
 
     assert_redirected_to product_path(@product)
