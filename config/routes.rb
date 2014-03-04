@@ -32,6 +32,9 @@ Commers::Application.routes.draw do
     get "orders"
   end
 
+  # News
+  resources :news_releases, only: [:index, :show]
+
   # 詳細ページ
   resources :products, only: [:show]
 
