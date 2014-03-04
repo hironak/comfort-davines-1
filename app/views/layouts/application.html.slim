@@ -80,9 +80,13 @@ html
             div
               h4 = link_to "ショッピングガイド", utilization_path
               ul
+                li = link_to "新規登録", introduction_path
+                li = link_to "会員ログイン", new_consumer_session_path
+                li = link_to "カート", carts_path
                 li = link_to "初めての方へ", introduction_path
+                - %w|ご注文方法 送料・配送について お支払い方法について 商品の交換・返品について 海外の発送について|.each do |name|
+                  li = link_to name, utilization_path(anchor: name)
                 li = link_to "よくあるご質問 ", faq_path
-                li = link_to "サイトマップ ", sitemap_path
             div
               h4 = link_to "会社概要", company_path
               ul
