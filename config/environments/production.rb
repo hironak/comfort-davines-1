@@ -82,4 +82,8 @@ Commers::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  if Rails.env.production?
+    config.middleware.use Rack::GoogleAnalytics, :tracker => ENV['GOOGLE_ANALYTICS']
+  end
 end
