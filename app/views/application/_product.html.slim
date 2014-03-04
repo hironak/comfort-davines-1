@@ -64,7 +64,7 @@
                 = number_to_currency @product.view_price
                 small = "(税込)"
             dt 容量
-            dd = @product.capacity
+            dd = raw @product.capacity
             dt 個数
             dd = select_tag :amount, options_for_select(1..@product.stock)
           = hidden_field_tag :product_id, @product.id
