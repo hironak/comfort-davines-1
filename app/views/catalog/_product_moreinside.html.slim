@@ -6,7 +6,7 @@
       = image_tag "catalog/#{part}.png", alt: part
     span.kind = product.kind
   .name = link_to product.name, product
-  .label style="color: #{product.label_color}" = product.label_simple
+  .label style="color: #{product.label_color}" = strip_tags product.label_simple
   .detail = product.small_detail
   .capacity = raw product.capacity
   .price

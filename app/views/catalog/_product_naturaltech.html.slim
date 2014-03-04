@@ -4,7 +4,7 @@
   .type
     span.kind = product.kind
   .name = link_to product.name, product
-  .label = "【#{product.label_simple}】"
+  .label = strip_tags "【#{product.label_simple}】"
   .detail = product.small_detail
   .capacity = raw product.capacity
   .price

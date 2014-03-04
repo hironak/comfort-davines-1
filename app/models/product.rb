@@ -80,6 +80,6 @@ class Product < ActiveRecord::Base
   end
 
   def label_simple
-    self.label.gsub(/\*\d/, '')
+    self.label.gsub(/[＊\*]\d/, '')
   end
 end
