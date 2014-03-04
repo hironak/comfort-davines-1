@@ -1,0 +1,21 @@
+= form_for [:admin, @press_release] do |f|
+  - if @press_release.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@press_release.errors.count, "error")} prohibited this press_release from being saved:"
+      ul
+        - @press_release.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :image
+    = f.file_field :image
+  .field
+    = f.label :magazine
+    = f.text_field :magazine
+  .field
+    = f.label :corner
+    = f.text_field :corner
+  .field
+    = f.label :products
+    = f.text_area :products
+  .actions = f.submit 'Save'

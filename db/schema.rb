@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140304045303) do
+ActiveRecord::Schema.define(version: 20140304055612) do
 
   create_table "administrators", force: true do |t|
     t.string   "username",          null: false
@@ -192,6 +192,18 @@ ActiveRecord::Schema.define(version: 20140304045303) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "amount"
+  end
+
+  create_table "press_releases", force: true do |t|
+    t.string   "magazine"
+    t.string   "corner"
+    t.text     "products"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "product_photos", force: true do |t|
