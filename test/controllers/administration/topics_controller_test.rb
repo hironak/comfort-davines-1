@@ -23,7 +23,7 @@ class Administration::TopicsControllerTest < ActionController::TestCase
       post :create, topic: attributes_for(:topic)
     end
 
-    assert_redirected_to topic_path(assigns(:topic))
+    assert_redirected_to admin_topic_path(assigns(:topic))
   end
 
   def test_show
@@ -38,7 +38,7 @@ class Administration::TopicsControllerTest < ActionController::TestCase
 
   def test_update
     put :update, id: @topic, topic: attributes_for(:topic)
-    assert_redirected_to topic_path(assigns(:topic))
+    assert_redirected_to admin_topic_path(assigns(:topic))
   end
 
   def test_destroy
@@ -46,6 +46,6 @@ class Administration::TopicsControllerTest < ActionController::TestCase
       delete :destroy, id: @topic
     end
 
-    assert_redirected_to topics_path
+    assert_redirected_to admin_topics_path
   end
 end

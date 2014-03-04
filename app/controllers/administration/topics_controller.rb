@@ -29,8 +29,8 @@ module Administration
 
       respond_to do |format|
         if @topic.save
-          format.html { redirect_to @topic, notice: 'Topic was successfully created.' }
-          format.json { render action: 'show', status: :created, location: @topic }
+          format.html { redirect_to [:admin, @topic], notice: 'Topic was successfully created.' }
+          format.json { render action: 'show', status: :created, location: [:admin, @topic] }
         else
           format.html { render action: 'new' }
           format.json { render json: @topic.errors, status: :unprocessable_entity }
@@ -43,7 +43,7 @@ module Administration
     def update
       respond_to do |format|
         if @topic.update(topic_params)
-          format.html { redirect_to @topic, notice: 'Topic was successfully updated.' }
+          format.html { redirect_to [:admin, @topic], notice: 'Topic was successfully updated.' }
           format.json { head :no_content }
         else
           format.html { render action: 'edit' }
@@ -57,7 +57,7 @@ module Administration
     def destroy
       @topic.destroy
       respond_to do |format|
-        format.html { redirect_to topics_url }
+        format.html { redirect_to admin_topics_url }
         format.json { head :no_content }
       end
     end

@@ -1,4 +1,4 @@
-h1 Listing administration_topics
+h1 Listing topics
 
 table
   tr
@@ -9,15 +9,15 @@ table
     th
     th
 
-  - @administration_topics.each do |administration_topic|
+  - @topics.each do |topic|
     tr
-      td = administration_topic.date
-      td = administration_topic.subject
-      td = administration_topic.url
-      td = link_to 'Show', administration_topic
-      td = link_to 'Edit', edit_administration_topic_path(administration_topic)
-      td = link_to 'Destroy', administration_topic, data: {:confirm => 'Are you sure?'}, :method => :delete
+      td = topic.date
+      td = topic.subject
+      td = topic.url
+      td = link_to 'Show', [:admin, topic]
+      td = link_to 'Edit', edit_admin_topic_path(topic)
+      td = link_to 'Destroy', [:admin, topic], data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 
-= link_to 'New Topic', new_administration_topic_path
+= link_to 'New Topic', new_admin_topic_path

@@ -2,14 +2,14 @@ p#notice = notice
 
 p
   strong Date:
-  = @administration_topic.date
+  = @topic.date
 p
   strong Subject:
-  = @administration_topic.subject
+  = @topic.subject
 p
   strong Url:
-  = @administration_topic.url
+  = @topic.url
 
-= link_to 'Edit', edit_administration_topic_path(@administration_topic)
+= link_to 'Edit', edit_admin_topic_path(@topic)
 '|
-= link_to 'Back', administration_topics_path
+= link_to 'Back', admin_topics_path
