@@ -21,7 +21,6 @@ Commers::Application.routes.draw do
     get "utilization", action: "utilization"
     get "faq", action: "faq"
     get "sitemap", action: "sitemap"
-    get "contact", action: "contact"
     get "company", action: "company"
     get "tradeinfo", action: "tradeinfo"
     get "privacypolicy", action: "privacypolicy"
@@ -31,6 +30,12 @@ Commers::Application.routes.draw do
   namespace :mypage do
     root action: :information
     patch "information", action: :update_information
+  end
+
+  # お問い合わせ
+  controller :contact do
+    get "contact", action: :new
+    post "contact", action: :create
   end
 
   # 注文履歴

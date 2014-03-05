@@ -274,6 +274,9 @@
   &.orders {
     @import "mypage";
   }
+  &.contact {
+    @import "contact";
+  }
   &.devise_registrations {
     @import "devise/registrations";
   }

@@ -1,0 +1,27 @@
+.main {
+  h1 {
+    margin-bottom: 60px;
+  }
+
+  p, dl {
+    font-size: $base-font-size * 0.75;
+    line-height: $base-line-height * 0.9;
+  }
+
+  dl {
+    dt, dd {
+      display: block;
+    }
+    dt {
+      margin: 0;
+      margin-bottom: 10px;
+      padding: 0;
+      clear: left;
+      float: left;
+      width: 150px;
+    }
+    dd {
+      margin-bottom: 10px;
+    }
+  }
+}

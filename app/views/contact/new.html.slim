@@ -1,0 +1,21 @@
+.main
+
+  h1 = image_tag "contact/contact_line.png", alt: "お問い合わせ"
+
+  p
+    | ダヴィネスダイレクトをご覧頂き、ありがとうございます。
+    br
+    | 商品に関するお問い合わせは、下記フォームに必要事項をご記入後、「送信内容を確認」ボタンを押して送信してください。
+    br
+    | 確認次第担当のものよりご連絡いたします。
+    br
+    = link_to "お問い合わせの前にこちらをご確認ください。", faq_path
+
+  dl
+    dt ・お電話でのお問い合わせ
+    dd 0120-39-5410　（受付：平日10：00～19：00）
+    dt ・メールでのお問い合わせ
+    dd = link_to "customer@comfortjapan.jp", "mailto:customer@comfortjapan.jp"
+
+
+.side = render 'side'
