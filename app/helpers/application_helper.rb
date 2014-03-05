@@ -36,8 +36,19 @@ module ApplicationHelper
     md text
   end
 
+  class CustomRender < Redcarpet::Render::HTML
+    def initialize(options)
+      @helper = options[:helper]
+      super options
+    end
+
+    def image link, title, alt_text
+      @helper.image_tag link, title: title, alt: alt_text
+    end
+  end
+
   def md(text)
-    @@render_html ||= Redcarpet::Render::HTML.new(with_toc_data: true, hard_wrap: true)
+    @@render_html ||= CustomRender.new(with_toc_data: true, hard_wrap: true, helper: self)
     @@markdown ||= Redcarpet::Markdown.new(@@render_html, tables: true, autolink: true, space_after_headers: true)
     @@markdown.render(text).html_safe
   end
