@@ -20,7 +20,7 @@
       p
         | 商品をお買い上げ頂くと毎回サンプルを2点プレゼントしております。下記よりお選びください。
         br
-        | ※1種類1点のみお選びいただきます。
+        | ※1種類1点のみお選びいただけます。
 
 
       .items
@@ -30,7 +30,10 @@
               .image
                 = image_tag product.image.url(:thumb)
               .check = check_box_tag "order[samples][]", product.id, @order.sample_ids.include?(product.id), id: "order_samples_#{product.id}"
-              .name = product.name
+              .name
+                = product.name
+                |
+                = product.label
 
     .action = f.submit '次のステップへ'
 

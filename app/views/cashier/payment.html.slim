@@ -6,6 +6,13 @@
 
   h2 お支払い方法
 
+  p
+    span.attention ※全て半角英数字で入力してください。
+    br
+    | 以下のクレジットカードがご利用頂けます。
+    br
+    = image_tag "utilization/credit.jpg", alt: "creditcard"
+
   = form_for @order, url: cashier_payment_path do |f|
 
     - if @order.errors.any?
@@ -18,33 +25,34 @@
     table
       tbody
         tr
-          th = f.label :payment_type
-          td = f.select :payment_type, Payment::TYPES
+          th.w30 = f.label :payment_type
+          td.w70 = f.select :payment_type, Payment::TYPES
 
     .payment-type.payment-creditcard
       table
         tbody
-          = f.fields_for :payment, (f.object.payment || Payment::Creditcard.new) do |f|
+          = f.fields_for :payment, (Payment::Creditcard === f.object.payment ? f.object.payment : Payment::Creditcard.new) do |f|
 
             tr
-              th = f.label :card_number
-              td = f.text_field :card_number
+              th.w30 = f.label :card_number
+              td.w70 = f.text_field :card_number, style: "width: 300px"
 
             tr
-              th = f.label :exp_month
-              td = f.text_field :exp_month
+              th.w30
+                label 有効期限
+              td.w70
+                = f.label :exp_month
+                = f.text_field :exp_month, style: "width: 50px"
+                = f.label :exp_year
+                = f.text_field :exp_year, style: "width: 100px"
 
             tr
-              th = f.label :exp_year
-              td = f.text_field :exp_year
+              th.w30 = f.label :cvc
+              td.w70 = f.text_field :cvc, style: "width: 100px"
 
             tr
-              th = f.label :cvc
-              td = f.text_field :cvc
-
-            tr
-              th = f.label :name
-              td = f.text_field :name
+              th.w30 = f.label :name
+              td.w70 = f.text_field :name, style: "width: 300px"
 
     .action = f.submit '次のステップへ'
 
