@@ -1,5 +1,13 @@
 .main
-  h1 Listing orders
+  h1 = image_tag 'mypage/mypage_line.png', alt: 'マイページ'
+
+  ul.navigation
+    li = link_to orders_path do
+      = image_tag "mypage/kounyurireki.jpg", alt: "購入履歴"
+    li = link_to mypage_root_path do
+      = image_tag "mypage/tourokunaiyou.jpg", alt: "登録内容"
+
+  h2 = image_tag 'mypage/kounyurireki_line.png', alt: "購入履歴"
 
   table
     tr

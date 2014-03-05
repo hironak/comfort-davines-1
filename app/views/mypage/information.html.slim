@@ -2,8 +2,10 @@
   h1 = image_tag 'mypage/mypage_line.png', alt: 'マイページ'
 
   ul.navigation
-    li = image_tag "mypage/kounyurireki.jpg", alt: "購入履歴"
-    li = image_tag "mypage/tourokunaiyou.jpg", alt: "登録内容"
+    li = link_to orders_path do
+      = image_tag "mypage/kounyurireki.jpg", alt: "購入履歴"
+    li = link_to mypage_root_path do
+      = image_tag "mypage/tourokunaiyou.jpg", alt: "登録内容"
 
   h2 = image_tag 'mypage/tourokunaiyou_line.png', alt: "登録内容の確認・変更"
 

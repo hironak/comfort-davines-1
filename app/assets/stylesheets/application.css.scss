@@ -270,7 +270,8 @@
     @import "cashier";
   }
   &.sessions,
-  &.mypage {
+  &.mypage,
+  &.orders {
     @import "mypage";
   }
   &.devise_registrations {
