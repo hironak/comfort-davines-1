@@ -4,7 +4,7 @@
 .product-header .logo {
   height: 65px;
   float: left;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 .product-header .navigation {
   position: absolute;
@@ -13,6 +13,7 @@
 }
 .product-header .navigation li {
   display: inline;
+  margin-left: 5px;
 }
 .product-banner {
 }
