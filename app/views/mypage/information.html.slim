@@ -56,7 +56,15 @@
 
       tr
         th.w30 = f.label :accepted_magazine
-        td.w70 = f.check_box :accepted_magazine
+        td.w70
+          = f.label :accepted_magazine_true do
+            = f.radio_button :accepted_magazine, true, checked: true
+            | 希望する
+          = f.label :accepted_magazine_false do
+            = f.radio_button :accepted_magazine, false
+            | 希望しない
+
+
 
     .actions
       = f.submit "内容を変更する"
