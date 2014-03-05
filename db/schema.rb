@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140305171313) do
+ActiveRecord::Schema.define(version: 20140305173337) do
 
   create_table "administrators", force: true do |t|
     t.string   "username",          null: false
@@ -259,6 +259,8 @@ ActiveRecord::Schema.define(version: 20140305171313) do
     t.string   "parts"
     t.string   "label_color"
     t.text     "annotation"
+    t.boolean  "new_item"
+    t.integer  "ranking"
   end
 
   add_index "products", ["page_id"], name: "index_products_on_page_id", using: :btree

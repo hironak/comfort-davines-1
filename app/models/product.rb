@@ -21,6 +21,9 @@ class Product < ActiveRecord::Base
   scope :stocked, -> { where.not(stock: 0) }
   scope :sample, -> { where(sample: true) }
 
+  scope :new_items, -> { available.where(new_item: true).limit(3) }
+  scope :ranking, -> { available.order(ranking: :desc).limit(3) }
+
   after_initialize :set_default_values
   def set_default_values
     self.backmargin_salon ||= 30
