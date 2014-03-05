@@ -20,13 +20,13 @@
 
       tr.no-border
         td.results colspan=3 合計
-        td.total = number_to_currency current_cart.items_price
-        td.total = number_to_currency current_cart.postage
+        td.total = number_to_currency @order.items_price
+        td.total = number_to_currency @order.postage
 
       tr.no-border
         td.results colspan=3 総合計
         td.total
-        td.total = number_to_currency current_cart.total_price
+        td.total = number_to_currency @order.total_price
 
   - if @order.samples.size > 0
     table
