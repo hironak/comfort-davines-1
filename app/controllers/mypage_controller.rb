@@ -8,7 +8,7 @@ class MypageController < ApplicationController
   def update_information
     current_consumer.attributes = consumer_params
     if current_consumer.save
-      redirect_to mypage_information_path, notice: "情報を更新しました"
+      redirect_to mypage_root_path, notice: "情報を更新しました"
     else
       render :information
     end

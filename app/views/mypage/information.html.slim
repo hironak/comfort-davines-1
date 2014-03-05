@@ -1,5 +1,12 @@
 .main
-  h1 = image_tag 'introduction/member_line.png', alt: '初めての方へ'
+  h1 = image_tag 'mypage/mypage_line.png', alt: 'マイページ'
+
+  ul.navigation
+    li = image_tag "mypage/kounyurireki.jpg", alt: "購入履歴"
+    li = image_tag "mypage/tourokunaiyou.jpg", alt: "登録内容"
+
+  h2 = image_tag 'mypage/tourokunaiyou_line.png', alt: "登録内容の確認・変更"
+
   = form_for(current_consumer, :url => mypage_information_path, method: :patch) do |f|
 
     table
@@ -50,7 +57,6 @@
         td.w70 = f.check_box :accepted_magazine
 
     .actions
-      = f.submit "Sign up"
-  /= render "consumers/shared/links"
+      = f.submit "内容を変更する"
 
 .side = render 'side'

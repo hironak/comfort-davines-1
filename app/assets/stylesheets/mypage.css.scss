@@ -7,25 +7,26 @@ p.underline {
   border-bottom: 2px solid #000;
   margin-bottom: $base-line-height * 2;
 }
+.session {
+  form {
+    padding: 0 20%;
+    margin-bottom: 40px;
 
-form {
-  padding: 0 20%;
-  margin-bottom: 40px;
-
-  table {
-    th {
-      padding: $base-line-height * 0.5;
-    }
-    td {
-      padding: 0;
-      input {
-        height: 100%;
+    table {
+      th {
+        padding: $base-line-height * 0.5;
+      }
+      td {
+        padding: 0;
+        input {
+          height: 100%;
+        }
       }
     }
-  }
 
-  .reminder {
-    text-align: right;
+    .reminder {
+      text-align: right;
+    }
   }
 }
 .notuser {
@@ -42,3 +43,10 @@ form {
   text-align: center;
 }
 
+.main {
+  .navigation {
+    li {
+      @include span-columns(5 of 10);
+    }
+  }
+}
