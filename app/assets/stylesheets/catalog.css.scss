@@ -86,8 +86,21 @@
         @include span-columns(3 of 9);
         @include omega(3n);
         height: 600px;
+      }
+      &.naturaltech-item {
         .image {
           height: 40%;
+        }
+      }
+      &.moreinside-item {
+        .image {
+          height: 45%;
+        }
+        .name {
+          height: $base-font-size * 1.8;
+        }
+        .label {
+          font-size: $base-font-size * 0.7;
         }
       }
       &.authentic-item,
