@@ -12,10 +12,10 @@ class Order < ActiveRecord::Base
     '14〜16時' => '14',
     '16〜18時' => '16',
     '18〜20時' => '18',
-    '19〜14時' => '19'
+    '19〜24時' => '19'
   }
 
-  attr_accessor :phase
+  attr_accessor :phase, :sample_selected
 
   include Authority::Abilities
   self.authorizer_name = 'AdministrationAuthorizer'
@@ -44,7 +44,7 @@ class Order < ActiveRecord::Base
 
   validates :items, length: { minimum: 1 }, if: :phase_initialize?
 
-  validates :samples, length: { minimum: 1, maximum: 2 }, if: :phase_sample?
+  validates :samples, length: { maximum: 2 }, if: :phase_sample?
 
   validates :salon_name, presence: true, unless: :salon_not_found, if: :phase_shipment?
   validates :shipment,   presence: true, if: :phase_shipment?
@@ -91,7 +91,7 @@ class Order < ActiveRecord::Base
     self.samples.map(&:id)
   end
 
-  def select_samples ids
+  def sample_ids= ids
     products = Product.sample.where(id: ids)
     self.samples = products.map do |product|
       OrderItem.new(product_id: product.id, amount: 1, origin_price: product.price)
@@ -122,6 +122,7 @@ class Order < ActiveRecord::Base
 
   def to_hash
     self.attributes.dup.tap do |hash|
+      hash["sample_selected"] = self.sample_selected
       hash["shipment_attributes"] = self.shipment.attributes if self.shipment
       hash["items_attributes"] = self.items.map(&:attributes)
     end
@@ -196,7 +197,7 @@ class Order < ActiveRecord::Base
   end
 
   def sample_ready?
-    initialize_ready? && (self.phase = 'sample') && self.valid? || (self.phase = nil)
+    initialize_ready? && (self.phase = 'sample') && self.sample_selected && self.valid? || (self.phase = nil)
   end
 
   def initialize_ready?

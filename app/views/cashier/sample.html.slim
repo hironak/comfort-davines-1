@@ -16,6 +16,8 @@
 
     h2 サンプルをお選びください
 
+    = f.hidden_field :sample_selected, value: true
+
     .sample_select
       p
         | 商品をお買い上げ頂くと毎回サンプルを2点プレゼントしております。下記よりお選びください。
@@ -26,11 +28,11 @@
       .items
         - Product.sample.each do |product|
           .item
-            = label_tag "order_samples_#{product.id}" do
+            = label_tag "order_sample_ids_#{product.id}" do
               .image
                 = image_tag product.image.url(:thumb)
               .name
-                span.check = check_box_tag "order[samples][]", product.id, @order.sample_ids.include?(product.id), id: "order_samples_#{product.id}"
+                span.check = check_box_tag "order[sample_ids][]", product.id, @order.sample_ids.include?(product.id), id: "order_sample_ids_#{product.id}"
                 = product.name
                 |
                 = product.label

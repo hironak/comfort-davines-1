@@ -17,6 +17,8 @@
 
     h2 ご利用のヘアサロン
 
+    p.attention ※ひらがなで入力してください。
+
     .ui-widget
       = f.label :salon_prefecture
       = f.collection_select :salon_prefecture, JpPrefecture::Prefecture.all, :name, :name

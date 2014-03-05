@@ -19,7 +19,7 @@ class CashierController < ApplicationController
 
   def sample_create
     @order.phase = 'sample'
-    @order.select_samples sample_params[:samples]
+    @order.attributes = sample_params
     if session_save_order
       redirect_for @order
     else
@@ -118,7 +118,7 @@ class CashierController < ApplicationController
   end
 
   def sample_params
-    params.require(:order).permit(samples: [])
+    params.require(:order).permit(:sample_selected, sample_ids: [])
   end
 
   def shipment_params

@@ -29,7 +29,7 @@ $ ->
 
   $('#order_payment_type').trigger 'change'
 
-  sample_checks = $('input[name="order[samples][]"]')
+  sample_checks = $('input[name="order[sample_ids][]"]')
   sample_checks.on 'change', ->
     console.log sample_checks.filter(':checked').length
     if sample_checks.filter(':checked').length > 1

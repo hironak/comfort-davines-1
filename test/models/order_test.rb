@@ -13,7 +13,8 @@ class OrderTest < ActiveSupport::TestCase
     @order.initialize_ready?.must_equal true
 
     sample = create(:product, sample: true)
-    @order.select_samples [sample.id]
+    @order.sample_selected = true
+    @order.sample_ids = [sample.id]
     @order.sample_ready?.must_equal true
 
     @order.attributes = {
