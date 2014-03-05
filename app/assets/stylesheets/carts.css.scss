@@ -1,4 +1,10 @@
-// Place all the styles related to the Carts controller here.
-// They will automatically be included in application.css.
-// You can use Less here: http://lesscss.org/
+h1 {
+  margin-bottom: 30px;
+}
 
+.mini {
+  font-size: $base-font-size * 0.8;
+}
+.cashier {
+  float: right;
+}
