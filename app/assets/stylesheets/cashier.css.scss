@@ -41,13 +41,22 @@ h2 {
         padding: 5px;
         overflow: hidden;
         @include fill-parent;
-        font-size: $base-font-size * 0.6;
+        font-size: $base-font-size * 0.7;
+        line-height: 1.2em;
         .image {
           height: 100px;
           text-align: center;
         }
-        .check {
-          text-align: center;
+        .name,
+        .detail {
+          padding: 0 1.0em;
+        }
+        .name {
+          text-indent: -1.5em;
+          margin-bottom: 8px;
+        }
+        .detail {
+          font-size: $base-font-size * 0.6;
         }
       }
     }

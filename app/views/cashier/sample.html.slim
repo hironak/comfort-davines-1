@@ -29,11 +29,12 @@
             = label_tag "order_samples_#{product.id}" do
               .image
                 = image_tag product.image.url(:thumb)
-              .check = check_box_tag "order[samples][]", product.id, @order.sample_ids.include?(product.id), id: "order_samples_#{product.id}"
               .name
+                span.check = check_box_tag "order[samples][]", product.id, @order.sample_ids.include?(product.id), id: "order_samples_#{product.id}"
                 = product.name
                 |
                 = product.label
+              .detail = product.small_detail
 
     .action = f.submit '次のステップへ'
 
