@@ -1,9 +1,18 @@
 .main
+  h1 = image_tag 'mypage/mypage_line.png', alt: 'マイページ'
 
-  p#notice = notice
+  ul.navigation
+    li = link_to orders_path do
+      = image_tag "mypage/kounyurireki.jpg", alt: "購入履歴"
+    li = link_to mypage_root_path do
+      = image_tag "mypage/tourokunaiyou.jpg", alt: "登録内容"
 
-  = link_to 'Edit', edit_order_path(@order)
-  '|
-  = link_to 'Back', orders_path
+  p = link_to '一覧へ戻る', orders_path
+
+  h2 = image_tag 'mypage/kounyurireki_line.png', alt: "購入履歴"
+
+  = render "order_list"
+
+  // = link_to 'Edit', edit_order_path(@order)
 
 .side = render 'side'

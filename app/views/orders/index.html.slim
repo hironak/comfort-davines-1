@@ -11,13 +11,10 @@
 
   table
     tr
-      th
-      th
-      th
+      th 注文番号
 
     - @orders.each do |order|
       tr
-        td = link_to 'Show', order
-        td = link_to 'Edit', edit_order_path(order)
+        td = link_to order.number, order
 
 .side = render 'side'
