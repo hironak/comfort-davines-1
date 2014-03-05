@@ -216,11 +216,28 @@
     &.faq {
       h3 {
         padding: 5px;
-        margin-bottom: 10px;
+        margin-bottom: 30px;
         font-size: $base-font-size;
         line-height: $base-line-height !important;
         background-color: #888888;
         color: white;
+      }
+      dl {
+        dt {
+          background: image-url("faq/q_li.png") left top 5px no-repeat;
+          padding-left: 30px;
+          margin-bottom: 15px;
+          font-weight: normal;
+        }
+        dd {
+          background: image-url("faq/a_li.png") left top 5px no-repeat;
+          padding-left: 30px;
+          margin-bottom: 40px;
+          a {
+            background: image-url("welcome/news_li.png") left 5px center no-repeat;
+            padding-left: 15px;
+          }
+        }
       }
     }
     .magazines {
