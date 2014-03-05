@@ -8,5 +8,5 @@ class Product::Photo < ActiveRecord::Base
       thumb: "100x100>",
       mini: "65x65>" }
 
-  validates_attachment_content_type :image, :content_type => %w(image/jpeg image/jpg image/png image/gif)
+  validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 end

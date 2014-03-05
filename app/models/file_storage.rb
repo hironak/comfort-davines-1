@@ -4,7 +4,7 @@ class FileStorage < ActiveRecord::Base
 
   has_attached_file :file
 
-  validates_attachment_content_type :file, :content_type => %w(image/jpeg image/jpg image/png image/gif)
+  validates_attachment_content_type :file, :content_type => /\Aimage\/.*\Z/
 
   def self.load src
     if Rails.env.development? && File.exist?("#{Rails.root}/presets/assets/file_storage/images/#{src}")
