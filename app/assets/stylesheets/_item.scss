@@ -58,15 +58,15 @@
     padding-top: 12px;
     height: 477px;
     &.rank1 {
-      background: image-url('welcome/rank01.png') left top no-repeat;
+      background: image-url('welcome/rank01.png') left top 5px no-repeat;
       background-size: 100% auto;
     }
     &.rank2 {
-      background: image-url('welcome/rank02.png') left top no-repeat;
+      background: image-url('welcome/rank02.png') left top 5px no-repeat;
       background-size: 100% auto;
     }
     &.rank3 {
-      background: image-url('welcome/rank03.png') left top no-repeat;
+      background: image-url('welcome/rank03.png') left top 5px no-repeat;
       background-size: 100% auto;
     }
   }
