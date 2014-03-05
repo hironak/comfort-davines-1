@@ -7,18 +7,21 @@
       tbody
         tr
           th.w30 = f.label :email
-          td.w70 = f.email_field :email, :autofocus => true
+          td.w70 = f.email_field :email, :autofocus => true, style: "width: 300px;"
         tr
-          th.w30 = f.label :password
-          td.w70 = f.password_field :password
+          th.w30
+            = f.label :password
+            | ※８文字以上
+          td.w70 = f.password_field :password, style: "width: 300px;"
         tr
           th.w30 = f.label :password_confirmation
-          td.w70 = f.password_field :password_confirmation
+          td.w70 = f.password_field :password_confirmation, style: "width: 300px;"
 
       = f.fields_for :information do |f|
 
         tr
-          th.w30 お名前
+          th.w30
+            label お名前
           td.w70
             = f.label :family_name do
               | 　
@@ -29,7 +32,8 @@
               = f.object.class.human_attribute_name :given_name
               = f.text_field :given_name
         tr
-          th.w30 フリガナ
+          th.w30
+            label フリガナ
           td.w70
             = f.label :family_name_kana do
               = f.object.class.human_attribute_name :family_name_kana
@@ -47,22 +51,28 @@
 
         tr
           th.w30 = f.label :address
-          td.w70 = f.text_field :address
+          td.w70 = f.text_field :address, style: "width: 300px;"
 
         tr
           th.w30 = f.label :building
-          td.w70 = f.text_field :building
+          td.w70 = f.text_field :building, style: "width: 300px;"
 
         tr
-          th.w30 = f.label :phone
-          td.w70 = f.text_field :phone
+          th.w30 = f.label :phone, style: "width: 300px;"
+          td.w70 = f.text_field :phone, style: "width: 300px;"
 
       tr
         th.w30 = f.label :accepted_magazine
-        td.w70 = f.check_box :accepted_magazine
+        td.w70
+          = f.label :accepted_magazine_true do
+            = f.radio_button :accepted_magazine, true
+            | 希望する
+          = f.label :accepted_magazine_false do
+            = f.radio_button :accepted_magazine, false
+            | 希望しない
 
     .actions
-      = f.submit "Sign up"
+      = f.submit "登録する"
   /= render "consumers/shared/links"
 
 .side = render 'side'
