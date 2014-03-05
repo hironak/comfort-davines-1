@@ -17,5 +17,30 @@
     dt ・メールでのお問い合わせ
     dd = link_to "customer@comfortjapan.jp", "mailto:customer@comfortjapan.jp"
 
+  h2 お問い合わせフォーム
+  p 英語・数字は必ず半角にてご記入ください。
+
+  = form_for @contact, url: contact_path, method: :post do |f|
+    table
+      tbody
+        tr
+          th お問い合わせ内容
+          td = f.select :type, %w|商品について お届け・配送について お支払いについて その他|
+        tr
+          th お名前
+          td = f.text_field :name
+        tr
+          th フリガナ
+          td = f.text_field :name_kana
+        tr
+          th メールアドレス
+          td = f.text_field :email
+        tr
+          th 電話番号
+          td = f.text_field :phone
+        tr
+          th 本文
+          td = f.text_area :body
+    .actions = f.submit "送信内容を確認"
 
 .side = render 'side'
