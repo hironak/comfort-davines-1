@@ -1,3 +1,4 @@
 ul.magazines
-  - PressRelease.limit(4).each do |release|
-    li = image_tag release.image.url(:medium), alt: release.magazine
+  - PressRelease.limit(4).order(created_at: :desc).each do |release|
+    li = link_to press_releases_path do
+      = image_tag release.image.url(:medium), alt: release.magazine
