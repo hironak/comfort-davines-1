@@ -5,7 +5,8 @@
     span.kind = product.kind
   .name = link_to product.name, product
   .label = strip_tags "【#{product.label_simple}】"
-  .detail = product.small_detail
+  - if product.small_detail.present?
+    .detail = product.small_detail
   .capacity = raw product.capacity
   .price
     = number_to_currency product.view_price
