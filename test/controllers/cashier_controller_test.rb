@@ -16,7 +16,7 @@ class CashierControllerTest < ActionController::TestCase
     assert_redirected_to cashier_sample_url
     get :sample
     assert_response :success
-    post :sample_create, { order: { samples: [Product.sample.first.id] } }
+    post :sample_create, { order: { sample_selected: true, sample_ids: [Product.sample.first.id] } }
     assert_redirected_to cashier_shipment_url
     get :shipment
     assert_response :success
