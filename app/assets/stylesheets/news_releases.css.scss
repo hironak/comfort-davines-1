@@ -3,16 +3,16 @@ dl {
   background: image-url("news_releases/news.png") left bottom no-repeat;
   dt {
     margin: 0;
-    margin-right: 40px;
     padding: 0;
-    padding-bottom: 20px;
-    float: left;
-    clear: left;
+    @include span-columns(1 of 6);
+    @include omega(2n);
     font-weight: normal;
   }
   dd {
     margin: 0;
     padding: 0;
+    @include span-columns(5 of 6);
+    @include omega(2n);
     padding-bottom: 20px;
     a {
       text-decoration: underline;

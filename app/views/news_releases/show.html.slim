@@ -6,9 +6,10 @@
   dl
     dt = l @news_release.date, format: :long
     dd
-      p
-        = link_to @news_release.title, @news_release
-        = simple_format @news_release.body
+      p = link_to @news_release.title, @news_release
+      = simple_format @news_release.body
+      - if @news_release.image?
+        p = image_tag @news_release.image.url
 
   = link_to news_releases_path do
     = image_tag "news_releases/news_back.jpg", alt: "一覧へ戻る"
