@@ -15,32 +15,37 @@
           - @order.errors.full_messages.each do |message|
             li = message
 
-    h2 お届け先情報
+    h2 ご利用のヘアサロン
 
-    tr.ui-widget
+    .ui-widget
       = f.label :salon_prefecture
       = f.collection_select :salon_prefecture, JpPrefecture::Prefecture.all, :name, :name
       = f.label :salon_name
       = f.text_field :salon_name
       = f.label :salon_not_found do
+        | 該当なし
         = f.check_box :salon_not_found, value: false
+
+    h2 お届け先情報
 
     = f.fields_for :shipment, (f.object.shipment || Shipment.new) do |f|
 
       table
         tbody
           tr
-            th お名前
-            td
+            th.w30 お名前
+            td.w70
               = f.label :family_name do
+                | 　
                 = f.object.class.human_attribute_name :family_name
                 = f.text_field :family_name
               = f.label :given_name do
+                | 　
                 = f.object.class.human_attribute_name :given_name
                 = f.text_field :given_name
           tr
-            th フリガナ
-            td
+            th.w30 フリガナ
+            td.w70
               = f.label :family_name_kana do
                 = f.object.class.human_attribute_name :family_name_kana
                 = f.text_field :family_name_kana
@@ -48,24 +53,24 @@
                 = f.object.class.human_attribute_name :given_name_kana
                 = f.text_field :given_name_kana
           tr
-            th = f.label :postalcode
-            td = f.text_field :postalcode
+            th.w30 = f.label :postalcode
+            td.w70 = f.text_field :postalcode
 
           tr
-            th = f.label :prefecture_code
-            td = f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name
+            th.w30 = f.label :prefecture_code
+            td.w70 = f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name
 
           tr
-            th = f.label :address
-            td = f.text_field :address
+            th.w30 = f.label :address
+            td.w70 = f.text_field :address
 
           tr
-            th = f.label :building
-            td = f.text_field :building
+            th.w30 = f.label :building
+            td.w70 = f.text_field :building
 
           tr
-            th = f.label :phone
-            td = f.text_field :phone
+            th.w30 = f.label :phone
+            td.w70 = f.text_field :phone
 
     .action  = f.submit '次のステップ'
 

@@ -96,8 +96,8 @@ ja:
         payment_type: 支払い方法
         products: 注文商品
         salon: :activerecord.models.salon  #g
-        salon_prefecture: サロン所在都道府県
-        salon_name: サロン名称
+        salon_prefecture: 都道府県
+        salon_name: サロン名
         salon_not_found: 該当なし
         delivery_date: 配達希望日
         delivery_time: 配達時間帯
