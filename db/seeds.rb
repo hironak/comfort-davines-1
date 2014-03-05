@@ -181,6 +181,19 @@ if (Rails.env.development? || Rails.env.staging?) && Administrator.count == 0
   end
 end
 
+Topic.create(
+  date: "2014-03-06",
+  subject: "ダヴィネスダイレクト　オープン！",
+  body: <<BODY
+ダヴィネスの公式オンラインショップ、ダヴィネスダイレクトがオープン致しました。
+ダヴィネスダイレクトだけの購入特典として選べるサンプルプレゼントをご用意しております。
+また、お得な新着情報が載ったニュースレターも一緒にお届け致します。
+
+これからどうぞ、ダヴィネスダイレクトを宜しくお願い致します！
+BODY
+)
+
+
 CSV.read(Rails.root.join("presets/data/news_releases.csv").to_s, headers: :first_row, col_sep: "\t").each do |attrs|
 
   attrs = attrs.to_hash

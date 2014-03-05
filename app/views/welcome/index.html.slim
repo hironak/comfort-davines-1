@@ -54,6 +54,7 @@
             = link_to topic.subject, topc.url
           - else
             = topic.subject
+          = simple_format topic.body
 
   h2 = image_tag 'welcome/newitem.png', alt: 'New Item'
   .newitem

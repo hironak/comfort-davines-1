@@ -116,16 +116,16 @@
     font-size: $base-font-size * 0.8;
     dt {
       margin: 0;
-      margin-right: 40px;
       padding: 0;
-      padding-bottom: 20px;
-      float: left;
-      clear: left;
+      @include span-columns(2 of 10);
+      @include omega(2n);
       font-weight: normal;
     }
     dd {
       margin: 0;
       padding: 0;
+      @include span-columns(8 of 10);
+      @include omega(2n);
       padding-bottom: 20px;
       a {
         text-decoration: underline;
