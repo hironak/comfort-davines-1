@@ -33,7 +33,7 @@
         - if Product::MoreInside === @product
           p.keeplevel
             = image_tag "products/keeplevel.png"
-            | '
+            | 　
             = image_tag "catalog/#{@product.parts}.png", alt: @product.parts
         - if @product.detail
           p.detail = @product.detail.html_safe
