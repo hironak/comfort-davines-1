@@ -24,4 +24,24 @@
       margin-bottom: 10px;
     }
   }
+
+  table {
+    tbody {
+      th {
+        width: 30%;
+      }
+      td {
+        width: 70%;
+        text-align: center;
+        padding: 0;
+        select, input, textarea {
+          margin: 0;
+          width: 90%;
+        }
+        textarea {
+          height: 8.0em;
+        }
+      }
+    }
+  }
 }
