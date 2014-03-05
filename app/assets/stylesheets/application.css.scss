@@ -96,6 +96,10 @@
 // Contents
 // ----------------------------------------
 .contents {
+  .breadcrumbs {
+    padding: 15px 0;
+    font-size: $base-font-size * 0.8;
+  }
   @import "editable";
   @import "reviews";
   @import "product";

@@ -7,6 +7,20 @@ module ApplicationHelper
     content_tag("style", { "type" => Mime::CSS, "media" => "screen" }.merge(options), &block)
   end
 
+  def breadcrumb
+    return if !@breadcrumbs || @breadcrumbs.size == 1
+    links = @breadcrumbs.map do |name, path|
+      if path
+        link_to name, path
+      else
+        name
+      end
+    end.join(" ＞ ").html_safe
+    content_tag :div, class: "container" do
+      content_tag :p, links, class: 'breadcrumbs'
+    end
+  end
+
   def link_to_back(name = nil, options = nil, html_options = nil, &block)
     if request.referer.present?
       if block_given?

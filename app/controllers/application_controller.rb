@@ -9,7 +9,18 @@ class ApplicationController < ActionController::Base
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
+  before_filter :set_root_breadcrumb
+
   private
+
+  def set_root_breadcrumb
+    add_breadcrumb "HOME", root_path
+  end
+
+  def add_breadcrumb name, path=nil
+    @breadcrumbs ||= []
+    @breadcrumbs << [name, path]
+  end
 
   def current_cart
     @current_cart ||= consumer_cart || session_cart

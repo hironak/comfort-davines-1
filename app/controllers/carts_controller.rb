@@ -3,6 +3,7 @@ class CartsController < ApplicationController
   before_filter :set_product, only: [:add, :increment, :decrement, :remove]
 
   def index
+    add_breadcrumb "ご注文手続き"
   end
 
   def add
