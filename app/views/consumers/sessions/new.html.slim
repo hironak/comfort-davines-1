@@ -6,12 +6,12 @@
   = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
 
     table
-      th = f.label :email
-      td = f.email_field :email, :autofocus => true
+      th.w40 = f.label :email
+      td.w60 = f.email_field :email, :autofocus => true
 
     table
-      th = f.label :password
-      td = f.password_field :password
+      th.w40 = f.label :password
+      td.w60 = f.password_field :password
 
     /- if devise_mapping.rememberable?
       table
