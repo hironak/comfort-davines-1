@@ -3,6 +3,7 @@ class CashierController < ApplicationController
   before_filter :authenticate_consumer!, except: [:index, :signature, :signature_create]
   before_filter :protect_empty_cart, only: [:index]
   before_filter :set_order, except: [:index, :complete]
+  before_filter :set_breadcrumb
 
   def index
     session_clear_order
@@ -157,5 +158,9 @@ class CashierController < ApplicationController
 
   def confirm_params
     params.require(:order).permit(:delivery_date, :delivery_time, :note)
+  end
+
+  def set_breadcrumb
+    add_breadcrumb "ご注文手続き"
   end
 end

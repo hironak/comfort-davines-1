@@ -5,12 +5,17 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
+    add_breadcrumb "マイページ", mypage_root_path
+    add_breadcrumb "購入履歴"
     @orders = current_consumer.orders
   end
 
   # GET /orders/1
   # GET /orders/1.json
   def show
+    add_breadcrumb "マイページ", mypage_root_path
+    add_breadcrumb "購入履歴", orders_path
+    add_breadcrumb @order.number
   end
 
   # GET /orders/1/edit

@@ -10,6 +10,8 @@ class ProductsController < ApplicationController
       redirect_to catalog_path(action: :series, id: @product.series.identify, anchor: @product.slug) and return
     end
     title @product.name
+    add_breadcrumb @product.series.name, catalog_path(action: :series, id: @product.series.identify)
+    add_breadcrumb @product.name
     @reviews = @product.reviews
   end
 

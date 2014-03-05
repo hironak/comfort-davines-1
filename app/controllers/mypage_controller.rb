@@ -3,6 +3,7 @@ class MypageController < ApplicationController
   before_filter :authenticate_consumer!
 
   def information
+    add_breadcrumb "マイページ"
   end
 
   def update_information
