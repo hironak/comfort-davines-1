@@ -8,8 +8,17 @@
         dt 雑誌名（号）
         dd = release.magazine
         dt コーナー名
-        dd = release.corner
+        dd = simple_format release.corner
         dt 商品名
-        dd = simple_format release.products
+        dd
+          - release.products.split("\n").each do |product_name|
+            - if product = Product.where(name: product_name).first
+              = link_to product.name, product
+            - else
+              = product_name
+            br
+    .hr = image_tag "application/line.png", alt: "------------------------"
+
+  = paginate @press_releases
 
 .side = render "side"

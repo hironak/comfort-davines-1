@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140305081545) do
+ActiveRecord::Schema.define(version: 20140305100500) do
 
   create_table "administrators", force: true do |t|
     t.string   "username",          null: false
@@ -202,7 +202,7 @@ ActiveRecord::Schema.define(version: 20140305081545) do
 
   create_table "press_releases", force: true do |t|
     t.string   "magazine"
-    t.string   "corner"
+    t.text     "corner"
     t.text     "products"
     t.datetime "created_at"
     t.datetime "updated_at"

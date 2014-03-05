@@ -201,6 +201,7 @@ CSV.read(Rails.root.join("presets/data/press_releases.csv").to_s, headers: :firs
   file_path = "presets/assets/press_release/image/#{month}/#{file_name}"
   attrs['image'] = File.new(file_path) if File.file?(file_path)
 
+  attrs['corner'] = attrs['corner'].gsub(/NN/, "\n")
   attrs['products'] = attrs['products'].gsub(/NN/, "\n")
   PressRelease.create(attrs)
 end
