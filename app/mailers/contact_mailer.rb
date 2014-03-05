@@ -8,6 +8,6 @@ class ContactMailer < ActionMailer::Base
   #
   def contact contact
     @contact = contact
-    mail subject: "", to: "customer@comfortjapan.jp"
+    mail subject: "Davines お問い合わせメール", to: "customer@comfortjapan.jp"
   end
 end
