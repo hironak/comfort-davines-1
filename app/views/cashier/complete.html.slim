@@ -4,7 +4,7 @@
 
   .step = image_tag 'cashier/order_step03.png', alt: 'Step3'
 
-  h2 ご注文ありがとうございました
+  h3 ご注文ありがとうございました
 
   p.message
     | 商品のご注文ありがとうございました。下記の注文で承りました。
@@ -18,6 +18,6 @@
     | ご登録頂いたメールアドレス宛に、注文完了のお知らせメールをお送りしました。
 
   p.action = link_to root_path do
-    = image_tag "cashier/topback.jpg", alt: "TOPページへ戻る"
+    = image_tag "cashier/back_toppage.jpg", alt: "TOPページへ戻る"
 
 .side = render 'side'
