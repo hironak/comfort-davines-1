@@ -7,8 +7,8 @@ p
   strong Subject:
   = @topic.subject
 p
-  strong Url:
-  = @topic.url
+  strong Bofy:
+  = simple_format @topic.body
 
 = link_to 'Edit', edit_admin_topic_path(@topic)
 '|
