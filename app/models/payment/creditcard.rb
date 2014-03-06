@@ -41,23 +41,19 @@ class Payment::Creditcard < Payment
 
   def charge_create
     begin
-      if self.webpay_id
-        charge_refund
-      else
-        charge = WebPay::Charge.create(
-          capture: false,
-          amount: self.amount,
-          currency: "jpy",
-          card: {
-            number: self.card_number,
-            exp_month: self.exp_month,
-            exp_year: self.exp_year,
-            cvc: self.cvc,
-            name: self.name
-          },
-          description: self.order.try(:number)
-        )
-      end
+      charge = WebPay::Charge.create(
+        capture: false,
+        amount: self.amount,
+        currency: "jpy",
+        card: {
+          number: self.card_number,
+          exp_month: self.exp_month,
+          exp_year: self.exp_year,
+          cvc: self.cvc,
+          name: self.name
+        },
+        description: self.order.try(:number)
+      )
     rescue WebPay::WebPayError => e
       raise e
     else
