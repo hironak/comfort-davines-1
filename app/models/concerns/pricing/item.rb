@@ -18,4 +18,8 @@ module Pricing::Item
   def tax
     (self.origin_price * Setting.tax).to_i * self.amount
   end
+
+  def check_amount
+    self.amount <= self.product.stock
+  end
 end

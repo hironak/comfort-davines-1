@@ -23,8 +23,11 @@
             td.capacity = raw item.product.capacity
             td.price = number_to_currency item.view_origin_price
             td.amount
-              = form_tag add_carts_path(product_id: item.product.id), method: :post, class: 'autosend' do
-                = select_tag :amount, options_for_select((1..item.product.stock), selected: item.amount)
+              - if item.check_amount
+                = form_tag add_carts_path(product_id: item.product.id), method: :post, class: 'autosend' do
+                  = select_tag :amount, options_for_select((1..item.product.stock), selected: item.amount)
+              - else
+                = item.amount
             td.total = number_to_currency item.price
             td.shipment 別
             td.remove

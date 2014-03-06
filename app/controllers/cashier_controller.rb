@@ -3,13 +3,16 @@ class CashierController < ApplicationController
   before_filter :authenticate_consumer!, except: [:index, :signature, :signature_create]
   before_filter :protect_empty_cart, only: [:index]
   before_filter :set_order, except: [:index, :complete]
+  before_filter :check_amount, except: [:index, :complete]
   before_filter :set_breadcrumb
 
   def index
     session_clear_order
     @order = Order.new
     @order.extend_items current_cart
+    redirect_to carts_path, notice: "在庫がありません。" and return unless @order.check_amount
     @order.phase = 'initialize'
+    check_amount
     session_save_order
     redirect_for @order
   end
@@ -103,6 +106,10 @@ class CashierController < ApplicationController
         end
       end
     raise Order::ItemEmpty unless @order.items.size > 0
+  end
+
+  def check_amount
+    redirect_to carts_path, notice: "在庫がありません。" and return unless @order.check_amount
   end
 
   def session_save_order

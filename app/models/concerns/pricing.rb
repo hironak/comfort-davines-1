@@ -33,4 +33,8 @@ module Pricing
       0
     end
   end
+
+  def check_amount
+    !!self.items.all?(&:check_amount)
+  end
 end
