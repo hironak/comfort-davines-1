@@ -52,6 +52,7 @@ class CashierController < ApplicationController
   def payment_create
     @order.phase = 'payment'
     @order.attributes = payment_params
+    @order.payment.order = @order
     @order.payment.amount = @order.total_price
     if session_save_order
       redirect_for @order
@@ -98,8 +99,7 @@ class CashierController < ApplicationController
   end
 
   def set_order
-    @order =
-      Order.new(session[:cashing_order]).tap do |order|
+    @order = Order.find(session[:cashing_order_id]).tap do |order|
         if current_consumer
           order.consumer = current_consumer
           order.load_consumer_information
@@ -113,9 +113,9 @@ class CashierController < ApplicationController
   end
 
   def session_save_order
-    if @order.valid?
+    if @order.save
       @order.save_payment
-      session[:cashing_order] = @order.to_hash
+      session[:cashing_order_id] = @order.id
     else
       false
     end

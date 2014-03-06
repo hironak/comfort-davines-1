@@ -1,5 +1,5 @@
 class Payment::Creditcard < Payment
-  attr_accessor :amount, :card_number, :exp_month, :exp_year, :cvc, :name
+  attr_accessor :card_number, :exp_month, :exp_year, :cvc, :name
 
   class WebPayValidator < ActiveModel::Validator
     def validate(record)
@@ -30,6 +30,15 @@ class Payment::Creditcard < Payment
 
   validates_with WebPayValidator, unless: :webpay_id
 
+  def charge_refund
+    begin
+      charge = WebPay::Charge.retrieve(self.webpay_id)
+      charge.refund(amount: self.changed_attributes[:amount].to_i - self.amount)
+    rescue WebPay::WebPayError => e
+      raise e
+    end
+  end
+
   def charge_create
     begin
       charge = WebPay::Charge.create(
@@ -42,7 +51,8 @@ class Payment::Creditcard < Payment
           exp_year: self.exp_year,
           cvc: self.cvc,
           name: self.name
-        }
+        },
+        description: self.order.try(:number)
       )
     rescue WebPay::WebPayError => e
       raise e

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140306092540) do
+ActiveRecord::Schema.define(version: 20140306130051) do
 
   create_table "administrators", force: true do |t|
     t.string   "username",          null: false
@@ -166,6 +166,7 @@ ActiveRecord::Schema.define(version: 20140306092540) do
     t.string   "email"
     t.string   "delivery_date",    default: ""
     t.string   "delivery_time",    default: ""
+    t.boolean  "sample_selected"
   end
 
   add_index "orders", ["consumer_id"], name: "index_orders_on_consumer_id", using: :btree
@@ -192,6 +193,7 @@ ActiveRecord::Schema.define(version: 20140306092540) do
     t.string   "webpay_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "amount"
   end
 
   create_table "payment_deferreds", force: true do |t|

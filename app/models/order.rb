@@ -1,6 +1,7 @@
 class Order < ActiveRecord::Base
 
   STATUSES = {
+    'フォーム入力中' => :cashier,
     '新規作成' => :created,
     '発送済み' => :shipped,
   }
@@ -15,7 +16,7 @@ class Order < ActiveRecord::Base
     '19〜24時' => '19'
   }
 
-  attr_accessor :phase, :sample_selected
+  attr_accessor :phase
 
   include Authority::Abilities
   self.authorizer_name = 'AdministrationAuthorizer'
@@ -68,7 +69,7 @@ class Order < ActiveRecord::Base
 
   def samples
     if self.persisted?
-      self.items.samples
+      self.items.joins(:product).where(products: { sample: true })
     else
       self.items.select{|item| item.product.sample }
     end
@@ -130,8 +131,10 @@ class Order < ActiveRecord::Base
 
   after_save :decrease_product_stock
   def decrease_product_stock
-    self.items.each do |item|
-      item.product.decrease item.amount
+    if self.phase_confirm?
+      self.items.each do |item|
+        item.product.decrease item.amount
+      end
     end
   end
 
@@ -142,7 +145,7 @@ class Order < ActiveRecord::Base
   end
 
   def payment_capture
-    if self.payment && self.payment.class == Payment::Creditcard
+    if phase_confirm? && self.payment && self.payment.class == Payment::Creditcard
       self.payment.charge_capture
     end
   end
@@ -218,6 +221,6 @@ class Order < ActiveRecord::Base
   private
 
   def save_email
-    self.email = self.consumer.email
+    self.email = self.consumer.try :email
   end
 end
