@@ -91,6 +91,14 @@
         .image {
           height: 40%;
         }
+        &.kit {
+          .image {
+            height: 34%;
+          }
+          .detail {
+            height: $base-line-height * 2.0;
+          }
+        }
       }
       &.moreinside-item {
         .image {
