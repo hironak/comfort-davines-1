@@ -178,7 +178,7 @@ if (Rails.env.development? || Rails.env.staging?) && Administrator.count == 0
 end
 
 Topic.create(
-  date: "2014-03-06",
+  date: "2014-03-07",
   subject: "ダヴィネスダイレクト　オープン！",
   body: <<BODY
 ダヴィネスの公式オンラインショップ、ダヴィネスダイレクトがオープン致しました。
@@ -190,7 +190,7 @@ BODY
 )
 
 NewsRelease.create(
-  date: "2014-03-06",
+  date: "2014-03-07",
   title: "ダヴィネスダイレクト　オープン！",
   body: <<BODY
 ダヴィネスの公式オンラインショップ、ダヴィネスダイレクトがオープン致しました。
