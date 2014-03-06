@@ -7,7 +7,12 @@ class CartsController < ApplicationController
   end
 
   def add
-    current_cart.add @product, params[:amount].to_i
+    amount = params[:amount].to_i
+    if @product.stock <= amount
+      flash[:notice] = "在庫がありません"
+      redirect_to action: :index and return
+    end
+    current_cart.add @product, amount
     redirect_to action: :index
   end
 

@@ -23,7 +23,7 @@
               = image_tag 'products/plus1_btn.jpg', alt: '詳しく見る'
           - if product.small_detail
             .detail
-              = product.detail.html_safe
+              = raw product.detail
 
   h3 = image_tag 'products/otheritem_line.png', alt: 'この商品を見た方は、こちらの商品も見ています。'
   .recommendation

@@ -67,9 +67,14 @@
             dt 容量
             dd = raw @product.capacity
             dt 個数
-            dd = select_tag :amount, options_for_select(1..@product.stock)
+            dd
+              - if @product.stock > 0
+                = select_tag :amount, options_for_select(1..@product.stock)
+              - else
+                | 在庫なし
           = hidden_field_tag :product_id, @product.id
-          = image_submit_tag 'products/n_cart_btn.jpg', alt: "カートに入れる"
+          - if @product.stock > 0
+            = image_submit_tag 'products/n_cart_btn.jpg', alt: "カートに入れる"
 
   - if @product.page
     .editable class="page#{@product.page.id}"
