@@ -16,7 +16,10 @@
     dd 0120-39-5410　（受付：平日10：00～19：00）
 
   strong お問い合わせフォーム
-  p 英語・数字は必ず半角にてご記入ください。
+  p
+    | 英語・数字は必ず半角にてご記入ください。
+    br
+    | また、全ての項目を入力してください。
 
   = form_for @contact, url: contact_path, method: :post do |f|
     table
