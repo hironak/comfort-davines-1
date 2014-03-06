@@ -4,6 +4,6 @@ FactoryGirl.define do
   factory :topic do
     date "2014-03-04"
     subject "MyString"
-    url "MyString"
+    body "MyBody"
   end
 end

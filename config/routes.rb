@@ -41,6 +41,9 @@ Commers::Application.routes.draw do
   # 注文履歴
   resources :orders, only: [:index, :show, :edit, :update]
 
+  # News
+  resources :topics, only: [:index, :show]
+
   # プレスリリース
   resources :press_releases, only: [:index]
 

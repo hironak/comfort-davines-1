@@ -1,0 +1,12 @@
+.main
+  h1 = image_tag "welcome/topics.png", alt: "Topics"
+
+  - @topics.each do |news|
+    dl
+      dt = l news.date, format: :long
+      dd
+        p
+          = link_to news.subject, news
+          = simple_format news.body
+
+.side = render "side"

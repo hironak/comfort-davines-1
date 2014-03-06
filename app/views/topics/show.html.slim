@@ -1,0 +1,14 @@
+.main
+  h1 = image_tag "welcome/topics.png", alt: "TOPICS"
+
+  dl
+    dt = l @topic.date, format: :long
+    dd
+      p
+        strong = @topic.subject
+      = simple_format @topic.body
+
+  = link_to "一覧へ戻る", topics_path
+
+.side = render "side"
+

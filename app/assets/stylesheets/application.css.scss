@@ -271,10 +271,12 @@
   &.welcome {
     @import "welcome";
   }
+  &.topics {
+    @import "topics";
+  }
   &.press_releases {
     @import "press_releases";
   }
-
   &.news_releases {
     @import "news_releases";
   }

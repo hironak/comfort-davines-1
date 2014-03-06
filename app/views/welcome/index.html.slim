@@ -49,12 +49,7 @@
     dl
       - Topic.limit(2).each do |topic|
         dt = l topic.date
-        dd
-          - if topic.url.present?
-            = link_to topic.subject, topc.url
-          - else
-            = topic.subject
-          = simple_format topic.body
+        dd = link_to topic.subject, topic
 
   h2 = image_tag 'welcome/newitem.png', alt: 'New Item'
   .newitem
