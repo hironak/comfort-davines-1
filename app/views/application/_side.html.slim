@@ -18,7 +18,7 @@
           li = link_to product.name, product
 
   .solution
-    h3 お悩み別
+    h3 タイプ別
     - Solution.includes(:products).each do |solution|
       h4
         span.arrow = image_tag 'application/li_black.png'
