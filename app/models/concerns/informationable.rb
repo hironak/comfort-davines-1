@@ -29,6 +29,6 @@ module Informationable
   end
 
   def postage_extra?
-    self.prefecture == '沖縄県'
+    self.prefecture == '沖縄県' || Ritou.include?(self.postalcode)
   end
 end
