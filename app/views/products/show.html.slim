@@ -22,7 +22,7 @@
             br
             = link_to product do
               = image_tag 'products/plus1_btn.jpg', alt: '詳しく見る'
-          - if product.small_detail
+          - if product.detail
             .detail
               = raw product.detail
 
