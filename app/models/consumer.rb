@@ -12,7 +12,7 @@ class Consumer < ActiveRecord::Base
   after_initialize :initialize_setup
 
   def initialize_setup
-    self.information ||= Consumer::Information.new unless self.persisted?
+    self.information ||= Consumer::Information.new
   end
 
   def find_or_build_cart
