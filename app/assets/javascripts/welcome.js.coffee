@@ -42,3 +42,7 @@ jQuery ($) ->
   $('.products .next').on 'click', next
 
   $(window).on 'load', -> setInterval next, 3000
+
+jQuery ($)->
+
+  $('.news .scroll').jScrollPane()

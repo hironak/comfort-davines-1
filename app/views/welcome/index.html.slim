@@ -99,15 +99,17 @@
     = image_tag 'welcome/about_davines.png', alt: 'About Davines'
   .news
     h2 = image_tag 'welcome/news.png', alt: 'News'
-    dl
-      - NewsRelease.available.each do |news|
-        dt = l news.date, format: :long
-        dd
-          p
-            = link_to news.title, news
-            = simple_format news.body
+    .scroll
+      dl
+        - NewsRelease.available.each do |news|
+          dt = l news.date, format: :long
+          dd
+            p
+              = link_to news.title, news
+              = simple_format news.body
 
-      p = link_to "一覧", news_releases_path
+    p = link_to "一覧", news_releases_path
+
   .products
     h2 = image_tag 'welcome/products.jpg', alt: 'PRODUCTS'
     .prev = image_tag 'welcome/products_left.png', alt: 'prev'

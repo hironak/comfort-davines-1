@@ -179,23 +179,26 @@
 }
 
 .news {
-  dl {
-    font-size: $base-font-size * 0.8;
-    dt {
-      margin: 0;
-      padding: 0;
-      @include span-columns(1 of 5);
-      @include omega(2n);
-      font-weight: normal;
-    }
-    dd {
-      margin: 0;
-      margin-bottom: 20px;
-      padding: 0;
-      @include span-columns(4 of 5);
-      @include omega(2n);
-      a {
-        text-decoration: underline;
+  .scroll {
+    height: 150px;
+    dl {
+      font-size: $base-font-size * 0.8;
+      dt {
+        margin: 0;
+        padding: 0;
+        @include span-columns(1 of 5);
+        @include omega(2n);
+        font-weight: normal;
+      }
+      dd {
+        margin: 0;
+        margin-bottom: 20px;
+        padding: 0;
+        @include span-columns(4 of 5);
+        @include omega(2n);
+        a {
+          text-decoration: underline;
+        }
       }
     }
   }
