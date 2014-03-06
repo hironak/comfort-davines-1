@@ -31,13 +31,13 @@
     p = link_to '' do
       = image_tag 'welcome/shoppingguide.jpg', alt: 'ショッピングガイド'
     ul
-      li.noarrow = link_to '初めての方へ', ''
+      li.noarrow = link_to '初めての方へ', introduction_path
       - %w|ご注文方法 送料・配送について お支払い方法について 商品の交換・返品について 海外の発送について|.each do |name|
         li = link_to name, utilization_path(anchor: name)
       li = link_to 'よくあるご質問', faq_path
   p = link_to contact_path do
     = image_tag 'welcome/contact.jpg', alt: 'お問い合わせ'
-  p = link_to 'https://www.facebook.com/davinesjapan' do
+  p = link_to 'https://www.facebook.com/davinesjapan', target: '_blank' do
     = image_tag 'welcome/facebook.jpg', alt: 'DAVINES FACEBOOK'
   p = link_to 'http://comfortjapan.jp/', target: '_blank' do
     = image_tag 'welcome/davines_official.jpg', alt: 'オフィシャルサイト'

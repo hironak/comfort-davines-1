@@ -67,6 +67,7 @@ class CashierController < ApplicationController
 
   def confirm_create
     @order.attributes = confirm_params
+    @order.status = :created
     render 'confirm' and return unless @order.save
     current_cart.clear
     session_clear_order
@@ -100,11 +101,11 @@ class CashierController < ApplicationController
 
   def set_order
     @order = Order.find(session[:cashing_order_id]).tap do |order|
-        if current_consumer
-          order.consumer = current_consumer
-          order.load_consumer_information
-        end
+      if current_consumer
+        order.consumer = current_consumer
+        order.load_consumer_information
       end
+    end
     raise Order::ItemEmpty unless @order.items.size > 0
   end
 
@@ -113,6 +114,7 @@ class CashierController < ApplicationController
   end
 
   def session_save_order
+    @order.status = :cashier
     if @order.save
       @order.save_payment
       session[:cashing_order_id] = @order.id
