@@ -42,7 +42,8 @@ class Payment::Creditcard < Payment
           exp_year: self.exp_year,
           cvc: self.cvc,
           name: self.name
-        }
+        },
+        description: self.order.try(:number)
       )
     rescue WebPay::WebPayError => e
       raise e

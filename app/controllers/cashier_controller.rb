@@ -52,6 +52,7 @@ class CashierController < ApplicationController
   def payment_create
     @order.phase = 'payment'
     @order.attributes = payment_params
+    @order.payment.order = @order
     @order.payment.amount = @order.total_price
     if session_save_order
       redirect_for @order
