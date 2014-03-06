@@ -214,3 +214,14 @@ CSV.read(Rails.root.join("presets/data/press_releases.csv").to_s, headers: :firs
   attrs['products'] = attrs['products'].gsub(/NN/, "\n")
   PressRelease.create(attrs)
 end
+
+CSV.read(Rails.root.join("presets/data/ritou.csv").to_s, headers: :first_row, col_sep: "\t").each do |attrs|
+
+  attrs = attrs.to_hash
+
+  puts attrs['postalcode']
+
+  ritou = Ritou.where(postalcode: attrs['postalcode']).first || Ritou.new
+  ritou.attributes = attrs
+  ritou.save
+end
