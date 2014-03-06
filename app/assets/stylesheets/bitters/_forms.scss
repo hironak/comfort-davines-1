@@ -7,6 +7,10 @@ $form-box-shadow-focus: $form-box-shadow, 0 0 5px rgba(darken($form-border-color
 $form-font-size: $base-font-size;
 $form-font-family: $base-font-family;
 
+.field_with_errors {
+  display: inline;
+}
+
 fieldset {
   background: lighten($base-border-color, 10);
   border: 1px solid $base-border-color;

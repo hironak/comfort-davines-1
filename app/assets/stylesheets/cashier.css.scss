@@ -41,7 +41,6 @@ h2 {
         padding: 5px;
         overflow: hidden;
         @include fill-parent;
-        font-size: $base-font-size * 0.8;
         line-height: 1.2em;
         .image {
           height: 100px;
@@ -52,11 +51,13 @@ h2 {
           padding: 0 1.0em;
         }
         .name {
+          font-size: $base-font-size * 0.8;
           text-indent: -1.5em;
           margin-bottom: 8px;
         }
         .detail {
-          font-size: $base-font-size * 0.7;
+          font-weight: normal;
+          font-size: $base-font-size * 0.75;
         }
       }
     }

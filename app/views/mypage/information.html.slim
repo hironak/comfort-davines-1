@@ -52,7 +52,9 @@
 
           tr
             th.w30 = f.label :phone
-            td.w70 = f.text_field :phone
+            td.w70
+              = f.text_field :phone
+              | 　例（000-0000-0000）
 
       tr
         th.w30 = f.label :accepted_magazine

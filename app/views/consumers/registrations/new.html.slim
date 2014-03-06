@@ -59,7 +59,9 @@
 
         tr
           th.w30 = f.label :phone, style: "width: 300px;"
-          td.w70 = f.text_field :phone, style: "width: 300px;"
+          td.w70
+            = f.text_field :phone, style: "width: 300px;"
+            | 　例（000-0000-0000）
 
       tr
         th.w30 = f.label :accepted_magazine
