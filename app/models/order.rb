@@ -1,6 +1,7 @@
 class Order < ActiveRecord::Base
 
   STATUSES = {
+    'フォーム入力中' => :cashier,
     '新規作成' => :created,
     '発送済み' => :shipped,
   }
@@ -218,6 +219,6 @@ class Order < ActiveRecord::Base
   private
 
   def save_email
-    self.email = self.consumer.email
+    self.email = self.consumer.try :email
   end
 end
