@@ -175,10 +175,6 @@ if (Rails.env.development? || Rails.env.staging?) && Administrator.count == 0
   create :administrator,
     username: "testsalon",
     contractable: salon
-
-  Product.available.load.each do |product|
-    product.reviews.create body: "手の届く贅沢です！これなら主婦の私でも続けられます(笑)何より好きなのはこの香り。ずっと洗っていたくなるのでこのシリーズにしてから念入りに頭皮マッサージしちゃいます。顔と一枚皮の頭皮ですから出来るだけオーガニックなものを使いたいです。"
-  end
 end
 
 Topic.create(
@@ -193,17 +189,17 @@ Topic.create(
 BODY
 )
 
+NewsRelease.create(
+  date: "2014-03-06",
+  title: "ダヴィネスダイレクト　オープン！",
+  body: <<BODY
+ダヴィネスの公式オンラインショップ、ダヴィネスダイレクトがオープン致しました。
+ダヴィネスダイレクトだけの購入特典として選べるサンプルプレゼントをご用意しております。
+また、お得な新着情報が載ったニュースレターも一緒にお届け致します。
 
-CSV.read(Rails.root.join("presets/data/news_releases.csv").to_s, headers: :first_row, col_sep: "\t").each do |attrs|
-
-  attrs = attrs.to_hash
-
-  file_name = attrs.delete('image')
-  file_path = "presets/assets/news_release/image/#{file_name}"
-  attrs['image'] = File.new(file_path) if File.file?(file_path)
-
-  NewsRelease.create(attrs)
-end
+これからどうぞ、ダヴィネスダイレクトを宜しくお願い致します！
+BODY
+)
 
 CSV.read(Rails.root.join("presets/data/press_releases.csv").to_s, headers: :first_row, col_sep: "\t").each do |attrs|
 
