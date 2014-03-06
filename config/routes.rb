@@ -76,16 +76,16 @@ Commers::Application.routes.draw do
     get "", action: "index"
 
     get "sample"
-    post "sample", action: "sample_create"
+    patch "sample", action: "sample_create"
 
     get "shipment"
-    post "shipment", action: "shipment_create"
+    patch "shipment", action: "shipment_create"
 
     get "payment"
-    post "payment", action: "payment_create"
+    patch "payment", action: "payment_create"
 
     get "confirm"
-    post "confirm", action: "confirm_create"
+    patch "confirm", action: "confirm_create"
   end
 
   # サロン情報

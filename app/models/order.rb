@@ -69,7 +69,7 @@ class Order < ActiveRecord::Base
 
   def samples
     if self.persisted?
-      self.items.samples
+      self.items.joins(:product).where(products: { sample: true })
     else
       self.items.select{|item| item.product.sample }
     end
