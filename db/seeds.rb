@@ -20,14 +20,21 @@ Setting.create! tax_percentage: 5
 end
 
 [
-  ['キット', :kit],
-  ['シャンプー', 'shampoo'],
+  ['キット',                   :kit],
+  ['シャンプー',               'shampoo'],
   ['コンディショナー＆パック', 'conditioner'],
-  ['スペシャルケア', 'specialcare'],
-  ['オイル', 'oil'],
-  ['スタイリング', 'styling']
-].each do |name, identify|
-  Category.create name: name, identify: identify
+  ['スペシャルケア',           'specialcare'],
+  ['オイル',                   'oil'],
+  ['スタイリング',             'styling'],
+  ['ミルク',                   :milk,  hidden: true],
+  ['ジェル',                   :gel,   hidden: true],
+  ['ワックス',                 :wax,   hidden: true],
+  ['スプレー',                 :spray, hidden: true]
+].each do |name, identify, attrs|
+  attrs ||= {}
+  attrs[:name] = name
+  attrs[:identify] = identify
+  Category.create(attrs)
 end
 
 %w|エイジングケア ダメージケア デリケートヘア オイリー・頭皮ケア 保湿ケア|.each do |name|
@@ -107,7 +114,13 @@ CSV.read(Rails.root.join("presets/data/products.csv").to_s, headers: :first_row,
     end
   end
 
-  attrs['category_ids'] = attrs['category_ids'].to_s.split
+  attrs['category_ids'] = []
+  categories = attrs['categories'].to_s.split.each do |identify|
+    category = Category.where(identify: identify).first
+    puts identify
+    attrs['category_ids'] << category.id
+  end
+  attrs.delete('categories')
 
   if series = Series.where(identify: attrs['series']).first
     attrs['series_ids'] = [series.id]

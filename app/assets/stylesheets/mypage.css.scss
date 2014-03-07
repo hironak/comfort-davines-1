@@ -14,15 +14,9 @@ p.underline {
 
     table {
       margin-bottom: 15px;
-      th {
-        padding: $base-line-height * 0.5;
-      }
       td {
-        text-align: center;
-        padding: 0;
         input {
-          margin: 0;
-          width: 90%;
+          width: 100%;
         }
       }
     }

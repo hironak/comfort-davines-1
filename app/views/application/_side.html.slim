@@ -9,7 +9,7 @@
 
   .category
     h3 カテゴリー別
-    - Category.includes(:products).each do |category|
+    - Category.includes(:products).where.not(hidden: true).each do |category|
       h4
         span.arrow = image_tag 'application/li_black.png'
         = category.name

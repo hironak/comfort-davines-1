@@ -9,10 +9,10 @@
 
 .main
 
-  - if @catalog.identify == 'naturaltech'
+  - if %w|naturaltech moreinside|.include?(@catalog.identify)
     ul.category-select
       li = link_to "すべて", { category: nil }, class: (params[:category].nil? && "active")
-      - @catalog.categories.load.each do |category|
+      - (@catalog.identify == 'naturaltech' ? @catalog.categories : @catalog.categories.where(hidden: true)).load.each do |category|
         li = link_to category.name, { category: category.identify }, class: ((params[:category] == category.identify) && 'active')
   - else
     .spacing

@@ -15,14 +15,19 @@ task :load_products => :environment do
   end
 
   [
-    ['キット', :kit],
-    ['シャンプー', 'shampoo'],
-    ['コンディショナー＆パック', 'conditioner'],
-    ['スペシャルケア', 'specialcare'],
-    ['オイル', 'oil'],
-    ['スタイリング', 'styling']
-  ].each do |name, identify|
+    ['キット',                   :kit],
+    ['シャンプー',               :shampoo],
+    ['コンディショナー＆パック', :conditioner],
+    ['スペシャルケア',           :specialcare],
+    ['オイル',                   :oil],
+    ['スタイリング',             :styling],
+    ['ミルク',                   :milk,  hidden: true],
+    ['ジェル',                   :gel,   hidden: true],
+    ['ワックス',                 :wax,   hidden: true],
+    ['スプレー',                 :spray, hidden: true]
+  ].each do |name, identify, attrs|
     Category.find_or_initialize_by(identify: identify).tap do |category|
+      category.attributes = attrs
       category.name = name
       category.save
     end
@@ -91,7 +96,13 @@ task :load_products => :environment do
       end
     end
 
-    attrs['category_ids'] = attrs['category_ids'].to_s.split
+    attrs['category_ids'] = []
+    categories = attrs['categories'].to_s.split.each do |identify|
+      category = Category.where(identify: identify).first
+      puts identify
+      attrs['category_ids'] << category.id
+    end
+    attrs.delete('categories')
 
     if series = Series.where(identify: attrs['series']).first
       attrs['series_ids'] = [series.id]
