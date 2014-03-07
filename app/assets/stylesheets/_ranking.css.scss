@@ -1,0 +1,26 @@
+.ranking {
+  .item {
+    @extend %item;
+    @include span-columns(3 of 9);
+    @include omega(3n);
+    padding-top: 17px;
+    height: 445px + 17px;
+    .image {
+      height: 220px;
+    }
+    &.rank1 {
+      background: image-url('welcome/rank01.png') left top 5px no-repeat;
+      background-size: 100% auto;
+    }
+    &.rank2 {
+      background: image-url('welcome/rank02.png') left top 5px no-repeat;
+      background-size: 100% auto;
+    }
+    &.rank3 {
+      background: image-url('welcome/rank03.png') left top 5px no-repeat;
+      background-size: 100% auto;
+    }
+  }
+}
+
+

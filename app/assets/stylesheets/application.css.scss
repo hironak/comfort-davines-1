@@ -117,6 +117,7 @@
   @import "editable";
   @import "reviews";
   @import "product";
+  @import "ranking";
   background: image-url('contents_bg.jpg');
   .main {
     @include span-columns(9 of 12);
@@ -160,6 +161,12 @@
         li {
           padding: $base-line-height * 0.05;
         }
+      }
+    }
+    .side-shoppingguide,
+    .link {
+      img {
+        display: block;
       }
     }
     .side-shoppingguide {
