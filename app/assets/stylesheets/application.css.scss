@@ -120,6 +120,11 @@
     margin: 0;
     font-size: $base-font-size * 0.8;
   }
+  .annotation {
+    text-align: right;
+    font-size: 8px;
+    margin-bottom: 20px;
+  }
   @import "editable";
   @import "reviews";
   @import "product";

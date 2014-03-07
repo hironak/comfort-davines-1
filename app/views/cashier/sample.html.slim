@@ -19,7 +19,7 @@
     = f.hidden_field :sample_selected, value: true
 
     .sample_select
-      p
+      p.explanation
         | 商品をお買い上げ頂くと毎回サンプルを2点プレゼントしております。下記よりお選びください。
         br
         | ※1種類1点のみお選びいただけます。
@@ -38,8 +38,10 @@
                 = product.label
               .detail = product.small_detail
 
-      p style="font-size: 12px;clear:both;text-align:right;"
-        | *1：エイジングケアとは、年齢に応じた化粧品によるケアのことです
+      p.annotation style="clear:both;"
+        sup
+          | *1
+        | ：エイジングケアとは、年齢に応じた化粧品によるケアのことです。
 
     .action = f.submit '次のステップへ'
 

@@ -28,7 +28,7 @@ h2 {
   @include clearfix;
   background: white;
   padding: 10px 20px;
-  p {
+  p.explanation {
     font-size: $base-font-size * 0.9;
   }
   .items {
