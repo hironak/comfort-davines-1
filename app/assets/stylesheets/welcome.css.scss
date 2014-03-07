@@ -99,10 +99,14 @@
 .news,
 .products {
   @include clearfix;
-  margin-bottom: $base-line-height;
+  margin-bottom: 20px;
 }
 
 .lineup {
+  margin-bottom: 20px;
+  .up, .down {
+    @include clearfix;
+  }
   .up {
     overflow: hidden;
     margin-bottom: 13px;
@@ -122,6 +126,7 @@
 
 .topics {
   position: relative;
+  margin-bottom: 10px;
   dl {
     position: absolute;
     top: 0px;
@@ -169,7 +174,9 @@
     .column {
       @include span-columns(4 of 12);
       @include omega(3);
-      margin-bottom: $base-line-height;
+      img {
+        display: block;
+      }
     }
   }
 }
@@ -199,6 +206,8 @@
 }
 
 .news {
+  margin-top: -10px;
+  @include clearfix;
   .scroll {
     height: 150px;
     dl {

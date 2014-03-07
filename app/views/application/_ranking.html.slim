@@ -1,0 +1,14 @@
+.ranking
+  - Product.ranking.each_with_index do |product, i|
+    .item class="rank#{i+1}"
+      .image = link_to product do
+        = image_tag product.image.url(:item), alt: product.name
+      .name = link_to product.name, product
+      .detail = product.small_detail
+      .price
+        span.small
+        '
+        = number_to_currency product.view_price
+        span.small （税込）
+      .cart = link_to add_carts_path(product_id: product.id, amount: 1), method: :post do
+        = image_tag 'welcome/cart_btn.png', alt: 'カートに入れる'

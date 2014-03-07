@@ -1,4 +1,6 @@
 .ranking {
+  @include clearfix;
+  margin-bottom: 20px;
   .item {
     @extend %item;
     @include span-columns(3 of 9);

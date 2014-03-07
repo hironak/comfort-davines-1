@@ -13,6 +13,10 @@
     text-align: center;
   }
 
+  .spacing {
+    height: 29px;
+  }
+
   ul.category-select {
     @include clearfix;
     margin-bottom: 15px;

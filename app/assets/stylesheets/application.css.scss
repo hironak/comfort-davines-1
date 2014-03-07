@@ -284,6 +284,14 @@
         @include span-columns(2.25 of 9);
       }
     }
+    .toindex {
+      text-align: right;
+      font-size: $base-font-size * 0.8;
+      a {
+        padding-left: 15px;
+        background: image-url("welcome/shoppingguide_li.png") left center no-repeat;
+      }
+    }
     .otherproducts {
       li {
         @include span-columns(18 of 90);
