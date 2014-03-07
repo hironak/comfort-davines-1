@@ -1,2 +1,2 @@
-class Payment::Deferred < ActiveRecord::Base
+class Payment::Deferred < Payment
 end
