@@ -104,8 +104,14 @@ table {
     textarea,
     input,
     select {
-      margin: 10px;
+      margin: 0;
     }
   }
 }
 
+.actions {
+  input {
+    display: inline;
+  }
+  text-align: center;
+}

@@ -54,17 +54,6 @@ table {
     * {
       vertical-align: middle;
     }
-    &.product {
-      width: 40%;
-    }
-    &.capacity,
-    &.price,
-    &.amount,
-    &.total,
-    &.shipment,
-    &.remove {
-      width: 10%;
-    }
   }
   tbody {
     tr {
@@ -77,10 +66,18 @@ table {
         border-bottom: none;
       }
     }
+  }
+}
+
+table.cart {
+  th, td {
+    vertical-align: middle;
+  }
+  tbody {
+    td.image {
+    }
     td.product {
-      img {
-        margin: 10px;
-      }
+      text-align: left;
     }
     td.price {
       text-align: right;

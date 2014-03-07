@@ -6,45 +6,45 @@
     table.cart
       thead
         tr
-          th.product 商品名
-          th.capacity 容量
-          th.price 価格(税込)
-          th.amount 個数
-          th.total 小計(税込)
-          th.shipment 送料
-          th.remove
+          th.w40.product 商品名
+          th.w10.capacity 容量
+          th.w10.price 価格(税込)
+          th.w10.amount 個数
+          th.w10.total 小計(税込)
+          th.w10.shipment 送料
+          th.w10.remove
 
       tbody
         - current_cart.items.without_samples.each do |item|
           tr.item
-            td.product
+            td.w40.product
               = image_tag item.product.image.url(:thumb)
               = item.product.name
-            td.capacity = raw item.product.capacity
-            td.price = number_to_currency item.view_origin_price
-            td.amount
+            td.w10.capacity = raw item.product.capacity
+            td.w10.price = number_to_currency item.view_origin_price
+            td.w10.amount
               - if item.check_amount
                 = form_tag add_carts_path(product_id: item.product.id), method: :post, class: 'autosend' do
                   = select_tag :amount, options_for_select((1..item.product.stock), selected: item.amount)
               - else
                 = item.amount
-            td.total = number_to_currency item.price
-            td.shipment 別
-            td.remove
+            td.w10.total = number_to_currency item.price
+            td.w10.shipment 別
+            td.w10.remove
               = link_to remove_carts_path(product_id: item.product.id, amount: 1), method: :delete do
                 = image_tag "cart/torikeshi_btn.jpg", alt: "取消"
 
         tr.no-border
-          td.results colspan=4 合計
-          td.total = number_to_currency current_cart.items_price
-          td.total = number_to_currency current_cart.postage
-          td.remove
+          td.w70.results colspan=4 合計
+          td.w10.total = number_to_currency current_cart.items_price
+          td.w10.total = number_to_currency current_cart.postage
+          td.w10.remove
 
         tr.no-border
-          td.results colspan=4 総合計
-          td.total
-          td.total = number_to_currency current_cart.total_price
-          td.remove
+          td.w70.results colspan=4 総合計
+          td.w10.total
+          td.w10.total = number_to_currency current_cart.total_price
+          td.w10.remove
 
     p.cashier
       = link_to cashier_path do
