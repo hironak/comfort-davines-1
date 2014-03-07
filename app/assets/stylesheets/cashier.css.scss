@@ -69,6 +69,20 @@ h2 {
   color: red;
 }
 
+.payment-type-select {
+  margin-bottom: 20px;
+}
+
+.announce {
+  background: image-url('application/table_bg_right.png');
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: $base-font-size * 0.8;
+  p {
+    margin: 5px;
+  }
+}
+
 .note {
   margin-bottom: 40px;
   h2 {
