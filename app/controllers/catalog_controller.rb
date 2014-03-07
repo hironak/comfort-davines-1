@@ -5,10 +5,10 @@ class CatalogController < ApplicationController
     add_breadcrumb @catalog.name
     @products = @catalog.products.available
     @reviews = @catalog.reviews
-    if params[:category_id]
+    if params[:category]
       @products = @products
         .includes(:categories)
-        .where(categories: { id: params[:category_id] })
+        .where(categories: { identify: params[:category] })
     end
     render 'show'
   end

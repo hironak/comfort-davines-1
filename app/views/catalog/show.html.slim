@@ -10,9 +10,9 @@
 .main
   - if @catalog.identify == 'naturaltech'
     ul.category-select
-      li = link_to "すべて", { category_id: nil }, class: (params[:category_id].nil? && "active")
+      li = link_to "すべて", { category: nil }, class: (params[:category].nil? && "active")
       - @catalog.categories.load.each do |category|
-        li = link_to category.name, { category_id: category.id }, class: ((params[:category_id] == category.id.to_s) && 'active')
+        li = link_to category.name, { category: category.identify }, class: ((params[:category] == category.id.to_s) && 'active')
 
   div class = "#{action_name}-items"
     = render partial: "product_#{@catalog.identify}", collection: @products, as: :product

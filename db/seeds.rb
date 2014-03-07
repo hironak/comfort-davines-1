@@ -21,11 +21,11 @@ end
 
 [
   ['キット', :kit],
-  ['シャンプー', ''],
-  ['コンディショナー＆パック', ''],
-  ['スペシャルケア', ''],
-  ['オイル', ''],
-  ['スタイリング', '']
+  ['シャンプー', 'shampoo'],
+  ['コンディショナー＆パック', 'conditioner'],
+  ['スペシャルケア', 'specialcare'],
+  ['オイル', 'oil'],
+  ['スタイリング', 'styling']
 ].each do |name, identify|
   Category.create name: name, identify: identify
 end
