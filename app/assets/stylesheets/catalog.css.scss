@@ -130,14 +130,17 @@
         .capacity {
           float: none;
         }
-        .image {
-          height: 45%;
-        }
       }
       &.authentic-item {
         height: 547px;
         .image {
           height: 53%;
+        }
+      }
+      &.kit-item {
+        height: 550px;
+        .image {
+          height: 49%;
         }
       }
       .fukidashi {
