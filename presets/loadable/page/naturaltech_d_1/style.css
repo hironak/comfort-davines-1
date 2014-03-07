@@ -69,36 +69,35 @@ p.flow-bar span {
   border-radius: 0.7em;
 }
 
-
 ul.flow {
   overflow: hidden;
-  padding: 5px;
+  padding: 10px;
 }
 ul.flow li {
   float: left;
-}
-ul.flow li.left {
-  padding: 10px 0 0 10px;
-  border-radius: 10px;
-  background: white;
-  width: 50%;
-}
-ul.flow li.left img {
-  display: block;
-  margin: 0 10px 10px 0;
-  float: left;
-}
-ul.flow li.middle {
-  text-align: center;
+  height: 160px;
+  line-height: 160px;
   vertical-align: middle;
-  line-height: 150px;
-  width: 15%;
-}
-ul.flow li.right {
   text-align: center;
-  vertical-align: middle;
-  width: 35%;
+}
+ul.flow li.icon {
 }
 ul.flow li img {
   width: auto;
+}
+ul.flow.col4 {
+}
+ul.flow.col4 li {
+  width: 22.5%;
+}
+ul.flow.col4 li.icon {
+  width: 3%;
+}
+ul.flow.col5 {
+}
+ul.flow.col5 li {
+  width: 18%;
+}
+ul.flow.col5 li.icon {
+  width: 2%;
 }
