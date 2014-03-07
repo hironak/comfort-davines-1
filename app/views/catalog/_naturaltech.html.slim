@@ -1,7 +1,3 @@
-- if !params[:category] || %w|shampoo specialcare|.include?(params[:category])
-  p style="text-align: right;"
-    small ※エイジングケアとは、年齢に応じた化粧品によるケアのことです。
-
 / p
 /   = image_tag "catalog/naturaltech/explain1.png", alt: ""
 /   = image_tag "catalog/naturaltech/explain2.png", alt: ""
@@ -16,7 +12,7 @@ ul.natural6
   li = image_tag "catalog/naturaltech/nt_c.png", alt: ""
   li = image_tag "catalog/naturaltech/nt_r.png", alt: ""
   li = image_tag "catalog/naturaltech/nt_w.png", alt: ""
-p = image_tag "catalog/naturaltech/explanatory.png"
+p.annotation = image_tag "catalog/naturaltech/explanatory.png"
 p style="clear: both; text-align: right;"
   = link_to catalog_path(action: :series, id: :naturaltech) do
     = image_tag "catalog/naturaltech/nt_index_btn.jpg", alt: "ナチュラルテック"
