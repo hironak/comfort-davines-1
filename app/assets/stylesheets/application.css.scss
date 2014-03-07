@@ -71,6 +71,11 @@
         height: 64px;
         img {
           display: block;
+          &.show {
+          }
+          &.hidden {
+            display: none;
+          }
         }
       }
     }

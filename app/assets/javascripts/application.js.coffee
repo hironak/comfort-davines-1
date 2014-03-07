@@ -6,6 +6,15 @@
 #= require_directory .
 
 $ ->
+
+  $('.consumer .logout').on 'mouseover', ->
+    $(@).find('.login').hide()
+    $(@).find('.logout').show()
+
+  $('.consumer .logout').on 'mouseout', ->
+    $(@).find('.login').show()
+    $(@).find('.logout').hide()
+
   $('.autosend').on 'change', ->
     $(@).submit()
 

@@ -23,11 +23,12 @@ html
         ul.consumer
           - if current_consumer
             li
-              = link_to destroy_consumer_session_path, method: :delete do
-                = image_tag 'header/nav_01.png', alt: 'sign out'
+              = link_to destroy_consumer_session_path, method: :delete, class: 'logout' do
+                .login = image_tag 'header/nav_01_login.png', alt: 'ログアウト'
+                .logout = image_tag 'header/nav_01_logout.png', alt: 'ログアウト'
             li
               = link_to mypage_root_path do
-                = image_tag 'header/nav_02.png', alt: 'sign in'
+                = image_tag 'header/nav_02_mypage.png', alt: 'マイページ'
 
           - else
             li
