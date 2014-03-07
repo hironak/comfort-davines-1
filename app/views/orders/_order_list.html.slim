@@ -1,38 +1,40 @@
 .order-list
-  table
+  table.cart
     thead
       tr
-        th.product 商品名
-        th.price 金額
-        th.amount 個数
-        th.total 小計
-        th.shipment 送料
+        th.w60.product 商品名
+        th.w10.price 価格(税込)
+        th.w10.amount 個数
+        th.w10.total 小計(税込)
+        th.w10.shipment 送料
     tbody
       - @order.items_without_samples.each do |item|
         tr.item
-          td.product
+          td.w60.product
             = image_tag item.product.image.url(:thumb)
             = item.product.name
-          td.price = number_to_currency item.view_origin_price
-          td.amount = item.amount
-          td.total = number_to_currency item.price
-          td.shipment 別
+          td.w10.price = number_to_currency item.view_origin_price
+          td.w10.amount = item.amount
+          td.w10.total = number_to_currency item.price
+          td.w10.shipment 別
 
       tr.no-border
-        td.results colspan=3 合計
-        td.total = number_to_currency @order.items_price
-        td.total = number_to_currency @order.postage
+        td.w80.results colspan=3 合計
+        td.w10.total = number_to_currency @order.items_price
+        td.w10.total = number_to_currency @order.postage
+
+      - if Payment::Collect === @order.payment
+        tr.no-border
+          td.w80.results colspan=3 代引き手数料
+          td.w10.total colspan=2 = number_to_currency @order.commission
 
       tr.no-border
-        td.results colspan=3 総合計
-        td.total
-        td.total = number_to_currency @order.total_price
+        td.w80.results colspan=3 総合計
+        td.w10.total colspan=2 = number_to_currency @order.total_price
 
   - if @order.samples.size > 0
-    table
-      thead
-        tr
-          th サンプル
+    h2 選択したサンプル
+    table.cart
       tbody
         - @order.samples.each do |item|
           tr.item
