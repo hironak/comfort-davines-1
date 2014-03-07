@@ -33,7 +33,8 @@
 .footer {}
 
 .hr {
-  margin: 20px 0;
+  background: image-url("application/line.png") left top no-repeat;
+  height: 30px;
 }
 
 // ----------------------------------------
@@ -287,6 +288,7 @@
     .toindex {
       text-align: right;
       font-size: $base-font-size * 0.8;
+      padding: 0 40px;
       a {
         padding-left: 15px;
         background: image-url("welcome/shoppingguide_li.png") left center no-repeat;

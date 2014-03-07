@@ -104,6 +104,8 @@
 
   p.toindex = link_to "一覧へ", news_releases_path
 
+  .hr
+
   .products
     h2 = image_tag 'welcome/products.jpg', alt: 'PRODUCTS'
     .prev = image_tag 'welcome/products_left.png', alt: 'prev'
@@ -113,10 +115,5 @@
           li = link_to product do
             = image_tag product.image.url(:thumb)
     .next = image_tag 'welcome/products_right.png', alt: 'next'
-
-  /p
-  /  = image_tag 'welcome/'
-  /  = image_tag 'welcome/'
-  /  = image_tag 'welcome/'
 
 .side = render 'side'
