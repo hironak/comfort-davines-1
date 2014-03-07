@@ -58,7 +58,7 @@ p.flow-bar {
 p.flow-bar sup {
   vertical-align: middle;
   position: relative;
-  top: -7px;
+  top: -5px;
 }
 p.flow-bar span {
   background: white;

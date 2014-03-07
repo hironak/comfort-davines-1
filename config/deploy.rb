@@ -1,5 +1,5 @@
 set :application, 'comfort-davines'
-set :repo_url, 'https://github.com/hackers-jp/comfort-davines.git'
+set :repo_url, 'git@github.com:hackers-jp/comfort-davines.git'
 
 set :branch, proc { `git rev-parse HEAD`.chomp }
 
