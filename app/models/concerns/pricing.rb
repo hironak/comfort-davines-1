@@ -1,14 +1,17 @@
 module Pricing
   extend ActiveSupport::Concern
 
+  # 総合計
   def total_price
     (items_price + postage + commission).to_i
   end
 
+  # 消費税
   def tax
     self.items.map(&:tax).inject(:+).to_i
   end
 
+  # 送料
   def postage
     if self.items_price > 6000
       0
@@ -21,14 +24,32 @@ module Pricing
     end
   end
 
+  # 表品金額合計
   def items_price
     self.items.map(&:price).inject(:+).to_i
   end
 
+  # 代引き手数料
   def commission
     case self.payment_type
     when 'Payment::Collect'
-      315
+      total = items_price + postage
+      case
+      when total <= 10000
+        315
+      when total <= 30000
+        420
+      when total <= 100000
+        630
+      when total <= 300000
+        1050
+      when total <= 500000
+        2100
+      when total <= 1000000
+        3150
+      else
+        4200
+      end
     else
       0
     end

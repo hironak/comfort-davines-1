@@ -74,10 +74,11 @@ table.cart {
     vertical-align: middle;
   }
   tbody {
-    td.image {
-    }
     td.product {
       text-align: left;
+      img {
+        margin-right: 10px;
+      }
     }
     td.price {
       text-align: right;
