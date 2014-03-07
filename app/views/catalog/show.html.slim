@@ -12,7 +12,7 @@
     ul.category-select
       li = link_to "すべて", { category: nil }, class: (params[:category].nil? && "active")
       - @catalog.categories.load.each do |category|
-        li = link_to category.name, { category: category.identify }, class: ((params[:category] == category.id.to_s) && 'active')
+        li = link_to category.name, { category: category.identify }, class: ((params[:category] == category.identify) && 'active')
 
   div class = "#{action_name}-items"
     = render partial: "product_#{@catalog.identify}", collection: @products, as: :product
