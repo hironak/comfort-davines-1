@@ -38,6 +38,8 @@ p.underline {
 
 .main {
   .navigation {
+    margin-bottom: 20px;
+    @include clearfix;
     li {
       @include span-columns(5 of 10);
     }
