@@ -111,6 +111,7 @@
 .contents {
   .breadcrumbs {
     padding: 15px 0;
+    margin: 0;
     font-size: $base-font-size * 0.8;
   }
   @import "editable";
@@ -134,8 +135,15 @@
         font-size: $base-font-size * 0.8;
         padding: ($base-line-height * 0.2) 0;
       }
+      h3:first-child {
+        padding-top: 0;
+      }
       h4 {
+        margin: 0;
         .arrow {
+          img {
+            display: inline;
+          }
           padding: 4px;
         }
         font-size: $base-font-size * 0.8;

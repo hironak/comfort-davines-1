@@ -5,7 +5,6 @@
 .main {
   h1, h2 {
     line-height: 65px;
-    margin-bottom: $base-line-height * 0.5;
     img {
       vertical-align: bottom;
     }
@@ -14,7 +13,7 @@
 
 .side {
   padding-top: 60px;
-  margin-top: -$base-line-height * 1.3;
+  margin-top: -$base-line-height * 1.2;
 }
 
 .banner {
@@ -111,6 +110,9 @@
       @include span-columns(4.5 of 9);
     }
   }
+  img {
+    display: block;
+  }
   .down {
     a {
       @include span-columns(3 of 9);
@@ -151,10 +153,39 @@
 .newitem {
   .item {
     @extend %item;
-    @include span-columns(4 of 12);
+    @include span-columns(3 of 9);
     @include omega(3n);
     background: image-url('welcome/new_bg.png') left top no-repeat;
     background-size: 100% auto;
+    height: 442px;
+    .image {
+      height: 220px;
+    }
+  }
+}
+
+.ranking {
+  .item {
+    @extend %item;
+    @include span-columns(3 of 9);
+    @include omega(3n);
+    padding-top: 12px;
+    height: 445px + 12px;
+    .image {
+      height: 220px;
+    }
+    &.rank1 {
+      background: image-url('welcome/rank01.png') left top 5px no-repeat;
+      background-size: 100% auto;
+    }
+    &.rank2 {
+      background: image-url('welcome/rank02.png') left top 5px no-repeat;
+      background-size: 100% auto;
+    }
+    &.rank3 {
+      background: image-url('welcome/rank03.png') left top 5px no-repeat;
+      background-size: 100% auto;
+    }
   }
 }
 

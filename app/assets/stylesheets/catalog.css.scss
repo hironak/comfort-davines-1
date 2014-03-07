@@ -3,6 +3,9 @@
     background: image-url("catalog/header_kit.png") center top no-repeat;
     height: 490px;
   }
+  img {
+    display: block;
+  }
 }
 
 .main {
@@ -79,17 +82,17 @@
     @include clearfix;
     .item {
       padding-top: 60px;
-      margin-bottom: 10px;
+      margin-bottom: 20px - 6px;
       &.naturaltech-item,
       &.moreinside-item {
         @extend %item;
         @include span-columns(3 of 9);
         @include omega(3n);
-        height: 600px;
       }
       &.naturaltech-item {
+        height: 555px;
         .image {
-          height: 40%;
+          height: 44%;
         }
         &.kit {
           .image {
@@ -101,8 +104,9 @@
         }
       }
       &.moreinside-item {
+        height: 555px;
         .image {
-          height: 45%;
+          height: 48%;
         }
         .name {
           height: $base-font-size * 1.8;
@@ -116,7 +120,6 @@
         @extend %item;
         @include span-columns(4.5 of 9);
         @include omega(2);
-        height: 600px;
         .name {
           line-height: $base-line-height;
           height: $base-line-height;
@@ -129,6 +132,12 @@
         }
         .image {
           height: 45%;
+        }
+      }
+      &.authentic-item {
+        height: 547px;
+        .image {
+          height: 53%;
         }
       }
       .fukidashi {
