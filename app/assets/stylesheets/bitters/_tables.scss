@@ -12,7 +12,6 @@ table {
 th {
   background: image-url('application/table_bg_left.png');
   border: 1px solid $table-border-color;
-  padding: ($base-line-height / 2) 0;
   font-weight: normal;
   text-align: left;
 }
@@ -20,17 +19,17 @@ th {
 td {
   background: image-url('application/table_bg_right.png');
   border: 1px solid $table-border-color;
-  padding: ($base-line-height / 2) 0;
 }
 th, td {
+  padding: ($base-line-height * 0.8);
   p {
     margin: 0;
-    padding: 0 ($base-line-height * 0.8);
+    padding: 0;
   }
 }
 
 tr, td, th {
-  vertical-align: middle;
+  vertical-align: top;
 }
 
 table {

@@ -27,7 +27,6 @@ select {
 
 label {
   font-weight: bold;
-  margin-bottom: $base-line-height / 4;
 
   &.required:after {
     content: "*";
@@ -48,7 +47,6 @@ textarea,
   box-shadow: $form-box-shadow;
   font-family: $form-font-family;
   font-size: $form-font-size;
-  margin-bottom: $base-line-height / 2;
   padding: ($base-line-height / 3) ($base-line-height / 3);
   resize: vertical;
 
@@ -78,7 +76,6 @@ input[type="file"] {
 
 select {
   width: auto;
-  margin-bottom: $base-line-height;
 }
 
 button,
@@ -101,3 +98,14 @@ input[type="submit"] {
     width: 100%;
   }
 }
+
+table {
+  th, td {
+    textarea,
+    input,
+    select {
+      margin: 10px;
+    }
+  }
+}
+

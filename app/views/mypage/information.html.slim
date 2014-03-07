@@ -15,7 +15,8 @@
       tbody
         = f.fields_for :information do |f|
           tr
-            th.w30 お名前
+            th.w30
+              label お名前
             td.w70
               = f.label :family_name do
                 | 　
@@ -26,7 +27,8 @@
                 = f.object.class.human_attribute_name :given_name
                 = f.text_field :given_name
           tr
-            th.w30 フリガナ
+            th.w30
+              label フリガナ
             td.w70
               = f.label :family_name_kana do
                 = f.object.class.human_attribute_name :family_name_kana
