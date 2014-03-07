@@ -40,7 +40,7 @@
 
       .product-information
 
-        p.review-ingredient
+        .review-ingredient
           span.review
             = link_to "", class: "write-review" do
               = image_tag "products/review.png", alt: "レビューを書く"
@@ -57,6 +57,7 @@
               br
               = f.hidden_field :product_id
               = f.submit "送信する"
+
         = form_tag add_carts_path, method: :post do
           dl
             dt 価格
