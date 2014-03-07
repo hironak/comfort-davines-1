@@ -160,19 +160,6 @@
   .editable {
     margin-bottom: 40px;
   }
-
-  .reviews {
-    form {
-      textarea {
-        height: 80px;
-        @include span-columns(7 of 9);
-      }
-      input {
-        height: 80px;
-        @include span-columns(2 of 9);
-      }
-    }
-  }
 }
 
 .annotation {
