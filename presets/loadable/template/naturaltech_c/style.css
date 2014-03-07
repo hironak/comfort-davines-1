@@ -3,7 +3,11 @@
 }
 .product-header .logo {
   float: left;
-  margin-bottom: 5px;
+  padding-top: 7px;
+  margin-bottom: 10px;
+}
+.product-header .logo img {
+  display: block;
 }
 .product-header .navigation {
   position: absolute;

@@ -3,8 +3,12 @@
 }
 .product-header .logo {
   height: 70px;
+  line-height: 70px;
   float: left;
   margin-bottom: 10px;
+}
+.product-header .logo img {
+  vertical-align: middle;
 }
 .product-header .navigation {
   position: absolute;
