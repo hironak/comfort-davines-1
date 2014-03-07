@@ -1,22 +1,17 @@
-h1 Listing press_releases
+h1 プレスリリース
 
 table
   tr
     th Magazine
-    th Corner
-    th Products
     th
     th
     th
 
   - @press_releases.each do |press_release|
     tr
-      td = press_release.magazine
-      td = press_release.corner
-      td = press_release.products
-      td = link_to 'Show', [:admin, press_release]
-      td = link_to 'Edit', edit_admin_press_release_path(press_release)
-      td = link_to 'Destroy', [:admin, press_release], data: {:confirm => 'Are you sure?'}, :method => :delete
+      td = link_to [:admin, press_release] do
+        = press_release.magazine
+      td = link_to '削除', [:admin, press_release], data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 

@@ -1,6 +1,9 @@
 ja:
   activerecord:
     models:
+      press_release: プレスリリース
+      topic: トピックス
+      news_release: ニュース
       administrator: 管理アカウント
       agency: 代理店
       cart: カート
@@ -10,6 +13,7 @@ ja:
       solution: お悩み別
       consumer: ユーザーアカウント
       file_storage: ファイルアップロード
+      product/review: お客様の声
       order: 注文
       order_item: order_item  #g
       payment: 支払い方法
