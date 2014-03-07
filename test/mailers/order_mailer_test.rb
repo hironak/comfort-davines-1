@@ -9,7 +9,7 @@ class OrderMailerTest < ActionMailer::TestCase
     mail = OrderMailer.complete('to@example.org', @order)
     # assert_equal "Complete", mail.subject
     assert_equal ["to@example.org"], mail.to
-    assert_equal ["order@davines.com"], mail.from
+    assert_equal ["order@davines.co.jp"], mail.from
     # assert_match "Hi", mail.body.encoded
   end
 
