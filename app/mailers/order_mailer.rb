@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 class OrderMailer < ActionMailer::Base
-  default from: "order@davines.co.jp"
+  default from: "ダヴィネス ダイレクト\n<order@davines.co.jp>"
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
