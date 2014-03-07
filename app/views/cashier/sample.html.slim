@@ -33,9 +33,11 @@
                 = image_tag product.image.url(:thumb)
               .name
                 span.check = check_box_tag "order[sample_ids][]", product.id, @order.sample_ids.include?(product.id), id: "order_sample_ids_#{product.id}"
+                | 【サンプル】
+                br
                 = product.name
-                |
-                = product.label
+                br
+                = product.capacity
               .detail = product.small_detail
 
       p.annotation style="clear:both;"
