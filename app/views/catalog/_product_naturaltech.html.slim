@@ -1,4 +1,4 @@
-.item class="#{@catalog.identify}-item #{product.template.identify} #{product.category.identify}"
+.item class="#{@catalog.identify}-item #{product.template.identify} #{product.categories.pluck(:identify).join(' ')}"
   .image = link_to product do
     = image_tag product.image.url(:item)
   .type
