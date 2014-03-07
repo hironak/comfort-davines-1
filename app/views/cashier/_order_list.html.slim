@@ -22,13 +22,18 @@
 
       tr.no-border
         td.w80.results colspan=3 合計
-        td.w10.total = number_to_currency current_cart.items_price
-        td.w10.total = number_to_currency current_cart.postage
+        td.w10.total = number_to_currency @order.items_price
+        td.w10.total = number_to_currency @order.postage
+
+      - if Payment::Collect === @order.payment
+        tr.no-border
+          td.w80.results colspan=3 代引き手数料
+          td.w10.total colspan=2 = number_to_currency @order.commission
 
       tr.no-border
         td.w80.results colspan=3 総合計
         td.w10.total
-        td.w10.total = number_to_currency current_cart.total_price
+        td.w10.total = number_to_currency @order.total_price
 
   - if @order.samples.size > 0
     h2 選択したサンプル

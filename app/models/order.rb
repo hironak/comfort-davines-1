@@ -13,7 +13,7 @@ class Order < ActiveRecord::Base
     '14〜16時' => '14',
     '16〜18時' => '16',
     '18〜20時' => '18',
-    '19〜24時' => '19'
+    '19〜21時' => '19'
   }
 
   attr_accessor :phase
