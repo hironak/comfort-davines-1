@@ -2,9 +2,12 @@
   position: relative;
 }
 .product-header .logo {
-  height: 65px;
   float: left;
-  margin-bottom: 5px;
+  padding-top: 15px;
+  margin-bottom: 14px;
+}
+.product-header .logo img {
+  display: block;
 }
 .product-header .navigation {
   position: absolute;
