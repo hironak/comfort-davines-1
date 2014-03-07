@@ -59,3 +59,14 @@
   }
 }
 
+.side {
+  &.naturaltech {
+    padding-top: 25px;
+  }
+  &.authentic {
+    padding-top: 35px;
+  }
+  &.moreinside {
+    padding-top: 35px + 15px;
+  }
+}

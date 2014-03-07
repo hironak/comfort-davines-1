@@ -62,4 +62,4 @@
     li = link_to catalog_path(action: :series, id: 'moreinside') do
       = image_tag 'products/otherproducts_02.png', alt: 'モアインサイド'
 
-.side = render 'side'
+.side class=@product.series.identify = render 'side'
