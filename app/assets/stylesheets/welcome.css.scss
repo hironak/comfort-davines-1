@@ -72,7 +72,21 @@
   .selector {
     .container {
       background: image-url('welcome/header_bg_shadow.png') top center no-repeat;
-      height: 10px;
+      .points {
+        padding: 10px 0 0;
+        overflow: hidden;
+        float: right;
+        li {
+          overflow: hidden;
+          height: 8px;
+          line-height: 8px;
+          margin-left: 5px;
+          float: left;
+          img {
+            display: block;
+          }
+        }
+      }
     }
   }
 }
