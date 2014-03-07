@@ -48,7 +48,7 @@
     h2 = image_tag 'welcome/topics_line.png', aly: 'TOPICS'
     dl
       - Topic.limit(2).each do |topic|
-        dt = l topic.date
+        dt = l topic.date, format: :long
         dd = link_to topic.subject, topic
 
   h2 = image_tag 'welcome/newitem.png', alt: 'New Item'
