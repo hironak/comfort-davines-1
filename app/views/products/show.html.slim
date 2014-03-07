@@ -2,6 +2,8 @@
 
   = render 'product'
 
+  .annotation = raw @product.annotation
+
   - if @reviews.count > 0
     h3 = image_tag 'products/user_line.png', alt: '商品を使っているご愛用者の声'
     .reviews = render 'reviews'
@@ -22,9 +24,12 @@
             br
             = link_to product do
               = image_tag 'products/plus1_btn.jpg', alt: '詳しく見る'
-          - if product.detail
-            .detail
-              = raw product.detail
+          .detail
+            == product.detail
+          .annotation
+            == product.annotation
+
+
 
   h3 = image_tag 'products/otheritem_line.png', alt: 'この商品を見た方は、こちらの商品も見ています。'
   .recommendation
@@ -38,9 +43,9 @@
           span.price
             = number_to_currency product.view_price
             | (税込)　
-          = product.capacity
+          == product.capacity
         .detail
-          = product.small_detail
+          == product.small_detail
 
   .hr = image_tag 'application/line.png', alt: '----------------'
 
