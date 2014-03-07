@@ -16,14 +16,14 @@ task :load_products => :environment do
 
   [
     ['キット', :kit],
-    ['シャンプー', ''],
-    ['コンディショナー＆パック', ''],
-    ['スペシャルケア', ''],
-    ['オイル', ''],
-    ['スタイリング', '']
+    ['シャンプー', 'shampoo'],
+    ['コンディショナー＆パック', 'conditioner'],
+    ['スペシャルケア', 'specialcare'],
+    ['オイル', 'oil'],
+    ['スタイリング', 'styling']
   ].each do |name, identify|
-    Category.find_or_initialize_by(name: name).tap do |category|
-      category.identify = identify
+    Category.find_or_initialize_by(identify: identify).tap do |category|
+      category.name = name
       category.save
     end
   end
