@@ -21,7 +21,7 @@ html
           p 自然環境にやさしさを、髪にうつくしさを、身心に至高のよろこびをお届けするヘアケアブランド[davines]
 
         ul.consumer
-          - if current_consumer
+          - if consumer_signed_in?
             li
               = link_to destroy_consumer_session_path, method: :delete, class: 'logout' do
                 .login = image_tag 'header/nav_01_login.png', alt: 'ログアウト'

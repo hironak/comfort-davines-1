@@ -42,7 +42,7 @@
   p.link = link_to 'http://comfortjapan.jp/', target: '_blank' do
     = image_tag 'welcome/davines_official.jpg', alt: 'オフィシャルサイト'
 
-  - if current_consumer
+  - if consumer_signed_in?
     p = link_to destroy_consumer_session_path, method: :delete do
       = image_tag "application/logout.jpg", alt: "ログアウト"
 
