@@ -9,7 +9,11 @@ class ContactController < ApplicationController
     add_breadcrumb "お問い合わせ"
     @contact.attributes = contact_params
     if @contact.valid?
-      ContactMailer.contact(@contact).deliver
+      if params[:confirm]
+        render 'confirm'
+      else
+        ContactMailer.contact(@contact).deliver
+      end
     else
       render 'new'
     end

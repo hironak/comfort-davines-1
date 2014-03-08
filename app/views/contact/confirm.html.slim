@@ -1,0 +1,43 @@
+.main
+
+  h1 = image_tag "contact/contact_line.png", alt: "お問い合わせ"
+
+  strong お問い合わせフォーム
+  p 下記の内容で送信いたします。よろしければ送信ボタンを押してください。
+
+  = form_for @contact, url: contact_path, method: :post do |f|
+    table
+      tbody
+        tr
+          th お問い合わせ内容
+          td
+            = @contact.type
+            = f.hidden_field :type
+        tr
+          th お名前
+          td
+            = @contact.name
+            = f.hidden_field :name
+        tr
+          th フリガナ
+          td
+            = @contact.name_kana
+            = f.hidden_field :name_kana
+        tr
+          th メールアドレス
+          td
+            = @contact.email
+            = f.hidden_field :email
+        tr
+          th 電話番号
+          td
+            = @contact.phone
+            = f.hidden_field :phone
+        tr
+          th 本文
+          td
+            = simple_format @contact.body
+            = f.hidden_field :body
+    .actions = f.submit "この内容で送信"
+
+.side = render 'side'

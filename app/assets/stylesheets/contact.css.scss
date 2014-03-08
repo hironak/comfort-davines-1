@@ -32,7 +32,6 @@
       }
       td {
         width: 70%;
-        text-align: center;
         vertical-align: top;
         select, input, textarea {
           margin: 0;
@@ -40,6 +39,9 @@
         }
         textarea {
           height: 8.0em;
+        }
+        p {
+          font-size: $base-font-size;
         }
       }
     }

@@ -38,6 +38,7 @@
         tr
           th 本文
           td = f.text_area :body
+    = hidden_field_tag :confirm, true
     .actions = f.submit "送信内容を確認"
 
 .side = render 'side'
