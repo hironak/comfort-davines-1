@@ -57,7 +57,7 @@ class Product < ActiveRecord::Base
 
   def decrease amount
     stock = self.stock - amount
-    raise DecreasingError if stock <= 0
+    raise DecreasingError if stock < 0
     # TODO: 一定数以下になったら通知する
     update_column :stock, stock
   end
