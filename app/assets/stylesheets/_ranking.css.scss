@@ -5,10 +5,10 @@
     @extend %item;
     @include span-columns(3 of 9);
     @include omega(3n);
-    padding-top: 17px;
-    height: 445px + 17px;
+    padding-top: 17px + 25px;
+    height: 445px + 17px + 25px;
     .image {
-      height: 220px;
+      height: 220px - 25px;
     }
     &.rank1 {
       background: image-url('welcome/rank01.png') left top 5px no-repeat;

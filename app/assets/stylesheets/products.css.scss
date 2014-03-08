@@ -11,11 +11,11 @@
   background: image-url('products/plus1_bg.png') left top no-repeat;
   height: 363px;
   margin-top: 15px;
-  padding: 30px;
+  padding: 20px;
   .image {
     @include span-columns(3 of 10);
     background: image-url('products/plus1.png') right top no-repeat;
-    line-height: 363px;
+    line-height: 323px;
     text-align: center;
     img {
       vertical-align: middle;
