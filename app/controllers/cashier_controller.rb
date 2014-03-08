@@ -68,7 +68,7 @@ class CashierController < ApplicationController
   def confirm_create
     @order.attributes = confirm_params
     @order.status = :created
-    render 'confirm' and return unless @order.save
+    render 'confirm' and return unless @order.confirm
     current_cart.clear
     session_clear_order
     OrderMailer.complete(current_consumer.email, @order).deliver

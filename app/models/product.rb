@@ -57,7 +57,7 @@ class Product < ActiveRecord::Base
 
   def decrease amount
     stock = self.stock - amount
-    # TODO: 在庫がマイナスになったらエラー吐く？
+    raise DecreasingError if stock <= 0
     # TODO: 一定数以下になったら通知する
     update_column :stock, stock
   end
@@ -84,5 +84,8 @@ class Product < ActiveRecord::Base
 
   def label_simple
     self.label.gsub(/[＊\*]\d/, '')
+  end
+
+  class DecreasingError < ActiveRecord::ActiveRecordError
   end
 end

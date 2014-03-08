@@ -129,12 +129,12 @@ class Order < ActiveRecord::Base
     end
   end
 
-  after_save :decrease_product_stock
-  def decrease_product_stock
+  def confirm
     if self.phase_confirm?
       self.items.each do |item|
         item.product.decrease item.amount
       end
+      self.save
     end
   end
 
