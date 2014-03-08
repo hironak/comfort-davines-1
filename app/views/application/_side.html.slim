@@ -27,7 +27,7 @@
         li = link_to product.name, product
 
 div.side-shoppingguide
-  p = link_to '' do
+  p = link_to utilization_path do
     = image_tag 'welcome/shoppingguide.jpg', alt: 'ショッピングガイド'
   ul
     li.noarrow = link_to '初めての方へ', introduction_path
