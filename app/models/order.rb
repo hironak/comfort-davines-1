@@ -31,6 +31,7 @@ class Order < ActiveRecord::Base
   has_many :products, through: :items
 
   belongs_to :salon
+  after_initialize :set_salon_prefecture
   before_save :set_salon
 
   has_one :shipment
@@ -219,6 +220,10 @@ class Order < ActiveRecord::Base
   end
 
   private
+
+  def set_salon_prefecture
+    self.salon_prefecture ||= self.consumer.try(:information).try(:prefecture).try(:name)
+  end
 
   def save_email
     self.email = self.consumer.try :email

@@ -6,8 +6,6 @@
 
   = form_for @order, url: cashier_shipment_path do |f|
 
-    / = render "order_list"
-
     - if @order.errors.any?
       #error_explanation
         h2 エラー内容をご確認ください。
