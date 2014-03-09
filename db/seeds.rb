@@ -175,9 +175,10 @@ CSV.read(Rails.root.join("presets/data/salons.csv").to_s, headers: :first_row, c
     current_salon = Salon.create(attrs)
   else
     attrs.each do |k, v|
-      current_salon.attributes[k] += v if v
+      current_salon.attributes[k] += "\n#{v}" if v
     end
   end
+  current_salon.save
 end
 
 # Development Administrator
