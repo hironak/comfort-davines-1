@@ -161,6 +161,8 @@ CSV.read(Rails.root.join("presets/data/products.csv").to_s, headers: :first_row,
   end
 end
 
+current_salon = nil
+
 CSV.read(Rails.root.join("presets/data/salons.csv").to_s, headers: :first_row, col_sep: "\t").each do |attrs|
 
   attrs = attrs.to_hash
@@ -169,7 +171,13 @@ CSV.read(Rails.root.join("presets/data/salons.csv").to_s, headers: :first_row, c
   attrs["grade"] = grades.detect{|l| attrs["grade_#{l}"] == "○" }
   grades.map{|l| "grade_#{l}" }.each{|grade| attrs.delete(grade) }
 
-  Salon.create(attrs)
+  if attrs['name']
+    current_salon = Salon.create(attrs)
+  else
+    attrs.each do |k, v|
+      current_salon.attributes[k] += v if v
+    end
+  end
 end
 
 # Development Administrator
