@@ -1,5 +1,5 @@
-desc "load products data"
-task :load_products => :environment do
+desc "load salons data"
+task :load_salons => :environment do
 
   require "csv"
 
