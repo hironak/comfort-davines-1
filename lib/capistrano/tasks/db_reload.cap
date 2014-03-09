@@ -5,6 +5,7 @@ namespace :db do
       within current_path do
         execute :bundle, :exec, :rake, "load_static", "RAILS_ENV=#{fetch(:stage)}"
         execute :bundle, :exec, :rake, "load_products", "RAILS_ENV=#{fetch(:stage)}"
+        execute :bundle, :exec, :rake, "load_salons", "RAILS_ENV=#{fetch(:stage)}"
       end
     end
   end
