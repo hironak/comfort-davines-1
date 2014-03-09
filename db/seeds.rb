@@ -172,10 +172,15 @@ CSV.read(Rails.root.join("presets/data/salons.csv").to_s, headers: :first_row, c
   grades.map{|l| "grade_#{l}" }.each{|grade| attrs.delete(grade) }
 
   if attrs['name']
-    current_salon = Salon.create(attrs)
+    current_salon = Salon.find_or_initialize_by(name: attrs['name'])
+    current_salon.attributes = attrs
   else
     attrs.each do |k, v|
-      current_salon.attributes[k] += "\n#{v}" if v
+      if v
+        value = current_salon.send k
+        value = "#{value}\r\n#{v}"
+        current_salon.send "#{k}=", value
+      end
     end
   end
   current_salon.save
