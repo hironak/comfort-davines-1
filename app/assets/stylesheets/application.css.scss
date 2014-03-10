@@ -344,6 +344,7 @@
     @import "cashier";
   }
   &.sessions,
+  &.consumers_confirmations,
   &.mypage,
   &.orders {
     @import "mypage";

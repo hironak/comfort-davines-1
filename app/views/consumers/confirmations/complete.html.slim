@@ -1,0 +1,22 @@
+.main.session
+  .center
+    h1 = image_tag 'mypage/complete_confirmations_line.png', alt: '会員登録が完了しました'
+
+    p 本登録が完了しました。
+    p ログインを行ない、引き続きお買い物をお楽しみくださいませ。
+
+  = form_for Consumer.new, url: consumer_session_path, method: :post do |f|
+
+    table
+      th.w40 = f.label :email
+      td.w60 = f.email_field :email, :autofocus => true
+
+    table
+      th.w40 = f.label :password
+      td.w60 = f.password_field :password
+
+    .reminder = link_to "※パスワードをお忘れの方はこちら", new_password_path(resource_name)
+
+    .actions = image_submit_tag "mypage/mypage_login_btn.jpg"
+
+.side = render 'side'

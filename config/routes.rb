@@ -10,7 +10,8 @@ Commers::Application.routes.draw do
     path: 'mypage',
     controllers: {
       sessions: "sessions",
-      registrations: "consumers/registrations"
+      registrations: "consumers/registrations",
+      confirmations: "consumers/confirmations"
     }
 
   # トップページ
