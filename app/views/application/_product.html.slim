@@ -24,7 +24,7 @@
       .information
         .name
           h1 = @product.name
-          - if @product.label
+          - if @product.label.present?
             - case @product
             - when Product::MoreInside
               p.label style="color: #{@product.label_color}" = raw @product.label

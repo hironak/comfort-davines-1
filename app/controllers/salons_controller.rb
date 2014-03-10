@@ -4,7 +4,7 @@ class SalonsController < ApplicationController
   def index
     @salons =
       if params[:term]
-        Salon.where("name regexp ? or name_kana regexp ?", "%#{params[:term]}%", "%#{params[:term]}%")
+        Salon.where("name regexp ? or name_kana regexp ?", "#{params[:term]}", "#{params[:term]}")
       else
         Salon.none
       end
