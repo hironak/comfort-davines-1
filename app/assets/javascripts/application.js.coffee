@@ -2,6 +2,7 @@
 #= require jquery.ui.all
 #= require jquery_ujs
 #= require jquery.jscrollpane
+#= require jquery.colorbox
 #= require_self
 #= require_directory .
 
@@ -26,3 +27,5 @@ $ ->
       arrow.css transform: 'rotate(90deg)'
     @['opened'] = !@['opened']
     $(@).next().slideToggle()
+
+  $('.popup').colorbox()
