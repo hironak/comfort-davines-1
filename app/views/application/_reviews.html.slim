@@ -1,12 +1,12 @@
 - @reviews.each_slice(2) do |first, second|
-  - if first
+  - if first.try :persisted?
     .voice.left
       .data
         .name
           | 愛用商品：
           = link_to first.product.name, first.product
         p = first.body
-  - if second
+  - if second.try :persisted?
     .voice.right
       .data
         .name
