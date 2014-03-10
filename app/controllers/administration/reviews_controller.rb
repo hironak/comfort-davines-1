@@ -49,7 +49,7 @@ module Administration
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def review_params
-      params.require(:review).permit(:body, :accepted)
+      params.require(:product_review).permit(:body, :accepted)
     end
   end
 end

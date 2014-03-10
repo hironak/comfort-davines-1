@@ -24,7 +24,7 @@ class Administration::ReviewsControllerTest < ActionController::TestCase
   end
 
   def test_update
-    put :update, id: @review, review: { body: 'body', accepted: true  }
+    put :update, id: @review, product_review: { body: 'body', accepted: true  }
     assert_redirected_to admin_review_path(assigns(:review))
   end
 
