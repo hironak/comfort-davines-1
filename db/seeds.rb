@@ -37,7 +37,7 @@ end
   Category.create(attrs)
 end
 
-%w|エイジングケア ダメージケア デリケートヘア オイリーケア 保湿ケア|.each do |name|
+%w|エイジングケア ダメージケア デリケートケア オイリーケア 保湿ケア|.each do |name|
   Solution.create name: name
 end
 
@@ -205,7 +205,7 @@ if (Rails.env.development? || Rails.env.staging?) && Administrator.count == 0
 end
 
 Topic.create(
-  date: "2014-03-07",
+  date: "2014-03-10",
   subject: "ダヴィネスダイレクト　オープン！",
   body: <<BODY
 ダヴィネスの公式オンラインショップ、ダヴィネスダイレクトがオープン致しました。
@@ -217,7 +217,7 @@ BODY
 )
 
 NewsRelease.create(
-  date: "2014-03-07",
+  date: "2014-03-10",
   title: "ダヴィネスダイレクト　オープン！",
   body: <<BODY
 ダヴィネスの公式オンラインショップ、ダヴィネスダイレクトがオープン致しました。
