@@ -18,8 +18,10 @@
   background: url(/f/howto_bg_ue.png) left top repeat;
 }
 .howto .naka {
-  height: 150px;
   padding: 15px 25px;
+}
+.howto .naka p {
+  margin: 0;
 }
 .howto .shita {
   height: 10px;
