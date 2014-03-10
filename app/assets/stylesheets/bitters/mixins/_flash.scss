@@ -1,8 +1,12 @@
-@mixin flash($color) {
+@mixin flash($color, $font-color: null) {
   background: $color;
-  color: darken($color, 60);
+  @if $font-color {
+    color: $font-color;
+  } @else {
+    color: darken($color, 50);
+  }
   font-weight: bold;
-  font-size: $base-font-size * 0.8;
+  font-size: $base-font-size;
   padding: $base-line-height / 2;
 
   p {

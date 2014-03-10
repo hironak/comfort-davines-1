@@ -3,7 +3,7 @@
 }
 
 .notice, #flash_notice {
-  @include flash($notice-color);
+  @include flash($notice-color, #2d3236);
 }
 
 .success, #flash_success {
