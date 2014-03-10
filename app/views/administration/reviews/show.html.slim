@@ -1,8 +1,14 @@
 p#notice = notice
 
 p
-  strong Body:
-  = @review.body
+  strong Name:
+  = @review.name
+p
+  strong Subject:
+  = @review.subject
+
+= simple_format @review.body
+
 p
   strong Accepted:
   = @review.accepted
