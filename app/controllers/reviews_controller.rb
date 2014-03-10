@@ -29,7 +29,7 @@ class ReviewsController < ApplicationController
 
     respond_to do |format|
       if @review.save
-        format.html { redirect_to @review.product, notice: 'レビューを投稿しました。' }
+        format.html { redirect_to @review.product, notice: 'レビューのご投稿ありがとうございます。頂いたレビューは管理者の承認後に公開されます。' }
         format.json { render action: 'show', status: :created, location: @review }
       else
         format.html { render action: 'new' }
