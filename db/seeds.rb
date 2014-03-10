@@ -37,7 +37,7 @@ end
   Category.create(attrs)
 end
 
-%w|エイジングケア ダメージケア デリケートヘア オイリー・頭皮ケア 保湿ケア|.each do |name|
+%w|エイジングケア ダメージケア デリケートヘア オイリーケア 保湿ケア|.each do |name|
   Solution.create name: name
 end
 

@@ -8,9 +8,9 @@ ja:
       agency: 代理店
       cart: カート
       cart_item: cart_item  #g
-      series: シリーズ
-      category: カテゴリ
-      solution: お悩み別
+      series: ライン別
+      category: カテゴリー別
+      solution: タイプ別
       consumer: ユーザーアカウント
       file_storage: ファイルアップロード
       product/review: お客様の声

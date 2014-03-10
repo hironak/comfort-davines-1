@@ -1,0 +1,27 @@
+.howto-osusume {
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+.mini img {
+  width: auto;
+}
+
+.howto {
+  box-sizing: border-box;
+  font-size: 0.8em;
+  width: 395px;
+  background: url(/f/howto_bg_naka.png) left top repeat-y;
+  float: right;
+}
+.howto .ue {
+  height: 10px;
+  background: url(/f/howto_bg_ue.png) left top repeat;
+}
+.howto .naka {
+  height: 150px;
+  padding: 15px 25px;
+}
+.howto .shita {
+  height: 10px;
+  background: url(/f/howto_bg_shita.png) left top repeat;
+}
