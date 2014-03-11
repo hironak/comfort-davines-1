@@ -93,4 +93,14 @@ Commers::Application.configure do
   if Rails.env.production? && ENV['GOOGLE_ANALYTICS_TRACKER']
     config.middleware.use Rack::GoogleAnalytics, :tracker => ENV['GOOGLE_ANALYTICS_TRACKER']
   end
+
+  config.middleware.use ExceptionNotification::Rack,
+    :email => {
+      :email_prefix => "[Error] ",
+      :sender_address => %{"notifier" <notifier@davines.co.jp>},
+      :exception_recipients => %w{eido@hackers.jp}
+    },
+    :webhook => {
+      :url => "https://idobata.io/hook/0c39220b-8742-4cfa-8dda-286d89adaba8"
+    }
 end

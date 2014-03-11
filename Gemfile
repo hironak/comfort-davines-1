@@ -165,6 +165,10 @@ gem 'rack-google-analytics'
 gem 'unicorn'
 gem 'unicorn-rails'
 
+# Exception Notification
+gem 'exception_notification'
+gem 'httparty'
+
 # Use Capistrano for deployment
 group :development do
   gem 'capistrano', '~> 3.1.0', require: false
