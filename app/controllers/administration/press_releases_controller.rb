@@ -26,6 +26,7 @@ module Administration
     # POST /administration/press_releases.json
     def create
       @press_release = PressRelease.new(press_release_params)
+      @press_release.attributes[:row_order_position] = :up
 
       respond_to do |format|
         if @press_release.save
