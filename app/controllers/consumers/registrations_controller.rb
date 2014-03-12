@@ -7,4 +7,17 @@ class Consumers::RegistrationsController < Devise::RegistrationsController
       super
     end
   end
+
+  def complete
+  end
+
+  private
+
+  def is_flashing_format?
+    super && params[:action] != 'create'
+  end
+
+  def after_inactive_sign_up_path_for resource
+    complete_path
+  end
 end

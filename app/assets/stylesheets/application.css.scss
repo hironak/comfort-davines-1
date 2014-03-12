@@ -355,6 +355,10 @@
   &.devise_registrations {
     @import "devise/registrations";
   }
+  &.consumers_registrations {
+    @import "consumers/registrations";
+  }
+
   .totop {
     height: 20px;
     overflow: hidden;

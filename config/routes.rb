@@ -1,11 +1,13 @@
 Commers::Application.routes.draw do
 
-  get "press_releases/index"
   get "f/:filename", to: "file_storage#show"
   get "template/stylesheets/:key", to: "template#stylesheets"
   get "editable/stylesheets/:key", to: "editable#stylesheets"
 
   # 表側ユーザ
+  devise_scope :consumer do
+    get "complete", to: "consumers/registrations#complete"
+  end
   devise_for :consumers,
     path: 'mypage',
     controllers: {
