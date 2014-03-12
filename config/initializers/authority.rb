@@ -29,6 +29,17 @@ Authority.configure do |config|
   #   :update  => 'update',
   #   :destroy => 'delete'
   # }
+  config.controller_action_map = {
+    :index   => 'read',
+    :show    => 'read',
+    :new     => 'create',
+    :create  => 'create',
+    :edit    => 'update',
+    :update  => 'update',
+    :update_status  => 'update',
+    :destroy => 'delete'
+  }
+
 
   # ABILITIES
   # =========
@@ -44,6 +55,14 @@ Authority.configure do |config|
   #   :update => 'updatable',
   #   :delete => 'deletable'
   # }
+  config.abilities =  {
+    :create => 'creatable',
+    :read   => 'readable',
+    :update => 'updatable',
+    :update_status => 'updatable',
+    :delete => 'deletable'
+  }
+
 
   # LOGGER
   # ======

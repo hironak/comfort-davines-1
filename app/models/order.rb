@@ -3,8 +3,14 @@ class Order < ActiveRecord::Base
   STATUSES = {
     'フォーム入力中' => :cashier,
     '新規作成' => :created,
+    '発送処理中' => :arranging,
     '発送済み' => :shipped,
   }
+
+  CHANGABLE_STATUSES = STATUSES.dup.tap do |statuses|
+    statuses.delete 'フォーム入力中'
+    statuses.delete '新規作成'
+  end
 
   DELIVERY_TIMES = {
     '指定なし' => '',

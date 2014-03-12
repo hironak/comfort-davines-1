@@ -8,20 +8,26 @@ h1 Listing orders
 p = link_to "CSV Download", status: params[:status], payment_type: params[:payment_type], format: :csv
 p = link_to "CSV NP後払い", status: params[:status], payment_type: params[:payment_type], output: 'NP', format: :csv
 
-table
-  thead
-    tr
-      th.w25 注文ID
-      th.w25 注文日時
-      th.w25 決済方法
-      th.w25 ステータス
-
-  tbody
-    - @orders.each do |order|
+= form_tag update_status_admin_orders_path, method: :post do
+  p
+    = select_tag :status, options_for_select(Order::CHANGABLE_STATUSES)
+    = submit_tag 'ステータス変更'
+  table
+    thead
       tr
-        td.w25 = link_to order.number, [:admin, order]
-        td.w25 = l order.created_at
-        td.w25 = order.payment_type_human
-        td.w25 = order.status_human
+        th.w25 注文ID
+        th.w25 注文日時
+        th.w25 決済方法
+        th.w25 ステータス
+
+    tbody
+      - @orders.each do |order|
+        tr
+          td.w25
+            = check_box_tag "order_ids[]", order.id
+            = link_to order.number, [:admin, order]
+          td.w25 = l order.created_at
+          td.w25 = order.payment_type_human
+          td.w25 = order.status_human
 
 = paginate @orders

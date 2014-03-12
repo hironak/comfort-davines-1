@@ -34,6 +34,12 @@ module Administration
       end
     end
 
+    def update_status
+      orders = Order.where(id: params[:order_ids])
+      orders.update_all status: params[:status]
+      redirect_to admin_orders_path
+    end
+
     # GET /administration/orders/1
     # GET /administration/orders/1.json
     def show

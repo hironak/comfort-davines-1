@@ -125,7 +125,11 @@ Commers::Application.routes.draw do
     resources :reviews, only: [:index, :show, :edit, :update, :destroy]
 
     # 注文管理
-    resources :orders, except: [:new, :create]
+    resources :orders, except: [:new, :create] do
+      collection do
+        post :update_status
+      end
+    end
 
     # 裏側ユーザ管理
     resources :administrators
