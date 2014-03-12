@@ -7,6 +7,10 @@ class Order < ActiveRecord::Base
     '発送済み' => :shipped,
   }
 
+  LISTABLE_STATUSES = STATUSES.dup.tap do |statuses|
+    statuses.delete 'フォーム入力中'
+  end
+
   CHANGABLE_STATUSES = STATUSES.dup.tap do |statuses|
     statuses.delete 'フォーム入力中'
     statuses.delete '新規作成'
