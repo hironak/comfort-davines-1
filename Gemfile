@@ -78,6 +78,9 @@ gem 'friendly_id', '~> 5.0.0'
 # Paging
 gem 'kaminari'
 
+# List order
+gem 'ranked-model'
+
 # Markdown
 gem 'redcarpet'
 
