@@ -1,0 +1,82 @@
+.main
+  h1 = image_tag 'introduction/member_line.png', alt: '初めての方へ'
+  = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+    = devise_error_messages!
+
+    table
+      tbody
+        tr
+          th.w30 = f.label :email
+          td.w70
+            = f.object.email
+            = f.hidden_field :email
+        tr
+          th.w30
+            = f.label :password
+          td.w70
+            | ********
+            = f.hidden_field :password, value: params[:consumer][:password]
+            = f.hidden_field :password_confirmation, value: params[:consumer][:password_confirmation]
+
+      = f.fields_for :information do |f|
+
+        tr
+          th.w30
+            label お名前
+          td.w70
+            = f.object.family_name
+            = f.hidden_field :family_name
+            | 　
+            = f.object.given_name
+            = f.hidden_field :given_name
+        tr
+          th.w30
+            label フリガナ
+          td.w70
+            = f.object.family_name_kana
+            = f.hidden_field :family_name_kana
+            | 　
+            = f.object.given_name_kana
+            = f.hidden_field :given_name_kana
+        tr
+          th.w30 = f.label :postalcode
+          td.w70
+            = f.object.postalcode
+            = f.hidden_field :postalcode
+
+        tr
+          th.w30 = f.label :prefecture_code
+          td.w70
+            = f.object.prefecture.name
+            = f.hidden_field :prefecture_code
+
+        tr
+          th.w30 = f.label :address
+          td.w70
+            = f.object.address
+            = f.hidden_field :address
+
+        tr
+          th.w30 = f.label :building
+          td.w70
+            = f.object.building
+            = f.hidden_field :building
+
+        tr
+          th.w30 = f.label :phone, style: "width: 300px;"
+          td.w70
+            = f.object.phone
+            = f.hidden_field :phone
+
+      tr
+        th.w30 = f.label :accepted_magazine
+        td.w70
+          - if f.object.accepted_magazine
+            | 希望する
+          - else
+            | 希望しない
+
+    .actions
+      = f.submit "登録する"
+
+.side = render 'side'
