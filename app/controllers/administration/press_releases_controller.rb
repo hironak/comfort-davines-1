@@ -5,7 +5,7 @@ module Administration
     # GET /administration/press_releases
     # GET /administration/press_releases.json
     def index
-      @press_releases = PressRelease.all
+      @press_releases = PressRelease.rank(:row_order).all
     end
 
     # GET /administration/press_releases/1
@@ -70,7 +70,7 @@ module Administration
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def press_release_params
-      params.require(:press_release).permit(:image, :magazine, :corner, :products)
+      params.require(:press_release).permit(:image, :magazine, :corner, :products, :row_order_position)
     end
   end
 end

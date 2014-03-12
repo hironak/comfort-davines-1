@@ -1,18 +1,24 @@
 h1 プレスリリース
 
+p = link_to '新規追加', new_admin_press_release_path
+
 table
   tr
-    th Magazine
-    th
-    th
-    th
+    th.w10
+    th.w70 雑誌名
+    th.w10
 
   - @press_releases.each do |press_release|
     tr
-      td = link_to [:admin, press_release] do
+      td.w10
+        = form_for [:admin, press_release], data: { remote: true }, html: { class: :inline } do |f|
+          = f.hidden_field :row_order_position, value: :up
+          = f.submit '▲'
+        = form_for [:admin, press_release], data: { remote: true }, html: { class: :inline } do |f|
+          = f.hidden_field :row_order_position, value: :down
+          = f.submit '▼'
+
+      td.w70 = link_to [:admin, press_release] do
         = press_release.magazine
-      td = link_to '削除', [:admin, press_release], data: {:confirm => 'Are you sure?'}, :method => :delete
+      td.w10 = link_to '削除', [:admin, press_release], data: {:confirm => '削除してよろしいですか？'}, :method => :delete
 
-br
-
-= link_to 'New Press release', new_admin_press_release_path

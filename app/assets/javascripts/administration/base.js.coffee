@@ -12,3 +12,8 @@
 #= require ace/theme-tomorrow
 #= require_self
 #= require_tree .
+
+jQuery ($)->
+
+  $(document).on 'ajax:success', ->
+    location.reload()

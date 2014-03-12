@@ -115,6 +115,17 @@ $max-width: auto;
   &.products {
     @import 'products';
   }
+  form.inline {
+    display: inline;
+
+    input[type="submit"] {
+      @include appearance(none);
+      background: none;
+      color: $base-link-color;
+      margin: 0;
+      padding: 0;
+    }
+  }
 }
 
 // ----------------------------------------
