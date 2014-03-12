@@ -1,5 +1,5 @@
 ul.magazines
-  - PressRelease.limit(4).order(created_at: :desc).each do |release|
+  - PressRelease.limit(4).rank(:row_order).each do |release|
     li = link_to press_releases_path do
       = image_tag release.image.url(:medium), alt: release.magazine
 p.toindex = link_to '一覧へ', press_releases_path
