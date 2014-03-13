@@ -2,17 +2,14 @@ h1 Listing reviews
 
 table
   tr
-    th Body
-    th Accepted
+    th 商品名
     th
-    th
-    th
+    th 表示
 
   - @reviews.each do |review|
     tr
-      td = review.body
-      td = review.accepted
-      td = link_to 'Show', admin_review_path(review)
-      td = link_to 'Edit', edit_admin_review_path(review)
-      td = link_to 'Destroy', admin_review_path(review), data: {:confirm => 'Are you sure?'}, :method => :delete
+      td = review.product.name
+      td = link_to admin_review_path(review)
+        = review.subject
+      td = review.accepted ? '表示' : '非表示'
 

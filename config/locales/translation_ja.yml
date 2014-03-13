@@ -159,6 +159,12 @@ ja:
       product/photo:
         image: 商品画像
 
+      product/review:
+        name: ニックネーム
+        subject: タイトル
+        body: 本文
+        accepted: 表示
+
       salon:
         address: 住所
         administrator: :activerecord.models.administrator  #g

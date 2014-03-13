@@ -1,15 +1,12 @@
-- @reviews.each_slice(2) do |first, second|
-  - if first.try :persisted?
-    .voice.left
-      .data
-        .name
-          | 愛用商品：
-          = link_to first.product.name, first.product
-        p = first.body
-  - if second.try :persisted?
-    .voice.right
-      .data
-        .name
-          | 愛用商品：
-          = link_to second.product.name, second.product
-        p = second.body
+- @reviews.each_slice(2) do |reviews|
+  - %w|left right|.zip(reviews).each do |side, review|
+    - if review.try :persisted?
+      .voice class=side
+        .data
+          .name
+            | 愛用商品：
+            = link_to review.product.name, review.product
+          p = review.name
+          p = review.subject
+          = simple_format review.body
+

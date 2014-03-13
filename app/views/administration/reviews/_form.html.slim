@@ -8,14 +8,14 @@
 
   .field
     = f.label :name
-    = f.text_area :name
+    = f.text_field :name
   .field
     = f.label :subject
-    = f.text_area :subject
+    = f.text_field :subject
   .field
     = f.label :body
     = f.text_area :body
   .field
     = f.label :accepted
     = f.check_box :accepted
-  .actions = f.submit 'Save'
+  .actions = f.submit '保存'
