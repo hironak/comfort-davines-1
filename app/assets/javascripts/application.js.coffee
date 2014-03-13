@@ -37,3 +37,10 @@ $ ->
 jQuery ($)->
 
   $('.scroll').jScrollPane()
+
+  $('.voice:eq(1) ~ .voice').hide()
+
+  $('.voice_show a').on 'click', ->
+    $('.voice').fadeIn()
+    $(@).remove()
+    return false
