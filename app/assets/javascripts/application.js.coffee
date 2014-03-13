@@ -8,6 +8,10 @@
 
 $ ->
 
+  $('input').on 'keypress', (e)->
+    if e.which == 13
+      e.preventDefault()
+
   $('.consumer .logout').on 'mouseover', ->
     $(@).find('.login').hide()
     $(@).find('.logout').show()
