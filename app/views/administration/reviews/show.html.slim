@@ -2,7 +2,7 @@ h1 お客様の声詳細
 
 p = link_to '戻る', admin_reviews_path
 
-p.product = @review.product.name
+p.product = @review.product.try :name
 p.name = @review.name
 p.title = @review.subject
 

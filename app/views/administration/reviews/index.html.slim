@@ -8,7 +8,7 @@ table
 
   - @reviews.each do |review|
     tr
-      td = review.product.name
+      td = review.product.try :name
       td = link_to admin_review_path(review)
         = review.subject
       td = review.accepted ? '表示' : '非表示'
