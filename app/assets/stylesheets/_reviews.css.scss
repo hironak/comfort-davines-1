@@ -1,30 +1,39 @@
 .reviews {
-  margin-top: 15px;
+  padding-top: 15px;
   font-size: $base-font-size * 0.8;
   .voice {
-    position: relative;
-    height: 126px;
+    min-height: 126px;
     margin-bottom: 15px;
     .data {
-      position: absolute;
-      top: 10px;
-      width: 575px;
-      .name {
-      }
-      p {
-        line-height: $base-line-height * 0.8;
+      padding-top: 10px;
+      .scroll {
+        height: 107px;
+        p {
+          line-height: $base-line-height * 0.8;
+          margin-bottom: 5px;
+          &.product {
+          }
+          &.subject {
+            font-weight: bold;
+          }
+          &.name {
+            text-align: right;
+          }
+        }
       }
     }
     &.left {
       background: image-url('application/usercoment01.png') left top no-repeat;
       .data {
-        left: 120px;
+        padding-left: 120px;
+        padding-right: 10px;
       }
     }
     &.right {
       background: image-url('application/usercoment02.png') left top no-repeat;
       .data {
-        right: 120px;
+        padding-left: 10px;
+        padding-right: 120px;
       }
     }
   }

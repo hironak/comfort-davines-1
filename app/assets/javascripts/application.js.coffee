@@ -29,3 +29,7 @@ $ ->
     $(@).next().slideToggle()
 
   $('.popup').colorbox()
+
+jQuery ($)->
+
+  $('.scroll').jScrollPane()
