@@ -9,7 +9,8 @@
               | 愛用商品：
               = link_to review.product.name, review.product
             = simple_format review.body
-            p.name = "「#{review.name}様」"
+            p.name = "(#{review.name}様)"
 
 - if @reviews.count > 3
   p.voice_show = link_to '続きを見る', '#'
+  p.voice_hide = link_to '閉じる', '#'
