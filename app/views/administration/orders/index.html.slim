@@ -14,20 +14,24 @@ p
   table
     thead
       tr
-        th.w25 注文ID
-        th.w25 注文日時
-        th.w25 決済方法
-        th.w25 ステータス
+        th.w20 注文ID
+        th.w20 注文日時
+        th.w20 顧客名
+        th.w13 決済方法
+        th.w13 ステータス
+        th.w14 総額
 
     tbody
       - @orders.each do |order|
         tr
-          td.w25
+          td.w20
             = check_box_tag "order_ids[]", order.id
             = link_to order.number, [:admin, order]
-          td.w25 = l order.created_at, format: :short
-          td.w25 = order.payment_type_human
-          td.w25 = order.status_human
+          td.w20 = l order.created_at
+          td.w20 = order.shipment.name
+          td.w13 = order.payment_type_human
+          td.w13 = order.status_human
+          td.w14 = number_to_currency order.total_price
   p
     = select_tag :status, options_for_select(Order::CHANGABLE_STATUSES)
     = submit_tag 'ステータス変更'

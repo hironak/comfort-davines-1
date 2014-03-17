@@ -5,6 +5,7 @@ class Order < ActiveRecord::Base
     '新規作成' => :created,
     '発送処理中' => :arranging,
     '発送済み' => :shipped,
+    '取消' => :deleted,
   }
 
   LISTABLE_STATUSES = STATUSES.dup.tap do |statuses|
