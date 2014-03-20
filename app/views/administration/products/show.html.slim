@@ -7,48 +7,7 @@ p
 
 br
 
-.products
-  - if @product.template
-    .template class="template#{@product.template.id}"
-      = render inline: @product.template.header.html_safe, type: 'erb'
-
-  ul.categories
-    - @product.categories.each do |category|
-      li = category.name
-
-  .basic-information
-    .main-image = image_tag @product.image.url(:medium)
-    .information
-      .name
-        h1 = @product.name
-        p.label = "【#{@product.label}】"
-      p.detail = @product.detail.html_safe
-      p.ingredient = image_tag 'products/ingredient_btn.jpg', alt: '成分表示'
-
-  .optional-information
-    - if @product.photos.count > 1
-      .image-select
-        - @product.photos.each_with_index do |photo, i|
-          .image
-            = link_to photo.image.url(:medium), class: (i == 0 && 'active') do
-              = image_tag photo.image.url(:mini)
-
-    .product-information
-      = form_tag add_carts_path, method: :post do
-        dl
-          dt 
-          dd
-            .price
-              = number_to_currency @product.view_price
-              small = "(税込)"
-          dt 容量
-          dd = @product.capacity
-          dt 個数
-          dd = select_tag :amount, options_for_select(1..@product.stock)
-        = hidden_field_tag :product_id, @product.id
-        = image_submit_tag 'products/n_cart_btn.jpg', alt: "カートに入れる"
-
-  - if @product.page
-    .editable class="page#{@product.page.id}"
-      = render inline: @product.page.body.html_safe, type: @product.page.render_type
-
+- if @product.sample
+  = render 'sample'
+- else
+  .products = render 'product'

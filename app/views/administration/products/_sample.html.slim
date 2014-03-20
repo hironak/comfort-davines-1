@@ -1,0 +1,7 @@
+.products
+  .basic-information
+    .main-image = image_tag @product.image.url(:medium)
+    .information
+      .name
+        h1 = @product.name
+        p.label = "【#{@product.label}】"

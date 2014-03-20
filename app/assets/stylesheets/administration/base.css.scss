@@ -84,6 +84,7 @@ $max-width: auto;
   padding-top: 20px;
   padding-bottom: 300px;
   @import "../editable";
+  @import "../product";
   background: image-url('contents_bg.jpg');
   &.pages {
     @import "pages";

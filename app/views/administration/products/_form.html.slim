@@ -74,11 +74,11 @@
 
   .field
     = f.label :template
-    = f.collection_select :template_id, ::Template.all, :id, :name
+    = f.collection_select :template_id, ::Template.all, :id, :name, include_blank: true
 
   .field
     = f.label :page
-    = f.collection_select :page_id, Page.all, :id, :title
+    = f.collection_select :page_id, Page.all, :id, :title, include_blank: true
 
   .field
     = f.label :sample
