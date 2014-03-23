@@ -1,7 +1,7 @@
 h1 売上一覧
 
-/= form_tag admin_sales_path, method: :get do
-  = select_tag 'product_id', options_for_select(Product.pluck(:name, :id), params[:payment_type]), include_blank: "選択"
+= form_tag admin_sales_path, method: :get do
+  = select_tag 'type', options_for_select([['日', 'by_day'], ['月', 'by_month'], ['年', 'by_year']], params[:type])
   = submit_tag '絞り込み'
 
 /p
