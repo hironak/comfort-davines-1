@@ -1,0 +1,25 @@
+h1 売上一覧
+
+/= form_tag admin_sales_path, method: :get do
+  = date_select :q, :start_date, default: params[:q][:start_date]
+  = date_select :q, :end_date,   default: params[:q][:end_date]
+  = submit_tag '絞り込み'
+
+/p
+  = link_to "CSV ダウンロード", status: params[:status], payment_type: params[:payment_type], format: :csv
+  ' /
+  = link_to "CSV NP後払い", status: params[:status], payment_type: params[:payment_type], output: 'NP', format: :csv
+
+table
+  thead
+    tr
+      th.w80 名称
+      th.w10 数量
+      th.w10 総額
+
+  tbody
+    - @sales.each do |sale|
+      tr
+        td.w80 = sale.name
+        td.w10 = sale.amount
+        td.w10 = number_to_currency sale.total_price

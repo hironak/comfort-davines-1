@@ -42,6 +42,14 @@ class Product < ActiveRecord::Base
     (self.photos.first || self.photos.new).image *args
   end
 
+  def admin_name
+    if self.sample
+      "#{name} <サンプル>"
+    else
+      name
+    end
+  end
+
   def view_price
     (self.price * Setting.tax_rate).to_i
   end

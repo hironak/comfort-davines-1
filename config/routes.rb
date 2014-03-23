@@ -133,6 +133,13 @@ Commers::Application.routes.draw do
       end
     end
 
+    # 売上一覧
+    resources :sales, only: [:index] do
+      collection do
+        get :products
+      end
+    end
+
     # 裏側ユーザ管理
     resources :administrators
 

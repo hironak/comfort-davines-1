@@ -6,16 +6,21 @@ class Order < ActiveRecord::Base
     '発送処理中' => :arranging,
     '発送済み' => :shipped,
     '取消' => :deleted,
-  }
+  }.freeze
 
   LISTABLE_STATUSES = STATUSES.dup.tap do |statuses|
     statuses.delete 'フォーム入力中'
-  end
+  end.freeze
 
   CHANGABLE_STATUSES = STATUSES.dup.tap do |statuses|
     statuses.delete 'フォーム入力中'
     statuses.delete '新規作成'
-  end
+  end.freeze
+
+  TOTALING_STATUSES = STATUSES.dup.tap do |statuses|
+    statuses.delete 'フォーム入力中'
+    statuses.delete '取消'
+  end.freeze
 
   DELIVERY_TIMES = {
     '指定なし' => '',
@@ -54,6 +59,8 @@ class Order < ActiveRecord::Base
   accepts_nested_attributes_for :shipment, allow_destroy: true
   accepts_nested_attributes_for :payment, allow_destroy: true
   accepts_nested_attributes_for :items, allow_destroy: true
+
+  scope :totaling, -> { where(status: TOTALING_STATUSES.values) }
 
   validates :items, length: { minimum: 1 }, if: :phase_initialize?
 
