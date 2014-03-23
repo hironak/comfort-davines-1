@@ -1,4 +1,6 @@
 class Sale
+  include Authority::Abilities
+  self.authorizer_name = 'AdministrationAuthorizer'
 
   attr_reader :name
 

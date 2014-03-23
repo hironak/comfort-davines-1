@@ -4,6 +4,8 @@ h1 売上一覧
   = select_tag 'type', options_for_select([['日', 'by_day'], ['月', 'by_month'], ['年', 'by_year']], params[:type])
   = submit_tag '絞り込み'
 
+p = link_to "商品別売上一覧", products_admin_sales_path
+
 /p
   = link_to "CSV ダウンロード", status: params[:status], payment_type: params[:payment_type], format: :csv
   ' /

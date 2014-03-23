@@ -1,9 +1,11 @@
-h1 売上一覧
+h1 商品別売上一覧
 
 /= form_tag admin_sales_path, method: :get do
   = date_select :q, :start_date, default: params[:q][:start_date]
   = date_select :q, :end_date,   default: params[:q][:end_date]
   = submit_tag '絞り込み'
+
+p = link_to "売上一覧", admin_sales_path
 
 /p
   = link_to "CSV ダウンロード", status: params[:status], payment_type: params[:payment_type], format: :csv
