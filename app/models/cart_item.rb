@@ -23,4 +23,12 @@ class CartItem < ActiveRecord::Base
       destroy
     end
   end
+
+  def tax_rate
+    Setting.tax_rate
+  end
+
+  def tax
+    Setting.tax
+  end
 end
