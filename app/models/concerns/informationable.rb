@@ -38,6 +38,6 @@ module Informationable
   private
 
   def normalize_postalcode
-    self.postalcode.gsub!(/-/, '')
+    self.postalcode.gsub!(/-/, '') if self.postalcode
   end
 end

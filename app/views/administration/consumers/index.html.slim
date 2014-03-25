@@ -22,7 +22,7 @@ table
 
   - @consumers.each do |consumer|
     tr
-      td = consumer.information.name
+      td = consumer.information.try :name
       td = consumer.email
       td = consumer.orders.count
       td = number_to_currency consumer.total

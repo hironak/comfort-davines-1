@@ -5,7 +5,7 @@ module Administration
     # GET /administration/press_releases
     # GET /administration/press_releases.json
     def index
-      @press_releases = PressRelease.rank(:row_order).all
+      @press_releases = PressRelease.rank(:row_order).load
     end
 
     # GET /administration/press_releases/1
