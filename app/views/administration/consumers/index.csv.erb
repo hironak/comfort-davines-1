@@ -12,6 +12,8 @@
       建物名・部屋番号
       電話番号
       メールマガジン登録
+      購入回数
+      購入総額
     ]
 
     @consumers.each do |consumer|
@@ -25,7 +27,9 @@
         information.address,
         information.building,
         information.phone,
-        consumer.accepted_magazine ? 'する' : 'しない'
+        consumer.accepted_magazine ? 'する' : 'しない',
+        consumer.orders.count,
+        consumer.total
       ]
     end
   end.tosjis.html_safe
