@@ -1,0 +1,19 @@
+<% require "csv" %>
+<% require "kconv" %>
+<%=
+  CSV.generate force_quotes: true do |csv|
+    csv << %w[
+      名称
+      数量
+      総額
+    ]
+
+    @sales.each do |sale|
+      csv << [
+        sale.name,
+        sale.amount,
+        sale.total_price
+      ]
+    end
+  end.tosjis.html_safe
+%>
