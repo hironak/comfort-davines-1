@@ -2,26 +2,30 @@ h1 Listing consumers
 
 = search_form_for [:admin, @q] do |f|
 
-  = f.label :email_cont
-  = f.text_field :email_cont
-  br
+  dl
+    dt = f.label :email_cont, 'メールアドレス'
+    dd = f.text_field :email_cont
+    dt = f.label :information_family_name_cont, '姓'
+    dd = f.text_field :information_family_name_cont
+    dt = f.label :information_given_name_cont, '名'
+    dd = f.text_field :information_given_name_cont
 
-  = f.label :information_family_name_cont
-  = f.text_field :information_family_name_cont
-  br
-
-  = f.submit
+  = f.submit '検索'
 
 table
   tr
     th 氏名
-    th = sort_link @q, :email, 'Email'
+    th = sort_link @q, :email, 'メールアドレス'
+    th 購入回数
+    th 購入総額
     th
 
   - @consumers.each do |consumer|
     tr
       td = consumer.information.name
       td = consumer.email
+      td = consumer.orders.count
+      td = number_to_currency consumer.total
       td = link_to '詳細表示', [:admin, consumer]
 
 = paginate @consumers

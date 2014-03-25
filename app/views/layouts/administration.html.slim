@@ -29,7 +29,7 @@ html
 
         .menubar
           ul
-            - %w|press_releases topics news_releases products serieses categories solutions templates pages file_storages product/reviews agencies salons orders administrators|.each do |controller|
+            - %w|press_releases topics news_releases products serieses categories solutions templates pages file_storages product/reviews agencies salons orders administrators consumers|.each do |controller|
               - if current_administrator.can_read? controller.singularize.camelize.constantize
                 li = link_to t("activerecord.models.#{controller.singularize}"), [:admin, controller.split('/').last]
 

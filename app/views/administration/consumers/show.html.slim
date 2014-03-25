@@ -15,3 +15,6 @@ p = link_to '一覧へ戻る', admin_consumers_path
 
   = s.attribute :accepted_magazine
 
+ul
+  - @consumer.orders.each do |order|
+    li = link_to order.number, [:admin, order]
