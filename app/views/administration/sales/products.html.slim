@@ -16,8 +16,8 @@ table
   thead
     tr
       th.w80 名称
-      th.w10 数量
-      th.w10 総額
+      th.w10 = link_to "数量", sort: :amount
+      th.w10 = link_to "総額", sort: :total_price
 
   tbody
     - @sales.each do |sale|

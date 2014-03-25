@@ -36,11 +36,12 @@ class Sale
   end
 
   def self.search_by_products params
+    params[:sort] ||= "amount"
     order_items = OrderItem.totaling
     order_items = order_items.of_days(params[:start_date], params[:end_date]) if params[:start_date] && params[:end_date]
     Product.all.map do |product|
       self.new(product.admin_name, order_items.where(product_id: product.id))
-    end
+    end.sort_by(&params[:sort].to_sym).reverse
   end
 
   def initialize name, order_items
