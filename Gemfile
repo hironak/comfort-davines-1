@@ -81,6 +81,12 @@ gem 'kaminari'
 # List order
 gem 'ranked-model'
 
+# Model.search
+gem "ransack", github: "activerecord-hackery/ransack", branch: "rails-4"
+
+# Show for
+gem 'show_for'
+
 # Markdown
 gem 'redcarpet'
 

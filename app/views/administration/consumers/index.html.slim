@@ -1,0 +1,27 @@
+h1 Listing consumers
+
+= search_form_for [:admin, @q] do |f|
+
+  = f.label :email_cont
+  = f.text_field :email_cont
+  br
+
+  = f.label :information_family_name_cont
+  = f.text_field :information_family_name_cont
+  br
+
+  = f.submit
+
+table
+  tr
+    th 氏名
+    th = sort_link @q, :email, 'Email'
+    th
+
+  - @consumers.each do |consumer|
+    tr
+      td = consumer.information.name
+      td = consumer.email
+      td = link_to '詳細表示', [:admin, consumer]
+
+= paginate @consumers

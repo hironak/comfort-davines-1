@@ -1,4 +1,16 @@
 GIT
+  remote: git://github.com/activerecord-hackery/ransack.git
+  revision: 8009ae93e3e00325e41edd231b4b917c45a2c6c2
+  branch: rails-4
+  specs:
+    ransack (1.1.0)
+      actionpack (>= 4.0)
+      activerecord (>= 4.0)
+      activesupport (>= 4.0)
+      i18n
+      polyamorous (~> 0.6.0)
+
+GIT
   remote: git://github.com/closer/guard-unicorn.git
   revision: f03a3cb5b5d81fc29525f430dc309750efe3db9a
   specs:
@@ -242,6 +254,8 @@ GEM
     parser (2.1.5)
       ast (~> 1.1)
       slop (~> 3.4, >= 3.4.5)
+    polyamorous (0.6.4)
+      activerecord (>= 3.0)
     polyglot (0.3.4)
     powerpack (0.0.9)
     pry (0.9.12.6)
@@ -330,6 +344,9 @@ GEM
     sdoc (0.4.0)
       json (~> 1.8)
       rdoc (~> 4.0, < 5.0)
+    show_for (0.3.0)
+      actionpack (>= 3.2, < 5)
+      activemodel (>= 3.2, < 5)
     simplecov (0.8.2)
       docile (~> 1.1.0)
       multi_json
@@ -461,6 +478,7 @@ DEPENDENCIES
   rails (= 4.0.3)
   rails-i18n (~> 4.0.0)
   ranked-model
+  ransack!
   redcarpet
   redis-rack-cache
   redis-rails
@@ -468,6 +486,7 @@ DEPENDENCIES
   ruby_gntp
   sass-rails
   sdoc
+  show_for
   simplecov
   slim-rails
   sorcery

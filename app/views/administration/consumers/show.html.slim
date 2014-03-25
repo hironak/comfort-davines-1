@@ -1,0 +1,17 @@
+h1 顧客情報詳細
+p = link_to '一覧へ戻る', admin_consumers_path
+
+= show_for @consumer do |s|
+  = s.attribute :email
+
+  = show_for @consumer.information do |s|
+    = s.attribute :name
+    = s.attribute :name_kana
+    = s.attribute :postalcode
+    = s.association :prefecture
+    = s.attribute :address
+    = s.attribute :building
+    = s.attribute :phone
+
+  = s.attribute :accepted_magazine
+

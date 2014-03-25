@@ -1,0 +1,9 @@
+= form_for [:admin, @consumer] do |f|
+  - if @consumer.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@consumer.errors.count, "error")} prohibited this consumer from being saved:"
+      ul
+        - @consumer.errors.full_messages.each do |message|
+          li = message
+
+  .actions = f.submit 'Save'

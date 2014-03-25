@@ -143,6 +143,8 @@ Commers::Application.routes.draw do
     # 裏側ユーザ管理
     resources :administrators
 
+    resources :consumers
+
     # デザインテンプレート編集
     resources :templates
 
