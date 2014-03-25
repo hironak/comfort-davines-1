@@ -90,17 +90,32 @@ $max-width: auto;
     @import "pages";
   }
   .menubar {
-    border: 1px solid #000;
     @include span-columns(3);
+    @mixin menu-item {
+      display: block;
+      @include linear-gradient(#fff, #eee);
+      padding: 10px 15px;
+      margin: 0;
+      color: black;
+      font-weight: bold;
+      text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.8);
+    }
+
+    h3 {
+      @include menu-item;
+      @include linear-gradient(#666, #333);
+      color: white;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+    }
     ul {
+      border: 1px solid #000;
+      margin-bottom: 15px;
       li {
         a {
-          display: block;
-          @include linear-gradient(#666, #333);
-          padding: 15px 20px;
-          color: white;
-          font-weight: bold;
-          text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+          @include menu-item;
+          &:hover {
+            @include linear-gradient(#fff, #eee);
+          }
         }
       }
     }
@@ -110,22 +125,27 @@ $max-width: auto;
     padding: 0 20px;
     @include span-columns(9);
     h1 {
-      @extend %bordered-header;
+      display: block;
+      @include linear-gradient(#666, #333);
+      padding: 10px 15px;
+      color: white;
+      font-weight: bold;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+    }
+    form.inline {
+      display: inline;
+
+      input[type="submit"] {
+        @include appearance(none);
+        background: none;
+        color: $base-link-color;
+        margin: 0;
+        padding: 0;
+      }
     }
   }
   &.products {
     @import 'products';
-  }
-  form.inline {
-    display: inline;
-
-    input[type="submit"] {
-      @include appearance(none);
-      background: none;
-      color: $base-link-color;
-      margin: 0;
-      padding: 0;
-    }
   }
 }
 

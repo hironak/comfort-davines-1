@@ -78,14 +78,18 @@ select {
   width: auto;
 }
 
-button,
-input[type="submit"] {
-  @extend %button;
-  display: inline;
-  cursor: pointer;
-  user-select: none;
-  vertical-align: middle;
-  white-space: nowrap;
+.site {
+  .contents {
+    button,
+    input[type="submit"] {
+      @extend %button;
+      display: inline;
+      cursor: pointer;
+      user-select: none;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+  }
 }
 
 .easy-form {
