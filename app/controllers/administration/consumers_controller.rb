@@ -6,7 +6,11 @@ module Administration
     # GET /administration/consumers.json
     def index
       @q = Consumer.search(params[:q])
-      @consumers = @q.result(distinct: true).page(params[:page]).per(20)
+      @consumers = @q.result(distinct: true)
+      respond_to do |fmt|
+        fmt.html { @consumers = @consumers.page(params[:page]).per(20) }
+        fmt.csv
+      end
     end
 
     # GET /administration/consumers/1

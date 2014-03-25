@@ -1,0 +1,32 @@
+<% require "csv" %>
+<% require "kconv" %>
+<%=
+  CSV.generate force_quotes: true do |csv|
+    csv << %w[
+      メールアドレス
+      お名前
+      お名前（フリガナ）
+      郵便番号
+      都道府県
+      住所
+      建物名・部屋番号
+      電話番号
+      メールマガジン登録
+    ]
+
+    @consumers.each do |consumer|
+      information = consumer.try(:information)
+      csv << [
+        consumer.email,
+        information.name,
+        information.name_kana,
+        information.postalcode,
+        information.prefecture.name,
+        information.address,
+        information.building,
+        information.phone,
+        consumer.accepted_magazine ? 'する' : 'しない'
+      ]
+    end
+  end.tosjis.html_safe
+%>
