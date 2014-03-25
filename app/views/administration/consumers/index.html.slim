@@ -1,14 +1,45 @@
 h1 Listing consumers
 
+p = link_to "絞り込み検索", "#consumer_search"
+
 = search_form_for [:admin, @q] do |f|
 
-  dl
-    dt = f.label :email_cont, 'メールアドレス'
-    dd = f.text_field :email_cont
-    dt = f.label :information_family_name_cont, '姓'
-    dd = f.text_field :information_family_name_cont
-    dt = f.label :information_given_name_cont, '名'
-    dd = f.text_field :information_given_name_cont
+  table
+    tr
+      th = f.label :email_cont
+      td = f.text_field :email_cont
+    tr
+      th = f.label :information_family_name_cont
+      td = f.text_field :information_family_name_cont
+    tr
+      th = f.label :information_given_name_cont
+      td = f.text_field :information_given_name_cont
+    tr
+      th = f.label :information_family_name_kana_cont
+      td = f.text_field :information_family_name_kana_cont
+    tr
+      th = f.label :information_given_name_kana_cont
+      td = f.text_field :information_given_name_kana_cont
+    tr
+      th = f.label :information_postalcode_cont
+      td = f.text_field :information_postalcode_cont
+    tr
+      th = f.label :information_prefecture_code_eq
+      td = f.collection_select :information_prefecture_code_eq, JpPrefecture::Prefecture.all, :code, :name, include_blank: true
+    tr
+      th = f.label :information_atdress_cont
+      td = f.text_field :information_address_cont
+    tr
+      th = f.label :information_building_cont
+      td = f.text_field :information_building_cont
+    tr
+      th = f.label :information_phone_cont
+      td = f.text_field :information_phone_cont
+    tr
+      th = f.label :accepted_magazine_true
+      td = f.check_box :accepted_magazine_true
+
+
 
   = f.submit '検索'
 

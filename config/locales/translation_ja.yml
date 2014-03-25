@@ -12,6 +12,7 @@ ja:
       category: カテゴリー別
       solution: タイプ別
       consumer: ユーザーアカウント
+      consumer/information: ユーザー情報
       file_storage: ファイルアップロード
       product/review: お客様の声
       order: 注文

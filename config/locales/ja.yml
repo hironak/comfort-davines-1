@@ -10,6 +10,14 @@ ja:
     successfully:
       created: "%{model}を作成しました。"
       updated: "%{model}を更新しました。"
+  ransack:
+    asc: "降順"
+    desc: "昇順"
+    predicates:
+      cont: "含む"
+      not_cont: "含まない"
+      eq: "同じ"
+      true: "ON"
   date:
     abbr_day_names:
     - 日
