@@ -15,7 +15,7 @@ class Consumer < ActiveRecord::Base
   after_initialize :initialize_setup
 
   def total
-    orders.map(&:total_price).inject(:+).to_i
+    orders.totaling.map(&:total_price).inject(:+).to_i
   end
 
   def initialize_setup

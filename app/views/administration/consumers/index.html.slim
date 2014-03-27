@@ -55,7 +55,7 @@ table
     tr
       td = consumer.information.try :name
       td = consumer.email
-      td = consumer.orders.count
+      td = consumer.orders.totaling.count
       td = number_to_currency consumer.total
       td = link_to '詳細表示', [:admin, consumer]
 
