@@ -45,18 +45,17 @@ p = link_to 'この条件でCSVダウンロード', format: :csv
 
 table
   tr
-    th 氏名
-    th = sort_link @q, :email, 'メールアドレス'
-    th 購入回数
-    th 購入総額
-    th
+    th.w30 氏名
+    th.w30 = sort_link @q, :email, 'メールアドレス'
+    th.w20 購入回数
+    th.w20 購入総額
 
   - @consumers.each do |consumer|
     tr
-      td = consumer.information.try :name
-      td = consumer.email
-      td = consumer.orders.totaling.count
-      td = number_to_currency consumer.total
-      td = link_to '詳細表示', [:admin, consumer]
+      td.w30 = consumer.information.try :name
+      td.w30 = link_to [:admin, consumer] do
+        = consumer.email
+      td.w20 = consumer.orders.totaling.count
+      td.w20 = number_to_currency consumer.total
 
 = paginate @consumers
