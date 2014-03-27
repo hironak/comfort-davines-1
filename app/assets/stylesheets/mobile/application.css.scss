@@ -1,0 +1,66 @@
+// Site default
+$visual-grid: true;
+
+// Scss framework
+@import "bourbon";
+@import "bitters/bitters";
+// Neat Overrides
+///////////////////////////////////////////////////////////////////////////////
+$column: 62px;
+$gutter: 2px;
+$grid-columns: 12;
+$max-width: 980px;
+
+// Neat Breakpoints
+///////////////////////////////////////////////////////////////////////////////
+$large-screen: new-breakpoint(min-width 1020px 12);
+$medium-screen: new-breakpoint(max-width 768px 8);
+$small-screen: new-breakpoint(max-width 480px 4);
+@import "neat";
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  img {
+    border-style: none;
+  }
+}
+
+* {
+  outline: none;
+}
+
+@import "item";
+
+.hidden {
+  display: none;
+}
+
+header {
+  @include clearfix;
+  .pc-view {
+    float: right;
+    @include pad(5px);
+  }
+  .logo {
+    float: left;
+    @include pad(5px);
+  }
+  .souryou {
+    float: right;
+    @include pad(5px);
+  }
+}
+
+.globalnavi {
+  @include clearfix;
+  li {
+    @include span-columns(1 of 4);
+  }
+}

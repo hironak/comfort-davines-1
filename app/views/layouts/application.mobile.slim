@@ -1,6 +1,16 @@
 doctype html
 html
   head
-    title Mobile View
+    meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"
+    = title_tag
+    = stylesheet_link_tag "mobile/application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "mobile/application", "data-turbolinks-track" => true
+    = csrf_meta_tags
   body
+    header
+      .pc-view = image_tag "mobile/application/pc_hyouji.png"
+      .logo = image_tag "mobile/application/logo.png"
+      .souryou = image_tag "mobile/application/souryou.png"
     = yield
+
+    = javascript_include_tag "http://comfort-davines.dev:35729/livereload.js?snipver=1" if Rails.env.development?
