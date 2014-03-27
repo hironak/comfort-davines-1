@@ -6,7 +6,7 @@ h1 売上一覧
   br
   = submit_tag '絞り込み'
 
-p = link_to 'この条件でCSVダウンロード', format: :csv
+p = link_to 'この条件でCSVダウンロード', params.merge(format: :csv)
 
 
 /p

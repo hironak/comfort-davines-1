@@ -1,6 +1,6 @@
 h1 商品別売上一覧
 
-p = link_to 'CSVダウンロード', format: :csv
+p = link_to 'CSVダウンロード', params.merge(format: :csv)
 
 table
   thead
