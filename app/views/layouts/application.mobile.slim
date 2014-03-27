@@ -13,4 +13,21 @@ html
       .souryou = image_tag "mobile/application/souryou.png"
     = yield
 
+    footer
+      .links
+        ul
+          li = link_to "トップページ", ''
+          li = link_to "ショッピングガイド", ''
+          li = link_to "新規会員登録", ''
+          li = link_to "会員ログイン", ''
+          li = link_to "カート", ''
+          li = link_to "よくあるご質問", ''
+        ul
+          li = link_to "会社概要", ''
+          li = link_to "About Davines", ''
+          li = link_to "特定商取引", ''
+          li = link_to "プライバシーポリシー", ''
+          li = link_to "メールでお問い合わせ", ''
+      .copyright &copy;comfort japan all rights reserved.
+
     = javascript_include_tag "http://comfort-davines.dev:35729/livereload.js?snipver=1" if Rails.env.development?

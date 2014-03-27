@@ -1,5 +1,5 @@
 // Site default
-$visual-grid: true;
+//$visual-grid: true;
 
 // Scss framework
 @import "bourbon";
@@ -44,23 +44,118 @@ a {
 
 header {
   @include clearfix;
+  @include pad(5px);
+  img {
+    display: block;
+    width: 100%;
+  }
   .pc-view {
     float: right;
-    @include pad(5px);
+    width: 25%;
   }
   .logo {
+    padding-top: 10px;
     float: left;
-    @include pad(5px);
+    width: 40%;
   }
   .souryou {
+    padding-top: 15px;
     float: right;
-    @include pad(5px);
+    width: 55%;
   }
 }
 
 .globalnavi {
   @include clearfix;
+  margin-bottom: $gutter;
   li {
     @include span-columns(1 of 4);
+    img {
+      width: 100%;
+      display: block;
+    }
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  &.center {
+    text-align: center;
+  }
+  &.belt {
+    background: #808080;
+    color: #fff;
+    @include pad(0.5em);
+    margin-bottom: 0.5em;
+  }
+}
+
+
+.lineup {
+  @include clearfix;
+  border-bottom: 10px solid #8ea5bf;
+  li {
+    @include span-columns(1 of 3);
+    a {
+      color: #333;
+      display: block;
+      text-align: center;
+      background: #ececec;
+      height: 60px;
+      line-height: 60px;
+      &.active {
+        color: #fff;
+        background: #8ea5bf;
+      }
+    }
+  }
+}
+
+.lineup-items {
+  h4 {
+    @include pad(10px 20px);
+    margin: 0;
+    @include linear-gradient(#dbdbdb, #ececec);
+  }
+
+  ul {
+    li {
+      a {
+        @include clearfix;
+        display: block;
+        font-size: 0.8em;
+        border-bottom: 1px solid #c8c8c8;
+        margin-bottom: 5px;
+        @include pad(5px);
+        .image {
+          float: left;
+          width: 30%;
+          text-align: center;
+          line-height: 1.5em * 7;
+          img {
+            display: inline;
+          }
+        }
+      }
+    }
+  }
+}
+
+footer {
+  background: #808080;
+  color: #fff;
+  @include pad(0.5em);
+  font-size: 0.7em;
+  .links {
+    @include pad(20px);
+    @include clearfix;
+    ul {
+      @include span-columns(1 of 2);
+      a {
+        color: #fff;
+      }
+    }
+  }
+  .copyright {
+    text-align: center;
   }
 }

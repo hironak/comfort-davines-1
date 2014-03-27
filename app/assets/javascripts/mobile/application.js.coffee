@@ -3,3 +3,15 @@
 #= require jquery_ujs
 #= require_self
 #= require_directory .
+
+jQuery ($)->
+  $('.lineup a').on "click", ->
+    id = $(@).data()['show']
+    $('.lineup a').removeClass 'active'
+    $(@).addClass 'active'
+    $('.lineup-items').hide()
+    $(".lineup-items##{id}").show()
+    false
+
+  $('.lineup-items h4').on 'click', ->
+    $(@).next().slideToggle()
