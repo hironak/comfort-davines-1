@@ -22,6 +22,9 @@ gem 'redis-rails'
 gem 'rack-cache'
 gem 'redis-rack-cache'
 
+# for mobile
+gem 'mobylette'
+
 # Use SCSS for stylesheets
 gem 'sass-rails'
 
