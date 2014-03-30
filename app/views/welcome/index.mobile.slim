@@ -10,12 +10,12 @@ ul.globalnavi
       li = image_tag "mobile/welcome/slider_#{i}.jpg"
 
 h2.center アイテム一覧
-ul.lineup
+ul.products
   li = link_to "ライン別",   "#", data: { show: :series }
   li = link_to "カテゴリ別", "#", data: { show: :categories }
   li = link_to "タイプ別",   "#", data: { show: :solutions }, class: "active"
 
-.lineup-items#series.hidden
+.products-items#series.hidden
   - Series.includes(:products).each do |series|
     h4 = series.name
     ul.hidden
@@ -30,7 +30,7 @@ ul.lineup
             = number_to_currency product.view_price
             span.small （税込）
 
-.lineup-items#categories.hidden
+.products-items#categories.hidden
   - Category.includes(:products).where(hidden: nil).each do |category|
     h4 = category.name
     ul.hidden
@@ -46,7 +46,7 @@ ul.lineup
             span.small （税込）
 
 
-.lineup-items#solutions
+.products-items#solutions
   - Solution.includes(:products).each do |solution|
     h4 = solution.name
     ul.hidden
@@ -62,5 +62,25 @@ ul.lineup
             span.small （税込）
 
 h2.belt ラインナップ
+p.lineup
+  = link_to catalog_path(action: :series, id: :naturaltech) do
+    = image_tag 'mobile/welcome/lineup_nav1.jpg'
+  = link_to catalog_path(action: :series, id: :authentic) do
+    = image_tag 'mobile/welcome/lineup_nav2.jpg'
+  = link_to catalog_path(action: :series, id: :oioil) do
+    = image_tag 'mobile/welcome/lineup_nav3.jpg'
+  = link_to catalog_path(action: :series, id: :moreinside) do
+    = image_tag 'mobile/welcome/lineup_nav4.jpg'
+
 h2.belt メディア掲載情報
+= render 'media'
+
 h2.belt News
+ul.news
+  - NewsRelease.available.each do |news|
+    li
+      = l news.date, format: :long
+      '
+      = link_to news.title, news
+
+p.toindex = link_to "一覧へ", news_releases_path

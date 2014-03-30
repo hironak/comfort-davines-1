@@ -9,13 +9,13 @@ jQuery ($)->
     animation: 'slide'
     directionNav: false
 
-  $('.lineup a').on "click", ->
+  $('.products a').on "click", ->
     id = $(@).data()['show']
-    $('.lineup a').removeClass 'active'
+    $('.products a').removeClass 'active'
     $(@).addClass 'active'
-    $('.lineup-items').hide()
-    $(".lineup-items##{id}").show()
+    $('.products-items').hide()
+    $(".products-items##{id}").show()
     false
 
-  $('.lineup-items h4').on 'click', ->
+  $('.products-items h4').on 'click', ->
     $(@).next().slideToggle()

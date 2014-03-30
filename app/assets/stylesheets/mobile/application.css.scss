@@ -67,6 +67,7 @@ header {
 
 .globalnavi {
   @include clearfix;
+  @include fill-parent;
   margin-bottom: $gutter;
   li {
     @include span-columns(1 of 4);
@@ -91,7 +92,7 @@ h1, h2, h3, h4, h5, h6 {
 
 @import "flexslider.css";
 
-.lineup {
+.products {
   @include clearfix;
   border-bottom: 10px solid #8ea5bf;
   li {
@@ -111,7 +112,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-.lineup-items {
+.products-items {
   h4 {
     @include pad(10px 20px);
     margin: 0;
@@ -138,6 +139,41 @@ h1, h2, h3, h4, h5, h6 {
         }
       }
     }
+  }
+}
+
+.lineup {
+  @include fill-parent;
+  @include clearfix;
+  a {
+    @include span-columns(1 of 2);
+    @include omega(2);
+    margin-bottom: 5px;
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+}
+
+.magazines {
+  padding: 5px;
+  li {
+    @include span-columns(1 of 4);
+  }
+}
+
+.news {
+  margin: 0 5px;
+}
+
+.toindex {
+  text-align: right;
+  font-size: $base-font-size * 0.8;
+  padding: 5px;
+  a {
+    padding-left: 15px;
+    background: image-url("welcome/shoppingguide_li.png") left center no-repeat;
   }
 }
 
