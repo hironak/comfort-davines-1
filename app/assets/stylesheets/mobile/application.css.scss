@@ -188,6 +188,28 @@ h1, h2, h3, h4, h5, h6 {
   .main-image {
     text-align: center;
   }
+  .image-select {
+    margin: 0 auto 20px;
+    text-align: center;
+    a {
+      display: inline-block;
+      width: 80px;
+      height: 80px;
+      line-height: 80px - 8px;
+      text-align: center;
+      margin: 5px;
+      border: 1px solid $light-gray;
+      padding: 3px;
+      &.active {
+        border: 4px solid $light-gray;
+        padding: 0;
+      }
+      background: white;
+      img {
+        vertical-align: middle;
+      }
+    }
+  }
   .product-information {
     margin: 0 5px 20px;
     border: 1px solid #666;
