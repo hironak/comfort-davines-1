@@ -1,0 +1,76 @@
+.product-show
+  .name
+    h1 = @product.name
+    p.type
+      - @product.kind.to_s.split.each do |kind|
+        span.kind = kind
+      - if Product::Authentic === @product
+        - @product.parts.to_s.split(/\s/).each do |part|
+          span = image_tag "catalog/#{part}.png"
+    - if @product.label.present?
+      - case @product
+      - when Product::MoreInside
+        p.label style="color: #{@product.label_color}" = raw @product.label
+      - else
+        p.label = raw "【#{@product.label.html_safe}】"
+
+  .main-image = image_tag @product.image.url(:medium)
+  - if @product.photos.count > 1
+    .image-select
+      - @product.photos.each_with_index do |photo, i|
+        .image
+          = link_to photo.image.url(:medium), class: (i == 0 && 'active') do
+            = image_tag photo.image.url(:mini)
+
+  .product-information
+    /.review-ingredient
+      span.review
+        = link_to "", class: "write-review" do
+          = image_tag "products/review.png", alt: "レビューを書く"
+      | 　
+      span.ingredient = image_tag 'products/ingredient_btn.jpg', alt: '成分表示', title: @product.ingredient
+      .write-review-form style="display:none;"
+        .close = image_tag "application/close.png", alt: "close"
+        = form_for @product.reviews.new, url: reviews_path, method: :post do |f|
+          = f.text_field :name, placeholder: "ニックネーム"
+          br
+          = f.text_field :subject, placeholder: "タイトル"
+          br
+          = f.text_area :body, placeholder: "本文"
+          br
+          = f.hidden_field :product_id
+          = f.submit "送信する"
+
+    = form_tag add_carts_path, method: :post do
+      dl
+        dt 価格
+        dd
+          .price
+            = number_to_currency @product.view_price
+            small = "(税込)"
+        dt 容量
+        dd = raw @product.capacity
+        dt 個数
+        dd
+          - if @product.stock.to_i > 0
+            = select_tag :amount, options_for_select(1..@product.stock)
+          - else
+            | 在庫なし
+      = hidden_field_tag :product_id, @product.id
+      - if @product.stock.to_i > 0
+        = image_submit_tag 'products/n_cart_btn.jpg', alt: "カートに入れる"
+
+  .information
+    h2.belt 商品詳細
+    - if Product::MoreInside === @product
+      p.keeplevel
+        = image_tag "products/keeplevel.png"
+        | 　
+        = image_tag "catalog/#{@product.parts}.png", alt: @product.parts
+    - if @product.detail
+      p.detail = @product.detail.html_safe
+
+
+    - if @product.page
+      .editable class="page#{@product.page.id}"
+        = render inline: @product.page.body.html_safe, type: @product.page.render_type

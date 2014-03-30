@@ -1,14 +1,3 @@
-ul.globalnavi
-  li = image_tag "mobile/application/header_nav1.gif", alt: "新規会員登録"
-  li = image_tag "mobile/application/header_nav2.gif", alt: "マイページログイン"
-  li = image_tag "mobile/application/header_nav3.gif", alt: "カートをみる"
-  li = image_tag "mobile/application/header_nav4.gif", alt: "ショッピングガイド"
-
-.flexslider
-  ul.slides
-    - (1..5).each do |i|
-      li = image_tag "mobile/welcome/slider_#{i}.jpg"
-
 h2.center アイテム一覧
 ul.products
   li = link_to "ライン別",   "#", data: { show: :series }

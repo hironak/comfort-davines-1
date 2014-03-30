@@ -10,7 +10,13 @@ html
     header
       .pc-view = image_tag "mobile/application/pc_hyouji.png"
       .logo = image_tag "mobile/application/logo.png"
-      .souryou = image_tag "mobile/application/souryou.png"
+        .souryou = image_tag "mobile/application/souryou.png"
+    ul.globalnavi
+      li = image_tag "mobile/application/header_nav1.gif", alt: "新規会員登録"
+      li = image_tag "mobile/application/header_nav2.gif", alt: "マイページログイン"
+      li = image_tag "mobile/application/header_nav3.gif", alt: "カートをみる"
+      li = image_tag "mobile/application/header_nav4.gif", alt: "ショッピングガイド"
+
     = yield
 
     p.totop = link_to "#header" do
