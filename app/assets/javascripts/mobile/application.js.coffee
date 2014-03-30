@@ -5,6 +5,10 @@
 #= require_directory .
 
 jQuery ($)->
+  $('.flexslider').flexslider
+    animation: 'slide'
+    directionNav: false
+
   $('.lineup a').on "click", ->
     id = $(@).data()['show']
     $('.lineup a').removeClass 'active'

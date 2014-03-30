@@ -89,6 +89,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+@import "flexslider.css";
 
 .lineup {
   @include clearfix;
@@ -140,18 +141,29 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+.totop {
+  text-align: center;
+  margin: 0;
+  @include pad(10px);
+}
+
 footer {
   background: #808080;
   color: #fff;
   @include pad(0.5em);
   font-size: 0.7em;
+  line-height: 2.0em;
   .links {
     @include pad(20px);
     @include clearfix;
     ul {
       @include span-columns(1 of 2);
-      a {
-        color: #fff;
+      li {
+        background: image-url("mobile/application/arrow_white.png") left center no-repeat;
+        padding-left: 10px;
+        a {
+          color: #fff;
+        }
       }
     }
   }

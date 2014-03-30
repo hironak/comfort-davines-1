@@ -69,12 +69,12 @@
             dd = raw @product.capacity
             dt 個数
             dd
-              - if @product.stock > 0
+              - if @product.stock.to_i > 0
                 = select_tag :amount, options_for_select(1..@product.stock)
               - else
                 | 在庫なし
           = hidden_field_tag :product_id, @product.id
-          - if @product.stock > 0
+          - if @product.stock.to_i > 0
             = image_submit_tag 'products/n_cart_btn.jpg', alt: "カートに入れる"
 
   - if @product.page
