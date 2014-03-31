@@ -87,6 +87,9 @@ h1, h2, h3, h4, h5, h6 {
     color: #fff;
     @include pad(0.5em);
     margin-bottom: 0.5em;
+    &.blue {
+      background: #8ea5bf;
+    }
   }
 }
 
@@ -241,6 +244,9 @@ h1, h2, h3, h4, h5, h6 {
     }
   }
   .information {
+    .detail {
+      margin: 5px;
+    }
   }
 }
 
