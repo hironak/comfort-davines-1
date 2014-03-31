@@ -12,7 +12,7 @@ module Pricing
   end
 
   # 送料
-  def postage
+  def compute_postage
     if self.items_price > 6000
       0
     else
@@ -24,13 +24,13 @@ module Pricing
     end
   end
 
-  # 表品金額合計
+  # 商品金額合計
   def items_price
     self.items.map(&:price).inject(:+).to_i
   end
 
   # 代引き手数料
-  def commission
+  def compute_commission
     case self.payment_type
     when 'Payment::Collect'
       total = items_price + postage
@@ -53,6 +53,17 @@ module Pricing
     else
       0
     end
+  end
+
+  def set_options
+    unless self.finaluzed?
+      self.postage = compute_postage
+      self.commission = compute_commission
+    end
+  end
+
+  def finalized?
+    self.status.to_sym != :cashier
   end
 
   def check_amount
