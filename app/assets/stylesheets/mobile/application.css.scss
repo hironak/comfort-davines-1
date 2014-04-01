@@ -52,6 +52,18 @@ a {
   }
 }
 
+form {
+  padding: 20px;
+  label {
+    display: block;
+  }
+  select,
+  textarea,
+  #{$all-text-inputs} {
+    width: 100%;
+  }
+}
+
 * {
   outline: none;
 }
