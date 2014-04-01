@@ -14,4 +14,12 @@ class Cart < ActiveRecord::Base
   def status
     :cashier
   end
+
+  def postage
+    compute_postage
+  end
+
+  def commission
+    compute_commission
+  end
 end
