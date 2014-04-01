@@ -16,6 +16,20 @@ table
       td.w25 = l @order.created_at, format: :short
       td.w25 = @order.payment_type_human
       td.w25 = @order.status_human
+
+- if @order.salon
+  table
+    thead
+      tr
+        th サロン名
+        th サロンマージン
+        th 代理店マージン
+    tbody
+      tr
+        td = @order.salon.name
+        td = number_to_currency @order.backmargin(:salon)
+        td = number_to_currency @order.backmargin(:agency)
+
 table.cart
   thead
     tr
