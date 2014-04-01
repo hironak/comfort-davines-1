@@ -1,9 +1,6 @@
-p#notice = notice
-
-.template class="page#{@template.id}"
-  = @template.header.html_safe
-
-
-= link_to 'Edit', edit_admin_template_path(@template)
+= link_to '編集', edit_admin_template_path(@template)
 '|
-= link_to 'Back', admin_templates_path
+= link_to '一覧へ戻る', admin_templates_path
+
+.template class="template#{@template.id}"
+  = render inline: @template.header.html_safe, type: 'erb'
