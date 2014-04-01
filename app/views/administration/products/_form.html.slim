@@ -124,4 +124,8 @@
     = f.label :ranking
     = f.text_field :ranking
 
+  .field
+    = f.label :plusone
+    = f.select :plusone_id, Product.available.pluck(:name, :id)
+
   .actions = f.submit '保存'

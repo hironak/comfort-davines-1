@@ -15,6 +15,8 @@ class Product < ActiveRecord::Base
   has_many :photos, dependent: :destroy
   accepts_nested_attributes_for :photos, allow_destroy: true, limit: 4
 
+  belongs_to :plusone, class_name: 'Product'
+
   has_many :reviews
 
   scope :available, -> { where(sample: false) }
@@ -72,10 +74,6 @@ class Product < ActiveRecord::Base
 
   def self.last_updated_at
     self.order(updated_at: :desc).first.updated_at
-  end
-
-  def plusone
-    Product::OiOil.available.first
   end
 
   def recommendations

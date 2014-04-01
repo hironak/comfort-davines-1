@@ -97,6 +97,7 @@ module Administration
           :annotation,
           :new_item,
           :ranking,
+          :plusone_id,
           photos_attributes: [ :id, :image, :_destroy ],
             series_ids: [],
             category_ids: [],
