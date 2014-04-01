@@ -62,6 +62,9 @@ class Order < ActiveRecord::Base
 
   scope :totaling, -> { where(status: TOTALING_STATUSES.values) }
 
+  after_initialize :set_options
+  before_save :set_options
+
   validates :items, length: { minimum: 1 }, if: :phase_initialize?
 
   validates :samples, length: { maximum: 2 }, if: :phase_sample?
@@ -238,6 +241,16 @@ class Order < ActiveRecord::Base
   end
 
   private
+
+  def set_options
+    unless self.finalized?
+      self.postage = compute_postage
+      self.commission = compute_commission
+    else
+      self.postage ||= compute_postage
+      self.commission ||= compute_commission
+    end
+  end
 
   def set_salon_prefecture
     self.salon_prefecture ||= self.consumer.try(:information).try(:prefecture).try(:name)
