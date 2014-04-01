@@ -91,7 +91,7 @@
       }
     }
   }
-  @for $n from 1 through 7 {
+  @for $n from 1 through 9 {
     .series-items {
       .item {
         &.moreinside_0#{$n} {
