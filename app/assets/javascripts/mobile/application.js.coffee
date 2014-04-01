@@ -28,4 +28,10 @@ jQuery ($)->
     $(@).addClass 'active'
     return false
 
+  $('.accordion')
+    .each ->
+      $(@).nextUntil('.accordion').wrapAll('<div class="accordion-content" />')
+    .on 'click', ->
+      $(@).next('.accordion-content').slideToggle()
 
+  $('.accordion-content').append $('.scrolltotop').clone().addClass('right')

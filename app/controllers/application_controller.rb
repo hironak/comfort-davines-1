@@ -59,7 +59,7 @@ class ApplicationController < ActionController::Base
 
   def skip_or_force_mobile
     session[:mobylette_override] = :ignore_mobile if params[:skip_mobile]
-    session[:mobylette_override] = :force_mobile if params[:enable_mobile]
+    session[:mobylette_override] = :force_mobile  if params[:enable_mobile]
   end
 
   protected

@@ -27,6 +27,8 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
+  padding-left: 1.0em;
+  padding-right: 1.0em;
   &.center {
     text-align: center;
   }
@@ -39,6 +41,22 @@ h1, h2, h3, h4, h5, h6 {
       background: #8ea5bf;
     }
   }
+  &.accordion {
+    @include pad(10px 1.0em);
+    margin: 0;
+    @include linear-gradient(#dbdbdb, #ececec);
+    &:before {
+      content: " ";
+      float: right;
+      width: 7px;
+      height: 1.25em;
+      background: image-url("mobile/application/accordion_header_bg.png") center center no-repeat;
+    }
+  }
+}
+
+.accordion-content {
+  display: none;
 }
 
 p {
@@ -328,6 +346,9 @@ header {
   text-align: center;
   margin: 0;
   @include pad(10px);
+  &.right {
+    text-align: right;
+  }
 }
 
 footer {

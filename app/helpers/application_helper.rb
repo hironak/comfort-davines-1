@@ -61,8 +61,34 @@ module ApplicationHelper
     end
   end
 
+  class SmartCustomRender < Redcarpet::Render::HTML
+    def initialize(options)
+      @helper = options[:helper]
+      @accordion = options[:accordion]
+      super options
+    end
+
+    def header(text, header_level, anchor)
+      if @accordion == header_level
+        @helper.content_tag "h#{header_level}", text, class: :accordion #, id: anchor
+      else
+        @helper.content_tag "h#{header_level}", text
+      end
+    end
+
+    def image(link, title, alt_text)
+      @helper.image_tag link, title: title, alt: alt_text
+    end
+  end
+
   def md(text)
     @@render_html ||= CustomRender.new(with_toc_data: true, hard_wrap: true, helper: self)
+    @@markdown ||= Redcarpet::Markdown.new(@@render_html, tables: true, autolink: true, space_after_headers: true)
+    @@markdown.render(text).html_safe
+  end
+
+  def smd(text, accordion: false)
+    @@render_html ||= SmartCustomRender.new(with_toc_data: true, hard_wrap: true, helper: self, accordion: accordion)
     @@markdown ||= Redcarpet::Markdown.new(@@render_html, tables: true, autolink: true, space_after_headers: true)
     @@markdown.render(text).html_safe
   end

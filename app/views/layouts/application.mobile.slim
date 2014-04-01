@@ -18,7 +18,8 @@ html
       li = image_tag "mobile/application/header_nav2.gif", alt: "マイページログイン"
       li = link_to carts_path do
         = image_tag "mobile/application/header_nav3.gif", alt: "カートをみる"
-      li = image_tag "mobile/application/header_nav4.gif", alt: "ショッピングガイド"
+      li = link_to utilization_path do
+        = image_tag "mobile/application/header_nav4.gif", alt: "ショッピングガイド"
 
     = breadcrumb
 
@@ -30,7 +31,7 @@ html
       .links
         ul
           li = link_to "TOPページ", root_path
-          li = link_to "ショッピングガイド", ''
+          li = link_to "ショッピングガイド", utilization_path
           li = link_to "新規会員登録", ''
           li = link_to "会員ログイン", ''
           li = link_to "カート", ''
