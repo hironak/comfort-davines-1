@@ -1,6 +1,11 @@
 module Pricing
   extend ActiveSupport::Concern
 
+  included do |base|
+    base.send :after_initialize, :set_options
+    base.send :before_save, :set_options
+  end
+
   # 総合計
   def total_price
     (items_price + postage + commission).to_i
@@ -56,9 +61,13 @@ module Pricing
   end
 
   def set_options
-    unless self.finaluzed?
+    return unless Order === self
+    unless self.finalized?
       self.postage = compute_postage
       self.commission = compute_commission
+    else
+      self.postage ||= compute_postage
+      self.commission ||= compute_commission
     end
   end
 

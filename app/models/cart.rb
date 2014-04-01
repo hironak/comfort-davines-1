@@ -10,4 +10,8 @@ class Cart < ActiveRecord::Base
   def payment_type
     'Payment::Creditcard'
   end
+
+  def status
+    :cashier
+  end
 end
