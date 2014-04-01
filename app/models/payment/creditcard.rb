@@ -62,7 +62,9 @@ class Payment::Creditcard < Payment
   end
 
   def charge_capture
-    charge.capture
+    charge.tap do |charge|
+      charge.capture unless charge.captured
+    end
   end
 
   private
