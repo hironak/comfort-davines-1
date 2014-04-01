@@ -3,6 +3,7 @@
 #= require jquery_ujs
 #= require_self
 #= require_directory .
+#= require ../scrolltop
 
 jQuery ($)->
   $('.flexslider').flexslider
