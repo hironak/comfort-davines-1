@@ -62,6 +62,10 @@ form {
   #{$all-text-inputs} {
     width: 100%;
   }
+  .field {
+    border: 1px solid #aaa;
+    padding: 0.5em;
+  }
 }
 
 * {

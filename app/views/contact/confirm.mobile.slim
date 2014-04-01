@@ -1,0 +1,33 @@
+h1.belt お問い合わせ
+
+strong お問い合わせフォーム
+p 下記の内容で送信いたします。よろしければ送信ボタンを押してください。
+
+= form_for @contact, url: contact_path, method: :post do |f|
+  label お問い合わせ内容
+  .field
+    = @contact.type
+    = f.hidden_field :type
+  label お名前
+  .field
+    = @contact.name
+    = f.hidden_field :name
+  label フリガナ
+  .field
+    = @contact.name_kana
+    = f.hidden_field :name_kana
+  label メールアドレス
+  .field
+    = @contact.email
+    = f.hidden_field :email
+  label 電話番号
+  .field
+    = @contact.phone
+    = f.hidden_field :phone
+  label 本文
+  .field
+    = simple_format @contact.body
+    = f.hidden_field :body
+  .actions = f.submit "この内容で送信"
+
+
