@@ -1,4 +1,7 @@
 class ApplicationController < ActionController::Base
+
+  before_filter :skip_or_force_mobile
+
   include Mobylette::RespondToMobileRequests
 
   mobylette_config do |config|
@@ -52,6 +55,11 @@ class ApplicationController < ActionController::Base
 
   def rmt successfull, verb, resource
     I18n.t("resource.#{successfull}.#{verb}", model: I18n.t("activerecord.models.#{resource.class.name.underscore}"))
+  end
+
+  def skip_or_force_mobile
+    session[:mobylette_override] = :ignore_mobile if params[:skip_mobile]
+    session[:mobylette_override] = :force_mobile if params[:enable_mobile]
   end
 
   protected

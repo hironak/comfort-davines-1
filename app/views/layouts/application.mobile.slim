@@ -8,7 +8,8 @@ html
     = csrf_meta_tags
   body
     header
-      .pc-view = image_tag "mobile/application/pc_hyouji.png"
+      .pc-view = link_to skip_mobile: true do
+        = image_tag "mobile/application/pc_hyouji.png"
       .logo = image_tag "mobile/application/logo.png"
         .souryou = image_tag "mobile/application/souryou.png"
     ul.globalnavi
