@@ -14,8 +14,14 @@ html
         = image_tag "mobile/application/logo.png"
       .souryou = image_tag "mobile/application/souryou.png"
     ul.globalnavi
-      li = image_tag "mobile/application/header_nav1.gif", alt: "新規会員登録"
-      li = image_tag "mobile/application/header_nav2.gif", alt: "マイページログイン"
+      li = link_to introduction_path do
+        = image_tag "mobile/application/header_nav1.gif", alt: "新規会員登録"
+      - if consumer_signed_in?
+        li = link_to mypage_root_path do
+          = image_tag "mobile/application/header_nav2.gif", alt: "マイページ"
+      - else
+        li = link_to new_consumer_session_path do
+          = image_tag "mobile/application/header_nav2.gif", alt: "マイページログイン"
       li = link_to carts_path do
         = image_tag "mobile/application/header_nav3.gif", alt: "カートをみる"
       li = link_to utilization_path do
