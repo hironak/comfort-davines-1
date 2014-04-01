@@ -64,13 +64,16 @@ module ApplicationHelper
   class SmartCustomRender < Redcarpet::Render::HTML
     def initialize(options)
       @helper = options[:helper]
-      @accordion = options[:accordion]
+      @accordion = options[:accordion] || 0
       super options
     end
 
     def header(text, header_level, anchor)
-      if @accordion == header_level
-        @helper.content_tag "h#{header_level}", text, class: :accordion #, id: anchor
+      case
+      when @accordion > header_level
+        @helper.content_tag "h#{header_level}", text, class: :belt
+      when @accordion == header_level
+        @helper.content_tag "h#{header_level}", text, class: :accordion
       else
         @helper.content_tag "h#{header_level}", text
       end
