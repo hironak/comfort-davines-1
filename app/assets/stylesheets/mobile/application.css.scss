@@ -26,6 +26,26 @@ body {
   -webkit-text-size-adjust: 100%;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  &.center {
+    text-align: center;
+  }
+  &.belt {
+    background: #808080;
+    color: #fff;
+    @include pad(0.5em);
+    margin-bottom: 0.5em;
+    &.blue {
+      background: #8ea5bf;
+    }
+  }
+}
+
+p {
+  margin: 15px;
+}
+
+
 a {
   img {
     border-style: none;
@@ -74,21 +94,6 @@ header {
     img {
       width: 100%;
       display: block;
-    }
-  }
-}
-
-h1, h2, h3, h4, h5, h6 {
-  &.center {
-    text-align: center;
-  }
-  &.belt {
-    background: #808080;
-    color: #fff;
-    @include pad(0.5em);
-    margin-bottom: 0.5em;
-    &.blue {
-      background: #8ea5bf;
     }
   }
 }

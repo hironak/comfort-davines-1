@@ -1,48 +1,33 @@
 - if current_cart.items.without_samples.count > 0
   h2.belt カートに入っている商品
-  p.mini 現在ショッピングカートには以下の商品が入っています。
-  table.cart
-    thead
-      tr
-        th.w40.product 商品名
-        th.w10.capacity 容量
-        th.w10.price 価格(税込)
-        th.w10.amount 個数
-        th.w10.total 小計(税込)
-        th.w10.shipment 送料
-        th.w10.remove
+  ul
+    - current_cart.items.without_samples.each do |item|
+      li.item
+        .product
+          = image_tag item.product.image.url(:thumb)
+          = item.product.name
+        .capacity = raw item.product.capacity
+        .price = number_to_currency item.view_origin_price
+        .amount
+          - if item.check_amount
+            = form_tag add_carts_path(product_id: item.product.id), method: :post, class: 'autosend' do
+              = select_tag :amount, options_for_select((1..item.product.stock), selected: item.amount)
+          - else
+            = item.amount
+        .total = number_to_currency item.price
+        .shipment 別
+        .remove
+          = link_to remove_carts_path(product_id: item.product.id, amount: 1), method: :delete do
+            = image_tag "cart/torikeshi_btn.jpg", alt: "取消"
 
-    tbody
-      - current_cart.items.without_samples.each do |item|
-        tr.item
-          td.w40.product
-            = image_tag item.product.image.url(:thumb)
-            = item.product.name
-          td.w10.capacity = raw item.product.capacity
-          td.w10.price = number_to_currency item.view_origin_price
-          td.w10.amount
-            - if item.check_amount
-              = form_tag add_carts_path(product_id: item.product.id), method: :post, class: 'autosend' do
-                = select_tag :amount, options_for_select((1..item.product.stock), selected: item.amount)
-            - else
-              = item.amount
-          td.w10.total = number_to_currency item.price
-          td.w10.shipment 別
-          td.w10.remove
-            = link_to remove_carts_path(product_id: item.product.id, amount: 1), method: :delete do
-              = image_tag "cart/torikeshi_btn.jpg", alt: "取消"
+    li.no-border
+      .results colspan=4 合計
+      .total = number_to_currency current_cart.items_price
+      .total = number_to_currency current_cart.postage
 
-      tr.no-border
-        td.w70.results colspan=4 合計
-        td.w10.total = number_to_currency current_cart.items_price
-        td.w10.total = number_to_currency current_cart.postage
-        td.w10.remove
-
-      tr.no-border
-        td.w70.results colspan=4 総合計
-        td.w10.total
-        td.w10.total = number_to_currency current_cart.total_price
-        td.w10.remove
+    li.no-border
+      .results colspan=4 総合計
+      .total = number_to_currency current_cart.total_price
 
   p.cashier
     = link_to cashier_path do
