@@ -54,7 +54,6 @@ class Order < ActiveRecord::Base
   before_save :save_email
 
   belongs_to :payment, polymorphic: true, dependent: :destroy
-  before_save :payment_capture
 
   accepts_nested_attributes_for :shipment, allow_destroy: true
   accepts_nested_attributes_for :payment, allow_destroy: true
@@ -154,6 +153,7 @@ class Order < ActiveRecord::Base
   end
 
   def confirm
+    save_payment
     if self.phase_confirm?
       self.items.each do |item|
         item.product.decrease item.amount
