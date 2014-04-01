@@ -265,6 +265,49 @@ header {
   }
 }
 
+.cart {
+  font-size: 0.7em;
+  .item {
+    padding: 10px;
+    border-bottom: 1px solid #aaaaaa;
+    .image {
+      text-align: center;
+      width: 100px;
+      height: 100px;
+      float: left;
+    }
+    .amount {
+      text-align: right;
+      form {
+        display: inline;
+      }
+      img {
+        vertical-align: middle;
+      }
+    }
+  }
+  .postage,
+  .total_price {
+    padding: 5px;
+    @include clearfix;
+    .name {
+      margin-left: 60%;
+      float: left;
+      width: 20%;
+    }
+    .total {
+      float: left;
+      width: 20%;
+    }
+  }
+  .postage {
+  }
+  .total_price {
+    background: #e9f0f7;
+    border-bottom: 1px solid #aaaaaa;
+  }
+}
+
 .totop {
   text-align: center;
   margin: 0;
