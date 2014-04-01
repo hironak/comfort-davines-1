@@ -89,10 +89,17 @@ module Administration
           :page_id,
           :backmargin_salon,
           :backmargin_agency,
+          :kind,
+          :ingredient,
+          :parts,
+          :label_color,
+          :annotation,
+          :new_item,
+          :ranking,
           photos_attributes: [ :id, :image, :_destroy ],
-          series_ids: [],
-          category_ids: [],
-          solution_ids: [])
+            series_ids: [],
+            category_ids: [],
+            solution_ids: [])
     end
   end
 end
