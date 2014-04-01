@@ -89,6 +89,7 @@ module Administration
           :page_id,
           :backmargin_salon,
           :backmargin_agency,
+          :type,
           :kind,
           :ingredient,
           :parts,
