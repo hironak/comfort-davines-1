@@ -1,15 +1,29 @@
 h1 商品一覧
 
+p = link_to '新規追加', new_admin_product_path
+
+h2 通常商品
 table
   tr
     th.w90 名称
     th.w10 在庫
 
-  - @products.each do |product|
+  - @products.available.each do |product|
     tr
       td.w90 = link_to product.name, [:admin, product]
       td.w10 = product.stock
 
+h2 サンプル
+table
+  tr
+    th.w90 名称
+    th.w10 在庫
+
+  - @products.sample.each do |product|
+    tr
+      td.w90 = link_to product.name, [:admin, product]
+      td.w10 = product.stock
+
+
 br
 
-= link_to 'New Product', new_admin_product_path
