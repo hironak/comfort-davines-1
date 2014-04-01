@@ -92,4 +92,36 @@
     = f.label :backmargin_agency
     = f.number_field :backmargin_agency
 
-  .actions = f.submit 'Save'
+  .field
+    = f.label :type
+    = f.select :type, [Product::OiOil, Product::Authentic, Product::MoreInside, Product::Naturaltech].map{|m| [m.model_name.human, m.name] }
+
+  .field
+    = f.label :kind
+    = f.text_field :kind
+
+  .field
+    = f.label :ingredient
+    = f.text_field :ingredient
+
+  .field
+    = f.label :parts
+    = f.text_field :parts
+
+  .field
+    = f.label :label_color
+    = f.text_field :label_color
+
+  .field
+    = f.label :annotation
+    = f.text_field :annotation
+
+  .field
+    = f.label :new_item
+    = f.text_field :new_item
+
+  .field
+    = f.label :ranking
+    = f.text_field :ranking
+
+  .actions = f.submit '保存'
