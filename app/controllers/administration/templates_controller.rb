@@ -70,7 +70,7 @@ module Administration
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def template_params
-      params.require(:template).permit(:name, :header, :style)
+      params.require(:template).permit(:name, :identify, :header, :style)
     end
   end
 end

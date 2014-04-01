@@ -1,4 +1,4 @@
-h1 Listing templates
+h1 テンプレート一覧
 
 table
   tr
@@ -8,7 +8,7 @@ table
 
   - @templates.each do |template|
     tr
-      td = link_to 'Show', [:admin, template]
+      td = link_to template.name, [:admin, template]
       td = link_to 'Edit', edit_admin_template_path(template)
       td = link_to 'Destroy', [:admin, template], data: {:confirm => 'Are you sure?'}, :method => :delete
 
