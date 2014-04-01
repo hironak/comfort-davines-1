@@ -60,6 +60,8 @@ class Order < ActiveRecord::Base
   accepts_nested_attributes_for :payment, allow_destroy: true
   accepts_nested_attributes_for :items, allow_destroy: true
 
+  scope :listable, -> { where(status: LISTABLE_STATUSES.values) }
+  scope :changable, -> { where(status: LISTABLE_STATUSES.values) }
   scope :totaling, -> { where(status: TOTALING_STATUSES.values) }
 
   after_initialize :set_options
