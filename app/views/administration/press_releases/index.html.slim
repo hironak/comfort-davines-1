@@ -11,12 +11,8 @@ table
   - @press_releases.each do |press_release|
     tr
       td.w10
-        = form_for [:admin, press_release], data: { remote: true }, html: { class: :inline } do |f|
-          = f.hidden_field :row_order_position, value: :up
-          = f.submit '▲'
-        = form_for [:admin, press_release], data: { remote: true }, html: { class: :inline } do |f|
-          = f.hidden_field :row_order_position, value: :down
-          = f.submit '▼'
+        = link_to '▲', admin_press_release_path(press_release, format: :json), data: { params: { press_release: { row_order_position: :up } }.to_param }, method: :put, remote: true
+        = link_to '▼', admin_press_release_path(press_release, format: :json), data: { params: { press_release: { row_order_position: :down } }.to_param }, method: :put, remote: true
 
       td.w70 = link_to [:admin, press_release] do
         = press_release.magazine
