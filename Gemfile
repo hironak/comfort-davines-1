@@ -51,6 +51,9 @@ gem 'jquery-ui-rails'
 gem 'jscrollpane-rails'
 gem 'jquery-colorbox-rails'
 
+# Use modernizr as the JavaScript library
+gem 'modernizr-rails'
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # gem 'turbolinks'
 # gem 'jquery-turbolinks'
