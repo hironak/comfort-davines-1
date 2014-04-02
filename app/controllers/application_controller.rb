@@ -64,6 +64,10 @@ class ApplicationController < ActionController::Base
     session[:mobylette_override] = :force_mobile  if params[:enable_mobile]
   end
 
+  def after_sign_in_path_for(resource_or_scope)
+    respond_to?(:root_path) ? root_path : "/"
+  end
+
   protected
 
   def configure_permitted_parameters
