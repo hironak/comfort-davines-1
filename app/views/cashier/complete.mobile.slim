@@ -1,0 +1,19 @@
+h1.belt ご注文手続き
+
+.step = image_tag 'cashier/order_step03.png', alt: 'Step3'
+
+h3.belt ご注文ありがとうございました
+
+p.message
+  | 商品のご注文ありがとうございました。下記の注文で承りました。
+  br
+  br
+  | ご注文番号：
+  = @order.number
+  br
+  br
+  br
+  | ご登録頂いたメールアドレス宛に、注文完了のお知らせメールをお送りしました。
+
+p.actions = link_to root_path do
+  = image_tag "cashier/back_toppage.jpg", alt: "TOPページへ戻る"
