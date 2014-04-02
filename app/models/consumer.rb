@@ -12,6 +12,8 @@ class Consumer < ActiveRecord::Base
   has_one :cart
   has_many :orders
 
+  scope :confirmed, -> { where.not(confirmed_at: nil) }
+
   after_initialize :initialize_setup
 
   def total

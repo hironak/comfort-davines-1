@@ -1,4 +1,4 @@
-= form_for [:admin, @press_release] do |f|
+= form_for [:admin, @press_release], html: { class: 'easy-form' } do |f|
   - if @press_release.errors.any?
     #error_explanation
       h2 = "#{pluralize(@press_release.errors.count, "error")} prohibited this press_release from being saved:"
@@ -18,4 +18,5 @@
   .field
     = f.label :products
     = f.text_area :products
+  = f.hidden_field :row_order_position, value: :first
   .actions = f.submit 'Save'
