@@ -11,7 +11,7 @@
           = number_to_currency item.view_origin_price
         .amount
           - if item.check_amount
-            = form_tag add_carts_path(product_id: item.product.id), method: :post, class: 'autosend' do
+            = form_tag add_carts_path(product_id: item.product.id), method: :post, class: 'autosend inline' do
               | 数量
               = select_tag :amount, options_for_select((1..item.product.stock), selected: item.amount)
           - else
@@ -28,11 +28,11 @@
       .name 総合計
       .total = number_to_currency current_cart.total_price
 
-  p.cashier
+  p.actions
     = link_to cashier_path do
       = image_tag 'cashier/kounyu_btn.jpg', alt: "ご注文手続き"
 
-  p
+  p.actions
     = link_to_back do
       = image_tag 'cart/back.jpg', alt: "ショッピングを続ける"
 

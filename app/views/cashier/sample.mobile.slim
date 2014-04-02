@@ -1,0 +1,38 @@
+.step = image_tag 'cashier/order_step01.png', alt: 'Step1'
+
+= form_for @order, url: cashier_sample_path, html: { class: 'wide' } do |f|
+  - if @order.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@order.errors.count, "error")} prohibited this order from being saved:"
+      ul
+        - @order.errors.full_messages.each do |message|
+          li = message
+
+  = render "order_list"
+
+  h2.belt サンプルをお選びください
+
+  = f.hidden_field :sample_selected, value: true
+
+  .sample_select
+    p.explanation
+      | 商品をお買い上げ頂くと毎回サンプルを2点プレゼントしております。下記よりお選びください。
+      br
+      | ※1種類1点のみお選びいただけます。
+
+
+    .items
+      - Product.sample.each do |product|
+        .item
+          = label_tag "order_sample_ids_#{product.id}" do
+            .image
+              = image_tag product.image.url(:thumb)
+            .name
+              = product.name
+              = product.capacity
+            .checkbox
+              span.check = check_box_tag "order[sample_ids][]", product.id, @order.sample_ids.include?(product.id), id: "order_sample_ids_#{product.id}"
+
+  .actions = f.submit '次のステップへ'
+
+

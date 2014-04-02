@@ -1,0 +1,37 @@
+.order-list
+  h2.belt カートに入っている商品
+
+  ul.cart.cashier
+    li.item
+      .product 商品名
+      .amount 個数
+      .total 小計(税込)
+    - @order.items_without_samples.each do |item|
+      li.item
+        .product = item.product.name
+        .amount = item.amount
+        .total = number_to_currency item.price
+
+    li.postage
+      .name 送料
+      .total = number_to_currency @order.postage
+
+    - if Payment::Collect === @order.payment
+      li.commission
+        .name 代引手数料
+        .total = number_to_currency @order.commission
+
+    li.total_price
+      .name 総合計
+      .total = number_to_currency @order.total_price
+
+  - if @order.samples.size > 0
+    h2 選択したサンプル
+    p = link_to 'サンプルの選択', cashier_sample_url
+    table.cart
+      tbody
+        - @order.samples.each do |item|
+          tr.item
+            td.product
+              = image_tag item.product.image.url(:thumb)
+              = item.product.name

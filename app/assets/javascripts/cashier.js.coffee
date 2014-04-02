@@ -31,7 +31,6 @@ $ ->
 
   sample_checks = $('input[name="order[sample_ids][]"]')
   sample_checks.on 'change', ->
-    console.log sample_checks.filter(':checked').length
     if sample_checks.filter(':checked').length > 1
       sample_checks.filter(':not(:checked)').prop disabled: true
     else

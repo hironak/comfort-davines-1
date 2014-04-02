@@ -1,0 +1,68 @@
+h1.belt ご注文手続き
+
+.step = image_tag 'cashier/order_step02.png', alt: 'Step2'
+
+= form_for @order, url: cashier_shipment_path, html: { class: 'wide' } do |f|
+
+  - if @order.errors.any?
+    #error_explanation
+      h2 エラー内容をご確認ください。
+      ul
+        - @order.errors.full_messages.each do |message|
+          li = message
+      br
+
+  p = image_tag 'cashier/tetuzuki.png', alt: "サロン名をご記入ください。"
+
+  h2.belt ご利用のヘアサロン
+
+  p.attention ※ひらがなで入力してください。
+
+  p.ui-widget
+    = f.label :salon_prefecture
+    = f.collection_select :salon_prefecture, JpPrefecture::Prefecture.all, :name, :name
+    '
+    = f.label :salon_name
+    = f.text_field :salon_name
+    '
+    = f.label :salon_not_found do
+      | 該当なし
+      = f.check_box :salon_not_found, value: false
+
+  h2.belt お届け先情報
+
+  = f.fields_for :shipment, (f.object.shipment || Shipment.new) do |f|
+
+    p
+      label お名前
+      span.complex
+        = f.text_field :family_name, placeholder: '姓'
+        = f.text_field :given_name, placeholder: '名'
+
+    p
+      label フリガナ
+      span.complex
+        = f.text_field :family_name_kana, placeholder: 'セイ'
+        = f.text_field :given_name_kana, placeholder: 'メイ'
+
+    p
+      = f.label :postalcode
+      = f.text_field :postalcode
+
+    p
+      = f.label :prefecture_code
+      = f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name
+
+    p
+      = f.label :address
+      = f.text_field :address
+
+    p
+      = f.label :building
+      = f.text_field :building
+
+    p
+      = f.label :phone
+      = f.text_field :phone
+
+  .actions  = f.submit '次のステップ'

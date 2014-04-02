@@ -1,3 +1,4 @@
+//= require jquery.ui.autocomplete
 // Site default
 //$visual-grid: true;
 
@@ -76,6 +77,9 @@ a {
 
 form {
   padding: 20px;
+  &.wide {
+    padding: 0;
+  }
   label {
     display: block;
   }
@@ -84,9 +88,36 @@ form {
   #{$all-text-inputs} {
     width: 100%;
   }
+  &.inline {
+    select,
+    textarea,
+    #{$all-text-inputs} {
+      width: auto;
+    }
+  }
+  .complex {
+    select,
+    textarea,
+    #{$all-text-inputs} {
+      width: 48%;
+      &:first-child {
+        margin-right: 4%;
+      }
+    }
+  }
   .field {
     border: 1px solid #aaa;
     padding: 0.5em;
+  }
+  .actions {
+    input[type="submit"] {
+      @extend %button;
+      display: inline;
+      cursor: pointer;
+      user-select: none;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
   }
 }
 
@@ -348,6 +379,24 @@ header {
     background: #e9f0f7;
     border-bottom: 1px solid #aaaaaa;
   }
+  &.cashier {
+    .item {
+      @include clearfix;
+      .product {
+        float: left;
+        width: 60%;
+      }
+      .amount {
+        text-align: left;
+        float: left;
+        width: 20%;
+      }
+      .total {
+        float: left;
+        width: 20%;
+      }
+    }
+  }
 }
 
 .tokuten {
@@ -391,6 +440,32 @@ dl.faq {
     a {
       background: image-url("welcome/news_li.png") left 5px center no-repeat;
       padding-left: 15px;
+    }
+  }
+}
+
+.sample_select {
+  @include clearfix;
+  .items {
+    border-top: 1px solid #aaa;
+    .item {
+      border-bottom: 1px solid #aaa;
+      @include pad(10px);
+      float: left;
+      width: 50%;
+      .image,
+      .checkbox {
+        text-align: center;
+      }
+      .name {
+        height: 3.0em;
+        line-height: 1.0em;
+        font-weight: normal;
+        font-size: 0.8em;
+      }
+      &:nth-child(2n+1) {
+        border-right: 1px solid #aaa;
+      }
     }
   }
 }
