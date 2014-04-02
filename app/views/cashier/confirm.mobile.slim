@@ -1,0 +1,37 @@
+h1.belt ご注文手続き
+
+.step = image_tag 'cashier/order_step02.png', alt: 'Step2'
+
+= form_for @order, url: cashier_confirm_path, html: { class: 'wide' } do |f|
+
+  = render "order_list"
+
+  h2.belt お支払い・配送方法
+
+  table
+    tbody
+      tr
+        th お支払い方法
+        td = link_to '支払い情報', cashier_payment_url
+
+      tr
+        th 送付先
+        td = link_to '送付先情報', cashier_shipment_url
+
+  .deliver
+    h2.belt お届け希望日・時間帯
+    table
+      tr
+        th = f.label :delivery_date
+        td = f.select :delivery_date, (4.day.since.to_date..Date.new(2014,3,31)).map{|d| I18n.l(d) }, include_blank: '指定なし'
+      tr
+        th = f.label :delivery_time
+        td = f.select :delivery_time, Order::DELIVERY_TIMES
+
+  .note
+    h2.belt = f.label :note
+    p = f.text_area :note
+
+  .actions
+    p 注文を確定される前に、内容をよくご確認ください。
+    = f.submit '注文を確定する'
