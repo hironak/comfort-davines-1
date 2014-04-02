@@ -1,78 +1,63 @@
-h1 = image_tag 'introduction/member_line.png', alt: '初めての方へ'
-= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+h1.belt 新規会員登録
+
+= form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { class: 'wide' } ) do |f|
+
   = devise_error_messages!
 
   = hidden_field_tag :confirm, true
 
-  table
-    tbody
-      tr
-        th.w30 = f.label :email
-        td.w70 = f.email_field :email, :autofocus => true, style: "width: 300px;"
-      tr
-        th.w30
-          = f.label :password
-          | ※８文字以上
-        td.w70 = f.password_field :password, style: "width: 300px;"
-      tr
-        th.w30 = f.label :password_confirmation
-        td.w70 = f.password_field :password_confirmation, style: "width: 300px;"
+  p
+    = f.label :email
+    = f.email_field :email, :autofocus => true
+  p
+    = f.label :password
+    | ※８文字以上
+    = f.password_field :password
+  p
+    = f.label :password_confirmation
+    = f.password_field :password_confirmation
 
-    = f.fields_for :information do |f|
+  = f.fields_for :information do |f|
 
-      tr
-        th.w30
-          label お名前
-        td.w70
-          = f.label :family_name do
-            | 　
-            = f.object.class.human_attribute_name :family_name
-            = f.text_field :family_name
-          = f.label :given_name do
-            | 　
-            = f.object.class.human_attribute_name :given_name
-            = f.text_field :given_name
-      tr
-        th.w30
-          label フリガナ
-        td.w70
-          = f.label :family_name_kana do
-            = f.object.class.human_attribute_name :family_name_kana
-            = f.text_field :family_name_kana
-          = f.label :given_name_kana do
-            = f.object.class.human_attribute_name :given_name_kana
-            = f.text_field :given_name_kana
-      tr
-        th.w30 = f.label :postalcode
-        td.w70 = f.text_field :postalcode
+    p
+      label お名前
+      span.complex
+        = f.text_field :family_name, placeholder: '姓'
+        = f.text_field :given_name, placeholder: '名'
+    p
+      label フリガナ
+      span.complex
+        = f.text_field :family_name_kana, placeholder: 'セイ'
+        = f.text_field :given_name_kana, placeholder: 'メイ'
+    p
+      = f.label :postalcode
+      = f.text_field :postalcode
 
-      tr
-        th.w30 = f.label :prefecture_code
-        td.w70 = f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name
+    p
+      = f.label :prefecture_code
+      = f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name
 
-      tr
-        th.w30 = f.label :address
-        td.w70 = f.text_field :address, style: "width: 300px;"
+    p
+      = f.label :address
+      = f.text_field :address
 
-      tr
-        th.w30 = f.label :building
-        td.w70 = f.text_field :building, style: "width: 300px;"
+    p
+      = f.label :building
+      = f.text_field :building
 
-      tr
-        th.w30 = f.label :phone, style: "width: 300px;"
-        td.w70
-          = f.text_field :phone, style: "width: 300px;"
-          | 　例: 000-0000-0000
+    p
+      = f.label :phone
+      = f.text_field :phone, placeholder: "000-0000-0000"
 
-    tr
-      th.w30 = f.label :accepted_magazine
-      td.w70
-        = f.label :accepted_magazine_true do
-          = f.radio_button :accepted_magazine, true, checked: true
-          | 希望する
-        = f.label :accepted_magazine_false do
-          = f.radio_button :accepted_magazine, false
-          | 希望しない
+  p
+    = f.label :accepted_magazine
+    td.w70
+      = f.label :accepted_magazine_true do
+        = f.radio_button :accepted_magazine, true, checked: true
+        | 希望する
+      = f.label :accepted_magazine_false do
+        = f.radio_button :accepted_magazine, false
+        | 希望しない
 
   .actions
     = f.submit "確認する"
