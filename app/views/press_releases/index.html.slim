@@ -11,7 +11,7 @@
         dd = simple_format release.corner
         dt 商品名
         dd
-          - release.products.split("\n").each do |product_name|
+          - release.products.split(/[\r\n]+/).each do |product_name|
             - if product = Product.where(name: product_name).first
               = link_to product.name, product
             - else

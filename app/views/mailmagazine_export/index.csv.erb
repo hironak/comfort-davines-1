@@ -1,0 +1,12 @@
+<% require "csv" %>
+<% require "kconv" %>
+<%=
+  CSV.generate force_quotes: true do |csv|
+    @consumers.each do |consumer|
+      csv << [
+        consumer.information.name,
+        consumer.email
+      ]
+    end
+  end.tosjis.html_safe
+%>

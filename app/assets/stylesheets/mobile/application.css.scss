@@ -63,6 +63,10 @@ p {
   margin: 15px;
 }
 
+.center {
+  text-align: center;
+}
+
 
 a {
   img {
@@ -343,6 +347,32 @@ header {
   .total_price {
     background: #e9f0f7;
     border-bottom: 1px solid #aaaaaa;
+  }
+}
+
+.tokuten {
+  @include clearfix;
+  @include pad(15px);
+  .image {
+    float: left;
+    width: 40%;
+    img {
+      margin: -10px;
+      width: 100%;
+    }
+  }
+  .text {
+    float: left;
+    width: 60%;
+    .header {
+      color: #b5d5ca;
+      font-weight: bold;
+    }
+    p {
+      margin: 0;
+      padding: 0;
+      font-size: 0.8em;
+    }
   }
 }
 

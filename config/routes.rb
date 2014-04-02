@@ -4,6 +4,9 @@ Commers::Application.routes.draw do
   get "template/stylesheets/:key", to: "template#stylesheets"
   get "editable/stylesheets/:key", to: "editable#stylesheets"
 
+  # メルマガユーザーエクスポート
+  resources :mailmagazine_export, only: [:index]
+
   # 表側ユーザ
   devise_scope :consumer do
     get "complete", to: "consumers/registrations#complete"

@@ -1,0 +1,51 @@
+h1.belt 新規会員登録
+
+p = image_tag 'mobile/introduction/welcome.png', alt: 'welcome'
+p
+  | ダヴィネス ダイレクトは、イタリア・パルマ生まれのナチュラルヘアケアブランド
+  br
+  | davines<ダヴィネス>の公式オンラインショップです。
+  br
+  | ヘアケアからスタイリングアイテムまで、幅広いラインナップを揃えています。
+  br
+  | ダヴィネスダイレクトをご利用頂くとオフィシャルショップならではのサービスや特典がご利用頂けます。
+  br
+  | ご利用の際は、会員登録が必要です。
+
+p.center = link_to new_consumer_registration_path do
+  = image_tag "introduction/shinkitouroku_btn.jpg", alt: "今すぐ新規登録する"
+
+h2.belt ダヴィネスダイレクトの特典
+
+.tokuten
+  .image = image_tag 'mobile/introduction/tokuten_01.png', alt: '特典１'
+  .text
+    .header
+      | 選べるサンプル２種類
+      br
+      | プレゼント！
+    p 商品をご購入頂くとお好きなサンプルを２種類プレゼントしております。サンプルは購入画面で選択できます。
+.hr
+
+.tokuten
+  .image = image_tag 'mobile/introduction/tokuten_02.png', alt: '特典２'
+  .text
+    .header
+      | 6.480円以上で
+      br
+      | 送料無料！
+    p 商品を6,480円（税込み）以上のご購入で送料が無料になります。
+.hr
+
+.tokuten
+  .image = image_tag 'mobile/introduction/tokuten_03.png', alt: '特典３'
+  .text
+    .header
+      | メンバーズマガジン
+      br
+      | プレゼント！
+    p 新商品や最新情報をいち早くチェックできます。
+.hr
+
+p.center = link_to new_consumer_registration_path do
+  = image_tag "introduction/shinkitouroku_btn.jpg", alt: "今すぐ新規登録する"
