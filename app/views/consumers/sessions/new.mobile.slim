@@ -1,0 +1,55 @@
+h2.belt 会員の方はこちら
+
+= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+
+  = f.label :email
+  = f.email_field :email, :autofocus => true
+
+  = f.label :password
+  = f.password_field :password
+
+  .reminder = link_to "※パスワードをお忘れの方はこちら", new_password_path(resource_name)
+
+  .actions = image_submit_tag "mypage/mypage_login_btn.jpg"
+
+h2.belt まだ登録していない方はこちら
+p
+  | ダヴィネスダイレクトをご利用頂くとオフィシャルショップならではのサービスや特典がご利用頂けます。
+  br
+  | ご利用の際は、会員登録が必要です。
+
+.tokuten
+  .image = image_tag 'mobile/introduction/tokuten_01.png', alt: '特典１'
+  .text
+    .header
+      | 選べるサンプル２種類
+      br
+      | プレゼント！
+    p 商品をご購入頂くとお好きなサンプルを２種類プレゼントしております。サンプルは購入画面で選択できます。
+.hr
+
+.tokuten
+  .image = image_tag 'mobile/introduction/tokuten_02.png', alt: '特典２'
+  .text
+    .header
+      | 6.480円以上で
+      br
+      | 送料無料！
+    p 商品を6,480円（税込み）以上のご購入で送料が無料になります。
+.hr
+
+.tokuten
+  .image = image_tag 'mobile/introduction/tokuten_03.png', alt: '特典３'
+  .text
+    .header
+      | メンバーズマガジン
+      br
+      | プレゼント！
+    p 新商品や最新情報をいち早くチェックできます。
+.hr
+
+br
+
+.actions
+  = link_to new_registration_path(resource_name) do
+    = image_tag 'mypage/shinki_touroku_btn02.jpg', alt: "新規会員登録"
