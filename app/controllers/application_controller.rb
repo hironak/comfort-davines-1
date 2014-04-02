@@ -2,10 +2,12 @@ class ApplicationController < ActionController::Base
 
   before_filter :skip_or_force_mobile
 
-  include Mobylette::RespondToMobileRequests
+  unless Rails.env.production?
+    include Mobylette::RespondToMobileRequests
 
-  mobylette_config do |config|
-    config[:skip_user_agents] = [:ipad]
+    mobylette_config do |config|
+      config[:skip_user_agents] = [:ipad]
+    end
   end
 
   # Prevent CSRF attacks by raising an exception.
