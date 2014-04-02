@@ -67,4 +67,12 @@ jQuery ($)->
         cache[ cache_key ] = data
         suggestion res, data
 
+  $('#order_payment_type').on 'change', ->
+    type = $(@).val()
+    type = type.toLowerCase().replace(/::/, '-')
+    $('.payment-type').hide()
+    $(".payment-type.#{type}").show()
+
+  $('#order_payment_type').trigger 'change'
+
 

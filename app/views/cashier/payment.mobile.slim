@@ -1,0 +1,113 @@
+h1.belt ご注文手続き
+
+.step = image_tag 'cashier/order_step02.png', alt: 'Step2'
+
+h2.belt お支払い方法
+
+= form_for @order, url: cashier_payment_path, html: { class: 'wide' } do |f|
+
+  - if @order.errors.any?
+    #error_explanation
+      h2 エラー内容をご確認ください。
+      ul
+        - @order.errors.full_messages.each do |message|
+          li = message
+
+  p.payment-type-select
+    = f.label :payment_type
+    = f.select :payment_type, Payment::TYPES
+
+  .hr
+
+  .payment-type.payment-creditcard
+    .announce
+      p
+        span.attention ※全て半角英数字で入力してください。
+        br
+        | 以下のクレジットカードがご利用頂けます。
+        br
+        = image_tag "utilization/credit.jpg", alt: "creditcard"
+    = f.fields_for :payment, (Payment::Creditcard === f.object.payment ? f.object.payment : Payment::Creditcard.new) do |f|
+      p
+        = f.label :card_number
+        = f.text_field :card_number, style: "width: 300px"
+
+      p
+        label 有効期限
+        span.complex
+          = f.text_field :exp_month, placeholder: '月'
+          = f.text_field :exp_year, placeholder: '年'
+
+      p
+        = f.label :cvc
+        = f.text_field :cvc
+
+      p
+        = f.label :name
+        = f.text_field :name
+
+  .payment-type.payment-deferred
+    .announce
+      p
+        | • 商品の到着を確認してから、後払いできる安心・簡単な決済方法です。
+        br
+        | • 請求書は商品とは別送でお送りします。
+        br
+        | • 商品代金のお支払は「コンビニ」「郵便局」「銀行」どこでも可能です。
+        br
+        | • 請求書の記載事項に従って発行日から14日以内にお支払ください。
+        br
+        | コンビニ・郵便局でお支払いの場合には、お支払いの手数料はかかりませんが、銀行でお振込の場合には、ご利用の金融機関ごとに振り込み手数料が発生します。
+        br
+        | NP後払い手数料は無料です
+        br
+        |
+        br
+        | ■三井住友銀行からのお振込
+        br
+        |
+        br
+        | 1万円以下・・・108円
+        br
+        | 3万円未満・・・216円
+        br
+        | 3万円以上・・・432円
+        br
+        |
+        br
+        | ■他行（三井住友以外）からのお振込
+        br
+        |
+        br
+        | 1万円以下・・・432円
+        br
+        | 3万円未満・・・540円
+        br
+        | 3万円以上・・・756円
+        br
+        |
+        br
+        | ■後払いでのお支払についてご注意
+        br
+        | 株式会社ネットプロテクションズ の提供するサービスの範囲内で、ご利用限度額は累計残高で54,000円（税込）までです。
+        br
+        |
+        br
+        | ※1回のご注文の上限金額は54,000円（税込）までとなっております。また購入者様1人あたりの未払金合計が54,000円（税込）を超える場合もご利用いただけません。（2万円の取引を続けて3回行うなど。なお、複数のショップでご購入いただく場合も同様です。）
+        br
+        |
+        br
+        | ※決済登録時に購入者様の与信審査を行っております。与信結果によっては「NP後払い」決済をご利用いただけない場合がございます。
+
+
+  .payment-type.payment-collect
+    .announce
+      p
+        | 代引き手数料はお客様負担となります。
+        br
+        |
+        br
+        | ※一部離島の地域によっては代金引換でのお届けができない場合が御座います。予めご了承ください。
+
+
+  .actions = f.submit '次のステップへ'
