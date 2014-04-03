@@ -42,10 +42,10 @@ html
           ul
             li = link_to "TOPページ", root_path
             li = link_to "ショッピングガイド", utilization_path
-            li = link_to "新規会員登録", introduction_path
             - if consumer_signed_in?
               li = link_to "マイページ", mypage_root_path
             - else
+              li = link_to "新規会員登録", introduction_path
               li = link_to "会員ログイン", new_consumer_session_path
             li = link_to "カート", carts_path
             li = link_to "よくあるご質問", faq_path

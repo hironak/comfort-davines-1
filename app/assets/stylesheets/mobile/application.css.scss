@@ -31,7 +31,8 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6,
-ul, ol, dl {
+ul, ol, dl,
+.scrolltotop {
   margin: $content-margin;
   font-size: 1.0em;
 }
@@ -218,9 +219,12 @@ header {
     color: #000;
     display: block;
     .image {
+      @include box-sizing(border-box);
       float: left;
       width: 30%;
+      padding-right: $content-margin;
       height: 130px;
+      line-height: 130px;
       text-align: center;
       img {
         display: inline;
@@ -232,7 +236,9 @@ header {
       float: left;
       width: 70%;
       line-height: 1.5em;
+      height: 130px;
       font-size: $base-font-size * 1.1;
+      position: relative;
       .name {
         color: $base-link-color;
       }
@@ -241,8 +247,9 @@ header {
         color: #9a0000;
       }
       .more {
-        margin: 10px 0;
-        text-align: right;
+        position: absolute;
+        right: 0px;
+        bottom: 0px;
       }
     }
     .detail {
@@ -522,8 +529,6 @@ dl.faq {
 
 .scrolltotop {
   text-align: center;
-  margin: 0;
-  @include pad(10px);
   &.right {
     text-align: right;
   }

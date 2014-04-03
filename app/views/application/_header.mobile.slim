@@ -1,6 +1,12 @@
 .flexslider.header
   ul.slides
-    - (1..5).each do |i|
-      li = image_tag "mobile/welcome/slider_#{i}.jpg"
-
-
+    li = link_to catalog_path(action: :category, id: :kit) do
+      = image_tag "mobile/welcome/slider_1.jpg"
+    li = link_to catalog_path(action: :series, id: :naturaltech) do
+      = image_tag "mobile/welcome/slider_2.jpg"
+    li = link_to catalog_path(action: :series, id: :authentic) do
+      = image_tag "mobile/welcome/slider_3.jpg"
+    li = link_to catalog_path(action: :series, id: :oioil) do
+      = image_tag "mobile/welcome/slider_4.jpg"
+    li = link_to catalog_path(action: :series, id: :moreinside) do
+      = image_tag "mobile/welcome/slider_5.jpg"
