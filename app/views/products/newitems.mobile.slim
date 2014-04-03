@@ -1,0 +1,16 @@
+h1.image = image_tag 'mobile/products/title_newitem.png', alt: 'New Item'
+- @products.each do |product|
+  .product-item
+    = link_to product do
+      .image = image_tag product.image.url(:item)
+      .information
+        .name = product.name
+        .data
+          span.price
+            = number_to_currency product.view_price
+            | (税込)　
+          br
+          == product.capacity
+        .more = image_tag 'mobile/application/more.gif'
+      .detail
+        == product.detail

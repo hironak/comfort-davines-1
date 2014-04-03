@@ -2,6 +2,16 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show]
   before_action :set_title, only: [:show]
 
+  def newitems
+    title "New Item"
+    @products = Product.new_items
+  end
+
+  def ranking
+    title "ランキング"
+    @products = Product.ranking
+  end
+
   # GET /products/1
   # GET /products/1.json
   def show

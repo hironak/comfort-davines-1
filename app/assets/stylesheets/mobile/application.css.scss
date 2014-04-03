@@ -40,6 +40,13 @@ h1, h2, h3, h4, h5, h6 {
   &.center {
     text-align: center;
   }
+  &.image {
+    padding: 0;
+    margin: $content-margin 0;
+    img {
+      width: 100%;
+    }
+  }
   &.belt {
     padding: 0.5em $content-margin;
     background: #808080;
@@ -229,6 +236,9 @@ header {
     border-bottom: 1px solid #aaa;
     color: #000;
     display: block;
+    .rank {
+      margin: $content-margin;
+    }
     .image {
       @include box-sizing(border-box);
       float: left;
@@ -265,6 +275,7 @@ header {
     }
     .detail {
       clear: both;
+      padding-top: $content-margin;
     }
   }
 }

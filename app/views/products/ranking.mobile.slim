@@ -1,0 +1,17 @@
+h1.image = image_tag 'mobile/products/title_ranking.png', alt: 'ランキング'
+- @products.each_with_index do |product, i|
+  .product-item
+    = link_to product do
+      .rank = image_tag "mobile/products/ranking_no#{i+1}.png", alt: "No. #{i+1}"
+      .image = image_tag product.image.url(:item)
+      .information
+        .name = product.name
+        .data
+          span.price
+            = number_to_currency product.view_price
+            | (税込)　
+          br
+          == product.capacity
+        .more = image_tag 'mobile/application/more.gif'
+      .detail
+        == product.detail

@@ -57,7 +57,12 @@ Commers::Application.routes.draw do
   resources :news_releases, only: [:index, :show]
 
   # 詳細ページ
-  resources :products, only: [:show]
+  resources :products, only: [:show] do
+    collection do
+      get 'newitems'
+      get 'ranking'
+    end
+  end
 
   # 商品一覧
   namespace :catalog do
