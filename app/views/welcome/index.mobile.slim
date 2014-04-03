@@ -52,6 +52,10 @@ ul.products
             span.small （税込）
           .more = image_tag 'mobile/application/more.gif'
 
+p.center
+  = link_to image_url('application/attention_img.png') do
+    = image_tag 'mobile/welcome/attention.gif', alt: '並行輸入品について'
+
 = render 'lineup'
 
 h2.belt メディア掲載情報
