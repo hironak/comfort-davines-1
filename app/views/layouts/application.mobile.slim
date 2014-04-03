@@ -30,6 +30,10 @@ html
       li = link_to utilization_path do
         = image_tag "mobile/application/header_nav4.gif", alt: "ショッピングガイド"
 
+    - unless @mobile_headerless
+      = render 'header'
+      = render 'links'
+
     = breadcrumb
 
     = yield

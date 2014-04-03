@@ -1,5 +1,7 @@
 class CartsController < ApplicationController
 
+  before_filter :mobile_headerless!
+
   before_filter :set_product, only: [:add, :increment, :decrement, :remove]
 
   def index

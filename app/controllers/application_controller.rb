@@ -64,6 +64,10 @@ class ApplicationController < ActionController::Base
     session[:mobylette_override] = :force_mobile  if params[:enable_mobile]
   end
 
+  def mobile_headerless!
+    @mobile_headerless = true
+  end
+
   protected
 
   def configure_permitted_parameters
