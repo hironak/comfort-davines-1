@@ -1,0 +1,20 @@
+h1.belt メディア掲載情報
+
+- @press_releases.each do |release|
+  .item
+    p.image = image_tag release.image.url(:thumb)
+    h2 雑誌名（号）
+    p = release.magazine
+    h3 コーナー名
+    = simple_format release.corner
+    h3 商品名
+    p
+      - release.products.split(/[\r\n]+/).each do |product_name|
+        - if product = Product.where(name: product_name).first
+          = link_to product.name, product
+        - else
+          = product_name
+        br
+  .hr
+
+= paginate @press_releases
