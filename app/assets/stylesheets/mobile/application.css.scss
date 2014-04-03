@@ -219,11 +219,12 @@ header {
     .image {
       float: left;
       width: 30%;
+      height: 130px;
       text-align: center;
       img {
         display: inline;
-        width: auto;
-        height: 130px;
+        max-width: 100%;
+        max-height: 100%;
       }
     }
     .information {
@@ -239,6 +240,7 @@ header {
         color: #9a0000;
       }
       .more {
+        margin: 10px 0;
         text-align: right;
       }
     }
