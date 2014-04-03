@@ -40,6 +40,24 @@ h1, h2, h3, h4, h5, h6 {
   &.center {
     text-align: center;
   }
+  &.center-line {
+    text-align: center;
+    margin: $content-margin 0;
+    &:before {
+      z-index: -1000;
+      position: absolute;
+      display: block;
+      height: 0.5em;
+      width: 100%;
+      content: " ";
+      border-bottom: 2px solid #000000;
+    }
+    span {
+      z-index: 2000;
+      padding: 5px 10px;
+      background: #ffffff;
+    }
+  }
   &.image {
     padding: 0;
     margin: $content-margin 0;
@@ -232,7 +250,7 @@ header {
 
 .nav-links {
   @include clearfix;
-  margin: 0 0 $content-margin;
+  margin: 0 0 ($content-margin * 2);
   li {
     @include span-columns(1 of 3);
     img {
