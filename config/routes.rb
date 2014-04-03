@@ -57,7 +57,7 @@ Commers::Application.routes.draw do
   resources :news_releases, only: [:index, :show]
 
   # 詳細ページ
-  resources :products, only: [:show] do
+  resources :products, only: [:index, :show] do
     collection do
       get 'newitems'
       get 'ranking'

@@ -2,6 +2,10 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show]
   before_action :set_title, only: [:show]
 
+  def index
+    @products = Product.available
+  end
+
   def newitems
     title "New Item"
     @products = Product.new_items

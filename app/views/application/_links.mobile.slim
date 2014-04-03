@@ -1,7 +1,15 @@
 ul.nav-links
-  li = link_to '' do
+  li = link_to '', id: 'buy' do
     = image_tag 'mobile/application/nav_buy.gif', alt: '購入する'
   li = link_to newitems_products_path do
     = image_tag 'mobile/application/nav_newitem.gif', alt: '購入する'
   li = link_to ranking_products_path do
     = image_tag 'mobile/application/nav_ranking.gif', alt: '購入する'
+#buy-html.hidden
+  #buy-popup
+    p 今すぐログインしてから商品一覧を見る
+    p = link_to new_consumer_session_path do
+      =  image_tag 'mobile/buy/login.gif', alt: "ログイン"
+    p 全ての商品一覧を見る
+    p = link_to products_path do
+      =  image_tag 'mobile/buy/all_item.gif', alt: "全ての商品一覧"

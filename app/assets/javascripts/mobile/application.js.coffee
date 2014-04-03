@@ -1,6 +1,7 @@
 #= require jquery
 #= require jquery.ui.all
 #= require jquery_ujs
+#= require jquery.colorbox
 #= require_self
 #= require_directory .
 #= require ../scrolltop
@@ -41,6 +42,15 @@ jQuery ($)->
     else
       sample_checks.prop disabled: false
 
+  $('#buy').colorbox
+    opacity: 0.3
+    closeButton: false
+    scrolling: false
+    width: "80%"
+    height: "80%"
+    html: ->
+      $('#buy-html').html()
+
 jQuery ($)->
   $('.voice:eq(1) ~ .voice').hide()
   $('.voice_hide').hide()
@@ -56,6 +66,7 @@ jQuery ($)->
     $('.voice_show').show()
     $('.voice_hide').hide()
     return false
+
 jQuery ($)->
   cache = {}
 
