@@ -1,4 +1,4 @@
-.step = image_tag 'cashier/order_step01.png', alt: 'Step1'
+.step = image_tag 'mobile/cashier/step1.gif', alt: 'Step1'
 
 = form_for @order, url: cashier_sample_path, html: { class: 'wide' } do |f|
   - if @order.errors.any?
@@ -33,6 +33,6 @@
             .checkbox
               span.check = check_box_tag "order[sample_ids][]", product.id, @order.sample_ids.include?(product.id), id: "order_sample_ids_#{product.id}"
 
-  .actions = f.submit '次のステップへ'
+  .actions = image_submit_tag 'mobile/cashier/nextstep.gif', alt: '次のステップへ'
 
 

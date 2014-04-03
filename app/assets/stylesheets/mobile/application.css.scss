@@ -132,6 +132,18 @@ form {
   }
 }
 
+#error_explanation {
+  margin: $content-margin;
+  border: 2px solid #ffaaaa;
+  color: #ffaaaa;
+  h2 {
+  }
+  ul {
+    li {
+    }
+  }
+}
+
 * {
   outline: none;
 }
@@ -524,6 +536,13 @@ dl.faq {
       background: image-url("welcome/news_li.png") left 5px center no-repeat;
       padding-left: 15px;
     }
+  }
+}
+
+.step {
+  margin: $content-margin 0;
+  img {
+    width: 100%;
   }
 }
 
