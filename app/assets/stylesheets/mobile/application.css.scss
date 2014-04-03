@@ -384,6 +384,7 @@ header {
   margin: 0 0 $content-margin;
   font-size: 0.7em;
   .item {
+    @include clearfix;
     padding: 10px;
     border-bottom: 1px solid #aaaaaa;
     .image {
@@ -391,6 +392,10 @@ header {
       width: 100px;
       height: 100px;
       float: left;
+      img {
+        max-width: 100%;
+        max-height: 100%;
+      }
     }
     .amount {
       text-align: right;

@@ -3,7 +3,7 @@
   ul.cart
     - current_cart.items.without_samples.each do |item|
       li.item
-        .image = image_tag item.product.image.url(:thumb)
+        .image = image_tag item.product.image.url(:item)
         .product = item.product.name
         .capacity = raw item.product.capacity
         .price
@@ -13,10 +13,13 @@
           - if item.check_amount
             = form_tag add_carts_path(product_id: item.product.id), method: :post, class: 'autosend inline' do
               | 数量
+              '
               = select_tag :amount, options_for_select((1..item.product.stock), selected: item.amount)
           - else
             | 数量
+            '
             = item.amount
+          '
           = link_to remove_carts_path(product_id: item.product.id, amount: 1), method: :delete do
             = image_tag "cart/torikeshi_btn.jpg", alt: "取消"
 
