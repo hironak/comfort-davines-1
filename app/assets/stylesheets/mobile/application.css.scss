@@ -50,6 +50,7 @@ h1, h2, h3, h4, h5, h6 {
   }
   &.accordion {
     @include linear-gradient(#dbdbdb, #ececec);
+    padding: 1.0em $content-margin;
     &:before {
       content: " ";
       float: right;
