@@ -267,6 +267,13 @@ header {
   margin: 0 5px;
 }
 
+.catalog-header {
+  margin-bottom: $content-margin;
+  img {
+    width: 100%;
+  }
+}
+
 .product-show {
   .name {
     border-top: 4px solid #000;
