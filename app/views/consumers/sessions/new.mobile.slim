@@ -2,11 +2,11 @@ h2.belt 会員の方はこちら
 
 = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
 
-  .field
+  p
     = f.label :email
     = f.email_field :email, :autofocus => true
 
-  .field
+  p
     = f.label :password
     = f.password_field :password
 

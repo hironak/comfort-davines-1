@@ -319,15 +319,19 @@ header {
     border-top: 4px solid #000;
     border-bottom: 4px solid #000;
     padding: $content-margin 0;
+    margin-bottom: $content-margin;
     .type, .label {
       margin-bottom: 0;
     }
     .type {
       float: right;
+      span {
+        margin-left: 5px;
+      }
       .kind {
         border: 2px solid #000;
         padding: 2px 0.5em;
-        margin-left: 5px;
+        margin: -4px 0;
       }
     }
   }

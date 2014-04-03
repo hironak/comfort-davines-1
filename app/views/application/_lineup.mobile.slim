@@ -1,4 +1,4 @@
-h2.belt class=(controller_name == 'products' && 'blue') ラインナップ
+h2.belt class=(controller_name == 'products' && action_name == 'show' && 'blue') ラインナップ
 .lineup
   = link_to catalog_path(action: :series, id: :naturaltech) do
     = image_tag 'mobile/welcome/lineup_nav1.jpg'
