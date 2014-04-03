@@ -22,7 +22,7 @@ h3.belt.blue おすすめプラス１アイテム
             = product.capacity
             br
             br
-            = image_tag 'products/plus1_btn.jpg', alt: '詳しく見る'
+          .more = image_tag 'mobile/application/more.gif'
         .detail
           == product.detail
 
@@ -40,5 +40,6 @@ h3.belt.blue この商品を見た方は、こちらの商品も見ています�
             .price
               = number_to_currency product.view_price
               | (税込)　
+            .more = image_tag 'mobile/application/more.gif'
         .hr
 

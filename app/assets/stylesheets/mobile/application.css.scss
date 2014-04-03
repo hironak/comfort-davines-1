@@ -186,6 +186,7 @@ header {
 }
 
 @import "flexslider.css";
+.flexslider.header .slides img {width: 100%; display: block;}
 
 .products {
   @include clearfix;
@@ -209,10 +210,10 @@ header {
 }
 
 .product-item {
-  @include clearfix;
   a {
     @include clearfix;
     @include pad($content-margin);
+    border-bottom: 1px solid #aaa;
     color: #000;
     display: block;
     .image {
@@ -228,12 +229,17 @@ header {
     .information {
       float: left;
       width: 70%;
+      line-height: 1.5em;
+      font-size: $base-font-size * 1.1;
       .name {
         color: $base-link-color;
       }
       .price {
         font-size: 1.3em;
         color: #9a0000;
+      }
+      .more {
+        text-align: right;
       }
     }
     .detail {
@@ -245,6 +251,7 @@ header {
 .lineup {
   @include fill-parent;
   @include clearfix;
+  margin: $content-margin 0;
   a {
     @include span-columns(1 of 2);
     @include omega(2);
