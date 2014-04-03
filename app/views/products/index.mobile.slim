@@ -1,0 +1,50 @@
+.series
+  h3.belt ライン別
+  - Series.includes(:products).each do |series|
+    h4.accordion = series.name
+    - series.products.available.each do |product|
+      .product-item = link_to product do
+        .image = image_tag product.image.url(:item), alt: product.name
+        .information
+          .name = product.name
+          - if product.label.present?
+            .label = raw "【#{product.label.html_safe}】"
+          .capacity = raw product.capacity
+          .price
+            = number_to_currency product.view_price
+            span.small （税込）
+          .more = image_tag 'mobile/application/more.gif'
+
+.categories
+  h3.belt カテゴリー別
+  - Category.includes(:products).where(hidden: nil).each do |category|
+    h4.accordion = category.name
+    - category.products.available.each do |product|
+      .product-item = link_to product do
+        .image = image_tag product.image.url(:item), alt: product.name
+        .information
+          .name = product.name
+          - if product.label.present?
+            .label = raw "【#{product.label.html_safe}】"
+          .capacity = raw product.capacity
+          .price
+            = number_to_currency product.view_price
+            span.small （税込）
+          .more = image_tag 'mobile/application/more.gif'
+
+.solutions
+  h3.belt タイプ別
+  - Solution.includes(:products).each do |solution|
+    h4.accordion = solution.name
+    - solution.products.available.each do |product|
+      .product-item = link_to product do
+        .image = image_tag product.image.url(:item), alt: product.name
+        .information
+          .name = product.name
+          - if product.label.present?
+            .label = raw "【#{product.label.html_safe}】"
+          .capacity = raw product.capacity
+          .price
+            = number_to_currency product.view_price
+            span.small （税込）
+          .more = image_tag 'mobile/application/more.gif'
