@@ -44,7 +44,21 @@ jQuery ($)->
     else
       sample_checks.prop disabled: false
 
+jQuery ($)->
+  $('.voice:eq(1) ~ .voice').hide()
+  $('.voice_hide').hide()
 
+  $('.voice_show a').on 'click', ->
+    $('.voice').fadeIn()
+    $('.voice_show').hide()
+    $('.voice_hide').show()
+    return false
+
+  $('.voice_hide a').on 'click', ->
+    $('.voice:eq(1) ~ .voice').fadeOut()
+    $('.voice_show').show()
+    $('.voice_hide').hide()
+    return false
 jQuery ($)->
   cache = {}
 

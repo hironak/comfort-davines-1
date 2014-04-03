@@ -8,20 +8,20 @@ p.annotation = raw @product.annotation
   .reviews = render 'reviews'
 
 h3.belt.blue おすすめプラス１アイテム
-.plusone
+.plusone.product-item
   - @product.plusone.tap do |product|
     - if product
-      .image = image_tag product.image.url(:item)
-      .information
-        p.name = product.name
-        .data
-          span.price
-            = number_to_currency product.view_price
-            | (税込)　
-          = product.capacity
-          br
-          br
-          = link_to product do
+      = link_to product do
+        .image = image_tag product.image.url(:item)
+        .information
+          .name = product.name
+          .data
+            span.price
+              = number_to_currency product.view_price
+              | (税込)　
+            = product.capacity
+            br
+            br
             = image_tag 'products/plus1_btn.jpg', alt: '詳しく見る'
         .detail
           == product.detail
@@ -30,16 +30,15 @@ h3.belt.blue この商品を見た方は、こちらの商品も見ています�
 .recommendation.flexslider
   ul.slides
     - @product.recommendations.each do |product|
-      li.item
-        .image = link_to product do
-          = image_tag product.image.url(:thumb)
-        p.name = link_to product do
-          = product.name
-        .data
-          span.price
-            = number_to_currency product.view_price
-            | (税込)　
-          == product.capacity
-        .detail
-          == product.small_detail
+      li.product-item
+        = link_to product do
+          .image = image_tag product.image.url(:item)
+          .information
+            .name = product.name
+            .label == "【#{product.label} 】"
+            .capacity == product.capacity
+            .price
+              = number_to_currency product.view_price
+              | (税込)　
+        .hr
 
