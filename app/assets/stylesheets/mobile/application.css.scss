@@ -293,6 +293,7 @@ header {
 
 .product-show {
   .name {
+    @include clearfix;
     border-top: 4px solid #000;
     border-bottom: 4px solid #000;
     padding: $content-margin 0;
@@ -311,7 +312,7 @@ header {
   .main-image {
     text-align: center;
     img {
-      width: 40%;
+      max-height: 200px;
     }
   }
   .image-select {
