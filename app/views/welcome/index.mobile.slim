@@ -69,7 +69,7 @@ h2.belt メディア掲載情報
 = render 'media'
 
 h2.belt News
-ul.news
+ul
   - NewsRelease.available.each do |news|
     li
       = l news.date, format: :long

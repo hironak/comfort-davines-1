@@ -15,12 +15,14 @@ html
         = image_tag "mobile/application/logo.png"
       .souryou = image_tag "mobile/application/souryou.png"
     ul.globalnavi
-      li = link_to introduction_path do
-        = image_tag "mobile/application/header_nav1.gif", alt: "新規会員登録"
       - if consumer_signed_in?
+        li = link_to consumer_session_path, method: :delete do
+          = image_tag "mobile/application/logout.gif", alt: "ログアウト"
         li = link_to mypage_root_path do
-          = image_tag "mobile/application/header_nav2.gif", alt: "マイページ"
+          = image_tag "mobile/application/mypage.gif", alt: "マイページ"
       - else
+        li = link_to introduction_path do
+          = image_tag "mobile/application/header_nav1.gif", alt: "新規会員登録"
         li = link_to new_consumer_session_path do
           = image_tag "mobile/application/header_nav2.gif", alt: "マイページログイン"
       li = link_to carts_path do
@@ -36,22 +38,26 @@ html
       = image_tag "mobile/application/pagetop.png", alt: "ページTOPへ"
     footer
       .links
-        ul
-          li = link_to "TOPページ", root_path
-          li = link_to "ショッピングガイド", utilization_path
-          li = link_to "新規会員登録", introduction_path
-          - if consumer_signed_in?
-            li = link_to "マイページ", mypage_root_path
-          - else
-            li = link_to "会員ログイン", new_consumer_session_path
-          li = link_to "カート", carts_path
-          li = link_to "よくあるご質問", faq_path
-        ul
-          li = link_to "会社概要", company_path
-          li = link_to "About Davines", 'http://comfortjapan.jp/'
-          li = link_to "特定商取引", tradeinfo_path
-          li = link_to "プライバシーポリシー", privacypolicy_path
-          li = link_to "メールでお問い合わせ", contact_path
+        .column
+          ul
+            li = link_to "TOPページ", root_path
+            li = link_to "ショッピングガイド", utilization_path
+            li = link_to "新規会員登録", introduction_path
+            - if consumer_signed_in?
+              li = link_to "マイページ", mypage_root_path
+            - else
+              li = link_to "会員ログイン", new_consumer_session_path
+            li = link_to "カート", carts_path
+            li = link_to "よくあるご質問", faq_path
+        .column
+          ul
+            li = link_to "会社概要", company_path
+            li = link_to "About Davines", 'http://comfortjapan.jp/'
+            li = link_to "特定商取引", tradeinfo_path
+            li = link_to "プライバシーポリシー", privacypolicy_path
+            li = link_to "メールでお問い合わせ", contact_path
+          = link_to 'https://www.facebook.com/davinesjapan', target: '_blank' do
+            = image_tag 'mobile/application/facebook.gif', alt: 'Facebook'
       .copyright &copy;comfort japan all rights reserved.
 
     = javascript_include_tag "http://comfort-davines.dev:35729/livereload.js?snipver=1" if Rails.env.development?

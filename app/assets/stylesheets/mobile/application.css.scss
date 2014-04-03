@@ -32,7 +32,7 @@ body {
 
 h1, h2, h3, h4, h5, h6,
 ul, ol, dl {
-  margin: 0 0 $content-margin;
+  margin: $content-margin;
   font-size: 1.0em;
 }
 h1, h2, h3, h4, h5, h6 {
@@ -174,7 +174,8 @@ header {
 .globalnavi {
   @include clearfix;
   @include fill-parent;
-  margin-bottom: $gutter;
+  margin: 0 0 $gutter;
+  padding: 0;
   li {
     @include span-columns(1 of 4);
     img {
@@ -509,14 +510,17 @@ dl.faq {
 footer {
   background: #808080;
   color: #fff;
-  @include pad(0.5em);
   font-size: 0.7em;
-  line-height: 2.0em;
+  line-height: 2.5em;
   .links {
     @include pad($content-margin);
     @include clearfix;
-    ul {
+    .column {
       @include span-columns(1 of 2);
+    }
+    ul {
+      margin: 0;
+      margin-bottom: $content-margin;
       li {
         background: image-url("mobile/application/arrow_white.png") left center no-repeat;
         padding-left: 10px;
