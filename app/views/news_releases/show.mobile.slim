@@ -1,0 +1,16 @@
+h1.belt News
+
+p 新商品のお知らせや、新店舗情報など、新着情報をお知らせしていきます。
+
+.hr
+
+h2 = l @news_release.date, format: :long
+p = link_to @news_release.title, @news_release
+= simple_format @news_release.body
+- if @news_release.image?
+  p = image_tag @news_release.image.url
+
+.hr
+
+p = link_to news_releases_path do
+  = image_tag "news_releases/news_back.jpg", alt: "一覧へ戻る"

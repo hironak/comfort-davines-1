@@ -1,0 +1,11 @@
+h1.belt News
+
+p 新商品のお知らせや、新店舗情報など、新着情報をお知らせしていきます。
+
+.hr
+
+- @news_releases.each do |news|
+  h2 = l news.date, format: :long
+  p = link_to news.title, news
+  = simple_format news.body
+  .hr
