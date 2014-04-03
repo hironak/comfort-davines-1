@@ -36,8 +36,7 @@ ul, ol, dl {
   font-size: 1.0em;
 }
 h1, h2, h3, h4, h5, h6 {
-  padding-left: $content-margin;
-  padding-right: $content-margin;
+  padding: 0.5em $content-margin;
   margin: 0;
   &.center {
     text-align: center;
@@ -45,14 +44,11 @@ h1, h2, h3, h4, h5, h6 {
   &.belt {
     background: #808080;
     color: #fff;
-    padding: 0.5em $content-margin;
     &.blue {
       background: #8ea5bf;
     }
   }
   &.accordion {
-    padding: 0.5em $content-margin;
-    margin: 0;
     @include linear-gradient(#dbdbdb, #ececec);
     &:before {
       content: " ";
@@ -131,6 +127,7 @@ form {
 }
 
 .hr {
+  clear: both;
   border-bottom: 1px solid #aaaaaa;
   margin-bottom: $content-margin;
 }
@@ -191,6 +188,7 @@ header {
 .products {
   @include clearfix;
   border-bottom: 10px solid #8ea5bf;
+  margin:0;
   li {
     @include span-columns(1 of 3);
     a {
@@ -238,19 +236,6 @@ header {
     }
     .detail {
       clear: both;
-    }
-  }
-}
-
-.products-items {
-  h4 {
-    @include pad(10px $content-margin);
-    margin: 0;
-    @include linear-gradient(#dbdbdb, #ececec);
-  }
-
-  ul {
-    li {
     }
   }
 }
@@ -468,13 +453,13 @@ header {
 dl.faq {
   padding: $content-margin;
   dt {
-    background: image-url("faq/q_li.png") left top 5px no-repeat;
+    background: image-url("faq/q_li.png") left top no-repeat;
     padding-left: 30px;
     margin-bottom: 15px;
     font-weight: normal;
   }
   dd {
-    background: image-url("faq/a_li.png") left top 5px no-repeat;
+    background: image-url("faq/a_li.png") left top no-repeat;
     padding-left: 30px;
     margin-bottom: 40px;
     a {

@@ -8,11 +8,11 @@ ul.products
 
 .products-items#series.hidden
   - Series.includes(:products).each do |series|
-    h4 = series.name
-    ul.hidden
-      - series.products.available.each do |product|
-        li = link_to product do
-          .image = image_tag product.image.url(:thumb), alt: product.name
+    h4.accordion = series.name
+    - series.products.available.each do |product|
+      .product-item = link_to product do
+        .image = image_tag product.image.url(:thumb), alt: product.name
+        .information
           .name = product.name
           - if product.label.present?
             .label = raw "【#{product.label.html_safe}】"
@@ -20,14 +20,15 @@ ul.products
           .price
             = number_to_currency product.view_price
             span.small （税込）
+      .hr
 
 .products-items#categories.hidden
   - Category.includes(:products).where(hidden: nil).each do |category|
-    h4 = category.name
-    ul.hidden
-      - category.products.available.each do |product|
-        li = link_to product do
-          .image = image_tag product.image.url(:thumb), alt: product.name
+    h4.accordion = category.name
+    - category.products.available.each do |product|
+      .product-item = link_to product do
+        .image = image_tag product.image.url(:thumb), alt: product.name
+        .information
           .name = product.name
           - if product.label.present?
             .label = raw "【#{product.label.html_safe}】"
@@ -35,15 +36,15 @@ ul.products
           .price
             = number_to_currency product.view_price
             span.small （税込）
-
+      .hr
 
 .products-items#solutions
   - Solution.includes(:products).each do |solution|
-    h4 = solution.name
-    ul.hidden
-      - solution.products.available.each do |product|
-        li = link_to product do
-          .image = image_tag product.image.url(:thumb), alt: product.name
+    h4.accordion = solution.name
+    - solution.products.available.each do |product|
+      .product-item = link_to product do
+        .image = image_tag product.image.url(:thumb), alt: product.name
+        .information
           .name = product.name
           - if product.label.present?
             .label = raw "【#{product.label.html_safe}】"
@@ -51,6 +52,7 @@ ul.products
           .price
             = number_to_currency product.view_price
             span.small （税込）
+      .hr
 
 h2.belt ラインナップ
 .lineup
