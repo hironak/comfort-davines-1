@@ -16,7 +16,7 @@ html
       .souryou = image_tag "mobile/application/souryou.png"
     ul.globalnavi
       - if consumer_signed_in?
-        li = link_to consumer_session_path, method: :delete do
+        li = link_to destroy_consumer_session_path, method: :delete do
           = image_tag "mobile/application/logout.gif", alt: "ログアウト"
         li = link_to mypage_root_path do
           = image_tag "mobile/application/mypage.gif", alt: "マイページ"
@@ -40,6 +40,7 @@ html
 
     p.scrolltotop = link_to "#header" do
       = image_tag "mobile/application/pagetop.png", alt: "ページTOPへ"
+    = render 'lineup' unless @mobile_lineupless
     footer
       .links
         .column

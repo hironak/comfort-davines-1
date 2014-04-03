@@ -1,5 +1,6 @@
 class WelcomeController < ApplicationController
   before_filter :mobile_headerless!, except: [:index]
+  before_filter :mobile_lineupless!, only: [:index]
   def index
     @reviews = Product::Review.limit(3)
   end

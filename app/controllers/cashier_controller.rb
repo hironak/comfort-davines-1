@@ -1,5 +1,7 @@
 class CashierController < ApplicationController
 
+  before_filter :mobile_headerless!
+  before_filter :mobile_lineupless!
   before_filter :authenticate_consumer!, except: [:index, :signature, :signature_create]
   before_filter :protect_empty_cart, only: [:index]
   before_filter :set_order, except: [:index, :complete]

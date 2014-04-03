@@ -68,6 +68,10 @@ class ApplicationController < ActionController::Base
     @mobile_headerless = true
   end
 
+  def mobile_lineupless!
+    @mobile_lineupless = true
+  end
+
   protected
 
   def configure_permitted_parameters

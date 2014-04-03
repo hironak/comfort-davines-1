@@ -1,4 +1,6 @@
 class ContactController < ApplicationController
+  before_filter :mobile_headerless!
+
   before_filter :set_contact
 
   def new
