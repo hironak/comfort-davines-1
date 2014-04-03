@@ -36,13 +36,13 @@ ul, ol, dl {
   font-size: 1.0em;
 }
 h1, h2, h3, h4, h5, h6 {
-  padding: 0.5em $content-margin;
-  margin: 0;
   &.center {
     text-align: center;
   }
   &.belt {
+    padding: 0.5em $content-margin;
     background: #808080;
+    margin: 0;
     color: #fff;
     &.blue {
       background: #8ea5bf;
@@ -51,6 +51,7 @@ h1, h2, h3, h4, h5, h6 {
   &.accordion {
     @include linear-gradient(#dbdbdb, #ececec);
     padding: 1.0em $content-margin;
+    margin: 0;
     &:before {
       content: " ";
       float: right;
