@@ -29,11 +29,11 @@ body {
 
 h1, h2, h3, h4, h5, h6,
 ul, ol, dl {
-  margin: 0 0 1.0em;
+  margin: 0 0 20px;
 }
 h1, h2, h3, h4, h5, h6 {
-  padding-left: 1.0em;
-  padding-right: 1.0em;
+  padding-left: 20px;
+  padding-right: 20px;
   margin: 0;
   &.center {
     text-align: center;
@@ -41,13 +41,13 @@ h1, h2, h3, h4, h5, h6 {
   &.belt {
     background: #808080;
     color: #fff;
-    padding: 0.5em 1.0em;
+    padding: 0.5em 20px;
     &.blue {
       background: #8ea5bf;
     }
   }
   &.accordion {
-    padding: 0.5em 1.0em;
+    padding: 0.5em 20px;
     margin: 0;
     @include linear-gradient(#dbdbdb, #ececec);
     &:before {
@@ -65,7 +65,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
-  margin: 1.0em;
+  margin: 20px;
 }
 
 .center {
@@ -107,10 +107,10 @@ form {
     }
   }
   .field {
-    margin: 0 1.0em 1.0em;
+    margin: 0 20px 1.0em;
   }
   .actions {
-    margin: 0 1.0em 1.0em;
+    margin: 0 20px 1.0em;
     input[type="submit"] {
       @extend %button;
       display: inline;
@@ -128,13 +128,13 @@ form {
 
 .hr {
   border-bottom: 1px solid #aaaaaa;
-  margin-bottom: 1.0em;
+  margin-bottom: 20px;
 }
 
 .announce {
   background: image-url('application/table_bg_right.png');
   padding: 10px;
-  margin: 1.0em;
+  margin: 20px;
   font-size: $base-font-size * 0.8;
   p {
     margin: 5px;
@@ -304,14 +304,12 @@ header {
     }
   }
   .product-information {
-    margin: 0 5px 20px;
+    margin: 20px;
     border: 1px solid #666;
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
-    padding: 20px;
     dl {
-      width: 80%;
-      margin: 0 auto;
+      margin: 20px;
       dt {
         float: left;
         width: 30%;
@@ -339,6 +337,10 @@ header {
     }
   }
 }
+.annotation {
+  font-size: 0.3em;
+  line-height: 0.5em;
+}
 
 .toindex {
   text-align: right;
@@ -351,7 +353,7 @@ header {
 }
 
 .cart {
-  margin: 0 0 1.0em;
+  margin: 0 0 20px;
   font-size: 0.7em;
   .item {
     padding: 10px;
@@ -440,7 +442,7 @@ header {
 }
 
 dl.faq {
-  padding: 1.0em;
+  padding: 20px;
   dt {
     background: image-url("faq/q_li.png") left top 5px no-repeat;
     padding-left: 30px;
@@ -460,7 +462,7 @@ dl.faq {
 
 .sample_select {
   @include clearfix;
-  margin-bottom: 1.0em;
+  margin-bottom: 20px;
   .items {
     border-top: 1px solid #aaa;
     .item {

@@ -1,10 +1,10 @@
 = render 'header'
 = render 'product'
 
-.annotation = raw @product.annotation
+p.annotation = raw @product.annotation
 
 - if @reviews.count > 0
-  h3 = image_tag 'products/user_line.png', alt: '商品を使っているご愛用者の声'
+  h3.belt.blue 商品を使っているご愛用者の声
   .reviews = render 'reviews'
 
 h3.belt.blue おすすめプラス１アイテム

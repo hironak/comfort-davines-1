@@ -57,7 +57,7 @@
             | 在庫なし
       = hidden_field_tag :product_id, @product.id
       - if @product.stock.to_i > 0
-        = image_submit_tag 'products/n_cart_btn.jpg', alt: "カートに入れる"
+        p = image_submit_tag 'products/n_cart_btn.jpg', alt: "カートに入れる"
 
   .information
     h2.belt 商品詳細
@@ -67,9 +67,9 @@
         | 　
         = image_tag "catalog/#{@product.parts}.png", alt: @product.parts
     - if @product.detail
-      p.detail = @product.detail.html_safe
+      p = @product.detail.html_safe
 
 
-    - if @product.page
+    /- if @product.page
       .editable class="page#{@product.page.id}"
         = render inline: @product.page.body.html_safe, type: @product.page.render_type
