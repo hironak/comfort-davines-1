@@ -1,71 +1,51 @@
 h1.belt マイページ
 
-ul.navigation
-  li = link_to orders_path do
-    = image_tag "mypage/kounyurireki.jpg", alt: "購入履歴"
-  li = link_to mypage_root_path do
-    = image_tag "mypage/tourokunaiyou.jpg", alt: "登録内容"
+/ul.navigation
+  li = link_to '購入履歴', orders_path
+  li = link_to '登録内容', mypage_root_path
 
 h2.belt 登録内容の確認・変更
 
 = form_for(current_consumer, :url => mypage_information_path, method: :patch) do |f|
+  = f.fields_for :information do |f|
+    p
+      label お名前
+      span.complex
+        = f.text_field :family_name
+        = f.text_field :given_name
+    p
+      label フリガナ
+      span.complex
+        = f.text_field :family_name_kana
+        = f.text_field :given_name_kana
+    p
+      = f.label :postalcode
+      = f.text_field :postalcode
 
-  table
-    tbody
-      = f.fields_for :information do |f|
-        tr
-          th.w30
-            label お名前
-          td.w70
-            = f.label :family_name do
-              | 　
-              = f.object.class.human_attribute_name :family_name
-              = f.text_field :family_name
-            = f.label :given_name do
-              | 　
-              = f.object.class.human_attribute_name :given_name
-              = f.text_field :given_name
-        tr
-          th.w30
-            label フリガナ
-          td.w70
-            = f.label :family_name_kana do
-              = f.object.class.human_attribute_name :family_name_kana
-              = f.text_field :family_name_kana
-            = f.label :given_name_kana do
-              = f.object.class.human_attribute_name :given_name_kana
-              = f.text_field :given_name_kana
-        tr
-          th.w30 = f.label :postalcode
-          td.w70 = f.text_field :postalcode
+    p
+      = f.label :prefecture_code
+      = f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name
 
-        tr
-          th.w30 = f.label :prefecture_code
-          td.w70 = f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name
+    p
+      = f.label :address
+      = f.text_field :address
 
-        tr
-          th.w30 = f.label :address
-          td.w70 = f.text_field :address
+    p
+      = f.label :building
+      = f.text_field :building
 
-        tr
-          th.w30 = f.label :building
-          td.w70 = f.text_field :building
+    p
+      = f.label :phone
+      = f.text_field :phone
 
-        tr
-          th.w30 = f.label :phone
-          td.w70
-            = f.text_field :phone
-            | 　例: 000-0000-0000
-
-    tr
-      th.w30 = f.label :accepted_magazine
-      td.w70
-        = f.label :accepted_magazine_true do
-          = f.radio_button :accepted_magazine, true, checked: true
-          | 希望する
-        = f.label :accepted_magazine_false do
-          = f.radio_button :accepted_magazine, false
-          | 希望しない
+  p
+    = f.label :accepted_magazine
+    = f.label :accepted_magazine_true do
+      = f.radio_button :accepted_magazine, true, checked: true
+      | 希望する
+    = f.label :accepted_magazine_false do
+      = f.radio_button :accepted_magazine, false
+      | 希望しない
 
 
 

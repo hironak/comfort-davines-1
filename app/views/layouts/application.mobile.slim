@@ -30,6 +30,13 @@ html
       li = link_to utilization_path do
         = image_tag "mobile/application/header_nav4.gif", alt: "ショッピングガイド"
 
+    - if notice
+      .notice
+        p = notice
+    - if alert
+      .alert
+        p = alert
+
     - unless @mobile_headerless
       = render 'header'
       = render 'links'
