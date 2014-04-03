@@ -28,10 +28,9 @@ h1.belt ご注文手続き
         th = f.label :delivery_time
         td = f.select :delivery_time, Order::DELIVERY_TIMES
 
-  .note
-    h2.belt = f.label :note
-    p = f.text_area :note
+  h2.belt = f.label :note
+  p = f.text_area :note
 
+  p 注文を確定される前に、内容をよくご確認ください。
   .actions
-    p 注文を確定される前に、内容をよくご確認ください。
     = f.submit '注文を確定する'

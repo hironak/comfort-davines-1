@@ -1,55 +1,55 @@
 h1.belt 新規会員登録
 
-= form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { class: 'wide' } ) do |f|
+= form_for resource, :as => resource_name, :url => registration_path(resource_name) do |f|
 
   = devise_error_messages!
 
   = hidden_field_tag :confirm, true
 
-  p
+  .field
     = f.label :email
     = f.email_field :email, :autofocus => true
-  p
+  .field
     = f.label :password
     | ※８文字以上
     = f.password_field :password
-  p
+  .field
     = f.label :password_confirmation
     = f.password_field :password_confirmation
 
   = f.fields_for :information do |f|
 
-    p
+    .field
       label お名前
       span.complex
         = f.text_field :family_name, placeholder: '姓'
         = f.text_field :given_name, placeholder: '名'
-    p
+    .field
       label フリガナ
       span.complex
         = f.text_field :family_name_kana, placeholder: 'セイ'
         = f.text_field :given_name_kana, placeholder: 'メイ'
-    p
+    .field
       = f.label :postalcode
       = f.text_field :postalcode
 
-    p
+    .field
       = f.label :prefecture_code
       = f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name
 
-    p
+    .field
       = f.label :address
       = f.text_field :address
 
-    p
+    .field
       = f.label :building
       = f.text_field :building
 
-    p
+    .field
       = f.label :phone
       = f.text_field :phone, placeholder: "000-0000-0000"
 
-  p
+  .field
     = f.label :accepted_magazine
     td.w70
       = f.label :accepted_magazine_true do

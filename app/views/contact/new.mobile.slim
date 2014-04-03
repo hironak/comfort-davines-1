@@ -9,19 +9,27 @@ p
   br
   = link_to "お問い合わせの前にこちらをご確認ください。", faq_path
 
+h2 お問い合わせフォーム
+
 = form_for @contact, url: contact_path, method: :post do |f|
-  label お問い合わせ内容
-  = f.select :type, %w|商品について お届け・配送について お支払いについて その他|
-  label お名前
-  = f.text_field :name
-  label フリガナ
-  = f.text_field :name_kana
-  label メールアドレス
-  = f.text_field :email
-  label 電話番号
-  = f.text_field :phone
-  label 本文
-  = f.text_area :body
+  .field
+    label お問い合わせ内容
+    = f.select :type, %w|商品について お届け・配送について お支払いについて その他|
+  .field
+    label お名前
+    = f.text_field :name
+  .field
+    label フリガナ
+    = f.text_field :name_kana
+  .field
+    label メールアドレス
+    = f.text_field :email
+  .field
+    label 電話番号
+    = f.text_field :phone
+  .field
+    label 本文
+    = f.text_area :body
   = hidden_field_tag :confirm, true
   .actions = f.submit "送信内容を確認"
 

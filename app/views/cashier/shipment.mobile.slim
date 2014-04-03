@@ -19,15 +19,16 @@ h1.belt ご注文手続き
   p.attention ※ひらがなで入力してください。
 
   p.ui-widget
-    = f.label :salon_prefecture
-    = f.collection_select :salon_prefecture, JpPrefecture::Prefecture.all, :name, :name
-    '
-    = f.label :salon_name
-    = f.text_field :salon_name
-    '
-    = f.label :salon_not_found do
-      | 該当なし
-      = f.check_box :salon_not_found, value: false
+    .field
+      = f.label :salon_prefecture
+      = f.collection_select :salon_prefecture, JpPrefecture::Prefecture.all, :name, :name
+    .field
+      = f.label :salon_name
+      = f.text_field :salon_name
+    .field
+      = f.label :salon_not_found do
+        | 該当なし
+        = f.check_box :salon_not_found, value: false
 
   h2.belt お届け先情報
 

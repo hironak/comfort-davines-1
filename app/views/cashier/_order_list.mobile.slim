@@ -27,7 +27,7 @@
 
   - if @order.samples.size > 0
     h2.belt 選択したサンプル
-    p = link_to 'サンプルの選択', cashier_sample_url
     ul.cart
       - @order.samples.each do |item|
         li.item = item.product.name
+    p = link_to 'サンプルの選択', cashier_sample_url

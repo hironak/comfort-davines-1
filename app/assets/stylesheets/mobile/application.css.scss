@@ -28,26 +28,26 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6,
-ul, ol, dl,
-form {
-  margin-bottom: 0 0 1.0em;
+ul, ol, dl {
+  margin: 0 0 1.0em;
 }
 h1, h2, h3, h4, h5, h6 {
   padding-left: 1.0em;
   padding-right: 1.0em;
+  margin: 0;
   &.center {
     text-align: center;
   }
   &.belt {
     background: #808080;
     color: #fff;
-    @include pad(0.5em);
+    padding: 0.5em 1.0em;
     &.blue {
       background: #8ea5bf;
     }
   }
   &.accordion {
-    @include pad(10px 1.0em);
+    padding: 0.5em 1.0em;
     margin: 0;
     @include linear-gradient(#dbdbdb, #ececec);
     &:before {
@@ -65,7 +65,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
-  margin: 15px;
+  margin: 1.0em;
 }
 
 .center {
@@ -80,10 +80,7 @@ a {
 }
 
 form {
-  padding: 0 1.0em;
-  &.wide {
-    padding: 0;
-  }
+  margin: 0;
   label {
     display: block;
   }
@@ -110,10 +107,10 @@ form {
     }
   }
   .field {
-    border: 1px solid #aaa;
-    padding: 0.5em;
+    margin: 0 1.0em 1.0em;
   }
   .actions {
+    margin: 0 1.0em 1.0em;
     input[type="submit"] {
       @extend %button;
       display: inline;
@@ -131,6 +128,7 @@ form {
 
 .hr {
   border-bottom: 1px solid #aaaaaa;
+  margin-bottom: 1.0em;
 }
 
 .announce {
@@ -353,6 +351,7 @@ header {
 }
 
 .cart {
+  margin: 0 0 1.0em;
   font-size: 0.7em;
   .item {
     padding: 10px;
@@ -374,6 +373,7 @@ header {
     }
   }
   .postage,
+  .commission,
   .total_price {
     padding: 5px;
     @include clearfix;
@@ -460,6 +460,7 @@ dl.faq {
 
 .sample_select {
   @include clearfix;
+  margin-bottom: 1.0em;
   .items {
     border-top: 1px solid #aaa;
     .item {
