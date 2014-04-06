@@ -3,6 +3,7 @@
 <%=
   CSV.generate force_quotes: true do |csv|
     @consumers.each do |consumer|
+      information = consumer.try(:information)
       csv << [
         consumer.email,
         information.name,
