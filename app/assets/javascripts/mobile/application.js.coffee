@@ -60,7 +60,7 @@ jQuery ($)->
     closeButton: false
     scrolling: false
     width: "80%"
-    height: "80%"
+    height: "40%"
     html: ->
       $('#buy-html').html()
 
