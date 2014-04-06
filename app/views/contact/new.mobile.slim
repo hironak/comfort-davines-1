@@ -12,6 +12,13 @@ p
 h2 お問い合わせフォーム
 
 = form_for @contact, url: contact_path, method: :post do |f|
+  - if @contact.errors.any?
+    #error_explanation
+      h2 エラー内容をご確認ください。
+      ul
+        - @contact.errors.full_messages.each do |message|
+          li = message
+
   .field
     label お問い合わせ内容
     = f.select :type, %w|商品について お届け・配送について お支払いについて その他|

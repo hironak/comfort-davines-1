@@ -29,14 +29,14 @@
 
     li.total_price
       .name 総合計
-      .total = number_to_currency current_cart.total_price
+      .total.big = number_to_currency current_cart.total_price
 
   p.actions
     = link_to cashier_path do
       = image_tag 'cashier/kounyu_btn.jpg', alt: "ご注文手続き"
 
   p.actions
-    = link_to_back do
+    = link_to root_path do
       = image_tag 'cart/back.jpg', alt: "ショッピングを続ける"
 
 

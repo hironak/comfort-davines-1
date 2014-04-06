@@ -1,5 +1,6 @@
 class Contact
   include ActiveModel::Model
+  extend ActiveModel::Translation
   include ActiveModel::Validations
 
   attr_accessor :type, :name, :name_kana, :email, :phone, :body

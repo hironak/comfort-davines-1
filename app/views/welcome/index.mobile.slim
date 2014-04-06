@@ -14,7 +14,7 @@ ul.products
         .information
           .name = product.name
           - if product.label.present?
-            .label = raw "【#{product.label.html_safe}】"
+            .label = strip_tags "【#{product.label_simple}】"
           .capacity = raw product.capacity
           .price
             = number_to_currency product.view_price
@@ -30,7 +30,7 @@ ul.products
         .information
           .name = product.name
           - if product.label.present?
-            .label = raw "【#{product.label.html_safe}】"
+            .label = strip_tags "【#{product.label_simple}】"
           .capacity = raw product.capacity
           .price
             = number_to_currency product.view_price
@@ -46,7 +46,7 @@ ul.products
         .information
           .name = product.name
           - if product.label.present?
-            .label = raw "【#{product.label.html_safe}】"
+            .label = strip_tags "【#{product.label_simple}】"
           .capacity = raw product.capacity
           .price
             = number_to_currency product.view_price

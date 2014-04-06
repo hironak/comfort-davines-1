@@ -195,3 +195,13 @@ ja:
 
       setting:
         tax_percentage: 消費税率
+  activemodel:
+    models:
+      contact: お問い合わせ
+    attributes:
+      contact:
+        name: お名前
+        name_kana: フリガナ
+        email: メールアドレス
+        phone: 電話番号
+        body: 本文

@@ -1,0 +1,11 @@
+h1.belt マイページ
+
+ul.navigation
+  li = link_to '購入履歴', orders_path
+  li = link_to '登録内容', mypage_root_path
+
+p = link_to '一覧へ戻る', orders_path
+
+h2.belt 購入履歴
+
+= render "order_list"

@@ -79,6 +79,10 @@ module ApplicationHelper
       end
     end
 
+    def link(link, title, content)
+      super link.gsub(/#.*/, ''), title, content
+    end
+
     def image(link, title, alt_text)
       @helper.image_tag link, title: title, alt: alt_text
     end

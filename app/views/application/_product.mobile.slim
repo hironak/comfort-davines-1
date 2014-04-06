@@ -1,7 +1,7 @@
 .product-show
   .name
     h1 = @product.name
-    .type
+    p.type
       - @product.kind.to_s.split.each do |kind|
         span.kind = kind
       - if Product::Authentic === @product

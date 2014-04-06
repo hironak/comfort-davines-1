@@ -1,6 +1,4 @@
 .order-list
-  h2.belt カートに入っている商品
-
   ul.cart.cashier
     li.item
       .product 商品名
@@ -30,4 +28,3 @@
     ul.cart
       - @order.samples.each do |item|
         li.item = item.product.name
-    p = link_to 'サンプルの選択', cashier_sample_url

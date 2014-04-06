@@ -32,7 +32,7 @@ jQuery ($)->
     .on 'click', ->
       $(@).next('.accordion-content').slideToggle()
 
-  $('.accordion-content').append $('.scrolltotop').clone().addClass('right')
+  $('.accordion-content:not(:last)').append $('.scrolltotop').clone().addClass('right')
 
 
   sample_checks = $('input[name="order[sample_ids][]"]')
