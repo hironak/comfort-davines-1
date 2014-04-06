@@ -54,7 +54,7 @@ ul.products
           .more = image_tag 'mobile/application/more.gif'
 
 p.center
-  = link_to image_url('application/attention_img.png') do
+  = link_to image_url('application/attention_img.png'), class: 'popup', onfocus: "this.blur();"  do
     = image_tag 'mobile/welcome/attention.gif', alt: '並行輸入品について'
 
 = render 'lineup'
