@@ -4,8 +4,17 @@
   CSV.generate force_quotes: true do |csv|
     @consumers.each do |consumer|
       csv << [
-        consumer.information.name,
-        consumer.email
+        consumer.email,
+        information.name,
+        information.name_kana,
+        information.postalcode,
+        information.prefecture.name,
+        information.address,
+        information.building,
+        information.phone,
+        consumer.accepted_magazine ? 'する' : 'しない',
+        consumer.orders.totaling.count,
+        consumer.total
       ]
     end
   end.tosjis.html_safe
