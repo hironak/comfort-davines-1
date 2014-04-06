@@ -324,6 +324,24 @@ header {
     }
   }
 }
+.recommendation {
+  .product-item {
+    .image {
+      float: none;
+      width: auto;
+      text-align: center;
+      height: 130px;
+    }
+    .information {
+      float: none;
+      width: auto;
+      .more {
+        float: none;
+        text-align: center;
+      }
+    }
+  }
+}
 
 .lineup {
   @include fill-parent;
