@@ -128,4 +128,8 @@
     = f.label :plusone
     = f.select :plusone_id, Product.available.pluck(:name, :id)
 
+  .field
+    = f.label :smart_detail
+    = f.text_are :smart_detail
+
   .actions = f.submit '保存'

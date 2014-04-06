@@ -161,6 +161,7 @@ ja:
         series: :activerecord.models.series  #g
         slug: slug  #g
         stock: 在庫数
+        smart_detail: スマホ用詳細
 
       product/photo:
         image: 商品画像

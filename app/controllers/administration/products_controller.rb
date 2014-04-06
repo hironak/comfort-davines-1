@@ -98,6 +98,7 @@ module Administration
           :new_item,
           :ranking,
           :plusone_id,
+          :smart_detail,
           photos_attributes: [ :id, :image, :_destroy ],
             series_ids: [],
             category_ids: [],
