@@ -4,7 +4,12 @@
 #= require jquery.colorbox
 #= require_self
 #= require_directory .
-#= require ../scrolltop
+#
+jQuery ($) ->
+  $('.scrolltotop').on 'click', ->
+    $(@).blur()
+    $("body").animate({'scrollTop':0})
+    return false
 
 jQuery ($)->
   $('.flexslider').flexslider
