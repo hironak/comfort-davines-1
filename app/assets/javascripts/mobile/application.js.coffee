@@ -4,12 +4,15 @@
 #= require jquery.colorbox
 #= require_self
 #= require_directory .
-#
+
+scrolltotop = ->
+  $(@).blur()
+  $("body").animate({'scrollTop':0})
+  return false
+
+
 jQuery ($) ->
-  $('.scrolltotop').on 'click', ->
-    $(@).blur()
-    $("body").animate({'scrollTop':0})
-    return false
+  $('.scrolltotop').on 'click', scrolltotop
 
 jQuery ($)->
   $('.flexslider').flexslider
@@ -37,7 +40,12 @@ jQuery ($)->
     .on 'click', ->
       $(@).next('.accordion-content').slideToggle()
 
-  $('.accordion-content:not(:last)').append $('.scrolltotop').clone().addClass('right')
+  $('.accordion-content:not(:last)').append(
+    $('.scrolltotop')
+      .clone()
+      .addClass('right')
+      .on 'click', scrolltotop
+  )
 
 
   sample_checks = $('input[name="order[sample_ids][]"]')
