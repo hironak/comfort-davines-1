@@ -70,6 +70,6 @@
       p = @product.detail.html_safe
 
 
-    - if @product.smart_detail.present?
+    /- if @product.smart_detail.present?
       .editable
         = render inline: @product.smart_detail.html_safe, type: @product.page.render_type

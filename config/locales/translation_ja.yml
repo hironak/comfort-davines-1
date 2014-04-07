@@ -155,13 +155,22 @@ ja:
         image_updated_at: image_updated_at  #g
         photos: :activerecord.models.product_photo
         name: 名称
+        label: ラベル
+        template: :activerecord.models.template #g
         page: :activerecord.models.page  #g
         price: 価格
         sample: サンプル
         series: :activerecord.models.series  #g
         slug: slug  #g
         stock: 在庫数
+        capacity: 容量
+        detail: 詳細情報
+        small_detail: 詳細情報（簡易版）
         smart_detail: スマホ用詳細
+        annotation: 注釈
+        annoration_mobile: 注釈（モバイル）
+        backmargin_salon: サロン還元率
+        backmargin_agency: 代理店還元率
 
       product/photo:
         image: 商品画像

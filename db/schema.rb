@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140406120557) do
+ActiveRecord::Schema.define(version: 20140407032316) do
 
   create_table "administrators", force: true do |t|
     t.string   "username",          null: false
@@ -270,6 +270,7 @@ ActiveRecord::Schema.define(version: 20140406120557) do
     t.integer  "ranking"
     t.integer  "plusone_id"
     t.text     "smart_detail"
+    t.text     "annotation_mobile"
   end
 
   add_index "products", ["page_id"], name: "index_products_on_page_id", using: :btree

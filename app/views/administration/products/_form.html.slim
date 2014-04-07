@@ -117,6 +117,10 @@
     = f.text_field :annotation
 
   .field
+    = f.label :annotation_mobile
+    = f.text_area :annotation_mobile
+
+  .field
     = f.label :new_item
     = f.text_field :new_item
 
@@ -127,9 +131,5 @@
   .field
     = f.label :plusone
     = f.select :plusone_id, Product.available.pluck(:name, :id)
-
-  .field
-    = f.label :smart_detail
-    = f.text_area :smart_detail
 
   .actions = f.submit '保存'
