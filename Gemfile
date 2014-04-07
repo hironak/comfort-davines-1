@@ -81,6 +81,9 @@ gem 'authority'
 # Payment
 gem 'webpay'
 
+# Cuenote API
+gem 'cuenote-api'
+
 # FriendlyIg
 gem 'friendly_id', '~> 5.0.0'
 
