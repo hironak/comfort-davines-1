@@ -5,6 +5,9 @@
 // Scss framework
 @import "bourbon";
 @import "bitters/bitters";
+$base-font-size: 12px;
+@import "bitters/typography";
+
 // Neat Overrides
 ///////////////////////////////////////////////////////////////////////////////
 $column: 62px;
@@ -12,7 +15,6 @@ $gutter: 2px;
 $grid-columns: 12;
 $max-width: 980px;
 
-$base-font-size: 12px;
 $content-margin: 15px;
 
 // Neat Breakpoints
@@ -38,7 +40,6 @@ h1, h2, h3, h4, h5, h6,
 ul, ol, dl, nav,
 .scrolltotop {
   margin: $content-margin;
-  font-size: 1.0em;
 }
 h1, h2, h3, h4, h5, h6 {
   &.center {
