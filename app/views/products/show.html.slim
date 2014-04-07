@@ -19,7 +19,7 @@
             span.price
               = number_to_currency product.view_price
               | (税込)　
-            = product.capacity
+            == product.capacity
             br
             br
             = link_to product do
