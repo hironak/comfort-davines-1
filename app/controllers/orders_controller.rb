@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
   def index
     add_breadcrumb "マイページ", mypage_root_path
     add_breadcrumb "購入履歴"
-    @orders = current_consumer.orders
+    @orders = current_consumer.orders.listable
   end
 
   # GET /orders/1
