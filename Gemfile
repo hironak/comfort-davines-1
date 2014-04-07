@@ -82,7 +82,7 @@ gem 'authority'
 gem 'webpay'
 
 # Cuenote API
-gem 'cuenote-api'
+gem 'cuenote-api', '0.0.4'
 
 # FriendlyIg
 gem 'friendly_id', '~> 5.0.0'
