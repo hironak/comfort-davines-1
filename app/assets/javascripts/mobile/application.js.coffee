@@ -55,7 +55,8 @@ jQuery ($)->
     else
       sample_checks.prop disabled: false
 
-  $('.popup').colorbox()
+  $('.popup').colorbox
+    className: 'heiko'
 
   $('#buy').colorbox
     opacity: 0.3

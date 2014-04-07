@@ -693,6 +693,9 @@ footer {
 @import '../colorbox';
 #cboxOverlay {
   background-color: #000000;
+  &.heiko {
+    background-color: #ffffff;
+  }
 }
 #buy-popup {
   text-align: center;
