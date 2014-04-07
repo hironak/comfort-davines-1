@@ -331,18 +331,21 @@ header {
 }
 .recommendation {
   .product-item {
-    .image {
-      float: none;
-      width: auto;
-      text-align: center;
-      height: 130px;
-    }
-    .information {
-      float: none;
-      width: auto;
-      .more {
+    a {
+      height: 300px;
+      .image {
         float: none;
+        width: auto;
         text-align: center;
+        height: 130px;
+      }
+      .information {
+        float: none;
+        width: auto;
+        .more {
+          float: none;
+          text-align: center;
+        }
       }
     }
   }
