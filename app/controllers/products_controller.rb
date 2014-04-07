@@ -20,7 +20,7 @@ class ProductsController < ApplicationController
   # GET /products/1.json
   def show
     redirect_to root_path and return unless @product.showable?
-    if Rails.env.production?
+    unless Rails.env.production?
       if @product.series.singleton and !respond_as_mobile?
         redirect_to catalog_path(action: :series, id: @product.series.identify, anchor: @product.slug) and return
       end
