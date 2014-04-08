@@ -1,18 +1,18 @@
 .product-show
   .name
     h1 = @product.name
-    p.type
-      - @product.kind.to_s.split.each do |kind|
-        span.kind = kind
-      - if Product::Authentic === @product
-        - @product.parts.to_s.split(/\s/).each do |part|
-          span = image_tag "catalog/#{part}.png"
     - if @product.label.present?
       - case @product
       - when Product::MoreInside
         p.label style="color: #{@product.label_color}" = raw @product.label
       - else
         p.label = raw "【#{@product.label.html_safe}】"
+    p.type
+      - @product.kind.to_s.split.each do |kind|
+        span.kind = kind
+      - if Product::Authentic === @product
+        - @product.parts.to_s.split(/\s/).each do |part|
+          span = image_tag "catalog/#{part}.png"
 
   .main-image = image_tag @product.image.url(:medium)
   - if @product.photos.count > 1
