@@ -10,7 +10,7 @@ ul.nav-links
     - unless consumer_signed_in?
       p 今すぐログインしてから商品一覧を見る
       p = link_to new_consumer_session_path do
-        =  image_tag 'mobile/buy/login.gif', alt: "ログイン"
+        =  image_tag 'mobile/buy/login.gif', alt: "ログイン", width: 166, height: 40
     p 全ての商品一覧を見る
     p = link_to products_path do
-      =  image_tag 'mobile/buy/all_item.gif', alt: "全ての商品一覧"
+      =  image_tag 'mobile/buy/all_item.gif', alt: "全ての商品一覧", width: 166, height: 40

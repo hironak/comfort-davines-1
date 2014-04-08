@@ -698,6 +698,7 @@ footer {
   }
 }
 #buy-popup {
+  @include box-sizing(content-box);
   text-align: center;
   padding: $content-margin;
   background: #ffffff;
