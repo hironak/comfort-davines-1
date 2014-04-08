@@ -36,7 +36,7 @@ h2 お問い合わせフォーム
     = f.text_field :phone
   .field
     label 本文
-    = f.text_area :body
+    = f.text_area :body, rows: 15
   = hidden_field_tag :confirm, true
   .actions = f.submit "送信内容を確認"
 
