@@ -129,6 +129,12 @@ form {
     font-size: 100%;
     width: 100%;
   }
+  .field_with_errors {
+    display: inline;
+    #{$all-text-inputs} {
+      border-color: #ffaaaa;
+    }
+  }
   &.inline {
     select,
     textarea,
@@ -143,6 +149,16 @@ form {
       width: 48%;
       &:first-child {
         margin-right: 4%;
+      }
+    }
+    .field_with_errors {
+      #{$all-text-inputs} {
+        margin: 0;
+      }
+      &:first-child {
+        #{$all-text-inputs} {
+          margin-right: 4%;
+        }
       }
     }
   }
