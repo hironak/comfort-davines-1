@@ -1,0 +1,25 @@
+<%= javascript_tag do %>
+  var _gaq = _gaq || [];
+  _gaq.push(['_addTrans',
+  '<%= @order.number %>',
+  'davines direct',
+  '<%= @order.total_price %>',
+  '<%= @order.tax %>',
+  '<%= @order.postage %>,
+  '',
+  '<%= @order.shipment.prefecture.name %>',
+  'Japan'
+  ]);
+
+  <% @order.items.each do |item| %>
+  _gaq.push(['_addItem',
+  '<%= @order.number %>',
+  '<%= item.product.refnum %>',
+  '<%= item.product.name %>',
+  '',
+  '<%= item.price %>',
+  '<%= item.amount %>'
+  ]);
+  <% end %>
+  _gaq.push(['_trackTrans']);
+<% end %>
