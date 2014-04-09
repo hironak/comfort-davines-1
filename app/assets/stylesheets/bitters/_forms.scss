@@ -7,8 +7,16 @@ $form-box-shadow-focus: $form-box-shadow, 0 0 5px rgba(darken($form-border-color
 $form-font-size: $base-font-size;
 $form-font-family: $base-font-family;
 
-.field_with_errors {
-  display: inline;
+#error_explanation {
+  padding: 20px;
+  border: 2px solid #b23f3f;
+  color: #b23f3f;
+  h2 {
+  }
+  ul {
+    li {
+    }
+  }
 }
 
 fieldset {
@@ -58,6 +66,13 @@ textarea,
     border-color: $form-border-color-focus;
     box-shadow: $form-box-shadow-focus;
     outline: none;
+  }
+}
+
+.field_with_errors {
+  display: inline;
+  #{$all-text-inputs} {
+    border-color: #ffaaaa;
   }
 }
 

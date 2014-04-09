@@ -18,6 +18,14 @@
     | また、全ての項目を入力してください。
 
   = form_for @contact, url: contact_path, method: :post do |f|
+
+    - if @contact.errors.any?
+      #error_explanation
+        h2 エラー内容をご確認ください。
+        ul
+          - @contact.errors.full_messages.each do |message|
+            li = message
+
     table
       tbody
         tr

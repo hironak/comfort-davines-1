@@ -186,9 +186,12 @@ form {
 
 #error_explanation {
   margin: $content-margin;
-  border: 2px solid #990000;
-  color: #990000;
+  padding: 0;
+  border: 2px solid #b23f3f;
+  color: #b23f3f;
+  background: none;
   h2 {
+    background: none;
   }
   ul {
     li {
@@ -249,8 +252,7 @@ header {
 }
 
 .globalnavi {
-  @include clearfix;
-  @include fill-parent;
+  @include outer-container;
   margin: 0 0 $gutter;
   padding: 0;
   li {
