@@ -14,6 +14,9 @@ scrolltotop = ->
 jQuery ($) ->
   $('.scrolltotop').on 'click', scrolltotop
 
+  $('.autosend').on 'change', ->
+    $(@).submit()
+
 jQuery ($)->
   $('.flexslider').flexslider
     animation: 'slide'
