@@ -9,10 +9,12 @@ $form-font-family: $base-font-family;
 
 #error_explanation {
   padding: 20px;
+  margin-bottom: 20px;
   border: 2px solid #b23f3f;
   color: #b23f3f;
   background: #ffffff;
   h2 {
+    color: #b23f3f;
     background: #ffffff;
     margin: 0;
     padding: 0;
