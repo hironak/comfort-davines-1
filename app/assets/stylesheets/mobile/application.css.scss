@@ -132,7 +132,7 @@ form {
   .field_with_errors {
     display: inline;
     #{$all-text-inputs} {
-      border-color: #ffaaaa;
+      border-color: #990000;
     }
   }
   &.inline {
@@ -186,8 +186,8 @@ form {
 
 #error_explanation {
   margin: $content-margin;
-  border: 2px solid #ffaaaa;
-  color: #ffaaaa;
+  border: 2px solid #990000;
+  color: #990000;
   h2 {
   }
   ul {
