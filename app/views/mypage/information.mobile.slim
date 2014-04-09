@@ -7,6 +7,14 @@ ul.navigation
 h2.belt 登録内容の確認・変更
 
 = form_for(current_consumer, :url => mypage_information_path, method: :patch) do |f|
+
+  - if current_consumer.errors.any?
+    #error_explanation
+      h2 エラー内容をご確認ください。
+      ul
+        - current_consumer.errors.full_messages.each do |message|
+          li = message
+
   = f.fields_for :information do |f|
     p
       label お名前
