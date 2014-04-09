@@ -11,6 +11,13 @@
 
   = form_for(current_consumer, :url => mypage_information_path, method: :patch) do |f|
 
+    - if @contact.errors.any?
+      #error_explanation
+        h2 エラー内容をご確認ください。
+        ul
+          - @contact.errors.full_messages.each do |message|
+            li = message
+
     table
       tbody
         = f.fields_for :information do |f|

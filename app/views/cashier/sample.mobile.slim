@@ -22,7 +22,7 @@
 
 
     .items
-      - Product.sample.each do |product|
+      - Product.sample.stocked.each do |product|
         .item
           = label_tag "order_sample_ids_#{product.id}" do
             .image

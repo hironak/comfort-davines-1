@@ -20,7 +20,7 @@ class Product < ActiveRecord::Base
   has_many :reviews
 
   scope :available, -> { where(sample: false) }
-  scope :stocked, -> { where.not(stock: 0) }
+  scope :stocked, -> { where('stock > 0') }
   scope :sample, -> { where(sample: true) }
 
   scope :new_items, -> { available.where(new_item: true).limit(3) }
