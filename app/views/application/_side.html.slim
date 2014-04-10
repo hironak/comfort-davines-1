@@ -47,7 +47,6 @@ p.link = link_to 'http://comfortjapan.jp/', target: '_blank' do
   p = link_to destroy_consumer_session_path, method: :delete do
     = image_tag "application/logout.jpg", alt: "ログアウト"
 
-- unless Rails.env.production?
-  - if is_mobile_request?
-    p = link_to enable_mobile: true do
-      = image_tag 'application/sp_hyouji.png', alt: 'スマートフォン表示'
+- if is_mobile_request?
+  p = link_to enable_mobile: true do
+    = image_tag 'application/sp_hyouji.png', alt: 'スマートフォン表示'
