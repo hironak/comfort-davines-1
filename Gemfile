@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.0.0'
+ruby '2.1.0'
 
 # Bundler
 gem 'bundler', '~> 1.5.2'
