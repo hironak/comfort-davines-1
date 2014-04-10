@@ -26,7 +26,7 @@ set :format, :pretty
 set :log_level, :debug
 set :pty, true
 
-set :linked_files, %w{config/database.yml .env}
+set :linked_files, %w{config/database.yml .env public/robots.txt}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets public/system}
 
 # rbenv
