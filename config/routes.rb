@@ -98,6 +98,8 @@ Commers::Application.routes.draw do
 
     get "confirm"
     patch "confirm", action: "confirm_create"
+
+    get "complete"
   end
 
   # サロン情報

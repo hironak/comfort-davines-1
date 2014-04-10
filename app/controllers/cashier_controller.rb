@@ -74,7 +74,14 @@ class CashierController < ApplicationController
     current_cart.clear
     session_clear_order
     OrderMailer.complete(current_consumer.email, @order).deliver
-    render 'complete'
+    session[:complete_order] = @order.id
+    redirect_to cashier_complete_path
+  end
+
+  def complete
+    root_path unless session[:complete_order]
+    @order = Order.find(session[:complete_order])
+    session[:complete_order] = nil
   end
 
   private
