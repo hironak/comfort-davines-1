@@ -134,11 +134,7 @@ GEM
     dotenv (0.10.0)
     dotenv-rails (0.10.0)
       dotenv (= 0.10.0)
-    em-websocket (0.5.0)
-      eventmachine (>= 0.12.9)
-      http_parser.rb (~> 0.5.3)
     erubis (2.7.0)
-    eventmachine (1.0.3)
     exception_notification (4.0.1)
       actionmailer (>= 3.0.4)
       activesupport (>= 3.0.4)
@@ -160,10 +156,6 @@ GEM
       lumberjack (~> 1.0)
       pry (>= 0.9.12)
       thor (>= 0.18.1)
-    guard-livereload (2.1.1)
-      em-websocket (~> 0.5)
-      guard (~> 2.0)
-      multi_json (~> 1.8)
     guard-minitest (2.2.0)
       guard (~> 2.0)
       minitest (>= 3.0)
@@ -177,7 +169,6 @@ GEM
     hirb-unicode (0.0.5)
       hirb (~> 0.5)
       unicode-display_width (~> 0.1.1)
-    http_parser.rb (0.5.3)
     httparty (0.13.0)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
@@ -433,7 +424,7 @@ DEPENDENCIES
   better_errors
   bitters
   bourbon
-  bundler (~> 1.5.2)
+  bundler (~> 1.6.0)
   capistrano (~> 3.1.0)
   capistrano-bundler (~> 1.1.1)
   capistrano-rails (~> 1.1.0)
@@ -450,7 +441,6 @@ DEPENDENCIES
   factory_girl_rails (~> 4.0)
   friendly_id (~> 5.0.0)
   guard
-  guard-livereload
   guard-minitest
   guard-rails
   guard-redis
