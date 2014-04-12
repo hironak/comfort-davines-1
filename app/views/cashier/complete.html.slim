@@ -20,6 +20,4 @@
   p.action = link_to root_path do
     = image_tag "cashier/back_toppage.jpg", alt: "TOPページへ戻る"
 
-  == render 'order_complete' if Rails.env.production?
-
 .side = render 'side'
