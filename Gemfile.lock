@@ -469,7 +469,7 @@ DEPENDENCIES
   pry-stack_explorer
   quiet_assets (~> 1.0.2)
   rack-cache
-  rack-google-analytics
+  rack-google-analytics (= 1.0.0)
   rails (= 4.0.3)
   rails-i18n (~> 4.0.0)
   ranked-model
