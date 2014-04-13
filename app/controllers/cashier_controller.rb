@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 class CashierController < ApplicationController
 
   before_filter :mobile_headerless!
@@ -107,7 +106,7 @@ class CashierController < ApplicationController
           item.amount
         )
       end
-      ga_push('ecommerce:send')
+      ga_push('_trackTrans')
     end
   end
 
