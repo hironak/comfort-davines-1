@@ -3,6 +3,9 @@ services:
   - wercker/mysql
 build:
   steps:
+    - script:
+        name: bundler 1.6
+        code: gem install bundler -v "~> 1.6.0"
     - bundle-install
     - rails-database-yml
     - script:
