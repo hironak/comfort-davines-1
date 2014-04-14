@@ -174,7 +174,7 @@ end
 gem 'activemerchant'
 
 # Use for Google Analytics
-gem 'rack-google-analytics’, '~> 1.0.0’
+gem 'rack-google-analytics', '~> 1.0.0’
 
 # Use unicorn as the app server
 gem 'unicorn'
