@@ -92,9 +92,7 @@ Commers::Application.configure do
   }
 
   if Rails.env.production? && ENV['GOOGLE_ANALYTICS_TRACKER']
-    config.middleware.use Rack::GoogleAnalytics, :tracker => lambda do |env|
-      return env[:site_ga].tracker if env[:site_ga]
-    end
+    config.middleware.use Rack::GoogleAnalytics, :tracker => ENV['GOOGLE_ANALYTICS_TRACKER']
   end
 
   config.middleware.use ExceptionNotification::Rack,
