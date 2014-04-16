@@ -10,7 +10,7 @@ module Administration
     # GET /administration/orders.json
     def index
       params[:payment_type] = 'Payment::Deferred' if params[:output] == 'NP'
-      @orders = Order.where.not(created_at: nil, status: :cashier)
+      @orders = Order.where.not(created_at: nil, status: :cashier).order(created_at: :desc)
       if params[:status].present?
         @orders = @orders.where(status: params[:status])
       end
