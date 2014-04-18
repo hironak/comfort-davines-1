@@ -168,6 +168,13 @@
           height: 49%;
         }
       }
+      &.oioil-item {
+        @extend %item;
+        border: 1px solid #000;
+        padding-top: 0px;
+        @include span-columns(3 of 9);
+        @include omega(3n);
+      }
       .fukidashi {
         padding: 0 15px;
       }
