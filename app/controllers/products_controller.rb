@@ -20,9 +20,10 @@ class ProductsController < ApplicationController
   # GET /products/1.json
   def show
     redirect_to root_path and return unless @product.showable?
-    if @product.series.singleton and !respond_as_mobile?
-      redirect_to catalog_path(action: :series, id: @product.series.identify, anchor: @product.slug) and return
-    end
+    # オイオイル用の判定だったが不要になった
+    # if @product.series.singleton and !respond_as_mobile?
+    #   redirect_to catalog_path(action: :series, id: @product.series.identify, anchor: @product.slug) and return
+    # end
     title @product.name
     add_breadcrumb @product.series.name, catalog_path(action: :series, id: @product.series.identify)
     add_breadcrumb @product.name
