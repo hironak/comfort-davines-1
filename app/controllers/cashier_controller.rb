@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class CashierController < ApplicationController
 
   before_filter :mobile_headerless!
@@ -82,32 +83,6 @@ class CashierController < ApplicationController
     root_path unless session[:complete_order]
     @order = Order.find(session[:complete_order])
     session[:complete_order] = nil
-
-
-    if Rails.env.production?
-      ga_push('_addTrans',
-        @order.number,
-        'davines direct',
-        @order.total_price,
-        @order.tax,
-        @order.postage,
-        '',
-        @order.shipment.prefecture.name,
-        'Japan'
-      )
-
-      @order.items.each do |item|
-        ga_push('_addItem',
-          @order.number,
-          item.product.refnum,
-          item.product.name,
-          '',
-          item.price,
-          item.amount
-        )
-      end
-      ga_push('_trackTrans')
-    end
   end
 
   private
