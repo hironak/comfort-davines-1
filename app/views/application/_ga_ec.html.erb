@@ -1,0 +1,25 @@
+<%= javascript_tag do %>
+ga('require', 'ecommerce', 'ecommerce.js');
+
+ga('ecommerce:addTransaction', {
+  'id': '<%= @order.number %>',
+  'affiliation': 'davines direct',
+  'revenue': '<%= @order.total_price %>',
+  'shipping': '<%= @order.postage %>',
+  'tax': '<%= @order.tax %>'
+});
+
+ <% @order.items.each do |item| %>
+ga('ecommerce:addItem', {
+  'id': '<%= @order.number %>',
+  'name': '<%= item.product.name %>',
+  'sku': '<%= item.product.refnum %>',
+  'category': '',
+  'price': '<%= item.price %>',
+  'quantity': '<%= item.amount %>'
+});
+<% end %>
+
+ga('ecommerce:send');
+<% end %>
+
