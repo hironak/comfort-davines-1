@@ -272,7 +272,7 @@ GEM
     rack (1.5.2)
     rack-cache (1.2)
       rack (>= 0.4)
-    rack-google-analytics (1.0.0)
+    rack-google-analytics (1.1.0)
       actionpack
       activesupport
     rack-test (0.6.2)
@@ -471,7 +471,7 @@ DEPENDENCIES
   pry-stack_explorer
   quiet_assets (~> 1.0.2)
   rack-cache
-  rack-google-analytics (~> 1.0.0)
+  rack-google-analytics (~> 1.1.0)
   rails (= 4.0.3)
   rails-i18n (~> 4.0.0)
   ranked-model
