@@ -8,10 +8,20 @@
 }
 
 .plusone {
-  background: image-url('products/plus1_bg.png') left top no-repeat;
-  height: 363px;
+  .plusone-header {
+    height:5px;
+    background: image-url('products/plus1_bg.png') left top no-repeat;
+  }
+  .plusone-footer {
+    height:5px;
+    background: image-url('products/plus1_bg.png') left bottom no-repeat;
+  }
+  .plusone-body {
+    background: image-url('products/plus1_bg-body.png') left top repeat-y;
+    min-height: 363px;
+    padding: 20px;
+  }
   margin-top: 15px;
-  padding: 20px;
   .image {
     @include span-columns(3 of 10);
     background: image-url('products/plus1.png') right top no-repeat;
