@@ -170,10 +170,10 @@
       }
       &.oioil-item {
         @extend %item;
-        border: 1px solid #000;
-        padding-top: 0px;
         @include span-columns(3 of 9);
         @include omega(3n);
+        background: image-url("catalog/oioil/itembg_oi.png") left top no-repeat;
+        height: 550px;
       }
       .fukidashi {
         padding: 0 15px;
