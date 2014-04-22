@@ -6,8 +6,6 @@
         - @product.errors.full_messages.each do |message|
           li = message
 
-  = hidden_field_tag :confirm, true
-
   .field
     = f.label :name
     = f.text_field :name
