@@ -36,7 +36,7 @@
   .lineup
     h2 = image_tag 'welcome/lineup_line.png', alt: 'ラインナップ'
     p.up
-      = link_to catalog_path(action: :category, id: :oioil) do
+      = link_to catalog_path(action: :series, id: :oioil) do
         = image_tag 'welcome/bnr01.png'
       = link_to catalog_path(action: :series, id: :moreinside) do
         = image_tag 'welcome/bnr02.png'
@@ -45,7 +45,7 @@
         = image_tag 'welcome/bnr03.png'
       = link_to catalog_path(action: :series, id: :authentic) do
         = image_tag 'welcome/bnr04.png'
-      = link_to catalog_path(action: :series, id: :kit) do
+      = link_to catalog_path(action: :category, id: :kit) do
         = image_tag 'welcome/bnr05.png'
   .topics
     h2 = image_tag 'welcome/topics_line.png', aly: 'TOPICS'
