@@ -2,7 +2,7 @@ module Administration
   class ProductsController < BaseController
     authorize_actions_for FileStorage
 
-    confirmation! :product
+    # confirmation! :product
 
     before_action :set_product, only: [:show, :edit, :update, :destroy]
 
