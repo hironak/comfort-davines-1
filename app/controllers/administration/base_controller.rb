@@ -28,11 +28,10 @@ module Administration
       if params[:confirm] && resource.confirmable?
         session[:confirmation] ||= {}
         session[:confirmation][@@resource_name] = base64_encode(resource_params)
-        Rails.logger.debug session[:confirmation][@@resource_name]
         render "confirm" and return false
       end
       if session[:confirmation] && session[@@resource_name]
-        params[@@resource_name] = base64_decode(session[:confirmation][@@resource_name])
+        params.merge!(@@resource_name => base64_decode(session[:confirmation][@@resource_name]))
       end
     end
 
