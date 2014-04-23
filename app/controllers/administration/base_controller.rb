@@ -32,7 +32,7 @@ module Administration
       end
       if session[:confirmation] && session[:confirmation][@@resource_name]
         self.params = (params || {}).merge(@@resource_name => base64_decode(session[:confirmation][@@resource_name]))
-        session[:confirmation] = nil
+        session.delete(:confirmation)
       end
     end
 
