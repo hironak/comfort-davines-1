@@ -31,7 +31,8 @@ module Administration
         render "confirm" and return false
       end
       if session[:confirmation] && session[:confirmation][@@resource_name]
-        params = params.merge(@@resource_name => base64_decode(session[:confirmation][@@resource_name]))
+        self.params = (params || {}).merge(@@resource_name => base64_decode(session[:confirmation][@@resource_name]))
+        Rails.logger.debug params
       end
     end
 
