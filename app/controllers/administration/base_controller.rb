@@ -1,3 +1,5 @@
+require "base64"
+
 module Administration
   class BaseController < ApplicationController
     protect_from_forgery with: :exception
@@ -7,6 +9,9 @@ module Administration
     before_filter :require_login
 
     helper_method :current_administrator
+
+    helper_method :resource_name
+    helper_method :resource
 
     def current_ability
       @current_ability ||= AdministratorAbility.new(current_administrator)
@@ -20,30 +25,54 @@ module Administration
     end
 
     def confirmation!
-      if params[:confirm] && resource(resource_params).confirmable?
+      if params[:confirm] && resource.confirmable?
+        session[:confirmation] ||= {}
+        session[:confirmation][@@resource_name] = base64_encode(resource_params)
+        Rails.logger.debug session[:confirmation][@@resource_name]
         render "confirm" and return false
       end
+      if session[:confirmation] && session[@@resource_name]
+        params[@@resource_name] = base64_decode(session[:confirmation][@@resource_name])
+      end
+    end
+
+    def base64_encode hash
+      ::Hash.new.tap do |new_hash|
+        hash.each do |key, val|
+          new_hash[key] =
+            case val
+            when ::ActionDispatch::Http::UploadedFile
+              "exdata:#{val.content_type};#{val.original_filename};#{Base64.encode64(val.tempfile.read)}"
+            when ::Hash
+              base64_encode val
+            else
+              val
+            end
+        end
+      end
+    end
+
+    def base64_decode hash
+      hash
     end
 
     def resource_params
-      if respond_to? "#{@@resource_name}_params"
-        send "#{@@resource_name}_params"
-      else
-        params[@@resource_name]
-      end
+      send "#{@@resource_name}_params"
     end
 
-    def resource(params = nil)
-      resource =
+    def resource
+      @@resource ||= (
         if klass = @@resource_name.capitalize.constantize
           if params[:id]
             klass.find(params[:id])
           else
             klass.new
           end
+      end
+      ).tap do |resource|
+        if params = resource_params
+          resource.attributes =  params
         end
-      resource.tap do |resource|
-        resource = params if params
       end
     end
 

@@ -2,9 +2,9 @@ module Administration
   class ProductsController < BaseController
     authorize_actions_for FileStorage
 
-    before_action :set_product, only: [:show, :edit, :update, :destroy]
-
     confirmation! :product
+
+    before_action :set_product, only: [:show, :edit, :update, :destroy]
 
     # GET /products
     # GET /products.json

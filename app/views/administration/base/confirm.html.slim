@@ -1,6 +1,5 @@
-h1 商品情報の確認
-
-.products = render 'product', :@product => resource
+h1 Confirm
 
 = form_for [:admin, @product], html: { class: 'easy-form', multipart: true } do |f|
   .actions = f.submit '保存'
+
