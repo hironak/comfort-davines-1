@@ -31,7 +31,7 @@ module Administration
         render "confirm" and return false
       end
       if session[:confirmation] && session[@@resource_name]
-        params.merge!(@@resource_name => base64_decode(session[:confirmation][@@resource_name]))
+        params = params.merge(@@resource_name => base64_decode(session[:confirmation][@@resource_name]))
       end
     end
 
