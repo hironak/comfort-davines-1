@@ -28,6 +28,8 @@ class Product < ActiveRecord::Base
   scope :new_items, -> { available.where(new_item: true).limit(3) }
   scope :ranking, -> { available.order(ranking: :desc).limit(3) }
 
+  serialize :recommendation_ids
+
   after_initialize :set_default_values
   def set_default_values
     self.backmargin_salon ||= 30
@@ -79,7 +81,11 @@ class Product < ActiveRecord::Base
   end
 
   def recommendations
-    Product.available.limit(4).load
+    if self.recommendation_ids
+      Product.find(self.recommendation_ids)
+    else
+      Product.available.limit(4).load
+    end
   end
 
   def showable?
