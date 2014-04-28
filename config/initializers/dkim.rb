@@ -1,4 +1,6 @@
-if Rails.env.production? && File.exist?('/etc/postfix/dkim.key')
+if Rails.env.production?
+  && File.exist?('/etc/postfix/dkim.key')
+  && File.readable?('/etc/postfix/dkim.key')
   # Configure dkim globally (see above)
   Dkim::domain      = ENV['HOSTNAME'] || 'davines.co.jp'
   Dkim::selector    = 'mail'
