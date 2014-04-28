@@ -65,6 +65,8 @@ html
       = yield :content_header
       .container.maincontent
         = yield
+        .secured-seal
+          script type="text/javascript" src="https://seal.verisign.com/getseal?host_name=davines.co.jp&amp;size=L&amp;use_flash=NO&amp;use_transparent=YES&amp;lang=ja"
 
       .container
         .totop

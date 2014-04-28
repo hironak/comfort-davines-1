@@ -135,6 +135,7 @@
   }
   .side {
     @include span-columns(3 of 12);
+    @include omega(2);
     .series,
     .category,
     .solution {
@@ -200,11 +201,6 @@
           }
         }
       }
-    }
-    .securead-seal {
-      border: 3px solid #dbdbdb;
-      background-color: #ffffff;
-      text-align: center;
     }
   }
 
@@ -373,6 +369,16 @@
       img {
       }
     }
+  }
+  .secured-seal {
+    @include span-columns(3 of 12);
+    @include shift(9);
+    border: 3px solid #dbdbdb;
+    background-color: #ffffff;
+    text-align: center;
+    height: 100px;
+    margin-top: -100px;
+    margin-bottom: 20px;
   }
 }
 
