@@ -136,6 +136,7 @@
   .side {
     @include span-columns(3 of 12);
     @include omega(2);
+    margin-bottom: 100px;
     .series,
     .category,
     .solution {
