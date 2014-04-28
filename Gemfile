@@ -64,6 +64,9 @@ gem 'jbuilder', '~> 1.2'
 # Use Slim for html
 gem 'slim-rails'
 
+# Use Dkim for mail
+gem 'dkim'
+
 # Auth for Consumer
 gem 'devise'
 gem 'devise-i18n'
