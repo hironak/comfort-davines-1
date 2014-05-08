@@ -3,6 +3,13 @@ h1 注文一覧
 = form_tag admin_orders_path, method: :get do
   = select_tag 'status', options_for_select({'すべて' => nil}.merge(Order::LISTABLE_STATUSES), params[:status])
   = select_tag 'payment_type', options_for_select({'すべて' => nil}.merge(Payment::TYPES), params[:payment_type])
+  br
+  = hidden_field_tag 'date_search', 0
+  = check_box_tag 'date_search', 1, params[:date_search] == '1'
+  | 期間で絞り込み
+  = date_field_tag 'start_at', params[:start_at]
+  = date_field_tag 'end_at', params[:end_at]
+  br
   = submit_tag '絞り込み'
 
 p
