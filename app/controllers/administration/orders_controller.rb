@@ -11,10 +11,16 @@ module Administration
     def index
       params[:payment_type] = 'Payment::Deferred' if params[:output] == 'NP'
       @orders = Order.where.not(created_at: nil, status: :cashier).order(created_at: :desc)
+      arel = []
       if params[:status].present?
-        @orders = @orders.where(status: params[:status])
+        arel << Order.arel_table[:status].eq(params[:status])
       end
-      @orders = @orders.where(payment_type: params[:payment_type]) unless params[:payment_type].blank?
+      if params[:date_search] == '1' && params[:start_at] && params[:end_at]
+        arel << Order.arel_table[:created_at].gteq(params[:start_at])
+        arel << Order.arel_table[:created_at].lteq(params[:end_at])
+      end
+      arel << Order.arel_table[:payment_type].eq(params[:payment_type]) unless params[:payment_type].blank?
+      @orders = @orders.where(arel.inject(:and)) unless arel.empty?
       respond_to do |format|
         format.html { @orders = @orders.page(params[:page]) }
         format.csv do
