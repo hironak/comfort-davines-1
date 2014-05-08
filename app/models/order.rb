@@ -78,6 +78,8 @@ class Order < ActiveRecord::Base
   validates :delivery_date, inclusion: { in: -> order { (4.day.since.to_date...1.month.since.to_date).map{|d| I18n.l(d) } }, allow_blank: true }, on: :create, if: :phase_confirm?
   validates :delivery_time, inclusion: { in: DELIVERY_TIMES.values }, if: :phase_confirm?
 
+  before_save :notify_shipped
+
   def number
     "DD#{"%010d" % self.id}"
   end
@@ -243,6 +245,12 @@ class Order < ActiveRecord::Base
   end
 
   private
+
+  def notify_shipped
+    if self.changed.include?('status') && self.status.to_sym == :shipped
+      OrderMailer.shipped(self.consumer.email, self).deliver
+    end
+  end
 
   def set_options
     unless self.finalized?
