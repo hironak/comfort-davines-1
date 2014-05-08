@@ -17,6 +17,8 @@ p.message
 
 == render 'affiliate'
 == render 'ga_ec' if Rails.env.production?
+== render 'yahoo_conversion'
+
 p.actions = link_to root_path do
   = image_tag "cashier/back_toppage.jpg", alt: "TOPページへ戻る"
 
