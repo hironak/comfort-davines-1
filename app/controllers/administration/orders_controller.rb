@@ -40,7 +40,7 @@ module Administration
 
     def update_status
       orders = Order.where(id: params[:order_ids])
-      orders.update_all status: params[:status]
+      orders.each {|r| r.update status: params[:status] }
       redirect_to admin_orders_path
     end
 
