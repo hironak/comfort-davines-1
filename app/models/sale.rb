@@ -39,7 +39,9 @@ class Sale
     params[:sort] ||= "amount"
     order_items = OrderItem.totaling
     if params[:date_search] == '1' && params[:start_at] && params[:end_at]
-      order_items = order_items.of_days(Date.parse(params[:start_at]), Date.parse(params[:end_at]))
+      start_at = params[:start_at].is_a?(String) ? Date.new(*params[:start_at].split(/[^\d]/).map(&:to_i)) : params[:start_at]
+      end_at   = params[:end_at]  .is_a?(String) ? Date.new(*params[:end_at]  .split(/[^\d]/).map(&:to_i)) : params[:end_at]
+      order_items = order_items.of_days(start_at, end_at)
     end
     Product.all.map do |product|
       self.new(product.admin_name, order_items.where(product_id: product.id))
