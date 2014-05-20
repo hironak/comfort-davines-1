@@ -13,9 +13,9 @@ h1 注文一覧
   = submit_tag '絞り込み'
 
 p
-  = link_to "CSV ダウンロード", params.merge(format: :csv)
+  = link_to "CSV ダウンロード", status: params[:status], payment_type: params[:payment_type], format: :csv
   ' /
-  = link_to "CSV NP後払い", params.merge(format: :csv)
+  = link_to "CSV NP後払い", status: params[:status], payment_type: params[:payment_type], output: 'NP', format: :csv
 
 = form_tag update_status_admin_orders_path, method: :post do
   table
