@@ -11,6 +11,6 @@
             = simple_format review.body
             p.name = "(#{review.name}様)"
 
-- if @reviews.count > 3
+- if @reviews.count > 2
   p.voice_show = link_to '続きを見る', '#'
   p.voice_hide = link_to '閉じる', '#'
