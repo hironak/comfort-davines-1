@@ -127,6 +127,9 @@ group :development do
   # Quiet Assets Log
   gem 'quiet_assets', '~> 1.0.2'
 
+  # Spring
+  gem 'spring'
+
   # Guard
   gem 'ruby_gntp'
   gem 'guard'
