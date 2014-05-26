@@ -27,7 +27,7 @@ guard :unicorn, :config_file => "config/unicorn/development.rb", :port => nil, :
   watch(%r{^(config|lib)/.*})
 end
 
-guard :minitest do
+guard :minitest, spring: true do
   # with Minitest::Unit
   watch(%r{^test/(.*)\/?test_(.*)\.rb})
   watch(%r{^lib/(.*/)?([^/]+)\.rb})     { |m| "test/#{m[1]}test_#{m[2]}.rb" }
