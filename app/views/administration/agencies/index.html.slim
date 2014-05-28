@@ -1,19 +1,15 @@
-h1 Listing agencies
+h1 代理店一覧
+
+p = link_to '新規追加', new_admin_agency_path
 
 table
   tr
-    th Name
-    th
+    th 名称
     th
     th
 
   - @agencies.each do |agency|
     tr
       td = agency.name
-      td = link_to 'Show', [:admin, agency]
-      td = link_to 'Edit', edit_admin_agency_path(agency)
-      td = link_to 'Destroy', [:admin, agency], data: {:confirm => 'Are you sure?'}, :method => :delete
-
-br
-
-= link_to 'New Agency', new_admin_agency_path
+      td = link_to '詳細', [:admin, agency]
+      td = link_to '編集', edit_admin_agency_path(agency)
