@@ -13,6 +13,8 @@ class Agency < ActiveRecord::Base
   has_many :orders, through: :salons
   attr_accessor :salon_csv
 
+  has_many :margins
+
   validates :name, presence: true
 
   after_initialize :set_defaults

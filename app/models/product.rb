@@ -21,6 +21,8 @@ class Product < ActiveRecord::Base
 
   has_many :reviews
 
+  has_many :margins
+
   scope :available, -> { where(sample: false) }
   scope :stocked, -> { where('stock > 0') }
   scope :sample, -> { where(sample: true) }
