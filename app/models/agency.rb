@@ -16,6 +16,8 @@ class Agency < ActiveRecord::Base
   has_many :margins
 
   validates :name, presence: true
+  validates :backmargin_agency, presence: true
+  validates :backmargin_salon, presence: true
 
   after_initialize :set_defaults
 

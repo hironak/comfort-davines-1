@@ -10,7 +10,23 @@
     = f.label :name
     = f.text_field :name
 
+  .field
+    = f.label :backmargin_agency
+    = f.text_field :backmargin_agency
+
+  .field
+    = f.label :backmargin_salon
+    = f.text_field :backmargin_salon
+
+  h2 サロン管理
+
+  .field
+    = f.label :salon_csv
+    = f.file_field :salon_csv
+
   = f.fields_for :administrator do |f|
+
+    h2 アカウント設定
 
     .field
       = f.label :username
@@ -23,9 +39,5 @@
     .field
       = f.label :password_confirmation
       = f.text_field :password_confirmation
-
-  .field
-    = f.label :salon_csv
-    = f.file_field :salon_csv
 
   .actions = f.submit 'Save'

@@ -4,12 +4,16 @@ p = link_to '新規追加', new_admin_agency_path
 
 table
   tr
-    th 名称
-    th
-    th
+    th.w30 = Agency.human_attribute_name :name
+    th.w20 = Agency.human_attribute_name :backmargin_agency
+    th.w20 = Agency.human_attribute_name :backmargin_salon
+    th.w10
+    th.w10
 
   - @agencies.each do |agency|
     tr
-      td = agency.name
-      td = link_to '詳細', [:admin, agency]
-      td = link_to '編集', edit_admin_agency_path(agency)
+      td.w30 = agency.name
+      td.w20 = agency.backmargin_agency
+      td.w20 = agency.backmargin_salon
+      td.w10 = link_to '詳細', [:admin, agency]
+      td.w10 = link_to '編集', edit_admin_agency_path(agency)
