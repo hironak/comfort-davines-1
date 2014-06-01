@@ -1,6 +1,6 @@
 require "test_helper"
 
-class MarginTest < ActiveSupport::TestCase
+class ProductMarginTest < ActiveSupport::TestCase
   test "margin agency" do
     agency = create :agency
   end

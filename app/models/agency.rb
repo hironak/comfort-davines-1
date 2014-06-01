@@ -13,7 +13,7 @@ class Agency < ActiveRecord::Base
   has_many :orders, through: :salons
   attr_accessor :salon_csv
 
-  has_many :margins
+  has_many :product_margins
 
   validates :name, presence: true
   validates :backmargin_agency, presence: true

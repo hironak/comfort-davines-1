@@ -129,9 +129,7 @@ class Order < ActiveRecord::Base
       self.items.build(
         product_id: item.product.id,
         amount: item.amount,
-        origin_price: item.product.price,
-        backmargin_salon: item.product.backmargin_salon,
-        backmargin_agency: item.product.backmargin_agency
+        origin_price: item.product.price
       )
     end
   end
