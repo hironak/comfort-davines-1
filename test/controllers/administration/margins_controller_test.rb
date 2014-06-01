@@ -3,6 +3,7 @@ require "test_helper"
 class Administration::MarginsControllerTest < ActionController::TestCase
 
   before do
+    login_user create(:administrator)
     @agency = create :agency
   end
 
