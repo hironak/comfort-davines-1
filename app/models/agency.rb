@@ -20,13 +20,7 @@ class Agency < ActiveRecord::Base
   validates :backmargin_agency, presence: true
   validates :backmargin_salon, presence: true
 
-  after_initialize :set_defaults
-
   before_save :save_salons_from_csv
-
-  def set_defaults
-    build_administrator unless administrator
-  end
 
   def build_backmargins
     Product.available.each do |product|
