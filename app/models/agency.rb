@@ -14,6 +14,7 @@ class Agency < ActiveRecord::Base
   attr_accessor :salon_csv
 
   has_many :product_margins
+  accepts_nested_attributes_for :product_margins
 
   validates :name, presence: true
   validates :backmargin_agency, presence: true
@@ -25,6 +26,14 @@ class Agency < ActiveRecord::Base
 
   def set_defaults
     build_administrator unless administrator
+  end
+
+  def build_backmargins
+    Product.available.each do |product|
+      unless self.product_margins.map(&:product).include? product
+        self.product_margins << ProductMargin.new(product: product, backmargin_agency: self.backmargin_agency, backmargin_salon: self.backmargin_salon)
+      end
+    end
   end
 
   private

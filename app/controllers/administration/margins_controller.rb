@@ -15,6 +15,7 @@ module Administration
 
     # GET /administration/margins/1/edit
     def edit
+      @agency.build_backmargins
     end
 
     # PATCH/PUT /administration/margins/1
