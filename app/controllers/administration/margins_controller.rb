@@ -40,7 +40,16 @@ module Administration
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def agency_params
-      params[:agency]
+      params
+        .require(:agency)
+        .permit(
+          product_margins_attributes: [
+            :id,
+            :product_id,
+            :backmargin_agency,
+            :backmargin_salon
+          ]
+      )
     end
   end
 end

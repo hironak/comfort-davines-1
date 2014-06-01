@@ -15,6 +15,7 @@
 
     tbody
       = f.fields_for :product_margins do |f|
+        = f.hidden_field :product_id
         tr
           td = f.object.name
           td = f.text_field :backmargin_agency

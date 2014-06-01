@@ -31,7 +31,10 @@ class Agency < ActiveRecord::Base
   def build_backmargins
     Product.available.each do |product|
       unless self.product_margins.map(&:product).include? product
-        self.product_margins << ProductMargin.new(product: product, backmargin_agency: self.backmargin_agency, backmargin_salon: self.backmargin_salon)
+        self.product_margins << ProductMargin.new(
+          product: product,
+          backmargin_agency: self.backmargin_agency,
+          backmargin_salon: self.backmargin_salon)
       end
     end
   end
