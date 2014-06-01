@@ -16,7 +16,17 @@ class OrderItem < ActiveRecord::Base
 
   def backmargin(type)
     return 0 unless self.send("backmargin_#{type}").present?
-    (price.to_f * (self.send("backmargin_#{type}").to_f / 100)).to_i
+    if self.send("backmargin_#{type}").present?
+      (price.to_f * (self.send("backmargin_#{type}").to_f / 100)).to_i
+    elsif self.order.salon.present? && self.order.salon.agency.present?
+      if margin = ProductMargin.find_by(product_id: self.product_id, agency_id: self.order.salon.agency.id)
+        (price.to_f * (margin.send("backmargin_#{type}").to_f / 100)).to_i
+      else
+        0
+      end
+    else
+      0
+    end
   end
 
   def tax_rate
