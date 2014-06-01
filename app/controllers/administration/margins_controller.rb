@@ -22,7 +22,7 @@ module Administration
     def update
       respond_to do |format|
         if @agency.update(agency_params)
-          format.html { redirect_to margin_url(@agency), notice: 'Margin was successfully updated.' }
+          format.html { redirect_to admin_margin_url(@agency), notice: 'Margin was successfully updated.' }
           format.json { head :no_content }
         else
           format.html { render action: 'edit' }

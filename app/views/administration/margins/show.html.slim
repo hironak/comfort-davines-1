@@ -1,3 +1,18 @@
+h1 = "#{@agency.name} マージン一覧"
+
+
+
+table
+  tr
+    td 初期値
+    td = @agency.backmargin_agency
+    td = @agency.backmargin_salon
+  - @agency.product_margins.each do |margin|
+    tr
+      td = margin.name
+      td = margin.backmargin_agency
+      td = margin.backmargin_salon
+
 
 = link_to 'Edit', edit_admin_margin_path(@agency)
 '|

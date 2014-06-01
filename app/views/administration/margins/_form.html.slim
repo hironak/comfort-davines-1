@@ -6,4 +6,13 @@
         - @agency.errors.full_messages.each do |message|
           li = message
 
+  = f.fields_for :product_margins do |f|
+    .field
+      = f.label :backmargin_agency
+      = f.text_field :backmargin_agency
+
+    .field
+      = f.label :backmargin_salon
+      = f.text_field :backmargin_salon
+
   .actions = f.submit 'Save'
