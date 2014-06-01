@@ -80,6 +80,10 @@ class Order < ActiveRecord::Base
 
   before_save :notify_shipped
 
+  def agency
+    self.salon.try :agency
+  end
+
   def number
     "DD#{"%010d" % self.id}"
   end
