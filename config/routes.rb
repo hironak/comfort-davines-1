@@ -168,6 +168,9 @@ Commers::Application.routes.draw do
     # 代理店管理
     resources :agencies
 
+    # マージン管理
+    resources :margins, only: [:index, :show, :edit, :update]
+
     # サロン管理
     resources :salons
 

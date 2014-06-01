@@ -1,0 +1,14 @@
+h1 マージン管理
+
+table
+  tr
+    th
+    th
+    th
+
+  - @agencies.each do |agency|
+    tr
+      td = agency.name
+      td = link_to 'Show', admin_margin_path(agency)
+      td = link_to 'Edit', edit_admin_margin_path(agency)
+

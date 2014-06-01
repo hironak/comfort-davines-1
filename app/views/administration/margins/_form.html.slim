@@ -1,0 +1,9 @@
+= form_for @agency, url: admin_margin_path(@agency) do |f|
+  - if @agency.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@agency.errors.count, "error")} prohibited this administration_margin from being saved:"
+      ul
+        - @agency.errors.full_messages.each do |message|
+          li = message
+
+  .actions = f.submit 'Save'
