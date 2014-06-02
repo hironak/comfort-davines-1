@@ -10,7 +10,25 @@
     = f.label :name
     = f.text_field :name
 
-  = f.fields_for :administrator do |f|
+  .field
+    = f.label :backmargin_agency
+    = f.text_field :backmargin_agency
+
+  .field
+    = f.label :backmargin_salon
+    = f.text_field :backmargin_salon
+
+  - unless @agency.persisted?
+
+    h2 サロン管理
+
+    .field
+      = f.label :salon_csv
+      = f.file_field :salon_csv
+
+  = f.fields_for :administrator, (f.object.administrator || Administrator.new) do |f|
+
+    h2 アカウント設定
 
     .field
       = f.label :username
@@ -23,14 +41,5 @@
     .field
       = f.label :password_confirmation
       = f.text_field :password_confirmation
-
-  .field
-    = f.label :salons
-    = text_field_tag :salon_select, "", id: 'salon_select'
-    ul.salons
-      - @agency.salons.each do |salon|
-        li
-          = hidden_field_tag "agency[salon_ids][]", salon.id
-          span = salon.name
 
   .actions = f.submit 'Save'

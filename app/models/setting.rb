@@ -11,7 +11,7 @@ class Setting < ActiveRecord::Base
   end
 
   def self.default_params
-    { tax_percentage: 5 }
+    { tax_percentage: 8 }
   end
 
   def tax_rate

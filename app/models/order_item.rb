@@ -15,8 +15,25 @@ class OrderItem < ActiveRecord::Base
   scope :join_orders, -> { joins(:order).merge(Order.totaling) }
 
   def backmargin(type)
-    return 0 unless self.send("backmargin_#{type}").present?
-    (price.to_f * (self.send("backmargin_#{type}").to_f / 100)).to_i
+    return computed_margin send("backmargin_#{type}") if send("backmargin_#{type}").present?
+    return computed_margin search_product_margin(type) if self.order.agency
+    return 0
+  end
+
+  def search_product_margin(type)
+    if margin = ProductMargin.find_by(product_id: self.product_id, agency_id: self.order.agency.id)
+      margin.send("backmargin_#{type}")
+    else
+      search_origiin_margin(type)
+    end
+  end
+
+  def search_origiin_margin(type)
+    self.order.agency.send("backmargin_#{type}").to_i
+  end
+
+  def computed_margin(margin)
+    (self.price.to_f * (margin.to_f / 100)).to_i
   end
 
   def tax_rate

@@ -21,6 +21,8 @@ class Product < ActiveRecord::Base
 
   has_many :reviews
 
+  has_many :margins, class_name: 'ProductMargin'
+
   scope :available, -> { where(sample: false) }
   scope :stocked, -> { where('stock > 0') }
   scope :sample, -> { where(sample: true) }
@@ -98,6 +100,12 @@ class Product < ActiveRecord::Base
 
   def label_simple
     self.label.gsub(/[＊\*]\d/, '')
+  end
+
+  def backmargin_agency
+  end
+
+  def backmargin_salon
   end
 
   class DecreasingError < ActiveRecord::ActiveRecordError

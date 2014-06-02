@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140423001934) do
+ActiveRecord::Schema.define(version: 20140601063136) do
 
   create_table "administrators", force: true do |t|
     t.string   "username",          null: false
@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 20140423001934) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "backmargin_agency"
+    t.integer  "backmargin_salon"
   end
 
   create_table "agencies_salons", force: true do |t|
@@ -218,6 +220,18 @@ ActiveRecord::Schema.define(version: 20140423001934) do
     t.datetime "image_updated_at"
     t.integer  "row_order"
   end
+
+  create_table "product_margins", force: true do |t|
+    t.integer  "product_id"
+    t.integer  "agency_id"
+    t.integer  "backmargin_salon"
+    t.integer  "backmargin_agency"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "product_margins", ["agency_id"], name: "index_product_margins_on_agency_id", using: :btree
+  add_index "product_margins", ["product_id"], name: "index_product_margins_on_product_id", using: :btree
 
   create_table "product_photos", force: true do |t|
     t.string   "image_file_name"
