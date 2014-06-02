@@ -6,6 +6,7 @@ module Informationable
     self.jp_prefecture :prefecture_code
 
     before_validation :normalize_postalcode
+    before_validation :normalize_phone
 
     validates :family_name, presence: true
     validates :family_name_kana, presence: true
@@ -39,5 +40,12 @@ module Informationable
 
   def normalize_postalcode
     self.postalcode.gsub!(/-/, '') if self.postalcode
+  end
+
+  def normalize_phone
+    if self.phone
+      self.phone.gsub!(/[ー−−]/, '-')
+      self.phone.tr!('０-９', '0-9')
+    end
   end
 end
