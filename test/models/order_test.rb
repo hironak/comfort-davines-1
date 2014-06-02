@@ -34,7 +34,7 @@ class OrderTest < ActiveSupport::TestCase
 
   test "margins" do
     agency = create :agency, backmargin_agency: 30, backmargin_salon: 30
-    salon = create :salon, agencies: [agency]
+    salon = create :salon, agency: agency
 
     @order.extend_items @cart
     @order.salon = salon

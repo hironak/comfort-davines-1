@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140601063136) do
+ActiveRecord::Schema.define(version: 20140602104246) do
 
   create_table "administrators", force: true do |t|
     t.string   "username",          null: false
@@ -32,14 +32,6 @@ ActiveRecord::Schema.define(version: 20140601063136) do
     t.integer  "backmargin_agency"
     t.integer  "backmargin_salon"
   end
-
-  create_table "agencies_salons", force: true do |t|
-    t.integer "agency_id"
-    t.integer "salon_id"
-  end
-
-  add_index "agencies_salons", ["agency_id"], name: "index_agencies_salons_on_agency_id", using: :btree
-  add_index "agencies_salons", ["salon_id"], name: "index_agencies_salons_on_salon_id", using: :btree
 
   create_table "cart_items", force: true do |t|
     t.integer  "amount"
@@ -333,6 +325,7 @@ ActiveRecord::Schema.define(version: 20140601063136) do
     t.text     "address"
     t.string   "tel"
     t.text     "name_kana"
+    t.integer  "agency_id"
   end
 
   create_table "serieses", force: true do |t|
