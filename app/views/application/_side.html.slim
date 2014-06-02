@@ -1,3 +1,9 @@
+.bigbottle
+  = link_to catalog_path(action: :series, id: :bigbottle) do
+    span.special special
+    br
+    | ビッグボトル
+
 .series
   h3 ライン別
   - Series.available_show.includes(:products).each do |series|

@@ -226,11 +226,8 @@
         @include span-columns(3 of 9);
         @include omega(3n);
         padding-top: 0;
-        height: 550px;
+        height: 435px;
         background: none;
-        .image {
-          height: 40%;
-        }
         .name,
         .label,
         .detail,

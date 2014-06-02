@@ -16,6 +16,15 @@
 // Site default
 @import "scaffolds";
 
+@include keyframes(blink) {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 // ----------------------------------------
 // Basic Frames
 // ----------------------------------------
@@ -137,6 +146,22 @@
     @include span-columns(3 of 12);
     @include omega(2);
     margin-bottom: 100px;
+    .bigbottle {
+      margin-bottom: $base-line-height;
+      a {
+        text-align: center;
+        display: block;
+        font-weight: bold;
+        background: #b4d6cb;
+        color: black;
+        font-size: $base-font-size * 0.8;
+        padding: $base-line-height * 0.5;
+        .special {
+          color: red;
+          @include animation(blink 0.5s linear 0s infinite alternate);
+        }
+      }
+    }
     .series,
     .category,
     .solution {
