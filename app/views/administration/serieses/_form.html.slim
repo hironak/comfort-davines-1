@@ -11,7 +11,12 @@
     = f.text_field :name
 
   .field
+    = f.label :identify
+    = f.text_field :identify
+
+  .field
     = f.label :show_on do
       = f.check_box :show_on
       = Series.human_attribute_name :show_on
+
   .actions = f.submit 'Save'

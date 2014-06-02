@@ -1,6 +1,6 @@
 .series
   h3 ライン別
-  - Series.includes(:products).each do |series|
+  - Series.available_show.includes(:products).each do |series|
     h4 = link_to series.name, catalog_path(action: :series, id: series.identify)
     ul
       - series.products.available.each do |product|

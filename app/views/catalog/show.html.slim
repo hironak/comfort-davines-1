@@ -1,6 +1,7 @@
 - if @catalog.identify == 'kit'
   = content_for :content_header do
     .catalog-header.travelkit
+- elsif @catalog.identify == 'bigbottle'
 - else
   = content_for :content_header do
     .catalog-header
@@ -14,10 +15,13 @@
       li = link_to "すべて", { category: nil }, class: (params[:category].nil? && "active")
       - (@catalog.identify == 'naturaltech' ? @catalog.categories : @catalog.categories.where(hidden: true)).load.each do |category|
         li = link_to category.name, { category: category.identify }, class: ((params[:category] == category.identify) && 'active')
+  - elsif @catalog.identify == 'bigbottle'
+    .bigbottle-header
+      = image_tag "catalog/header_bigbottle.jpg"
   - else
     .spacing
 
-  div class = "#{action_name}-items"
+  div class = "#{action_name}-items #{@catalog.identify}"
     = render partial: "product_#{@catalog.identify}", collection: @products, as: :product
 
   .catalog-page
