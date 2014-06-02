@@ -190,6 +190,10 @@
         height: 550px;
       }
       &.bigbottle-item {
+        @extend %item;
+        @include span-columns(3 of 9);
+        @include omega(3n);
+        height: 550px;
         background: none;
       }
       .fukidashi {
