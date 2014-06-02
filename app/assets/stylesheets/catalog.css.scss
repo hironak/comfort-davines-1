@@ -13,6 +13,14 @@
     text-align: center;
   }
 
+  .bigbottle-header {
+    margin: 0;
+    padding: 0;
+    img {
+      display: block;
+    }
+  }
+
   .spacing {
     height: 29px;
   }
@@ -105,6 +113,12 @@
   .series-items,
   .category-items {
     @include clearfix;
+    &.bigbottle {
+      background: image-url('catalog/bg_bigbottle.jpg') left top no-repeat;
+      height: 1492px;
+      margin-bottom: 70px;
+      padding: 0 60px;
+    }
     .item {
       padding-top: 60px;
       margin-bottom: 20px - 6px;
@@ -174,6 +188,13 @@
         @include omega(3n);
         background: image-url("catalog/oioil/itembg_oi.png") left top no-repeat;
         height: 550px;
+      }
+      &.bigbottle-item {
+        @extend %item;
+        @include span-columns(3 of 9);
+        @include omega(3n);
+        height: 550px;
+        background: none;
       }
       .fukidashi {
         padding: 0 15px;

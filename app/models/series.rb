@@ -4,6 +4,8 @@ class Series < ActiveRecord::Base
 
   has_and_belongs_to_many :products
 
+  scope :available_show, -> { where(show_on: true) }
+
   has_many :categories, -> { uniq }, through: :products
   has_many :solutions, -> { uniq }, through: :products
 

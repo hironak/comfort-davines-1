@@ -80,7 +80,7 @@ html
             div
               h4 PRODUCTS
               ul
-                - Series.all.each do |series|
+                - Series.available_show.each do |series|
                   li = link_to series.name, catalog_path(action: :series, id: series.identify)
             div
               h4 = link_to "ショッピングガイド", utilization_path
