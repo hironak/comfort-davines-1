@@ -78,7 +78,7 @@ module Administration
           :name,
           :backmargin_agency,
           :backmargin_salon,
-          salon_ids: [],
+          :salon_csv,
           administrator_attributes: [
             :username,
             :password,
