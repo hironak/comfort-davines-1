@@ -9,9 +9,8 @@
   .price
     = number_to_currency product.view_price
     small = "(税込)"
-  p
-    = link_to product, class: 'todetail' do
+  .navigate
+    = link_to product do
       = image_tag 'catalog/big_syousai.gif', alt: '詳しく見る'
-    br
-    = link_to add_carts_path(product_id: product.id, amount: 1), method: :post, class: 'addcart' do
+    = link_to add_carts_path(product_id: product.id, amount: 1), method: :post do
       = image_tag 'catalog/big_cart.gif', alt: 'カートに入れる'
