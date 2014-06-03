@@ -23,7 +23,7 @@ jQuery ($)->
     current++
     current = 0 if slides.length <= current
     point_move current
-    $('.background').animate 'scrollLeft' : width() * current
+    $('.background').animate 'scrollLeft' : width() * current, 600
 
   resize = ->
     w = width()
@@ -35,7 +35,7 @@ jQuery ($)->
 
   resize()
 
-  $(window).on 'load', -> setInterval rotate, 3000
+  $(window).on 'load', -> setInterval rotate, 5000
 
 jQuery ($) ->
 

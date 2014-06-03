@@ -8,3 +8,6 @@ h2.belt class=(controller_name == 'products' && action_name == 'show' && 'blue')
     = image_tag 'mobile/welcome/lineup_nav3.jpg'
   = link_to catalog_path(action: :series, id: :moreinside) do
     = image_tag 'mobile/welcome/lineup_nav4.jpg'
+
+p = link_to catalog_path(action: :series, id: :bigbottle) do
+  = image_tag "mobile/welcome/bigbottle_bnr.jpg", alt: "ビッグボトル"
