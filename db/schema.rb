@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140423001934) do
+ActiveRecord::Schema.define(version: 20140602194010) do
 
   create_table "administrators", force: true do |t|
     t.string   "username",          null: false
@@ -272,6 +272,7 @@ ActiveRecord::Schema.define(version: 20140423001934) do
     t.text     "smart_detail"
     t.text     "annotation_mobile"
     t.text     "recommendation_ids"
+    t.boolean  "show_on",            default: true
   end
 
   add_index "products", ["page_id"], name: "index_products_on_page_id", using: :btree
@@ -331,6 +332,7 @@ ActiveRecord::Schema.define(version: 20140423001934) do
     t.datetime "topimage_updated_at"
     t.string   "identify"
     t.integer  "singleton_id"
+    t.boolean  "show_on",               default: true
   end
 
   add_index "serieses", ["singleton_id"], name: "index_serieses_on_singleton_id", using: :btree

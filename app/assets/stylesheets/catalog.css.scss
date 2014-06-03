@@ -13,6 +13,14 @@
     text-align: center;
   }
 
+  .bigbottle-header {
+    margin: 0;
+    padding: 0;
+    img {
+      display: block;
+    }
+  }
+
   .spacing {
     height: 29px;
   }
@@ -105,6 +113,12 @@
   .series-items,
   .category-items {
     @include clearfix;
+    &.bigbottle {
+      background: image-url('catalog/bg_bigbottle.jpg') left top no-repeat;
+      height: 1492px;
+      margin-bottom: 70px;
+      padding: 0 90px;
+    }
     .item {
       padding-top: 60px;
       margin-bottom: 20px - 6px;
@@ -205,6 +219,23 @@
           &.addcart {
             float: right;
           }
+        }
+      }
+      &.bigbottle-item {
+        @extend %item;
+        @include span-columns(3 of 9);
+        @include omega(3n);
+        padding-top: 0;
+        height: 435px;
+        background: none;
+        .name,
+        .label,
+        .detail,
+        .capacity,
+        .price,
+        .navigate {
+          margin: 0;
+          padding: 0;
         }
       }
     }
