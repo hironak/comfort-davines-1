@@ -1,5 +1,7 @@
 .flexslider.header
   ul.slides
+    li = link_to catalog_path(action: :category, id: :bigbottle) do
+      = image_tag "mobile/welcome/slider_6.jpg"
     li = link_to catalog_path(action: :category, id: :kit) do
       = image_tag "mobile/welcome/slider_1.jpg"
     li = link_to catalog_path(action: :series, id: :naturaltech) do

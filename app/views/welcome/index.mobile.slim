@@ -6,7 +6,7 @@ ul.products
   li = link_to "タイプ別",   "#", data: { show: :solutions }, class: "active"
 
 .products-items#series.hidden
-  - Series.includes(:products).each do |series|
+  - Series.available_show.includes(:products).each do |series|
     h4.accordion = series.name
     - series.products.available.each do |product|
       .product-item = link_to product do
@@ -58,6 +58,9 @@ p.center
     = image_tag 'mobile/welcome/attention.gif', alt: '並行輸入品について'
 
 = render 'lineup'
+
+p = link_to catalog_path(action: :series, id: :bigbottle) do
+  = image_tag "mobile/welcome/bigbottle_bnr.jpg", alt: "ビッグボトル"
 
 h2.belt メディア掲載情報
 = render 'media'
