@@ -158,7 +158,7 @@
       &.kit-item {
         @extend %item;
         @include span-columns(4.5 of 9);
-        @include omega(2);
+        @include omega(2n);
         .name {
           line-height: $base-line-height;
           height: $base-line-height;
