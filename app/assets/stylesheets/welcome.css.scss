@@ -35,7 +35,7 @@
         .slide {
           float: left;
           height: 356px;
-          @each $series in travelkit, naturaltech, authentic, oioil, moreinside, bigbottle {
+          @each $series in travelkit, naturaltech, authentic, oioil, moreinside, bigbottle, souryoumuryou {
             &.#{$series} {
               background: image-url('welcome/header_#{$series}.jpg') center center no-repeat;
             }
