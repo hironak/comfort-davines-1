@@ -5,4 +5,9 @@ p
   br
   = @setting.tax_percentage
 
+p
+  strong 送料無料
+  br
+  = @setting.tax_percentage ? 'ON' : 'OFF'
+
 = link_to '設定の変更', edit_admin_setting_path

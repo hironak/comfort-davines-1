@@ -27,7 +27,7 @@ module Administration
     end
 
     def setting_params
-      params.require(:setting).permit(:tax_percentage)
+      params.require(:setting).permit(:tax_percentage, :postage_free)
     end
   end
 end
