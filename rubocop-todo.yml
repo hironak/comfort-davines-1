@@ -29,9 +29,6 @@ EmptyLinesAroundAccessModifier:
 EmptyLinesAroundBody:
   Enabled: true
 
-FinalNewline:
-  Enabled: true
-
 HandleExceptions:
   Enabled: true
 
