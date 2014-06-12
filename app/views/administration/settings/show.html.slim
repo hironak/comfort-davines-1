@@ -8,6 +8,6 @@ p
 p
   strong 送料無料
   br
-  = @setting.tax_percentage ? 'ON' : 'OFF'
+  = @setting.postage_free ? 'ON' : 'OFF'
 
 = link_to '設定の変更', edit_admin_setting_path

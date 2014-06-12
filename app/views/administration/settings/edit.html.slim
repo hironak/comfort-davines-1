@@ -9,6 +9,6 @@ h1 Administration::Settings#edit
   .field
     = f.label :postage_free do
       = Setting.human_attribute_name :postage_free
-      = f.check_box :tax_percentage
+      = f.check_box :postage_free
 
   = f.submit 'Save'
