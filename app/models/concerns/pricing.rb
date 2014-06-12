@@ -13,13 +13,17 @@ module Pricing
 
   # 送料
   def compute_postage
-    if self.items_price >= 6000 * Setting.tax_rate
+    if Setting.postage_free
       0
     else
-      if self.respond_to?(:shipment) && self.shipment && self.shipment.postage_extra?
-        1000 * Setting.tax_rate
+      if self.items_price >= 6000 * Setting.tax_rate
+        0
       else
-        500 * Setting.tax_rate
+        if self.respond_to?(:shipment) && self.shipment && self.shipment.postage_extra?
+          1000 * Setting.tax_rate
+        else
+          500 * Setting.tax_rate
+        end
       end
     end
   end
