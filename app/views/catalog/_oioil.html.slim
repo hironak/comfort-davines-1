@@ -12,31 +12,31 @@ p = image_tag 'catalog/oioil/oi_landing02.png', alt: ''
   .steps
     .step.step1
       .product
-        = link_to '#' do
+        = link_to Product.find_or_initialize_by(id: 'オイ　シャンプー') do
           = image_tag 'catalog/oioil/oi_kounyu.png', alt: '商品を購入'
       .review
-        = link_to '#' do
+        = link_to Product.find_or_initialize_by(id: 'オイ　シャンプー') do
           = image_tag 'catalog/oioil/oi_syousai.png', alt: '商品詳細'
     .step.step2
       .product
-        = link_to '#' do
+        = link_to Product.find_or_initialize_by(id: 'オイ　コンディショナー') do
           = image_tag 'catalog/oioil/oi_kounyu.png', alt: '商品を購入'
       .review
-        = link_to '#' do
+        = link_to Product.find_or_initialize_by(id: 'オイ　コンディショナー') do
           = image_tag 'catalog/oioil/oi_syousai.png', alt: '商品詳細'
     .step.step3
       .product
-        = link_to '#' do
+        = link_to Product.find_or_initialize_by(id: 'オイ　ミルク') do
           = image_tag 'catalog/oioil/oi_kounyu.png', alt: '商品を購入'
       .review
-        = link_to '#' do
+        = link_to Product.find_or_initialize_by(id: 'オイ　ミルク') do
           = image_tag 'catalog/oioil/oi_syousai.png', alt: '商品詳細'
     .step.step4
       .product
-        = link_to '#' do
+        = link_to Product.find_or_initialize_by(id: 'オイ　オイル') do
           = image_tag 'catalog/oioil/oi_kounyu.png', alt: '商品を購入'
-        = link_to '#' do
+        = link_to Product.find_or_initialize_by(id: 'オイ　オイル　L') do
           = image_tag 'catalog/oioil/oi_kounyu.png', alt: '商品を購入'
       .review
-        = link_to '#' do
+        = link_to Product.find_or_initialize_by(id: 'オイ　オイル') do
           = image_tag 'catalog/oioil/oi_syousai.png', alt: '商品詳細'
