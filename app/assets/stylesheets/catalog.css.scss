@@ -252,3 +252,50 @@
     }
   }
 }
+
+.oioil-special {
+  position: relative;
+  height: 1780px;
+  margin-bottom: 30px;
+  .image {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+  }
+  .steps {
+    padding-top: 110px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    .step {
+      height: 383px;
+      margin-bottom: 30px;
+      padding: 0 15px;
+      .product {
+        padding-top: 333px;
+        width: 308px;
+        float: left;
+        text-align: center;
+        a {
+          display: inline-block;
+          margin: 0 10px;
+        }
+      }
+      .review {
+        padding-top: 333px;
+        width: 330px;
+        float: left;
+        text-align: right;
+      }
+      &.step4 {
+        height: 393px;
+        .product,
+        .review {
+          padding-top: 347px;
+        }
+      }
+    }
+  }
+}
