@@ -1,42 +1,6 @@
-/- if @catalog.identify == 'oioil'
-/  .pose = image_tag "catalog/category_oioil_txt.png", alt: ""
-/
-/- if @catalog.identify == 'oioil'
-/  - @catalog.products.available.each do |product|
-/    = render partial: 'product', locals: { :@product => product }
+- if @catalog.identify == 'oioil'
+  .pose = image_tag "catalog/category_oioil_txt.png", alt: ""
 
-p = image_tag 'catalog/oioil/oi_landing01.jpg', alt: ''
-p = image_tag 'catalog/oioil/oi_landing02.png', alt: ''
-.oioil-special
-  .image = image_tag 'catalog/oioil/oi_landing03.jpg', alt: ''
-  .steps
-    .step.step1
-      .product
-        = link_to Product.find('オイ-シャンプー') do
-          = image_tag 'catalog/oioil/oi_kounyu.png', alt: '商品を購入'
-      .review
-        = link_to Product.find('オイ-シャンプー') do
-          = image_tag 'catalog/oioil/oi_syousai.png', alt: '商品詳細'
-    .step.step2
-      .product
-        = link_to Product.find('オイ-コンディショナー') do
-          = image_tag 'catalog/oioil/oi_kounyu.png', alt: '商品を購入'
-      .review
-        = link_to Product.find('オイ-コンディショナー') do
-          = image_tag 'catalog/oioil/oi_syousai.png', alt: '商品詳細'
-    .step.step3
-      .product
-        = link_to Product.find('オイ-ミルク') do
-          = image_tag 'catalog/oioil/oi_kounyu.png', alt: '商品を購入'
-      .review
-        = link_to Product.find('オイ-ミルク') do
-          = image_tag 'catalog/oioil/oi_syousai.png', alt: '商品詳細'
-    .step.step4
-      .product
-        = link_to Product.find('オイ-オイル') do
-          = image_tag 'catalog/oioil/oi_kounyu.png', alt: '商品を購入'
-        = link_to Product.find('オイ-オイル-l') do
-          = image_tag 'catalog/oioil/oi_kounyu.png', alt: '商品を購入'
-      .review
-        = link_to Product.find('オイ-オイル') do
-          = image_tag 'catalog/oioil/oi_syousai.png', alt: '商品詳細'
+- if @catalog.identify == 'oioil'
+  - @catalog.products.available.each do |product|
+    = render partial: 'product', locals: { :@product => product }
