@@ -40,14 +40,14 @@
     p.up
       = link_to catalog_path(action: :series, id: :bigbottle) do
         = image_tag 'welcome/bnr01.png'
-      = link_to catalog_path(action: :series, id: :oioil) do
+      = link_to product_path(id: 'オイ-オイル') do
         = image_tag 'welcome/bnr02.png'
     p.down
       = link_to catalog_path(action: :series, id: :naturaltech) do
         = image_tag 'welcome/bnr03.png'
-      = link_to catalog_path(action: :series, id: :authentic) do
+      = link_to product_path(id: 'オーセンティック-ネクター') do
         = image_tag 'welcome/bnr04.png'
-      = link_to catalog_path(action: :category, id: :moreinside) do
+      = link_to catalog_path(action: :series, id: :moreinside) do
         = image_tag 'welcome/bnr05.png'
 
     / p.up
