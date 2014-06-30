@@ -29,8 +29,6 @@
     = render 'moreinside'  if @catalog.identify == 'moreinside'
     = render 'oioil'       if @catalog.identify == 'oioil'
 
-    p = image_tag 'welcome/bnr_souryoumuryou.jpg', alt: '送料無料キャンペーン'
-
     = render 'naturaltech' if @catalog.identify == 'naturaltech'
 
   h2 = image_tag 'welcome/ranking.png', alt: 'ランキング'
