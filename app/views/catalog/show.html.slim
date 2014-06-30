@@ -1,6 +1,7 @@
 - if @catalog.identify == 'kit'
   = content_for :content_header do
     .catalog-header.travelkit
+- elsif @catalog.identify == 'bigbottle'
 - else
   = content_for :content_header do
     .catalog-header
@@ -14,17 +15,23 @@
       li = link_to "すべて", { category: nil }, class: (params[:category].nil? && "active")
       - (@catalog.identify == 'naturaltech' ? @catalog.categories : @catalog.categories.where(hidden: true)).load.each do |category|
         li = link_to category.name, { category: category.identify }, class: ((params[:category] == category.identify) && 'active')
+  - elsif @catalog.identify == 'bigbottle'
+    .bigbottle-header
+      = image_tag "catalog/header_bigbottle.jpg"
   - else
     .spacing
 
-  div class = "#{action_name}-items"
+  div class = "#{action_name}-items #{@catalog.identify}"
     = render partial: "product_#{@catalog.identify}", collection: @products, as: :product
 
   .catalog-page
-    = render 'naturaltech' if @catalog.identify == 'naturaltech'
     = render 'authentic'   if @catalog.identify == 'authentic'
     = render 'moreinside'  if @catalog.identify == 'moreinside'
     = render 'oioil'       if @catalog.identify == 'oioil'
+
+    p = image_tag 'welcome/bnr_souryoumuryou.jpg', alt: '送料無料キャンペーン'
+
+    = render 'naturaltech' if @catalog.identify == 'naturaltech'
 
   h2 = image_tag 'welcome/ranking.png', alt: 'ランキング'
   = render 'ranking'

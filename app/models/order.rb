@@ -78,7 +78,7 @@ class Order < ActiveRecord::Base
   validates :delivery_date, inclusion: { in: -> order { (4.day.since.to_date...1.month.since.to_date).map{|d| I18n.l(d) } }, allow_blank: true }, on: :create, if: :phase_confirm?
   validates :delivery_time, inclusion: { in: DELIVERY_TIMES.values }, if: :phase_confirm?
 
-  before_save :notify_shipped
+  # before_save :notify_shipped
 
   def agency
     self.salon.try :agency
