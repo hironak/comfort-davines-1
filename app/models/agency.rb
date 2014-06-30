@@ -36,8 +36,9 @@ class Agency < ActiveRecord::Base
   private
 
   def save_salons_from_csv
+    require "kconv"
     if self.salon_csv
-      CSV.new(self.salon_csv.tempfile, headers: :first_row).each do |attrs|
+      CSV.new(self.salon_csv.tempfile.read.toutf8, headers: :first_row).each do |attrs|
 
         attrs = attrs.to_hash
 
