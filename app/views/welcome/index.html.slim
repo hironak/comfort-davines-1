@@ -3,8 +3,6 @@
     .visual
       .background
         .frame
-          .slide.souryoumuryou
-          .slide.bigbottle
           .slide.authentic
           .slide.oioil
           .slide.moreinside
@@ -38,7 +36,7 @@
   .lineup
     h2 = image_tag 'welcome/lineup_line.png', alt: 'ラインナップ'
     p.up
-      = link_to catalog_path(action: :series, id: :bigbottle) do
+      = link_to catalog_path(action: :category, id: :kit) do
         = image_tag 'welcome/bnr01.png'
       = link_to product_path(id: 'オイ-オイル') do
         = image_tag 'welcome/bnr02.png'
@@ -85,8 +83,6 @@
         .cart = link_to add_carts_path(product_id: product.id, amount: 1), method: :post do
           = image_tag 'welcome/cart_btn.png', alt: 'カートに入れる'
 
-  p = image_tag 'welcome/bnr_souryoumuryou.jpg', alt: '送料無料キャンペーン'
-
   h2 = image_tag 'welcome/ranking.png', alt: 'ランキング'
   = render 'ranking'
 
@@ -132,9 +128,5 @@
           li = link_to product do
             = image_tag product.image.url(:thumb)
     .next = image_tag 'welcome/products_right.png', alt: 'next'
-
-  .special-banner
-    = link_to catalog_path(action: :series, id: :bigbottle) do
-      = image_tag "welcome/bigbottle_bnr.jpg", alt: "ビッグボトル"
 
 .side = render 'side'
