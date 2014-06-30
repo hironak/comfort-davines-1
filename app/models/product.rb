@@ -21,7 +21,7 @@ class Product < ActiveRecord::Base
 
   has_many :reviews
 
-  scope :available, -> { where(sample: false) }
+  scope :available, -> { where(sample: false, invisible: false) }
   scope :stocked, -> { where('stock > 0') }
   scope :sample, -> { where(sample: true) }
 
