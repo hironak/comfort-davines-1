@@ -171,6 +171,7 @@ ja:
         annotation_mobile: 注釈（モバイル）
         backmargin_salon: サロン還元率
         backmargin_agency: 代理店還元率
+        invisible: 非表示
 
       product/photo:
         image: 商品画像
