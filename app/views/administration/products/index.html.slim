@@ -8,7 +8,7 @@ table
     th.w90 名称
     th.w10 在庫
 
-  - @products.available.each do |product|
+  - @products.where(sample: false).each do |product|
     tr
       td.w90 = link_to product.name, [:admin, product]
       td.w10 = product.stock

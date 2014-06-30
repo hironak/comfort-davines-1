@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140612022256) do
+ActiveRecord::Schema.define(version: 20140630135812) do
 
   create_table "administrators", force: true do |t|
     t.string   "username",          null: false
@@ -29,15 +29,9 @@ ActiveRecord::Schema.define(version: 20140612022256) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "backmargin_agency"
+    t.integer  "backmargin_salon"
   end
-
-  create_table "agencies_salons", force: true do |t|
-    t.integer "agency_id"
-    t.integer "salon_id"
-  end
-
-  add_index "agencies_salons", ["agency_id"], name: "index_agencies_salons_on_agency_id", using: :btree
-  add_index "agencies_salons", ["salon_id"], name: "index_agencies_salons_on_salon_id", using: :btree
 
   create_table "cart_items", force: true do |t|
     t.integer  "amount"
@@ -219,6 +213,18 @@ ActiveRecord::Schema.define(version: 20140612022256) do
     t.integer  "row_order"
   end
 
+  create_table "product_margins", force: true do |t|
+    t.integer  "product_id"
+    t.integer  "agency_id"
+    t.integer  "backmargin_salon"
+    t.integer  "backmargin_agency"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "product_margins", ["agency_id"], name: "index_product_margins_on_agency_id", using: :btree
+  add_index "product_margins", ["product_id"], name: "index_product_margins_on_product_id", using: :btree
+
   create_table "product_photos", force: true do |t|
     t.string   "image_file_name"
     t.string   "image_content_type"
@@ -273,6 +279,7 @@ ActiveRecord::Schema.define(version: 20140612022256) do
     t.text     "annotation_mobile"
     t.text     "recommendation_ids"
     t.boolean  "show_on",            default: true
+    t.boolean  "invisible",          default: false
   end
 
   add_index "products", ["page_id"], name: "index_products_on_page_id", using: :btree
@@ -320,6 +327,7 @@ ActiveRecord::Schema.define(version: 20140612022256) do
     t.text     "address"
     t.string   "tel"
     t.text     "name_kana"
+    t.integer  "agency_id"
   end
 
   create_table "serieses", force: true do |t|
