@@ -358,6 +358,9 @@
   &.catalog {
     @import "catalog";
   }
+  &.landing {
+    @import "landing";
+  }
   &.products {
     @import "products";
   }
