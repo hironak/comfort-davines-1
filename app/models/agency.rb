@@ -49,7 +49,7 @@ class Agency < ActiveRecord::Base
         attrs["grade"] = grades[attrs['grade']]
 
         if attrs['name']
-          current_salon = Salon.find_or_initialize_by(name: attrs['name'])
+          current_salon = Salon.find_or_initialize_by(number: attrs['number'])
           current_salon.attributes = attrs
         else
           attrs.each do |k, v|
