@@ -84,7 +84,7 @@ CSV.generate row_sep: "\r" do |csv|
 
     order.items.each_with_index do |item, i|
       csv << (i > 0 ? nil_row : first_row) + [
-        item.product.name,               # 商品名
+        item.product.try(:name),         # 商品名
         item.view_origin_price,          # 単価
         item.amount                      # 数量
       ]

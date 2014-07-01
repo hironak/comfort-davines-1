@@ -80,8 +80,8 @@
           order.delivery_time,             # 配送時間帯
           order.note,                      # 備考欄
           nil,                             # 配送情報
-          item.product.refnum,             # 商品コード
-          item.product.name,               # 商品名
+          item.product.try(:refnum),       # 商品コード
+          item.product.try(:name),         # 商品名
           nil,                             # オプション
           item.amount,                     # 個数
           item.view_origin_price,          # 商品小計
