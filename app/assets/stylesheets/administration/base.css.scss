@@ -137,9 +137,19 @@ $max-width: auto;
       border: 1px solid #999;
       padding: 15px;
       margin-bottom: 15px;
+      .field {
+        margin-bottom: $base-line-height;
+      }
       label {
+        display: block;
+        font-size: $base-font-size * 0.8;
       }
       input {
+        display: block;
+      }
+      h2 {
+        background: $light-gray;
+        padding: 3px;
       }
     }
     form.inline {

@@ -80,6 +80,10 @@ class Order < ActiveRecord::Base
 
   # before_save :notify_shipped
 
+  def agency
+    self.salon.try :agency
+  end
+
   def number
     "DD#{"%010d" % self.id}"
   end
@@ -129,9 +133,7 @@ class Order < ActiveRecord::Base
       self.items.build(
         product_id: item.product.id,
         amount: item.amount,
-        origin_price: item.product.price,
-        backmargin_salon: item.product.backmargin_salon,
-        backmargin_agency: item.product.backmargin_agency
+        origin_price: item.product.price
       )
     end
   end

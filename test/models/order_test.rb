@@ -4,7 +4,8 @@ class OrderTest < ActiveSupport::TestCase
   before do
     @order = build(:order)
     @cart = Cart.new
-    @cart.items << CartItem.new(product: create(:product))
+    @product = create(:product)
+    @cart.items << CartItem.new(product: @product, amount: 10)
     @cart.save
   end
 
@@ -29,5 +30,27 @@ class OrderTest < ActiveSupport::TestCase
       payment_type: 'Payment::Creditcard',
       payment_attributes: attributes_for(:payment_creditcard) }
     @order.payment_ready?.must_equal true
+  end
+
+  test "margins" do
+    agency = create :agency, backmargin_agency: 30, backmargin_salon: 30
+    salon = create :salon, agency: agency
+
+    @order.extend_items @cart
+    @order.salon = salon
+    @order.save
+
+    @order.reload
+
+    agency.salons.must_include salon
+
+    @order.salon.must_equal salon
+    @order.agency.must_equal agency
+
+    @order.items.first.backmargin_salon.must_equal nil
+    @order.items.first.order.agency.must_equal agency
+
+    @order.backmargin(:agency).must_equal (@product.view_price.to_f * 30.0 / 100).to_i * 10
+    @order.backmargin(:salon).must_equal (@product.view_price.to_f * 30.0 / 100).to_i * 10
   end
 end

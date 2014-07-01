@@ -55,6 +55,8 @@ class Administration::AgenciesControllerTest < ActionController::TestCase
     {
       agency: {
         name: 'My Agency',
+        backmargin_agency: 30,
+        backmargin_salon: 25,
         administrator_attributes: {
           username: 'testuser1',
           password: 'password',

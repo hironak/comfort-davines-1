@@ -3,6 +3,8 @@
 FactoryGirl.define do
   factory :agency do
     name "My Agency"
+    backmargin_agency 30
+    backmargin_salon 25
     administrator nil
   end
 end

@@ -40,6 +40,8 @@ html
               - if current_administrator.can_read? controller.singularize.camelize.constantize
                 li = link_to t("activerecord.models.#{controller.singularize}"), [:admin, controller.split('/').last]
 
+            - if current_administrator.admin?
+              li = link_to "マージン管理", admin_margins_path
 
             - if current_administrator.can_read? Sale
               li = link_to "売上管理", admin_sales_path

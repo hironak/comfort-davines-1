@@ -72,7 +72,19 @@ module Administration
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def agency_params
-      params.require(:agency).permit(:name, salon_ids: [], administrator_attributes: [ :username, :password, :password_confirmation ])
+      params
+        .require(:agency)
+        .permit(
+          :name,
+          :backmargin_agency,
+          :backmargin_salon,
+          :salon_csv,
+          administrator_attributes: [
+            :username,
+            :password,
+            :password_confirmation
+          ]
+      )
     end
   end
 end

@@ -1,18 +1,23 @@
-p#notice = notice
+h1 代理店情報
+
+dl
+  dt = Agency.human_attribute_name :name
+  dd = @agency.name
+
+  dt = Agency.human_attribute_name :backmargin_agency
+  dd = @agency.backmargin_agency
+
+  dt = Agency.human_attribute_name :backmargin_salon
+  dd = @agency.backmargin_salon
+
+  - @agency.administrator.tap do |administrator|
+
+    dt = Administrator.human_attribute_name :username
+    dd = administrator.username
+
+p = @agency.salons.count
 
 p
-  strong Name:
-  = @agency.name
-
-- @agency.administrator.tap do |administrator|
-  p
-    strong Username:
-    = administrator.username
-
-ul
-  - @agency.salons.each do |salon|
-    li = salon.name
-
-= link_to 'Edit', edit_admin_agency_path(@agency)
-'|
-= link_to 'Back', admin_agencies_path
+  = link_to '編集', edit_admin_agency_path(@agency)
+  '|
+  = link_to '一覧へ戻る', admin_agencies_path
