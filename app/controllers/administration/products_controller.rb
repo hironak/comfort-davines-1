@@ -102,6 +102,7 @@ module Administration
           :plusone_id,
           :smart_detail,
           :annotation_mobile,
+          :invisible,
           photos_attributes: [ :id, :image, :_destroy ],
             series_ids: [],
             category_ids: [],

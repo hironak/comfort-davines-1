@@ -8,6 +8,10 @@ Commers::Application.routes.draw do
   # メルマガユーザーエクスポート
   resources :mailmagazine_export, only: [:index]
 
+  namespace :landing, path: 'land' do
+    get :oioil, action: :oioil
+  end
+
   # 表側ユーザ
   devise_scope :consumer do
     get "complete", to: "consumers/registrations#complete"

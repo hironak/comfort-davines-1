@@ -23,7 +23,7 @@ class Product < ActiveRecord::Base
 
   has_many :margins, class_name: 'ProductMargin'
 
-  scope :available, -> { where(sample: false) }
+  scope :available, -> { where(sample: false, invisible: false) }
   scope :stocked, -> { where('stock > 0') }
   scope :sample, -> { where(sample: true) }
 

@@ -18,13 +18,12 @@
     = f.label :backmargin_salon
     = f.text_field :backmargin_salon
 
-  - unless @agency.persisted?
 
-    h2 サロン管理
+  h2 サロン管理
 
-    .field
-      = f.label :salon_csv
-      = f.file_field :salon_csv
+  .field
+    = f.label :salon_csv
+    = f.file_field :salon_csv
 
   = f.fields_for :administrator, (f.object.administrator || Administrator.new) do |f|
 
