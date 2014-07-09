@@ -3,6 +3,7 @@
     .visual
       .background
         .frame
+          .slide.souryoumuryou
           .slide.bigbottle
           .slide.authentic
           .slide.oioil
@@ -70,6 +71,8 @@
           span.small （税込）
         .cart = link_to add_carts_path(product_id: product.id, amount: 1), method: :post do
           = image_tag 'welcome/cart_btn.png', alt: 'カートに入れる'
+
+  p = image_tag 'welcome/bnr_souryoumuryou.jpg', alt: '送料無料キャンペーン'
 
   h2 = image_tag 'welcome/ranking.png', alt: 'ランキング'
   = render 'ranking'

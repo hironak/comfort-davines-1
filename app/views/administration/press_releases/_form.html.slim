@@ -18,5 +18,5 @@
   .field
     = f.label :products
     = f.text_area :products
-  = f.hidden_field :row_order_position, value: :first
+  = f.hidden_field :row_order_position, value: :first unless @press_release.persisted?
   .actions = f.submit 'Save'
