@@ -23,7 +23,7 @@ h1.belt ご注文手続き
     table
       tr
         th = f.label :delivery_date
-        td = f.select :delivery_date, (4.day.since.to_date..1.month.since.to_date).map{|d| I18n.l(d) }, include_blank: '指定なし'
+        td = f.select :delivery_date, (6.day.since.to_date..1.month.since.to_date).map{|d| I18n.l(d) }, include_blank: '指定なし'
       tr
         th = f.label :delivery_time
         td = f.select :delivery_time, Order::DELIVERY_TIMES
