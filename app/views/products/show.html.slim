@@ -30,6 +30,8 @@
               == product.detail
     .plusone-footer
 
+  p = image_tag 'application/bnr_large_rp.jpg', alt: 'RP'
+
   h3 = image_tag 'products/otheritem_line.png', alt: 'この商品を見た方は、こちらの商品も見ています。'
   .recommendation
     - @product.recommendations.each do |product|
